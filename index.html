@@ -303,6 +303,11 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
     <h2>ארבע דלתות לאותה ריבונות</h2>
     <p class="lead">SAOS היא לא מוצר בודד — זו מערכת שכבות, וכל מוצר הוא דלת לאותו עיקרון: הוכחה במקום אמון.</p>
     <div class="prod">
+      <div class="pcard rv" style="grid-column:1/-1;border-color:rgba(212,175,55,.45);background:linear-gradient(135deg,rgba(212,175,55,.06),var(--panel2))">
+        <div class="pk" style="color:var(--gold)">IDENTITY API · המוצר הראשון שאפשר להשתמש בו היום</div>
+        <h3>הוכחת זהות חוצת-רשתות — בקריאת API אחת</h3>
+        <p>שאלה אחת, תשובה מתמטית: <span class="hl">האם חשבון ה-Steem/Hive הזה וכתובת ה-EVM הזאת שייכים לאותו מפתח?</span> ההוכחה נקראת ישירות מהשרשרת (עוגן saos.id.v1 → EIP-191 → התאמת authority חיה). ממוטר ושקוף: מפתחות API נשמרים כ-hash בלבד, quota יומית, ledger של כל קריאה — וגם תשובה שלילית היא תוצאה כנה ומדודה, לא שגיאה. SDK רשמי באפס תלויות: <span class="mono">npm i saos-id-verify</span> · אומת חי מול בלוק 109,389,994.</p>
+      </div>
       <div class="pcard rv">
         <div class="pk">WALLET · חי ומאומת</div>
         <h3>Saosmartwallet — 7 רשתות, ארנק אחד</h3>
@@ -463,8 +468,8 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
           <li><span class="m">[v]</span> עקביות בין-שרשרתית bit-for-bit · מודל גז מדויק ל-wei (EIP-7623 כלול)</li>
           <li><span class="m">[v]</span> mint ריבוני ראשון 300K · root יחיד · 3 קבלות פומביות</li>
           <li><span class="m">[v]</span> grid98 + DEX: מוני-סירוב פומביים · 20 עטיפות 1:1 · 14 בריכות · אורקל שעתי חתום</li>
-          <li><span class="m">[v]</span> ארנק 7-רשתות M0–M4 · זהות חוצת-פרדיגמות (saos.id.v1 על 3 שרשראות)</li>
-          <li><span class="m">[v]</span> Atomic Clock · JUMPPER Phase 1 (77/77) · chaos 13/13 · audit-package ארוזה</li>
+          <li><span class="m">[v]</span> ארנק 7-רשתות M0–M4 · זהות חוצת-פרדיגמות חיה כמוצר: API ממוטר + SDK רשמי · מגן אנטי-פישינג fail-closed (v24)</li>
+          <li><span class="m">[v]</span> Atomic Clock · JUMPPER Phase 1 (77/77) · chaos 13/13 · audit-package ארוזה · רוטציית מפתחות חיה אחרי דליפה — עם קבלות on-chain</li>
         </ul>
       </div>
       <div class="col next rv">
@@ -472,7 +477,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
         <ul>
           <li><span class="m">[&gt;]</span> כלכלת SAOS — מסמך tokenomics ממה שהקוד באמת אוכף (שער S2, אישור בעלים)</li>
           <li><span class="m">[&gt;]</span> חוזה גשר Ethereum + תוכנת Solana — מוכנים ב-staging; הפעלת הפקדות Task 117 (mint 1:1 בקנה מידה)</li>
-          <li><span class="m">[&gt;]</span> זהות כמוצר: login/recovery אוטומטי Graphene→EVM/SOL למיליוני חשבונות ותיקים</li>
+          <li><span class="m">[&gt;]</span> זהות, ההמשך: login/recovery אוטומטי למיליוני חשבונות ותיקים · פרסום ה-SDK ל-npm ופתיחת gateway ציבורי (פעולות בעלים)</li>
           <li><span class="m">[&gt;]</span> SealRegistry + כספת wSAOS (סף 7/11 מול seal סופי) · CREATE2 על 7 רשתות EVM</li>
           <li><span class="m">[&gt;]</span> JUMPPER Phase 3: API ציבורי + explorer + שידור חי (חותם חיצוני, by design)</li>
           <li><span class="m">[&gt;]</span> ביקורת צד-שלישי (החבילה byte-identical ממתינה) · HSM · Prometheus/Grafana</li>
