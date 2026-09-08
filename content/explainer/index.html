@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAOS — בשפה פשוטה · הסבר מונפש</title>
+<meta name="description" content="שמונה סצנות, שתי דקות, אפס מילים מפחידות. מה זה SAOS ולמה כל טענה מקבלת קבלה.">
+<style>
+:root{
+  --bg:#09090b;--panel:#18181b;--border:#27272a;--tx:#fafafa;--mut:#a1a1aa;--dim:#71717a;
+  --gold:#d4af37;--purple:#a78bfa;--green:#22c55e;--red:#ef4444;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Hebrew",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidden}
+.mono{font-family:var(--mono);direction:ltr;unicode-bidi:isolate}
+
+#progress{position:fixed;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--purple));width:0%;z-index:60;transition:width .15s linear}
+
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 24px 110px;opacity:0;pointer-events:none;transition:opacity .5s ease}
+.scene.active{opacity:1;pointer-events:auto}
+.scene h2{font-size:clamp(24px,4.4vw,42px);font-weight:800;line-height:1.25;max-width:840px;margin-bottom:14px}
+.scene .sub{font-size:clamp(15px,2.2vw,19px);color:var(--mut);max-width:680px;line-height:1.6}
+.gold{color:var(--gold)}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.purple{color:var(--purple)}
+.snum{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.2em;margin-bottom:18px}
+
+/* scene animations only run when .active */
+.scene.active .anim{animation-fill-mode:both}
+
+/* ---------- s1 title ---------- */
+.s1-logo{font-family:var(--mono);font-size:clamp(44px,9vw,84px);font-weight:800;letter-spacing:.14em}
+.scene.active .s1-logo{animation:fadeUp .8s ease both}
+.s1-dot{color:var(--gold);display:inline-block}
+.scene.active .s1-dot{animation:dotPulse 2s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.25)}}
+.s1-sub{margin-top:20px;font-size:clamp(16px,2.6vw,22px);color:var(--mut)}
+.scene.active .s1-sub{animation:fadeUp .8s .3s ease both}
+.s1-meta{margin-top:26px;font-family:var(--mono);font-size:12px;color:var(--dim)}
+.scene.active .s1-meta{animation:fadeUp .8s .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ---------- s2 bubbles ---------- */
+.bubbles{position:relative;width:min(680px,92vw);height:230px;margin:26px 0 8px}
+.bub{position:absolute;background:var(--panel);border:1px solid var(--border2,#3f3f46);border-radius:16px;padding:12px 20px;font-size:clamp(14px,2vw,17px);color:var(--tx);box-shadow:0 8px 30px rgba(0,0,0,.5);opacity:0}
+.scene.active .bub{animation:bubPop 4.6s ease-in-out infinite}
+.bub::after{content:"";position:absolute;bottom:-8px;right:24px;border:8px solid transparent;border-top-color:var(--panel);border-bottom:0}
+.b1{top:0;right:2%}.scene.active .b1{animation-delay:0s}
+.b2{top:58px;right:34%}.scene.active .b2{animation-delay:.5s}
+.b3{top:8px;right:62%}.scene.active .b3{animation-delay:1s}
+.b4{top:120px;right:12%}.scene.active .b4{animation-delay:1.5s}
+.b5{top:132px;right:56%}.scene.active .b5{animation-delay:2s}
+@keyframes bubPop{0%{opacity:0;transform:scale(.6) translateY(12px)}12%{opacity:1;transform:scale(1)}80%{opacity:1}100%{opacity:0;transform:scale(.96)}}
+.bigq{font-size:clamp(60px,12vw,110px);font-weight:800;color:var(--gold);margin-top:6px;opacity:0}
+.scene.active .bigq{animation:qIn 4.6s ease-in-out infinite}
+@keyframes qIn{0%,55%{opacity:0;transform:scale(.7)}75%{opacity:1;transform:scale(1)}100%{opacity:1}}
+
+/* ---------- s3 notebook ---------- */
+.nb-wrap{position:relative;margin:24px 0 10px;width:min(340px,80vw)}
+.notebook{background:#1c1917;border:1px solid #44403c;border-radius:10px;padding:22px 26px;text-align:right;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.notebook::before{content:"";position:absolute;top:0;bottom:0;right:44px;width:1px;background:rgba(239,68,68,.25)}
+.nb-line{height:13px;border-bottom:1px dashed #3f3f46;margin-bottom:13px;border-radius:3px}
+.nb-line.filled{background:linear-gradient(90deg,transparent,rgba(161,161,170,.14),transparent)}
+.scene.active .nb-line{animation:lineWrite 3s ease-in-out infinite}
+.scene.active .nb-line:nth-child(2){animation-delay:.15s}
+.scene.active .nb-line:nth-child(3){animation-delay:.3s}
+.scene.active .nb-line:nth-child(4){animation-delay:.45s}
+.scene.active .nb-line:nth-child(5){animation-delay:.6s}
+@keyframes lineWrite{0%{opacity:.25}30%,70%{opacity:1}100%{opacity:.25}}
+.flash{position:absolute;inset:-60px;background:#fff;opacity:0;border-radius:50%;pointer-events:none;filter:blur(30px)}
+.scene.active .flash{animation:camFlash 3s ease-in-out infinite}
+@keyframes camFlash{0%,72%{opacity:0}78%{opacity:.5}88%,100%{opacity:0}}
+.seal{position:absolute;left:-30px;bottom:-26px;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f0d060,var(--gold) 55%,#8a6d1f);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(212,175,55,.35);opacity:0}
+.scene.active .seal{animation:sealIn 3s ease-in-out infinite}
+@keyframes sealIn{0%,76%{opacity:0;transform:scale(2.2) rotate(-14deg)}84%{opacity:1;transform:scale(.94) rotate(2deg)}90%,100%{opacity:1;transform:scale(1) rotate(0)}}
+.seal svg{width:56px;height:56px}
+
+/* ---------- s4 five registries ---------- */
+.registries{display:flex;gap:clamp(10px,3vw,34px);justify-content:center;margin:30px 0 14px;flex-wrap:wrap}
+.reg{width:clamp(84px,15vw,120px);text-align:center;position:relative}
+.reg svg{width:100%;height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.5))}
+.reg .rl{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:8px;direction:ltr}
+.reg .check{position:absolute;top:-6px;left:-2px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#052e16;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;opacity:0}
+.scene.active .reg .check{animation:checkIn 4s ease-in-out infinite}
+.scene.active .reg:nth-child(1) .check{animation-delay:1.1s}
+.scene.active .reg:nth-child(2) .check{animation-delay:1.3s}
+.scene.active .reg:nth-child(3) .check{animation-delay:1.5s}
+.scene.active .reg:nth-child(4) .check{animation-delay:1.7s}
+.scene.active .reg:nth-child(5) .check{animation-delay:1.9s}
+@keyframes checkIn{0%{opacity:0;transform:scale(.3)}12%{opacity:1;transform:scale(1.15)}20%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
+.env{position:absolute;top:36%;font-size:22px;opacity:0}
+.scene.active .env{animation:envFly 4s ease-in-out infinite}
+.scene.active .reg:nth-child(1) .env{animation-delay:.5s}
+.scene.active .reg:nth-child(2) .env{animation-delay:.6s}
+.scene.active .reg:nth-child(3) .env{animation-delay:.7s}
+.scene.active .reg:nth-child(4) .env{animation-delay:.8s}
+.scene.active .reg:nth-child(5) .env{animation-delay:.9s}
+@keyframes envFly{0%{opacity:0;transform:translate(120px,-90px) rotate(20deg) scale(.5)}30%{opacity:1}70%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}85%,100%{opacity:0}}
+.free-tag{font-family:var(--mono);font-size:10px;color:var(--green);border:1px solid rgba(34,197,94,.4);border-radius:4px;padding:1px 6px;display:inline-block;margin-top:4px}
+
+/* ---------- s5 cheater ---------- */
+.nb-small{background:#1c1917;border:1px solid #44403c;border-radius:10px;padding:18px 22px;width:min(340px,84vw);text-align:right;margin:22px 0;position:relative}
+.nb-small .line{height:12px;background:rgba(161,161,170,.16);border-radius:3px;margin-bottom:11px}
+.nb-small .line.target{background:rgba(239,68,68,.28);position:relative;transition:none}
+.scene.active .nb-small .line.target{animation:eraseLine 3.4s ease-in-out infinite}
+@keyframes eraseLine{0%,30%{opacity:1;transform:scaleX(1)}50%{opacity:.15;transform:scaleX(.2);transform-origin:right}51%,100%{opacity:1;transform:scaleX(1)}}
+.eraser{position:absolute;width:34px;height:20px;background:#57534e;border:1px solid #78716c;border-radius:4px;top:-12px;opacity:0}
+.scene.active .eraser{animation:eraserMove 3.4s ease-in-out infinite}
+@keyframes eraserMove{0%,25%{opacity:0;right:70%}35%{opacity:1}50%{opacity:1;right:5%}60%,100%{opacity:0}}
+.redflash{position:fixed;inset:0;background:radial-gradient(circle,rgba(239,68,68,.18),transparent 70%);opacity:0;pointer-events:none}
+.scene.active .redflash{animation:rf 3.4s ease-in-out infinite}
+@keyframes rf{0%,54%{opacity:0}60%{opacity:1}72%,100%{opacity:0}}
+.scene.active .caught{animation:shakeIn 3.4s ease-in-out infinite}
+.caught{font-size:clamp(20px,3.4vw,30px);font-weight:800;color:var(--red);opacity:0;margin-top:4px}
+@keyframes shakeIn{0%,55%{opacity:0;transform:translateX(0)}60%{opacity:1;transform:translateX(-7px)}65%{transform:translateX(7px)}70%{transform:translateX(-5px)}75%{transform:translateX(5px)}80%,95%{transform:translateX(0);opacity:1}100%{opacity:0}}
+
+/* ---------- s6 price ---------- */
+.price-counter{font-family:var(--mono);font-size:clamp(40px,9vw,84px);font-weight:800;color:var(--gold);margin:20px 0 6px;direction:ltr}
+.price-sub{font-size:clamp(15px,2.4vw,19px);color:var(--mut)}
+.compare{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;justify-content:center}
+.cmp{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 22px;text-align:center}
+.cmp .t{font-size:13px;color:var(--mut);margin-bottom:6px}
+.cmp .v{font-family:var(--mono);font-size:clamp(17px,2.6vw,22px);font-weight:700}
+.cmp.old .v{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(239,68,68,.6)}
+.cmp.new .v{color:var(--green)}
+
+/* ---------- s7 honesty ---------- */
+.hcount{font-family:var(--mono);font-size:clamp(44px,9vw,80px);font-weight:800;color:var(--red);margin:16px 0 4px;direction:ltr}
+.hline{max-width:640px}
+.hcards{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.hcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 20px;max-width:270px;text-align:right}
+.hcard .v{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--gold);margin-bottom:5px;direction:ltr;text-align:right}
+.hcard p{font-size:13px;color:var(--mut);line-height:1.55}
+
+/* ---------- s8 cta ---------- */
+.stamp{margin:26px 0;width:min(430px,88vw);border:4px double var(--gold);border-radius:14px;padding:26px 30px;opacity:0;transform-origin:center}
+.scene.active .stamp{animation:stampIn 1.1s .3s cubic-bezier(.2,2.2,.4,1) both}
+@keyframes stampIn{from{opacity:0;transform:scale(2.4) rotate(-9deg)}to{opacity:1;transform:scale(1) rotate(-1.5deg)}}
+.stamp .st1{font-size:clamp(21px,3.6vw,30px);font-weight:800}
+.stamp .st2{font-family:var(--mono);font-size:12px;color:var(--gold);margin-top:10px;letter-spacing:.1em;direction:ltr}
+.s8-links{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+.s8-links a{font-family:var(--mono);font-size:12.5px;color:var(--purple);border:1px solid rgba(167,139,250,.4);border-radius:8px;padding:9px 16px;transition:.2s}
+.s8-links a:hover{background:rgba(167,139,250,.08);color:var(--tx)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;bottom:0;right:0;left:0;z-index:55;display:flex;align-items:center;justify-content:center;gap:18px;padding:16px;background:linear-gradient(0deg,rgba(9,9,11,.92),transparent)}
+.dots{display:flex;gap:9px}
+.dot{width:9px;height:9px;border-radius:50%;background:#3f3f46;cursor:pointer;transition:.25s;border:none}
+.dot.on{background:var(--gold);transform:scale(1.35)}
+.arrow{background:var(--panel);border:1px solid var(--border);color:var(--mut);width:40px;height:40px;border-radius:10px;font-size:17px;cursor:pointer;transition:.2s;font-family:var(--mono)}
+.arrow:hover{color:var(--tx);border-color:var(--gold-dim,#8a7423)}
+.playbtn{background:var(--panel);border:1px solid var(--border);color:var(--gold);width:40px;height:40px;border-radius:10px;cursor:pointer;font-size:14px;font-family:var(--mono);transition:.2s}
+.scene-counter{position:fixed;top:16px;left:20px;font-family:var(--mono);font-size:11px;color:var(--dim);z-index:55}
+.hint{position:fixed;top:16px;right:20px;font-size:11px;color:var(--dim);z-index:55}
+@media(max-width:640px){.hint{display:none}.bubbles{height:200px}.registries{gap:8px}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="scene-counter"><span id="scNow">1</span> / 8</div>
+<div class="hint">חצים למעבר · רווח לעצירה</div>
+
+<div class="stage">
+
+  <!-- 1 · title -->
+  <section class="scene" id="sc1">
+    <div class="snum">SAOS · EXPLAINER</div>
+    <div class="s1-logo">SAOS<span class="s1-dot">·</span></div>
+    <div class="s1-sub">בשפה פשוטה. בלי מילים מפחידות.</div>
+    <div class="s1-meta">8 סצנות · בערך 2 דקות · מותר לקרוא גם פעמיים</div>
+  </section>
+
+  <!-- 2 · problem -->
+  <section class="scene" id="sc2">
+    <div class="snum">הבעיה</div>
+    <h2>כולם אומרים <span class="gold">"תאמין לי"</span></h2>
+    <div class="bubbles">
+      <div class="bub b1">העברתי לך את הכסף!</div>
+      <div class="bub b2">ביצעתי את המשימה</div>
+      <div class="bub b3">הכול עובד מצוין</div>
+      <div class="bub b4">שלחתי ב-14:32, נשבע</div>
+      <div class="bub b5">המוצר קיים, הנה תסמוך</div>
+    </div>
+    <div class="bigq">?</div>
+    <div class="sub">כל אחד יכול לטעון כל דבר. כולל בוטים. כולל נוכלים. ואף אחד לא יכול להוכיח.</div>
+  </section>
+
+  <!-- 3 · the idea -->
+  <section class="scene" id="sc3">
+    <div class="snum">הרעיון</div>
+    <h2>אז מצלמים את המחברת. <span class="gold">וכל צילום מקבל חותמת.</span></h2>
+    <div class="nb-wrap">
+      <div class="notebook">
+        <div class="nb-line filled"></div><div class="nb-line filled"></div><div class="nb-line filled"></div><div class="nb-line filled"></div><div class="nb-line"></div>
+      </div>
+      <div class="flash"></div>
+      <div class="seal">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1c1917" stroke-width="2.4" stroke-linecap="round">
+          <path d="M20 20c8-9 16-9 24 0M16 30c10-11 22-11 32 0M14 40c12-12 24-12 36 0M20 50c8-8 16-8 24 0"/>
+        </svg>
+      </div>
+    </div>
+    <div class="sub">כל 36 שניות המערכת "מצלמת" הכול ויוצרת <b>טביעת אצבע מתמטית</b> — ייחודית כמו טביעת אצבע אמיתית. שנו פסיק אחד — והטביעה משתנה לגמרי.</div>
+  </section>
+
+  <!-- 4 · five registries -->
+  <section class="scene" id="sc4">
+    <div class="snum">העדים</div>
+    <h2>החותמת נשלחת ל<span class="purple">חמישה בתי רישום</span> בעולם</h2>
+    <div class="registries">
+      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#d4af37" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">ETHEREUM</div><div class="free-tag">אגורות</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#a78bfa" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">SOLANA</div><div class="free-tag">אגורות</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#22c55e" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">STEEM</div><div class="free-tag">חינם</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#eab308" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">HIVE</div><div class="free-tag">חינם</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#ef4444" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">TRON</div><div class="free-tag">אפס נטו</div><div class="check">✓</div></div>
+    </div>
+    <div class="sub">פנקסים ציבוריים ענקיים שאי-אפשר למחוק מהם כלום — ושלא מכירים זה את זה. חלקם <b class="green">חינם לחלוטין</b>. מאות חותמות כבר נרשמו. אפס אי-דיוקים.</div>
+  </section>
+
+  <!-- 5 · cheater -->
+  <section class="scene" id="sc5">
+    <div class="snum">הרמאי</div>
+    <h2>ומה קורה כשמישהו מנסה <span class="red">לשנות את המחברת?</span></h2>
+    <div class="nb-small">
+      <div class="line"></div><div class="line"></div>
+      <div class="line target"><span class="eraser"></span></div>
+      <div class="line"></div>
+      <div class="redflash"></div>
+    </div>
+    <div class="caught">נתפס. החותמות לא תואמות.</div>
+    <div class="sub" style="margin-top:14px">אין צילום שמתאים לשינוי — אז כולם רואים מיד. לרמות זה לא "קשה". זה <b>בלתי-אפשרי</b> בלי להיתפס.</div>
+  </section>
+
+  <!-- 6 · price -->
+  <section class="scene" id="sc6">
+    <div class="snum">המחיר</div>
+    <h2>וכמה זה עולה? <span class="gold">פחות מגרגר חול.</span></h2>
+    <div class="price-counter" id="priceNum">$1.0000000</div>
+    <div class="price-sub">רישום קבוע אחד. לנצח. בפנקס ציבורי.</div>
+    <div class="compare">
+      <div class="cmp old"><div class="t">נוטריון רגיל</div><div class="v">₪400 + תור</div></div>
+      <div class="cmp new"><div class="t">SAOS</div><div class="v">$0.0000081</div></div>
+      <div class="cmp"><div class="t">בדולר אחד נרשמים</div><div class="v gold">123,000 מסמכים</div></div>
+    </div>
+    <div class="sub" style="margin-top:22px">וזה לא מחירון. זה <b>נמדד</b> על רשת אמיתית — עד הספרה האחרונה.</div>
+  </section>
+
+  <!-- 7 · honesty -->
+  <section class="scene" id="sc7">
+    <div class="snum">הכנות</div>
+    <h2>ודבר אחרון: <span class="gold">אנחנו מפרסמים גם את הטעויות שלנו</span></h2>
+    <div class="hcount" id="honestNum">0</div>
+    <div class="sub hline">עסקאות שהמערכת <b>סירבה</b> לבצע — ופרסמה. אף אחד לא מראה את הסירובים שלו. אנחנו כן: מי שרואה את הסירובים, יכול לסמוך על הביצועים.</div>
+    <div class="hcards">
+      <div class="hcard"><div class="v">×52.6</div><p>דיווחנו שרשת "חסומה". טעינו — תקלת קריאה שלנו. גילינו, פרסמנו, תיקנו, ובנינו בדיקות שזה לא יחזור.</p></div>
+      <div class="hcard"><div class="v">0</div><p>אי-דיוקים במאות בדיקות עצמיות: אחרי כל רישום המערכת חוזרת וקוראת את הפנקס הציבורי בעצמה.</p></div>
+    </div>
+  </section>
+
+  <!-- 8 · cta -->
+  <section class="scene" id="sc8">
+    <div class="snum">השורה התחתונה</div>
+    <div class="stamp">
+      <div class="st1">SAOS. לא הבטחות — <span class="gold">קבלות.</span></div>
+      <div class="st2">DON'T TRUST. VERIFY.</div>
+    </div>
+    <div class="sub">כל טענה מקבלת קבלה. כל קבלה פתוחה לציבור. ואף אחד לא יכול למחוק קבלה — לעולם.</div>
+    <div class="s8-links">
+      <a href="https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41" target="_blank" rel="noopener">פתחו קבלה אמיתית</a>
+      <a href="https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177" target="_blank" rel="noopener">קבלה ב-Steam</a>
+      <a href="https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9" target="_blank" rel="noopener">קבלה ב-Solana</a>
+    </div>
+  </section>
+
+</div>
+
+<nav class="nav">
+  <button class="arrow" id="prev" aria-label="הקודם">→</button>
+  <div class="dots" id="dots"></div>
+  <button class="playbtn" id="play" aria-label="עצור/הפעל">II</button>
+  <button class="arrow" id="next" aria-label="הבא">←</button>
+</nav>
+
+<script>
+(function(){
+  const scenes=[...document.querySelectorAll('.scene')];
+  const dotsEl=document.getElementById('dots');
+  const prog=document.getElementById('progress');
+  const scNow=document.getElementById('scNow');
+  const N=scenes.length, DUR=7500;
+  let cur=0, playing=true, t0=performance.now(), pausedAt=0;
+
+  scenes.forEach((_,i)=>{
+    const b=document.createElement('button');
+    b.className='dot'+(i===0?' on':'');
+    b.setAttribute('aria-label','סצנה '+(i+1));
+    b.onclick=()=>go(i);
+    dotsEl.appendChild(b);
+  });
+  const dots=[...dotsEl.children];
+
+  function go(i){
+    if(i<0)i=N-1; if(i>=N)i=0;
+    scenes[cur].classList.remove('active');
+    dots[cur].classList.remove('on');
+    cur=i;
+    scenes[cur].classList.add('active');
+    dots[cur].classList.add('on');
+    scNow.textContent=cur+1;
+    t0=performance.now();
+    if(cur===5)animatePrice();
+    if(cur===6)animateHonest();
+  }
+
+  let priceDone=false;
+  function animatePrice(){
+    const el=document.getElementById('priceNum');
+    priceDone=false;
+    const start=performance.now(), dur=2600;
+    function frame(now){
+      const p=Math.min(1,(now-start)/dur);
+      const eased=1-Math.pow(1-p,3);
+      // descend from $1 to $0.0000081 logarithmically
+      const v=Math.pow(10, Math.log10(1)*(1-eased) + Math.log10(0.0000081)*eased);
+      el.textContent='$'+(v>=0.01?v.toFixed(4):v.toFixed(7));
+      if(p<1&&scenes[5].classList.contains('active'))requestAnimationFrame(frame);
+      else el.textContent='$0.0000081';
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function animateHonest(){
+    const el=document.getElementById('honestNum');
+    const target=383836, start=performance.now(), dur=2200;
+    function frame(now){
+      const p=Math.min(1,(now-start)/dur);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=Math.floor(target*eased).toLocaleString('en-US');
+      if(p<1&&scenes[6].classList.contains('active'))requestAnimationFrame(frame);
+      else el.textContent='383,836';
+    }
+    requestAnimationFrame(frame);
+  }
+
+  document.getElementById('next').onclick=()=>{t0=performance.now();go(cur+1);};
+  document.getElementById('prev').onclick=()=>{t0=performance.now();go(cur-1);};
+  const playBtn=document.getElementById('play');
+  playBtn.onclick=()=>{
+    playing=!playing;
+    playBtn.textContent=playing?'II':'▶';
+    if(playing){t0=performance.now()-(pausedAt||0);}
+    else{pausedAt=performance.now()-t0;}
+  };
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){t0=performance.now();go(cur+1);}
+    if(e.key==='ArrowRight'){t0=performance.now();go(cur-1);}
+    if(e.key===' '){e.preventDefault();playBtn.click();}
+  });
+  let tx=null;
+  document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(tx===null)return;
+    const dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>60){t0=performance.now();go(dx>0?cur-1:cur+1);} // RTL: swipe left = next
+    tx=null;
+  },{passive:true});
+
+  function loop(now){
+    if(playing&&cur<N-1){
+      const el=now-t0;
+      prog.style.width=Math.min(100,(el/DUR)*100)+'%';
+      if(el>=DUR){go(cur+1);}
+    }else if(cur===N-1){
+      prog.style.width='100%';
+    }
+    requestAnimationFrame(loop);
+  }
+  scenes[0].classList.add('active');
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
