@@ -1,0 +1,53 @@
+# Press Kit — SAOS · ערכה לעיתונות ולחוקרים
+
+> עודכן 2026-09-08 · כל עובדה כאן מגובה ב-fact-sheet.md עם קישורי אימות.
+> מדיניות: עונים לכל שאלה, כולל הקשות. שולחים את יומן הטעויות לפני שמבקשים.
+
+---
+
+## בויילרפלייט — עברית (להעתקה)
+
+SAOS היא תשתית ריבונית להוכחת עובדות: מערכת שמעגנת כל אירוע — כל חותם מצב, כל טענה, כל סירוב — בפנקסים ציבוריים בלתי-תלויים (Steem, Hive, Ethereum, Solana, TRON), כך שכל צד שלישי יכול לאמת אותה עצמאית ובחינם. המערכת פועלת כמכונת מצב דטרמיניסטית (54,983 בלוקים, 1,507 עסקאות מאומתות נכון לסריקה האחרונה), מעגנת הוכחות בעלות של אפס עד שברירי אגורות (רישום אצווה: $0.0000081 לרשומה, נמדד), ומפרסמת גם את מה שהיא סירבה לעשות — כולל תיקונים פומביים של טעויותיה שלה. מוצריה: ארנק רב-רשתי (7 רשתות), נוטריון הוכחות אצווה (JUMPPER), שעון אטומי רב-רשתי ללא מפתחות, ובורסה פנימית עם כללי כנות נאכפים-קוד.
+
+## Boilerplate — English (for copy)
+
+SAOS is a sovereign proof infrastructure: a deterministic state machine (54,983 blocks, 1,507 verified transactions at last audit) that anchors every state seal, claim and refusal to independent public ledgers (Steem, Hive, Ethereum, Solana, TRON), making every operational claim independently verifiable for free. Batch notarization costs $0.0000081 per record (measured on mainnet); its keyless Atomic Clock binds six heterogeneous networks into a single 32-byte root in under 16 ms at zero cost. SAOS publishes its own refusals (383,836 skipped trades) and its own corrections — honesty enforced as a code invariant, not a slogan.
+
+## מספרי הכותרת (מאומתים)
+
+| מספר | מה זה | איפה מאמתים |
+|---|---|---|
+| $0.0000081 | עלות רישום נוטריון קבוע (אצווה של 10K) | docs/ECONOMICS ב-saos-jummper + עסקת mainnet |
+| 32,603 tx/s | תפוקת מנגנון, נמדדה בריפליי 65,238 עסקאות אמיתיות | grid98-state |
+| 15.9 ms | חישוב השעון האטומי (6 רשתות → שורש אחד) | ריצה מתועדת, foundry BREAKTHROUGH.md |
+| 383,836 | עסקאות שהמערכת סירבה לבצע — ופרסמה | מוני grid98 החיים |
+| 0 | אי-דיוקים במאות אימותי read-back מול RPC ציבורי | יומני ה-relay |
+| 52.6× | גודל טעות הדיווח שלנו על HIVE — שפורסמה ותוקנה בפומבי | FREE-OPERATIONS.md |
+
+## קבלות לדוגמה (לתת לעיתונאי כקישורים)
+
+- Ethereum: etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41
+- Solana: solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9
+- Steem: steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177
+- Hive: hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5
+- TRON (בלוק): tronscan.org/#/block/86019974
+
+## נכסים ויזואליים
+
+- לוגו/כריכה לשיתוף: `assets/og-cover.png` (חותם משושה זהוב + עץ מרקל + "SAOS· PROOF OVER PROMISES")
+- פלטת צבעים: רקע #09090b · זהב #d4af37 · סגול מערכת #a78bfa · ירוק חי #22c55e
+- טיפוגרפיה: מספרים וקודים תמיד ב-monospace; כותרות sans נקיות; אפס אימוג'ים בכל חומר רשמי
+
+## שאלות קשות — התשובות המוכנות שלנו
+
+**"אתם מבטיחים תשואה?"** — לא, ומעולם לא. מי שמבטיח תשואה בשמנו — מתחזה.
+**"עברתם ביקורת חיצונית?"** — עוד לא. חבילת הביקורת (קוד byte-identical לייצור + MANIFEST) ארוזה וממתינה; נפרסם את ממצאיה כשיגיעו, כולל אם יהיו קשים.
+**"מה קורה אם אתם נעלמים מחר?"** — כל מה שכבר נרשם נשאר רשום בפנקסים ציבוריים. ההוכחות אינן תלויות בקיום שלנו.
+**"למה לא פשוט להשתמש ב-Chainlink?"** — כי הם מבקשים אמון בוועדה וגז; אנחנו מפרסמים נתונים שכל אחד קורא בעצמו, בלי מפתחות ובחינם. ההבדל הוא בפילוסופיה, לא במחיר.
+**"המספרים שלכם נשמעים טוב מדי"** — נכון, לכן כולם מגובים בקישורים. אם קישור אחד לא יתאים — כל הבניין שלנו נופל, וזה בדיוק הרעיון.
+
+## כללי ציטוט
+
+- מותר לצטט כל מספר מהטבלה לעיל עם הקישור שלו.
+- נא לא לכנות את SAOS "מטבע", "השקעה" או "גשר" — היא תשתית הוכחה; נכסים עטופים קיימים בתוכה כרכיב, לא כמהות.
+- נא לציין שהמערכת בשלב פיתוח ושחלק מהמסילות ממתינות לפריסה/מימון — זה חלק מהכנות שהיא מותג.
