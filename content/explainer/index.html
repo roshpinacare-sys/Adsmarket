@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAOS — בשפה פשוטה · הסבר מונפש</title>
 <meta name="description" content="שמונה סצנות, שתי דקות, אפס מילים מפחידות. מה זה SAOS ולמה כל טענה מקבלת קבלה.">
+<meta property="og:title" content="SAOS — בשפה פשוטה · הסבר מונפש">
+<meta property="og:description" content="שמונה סצנות, שתי דקות: המחברת, החותמת, חמשת העדים, הרמאי שנתפס, והמחיר שצונח לגרגר חול.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../../assets/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 20.5 7v10L12 21.5 3.5 17V7z' fill='none' stroke='%23d4af37' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='9' r='2' fill='%23d4af37'/%3E%3Ccircle cx='8.5' cy='15' r='2' fill='%23a78bfa'/%3E%3Ccircle cx='15.5' cy='15' r='2' fill='%23a78bfa'/%3E%3C/svg%3E">
 <style>
 :root{
   --bg:#09090b;--panel:#18181b;--border:#27272a;--tx:#fafafa;--mut:#a1a1aa;--dim:#71717a;
@@ -158,17 +163,36 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
 .scene-counter{position:fixed;top:16px;left:20px;font-family:var(--mono);font-size:11px;color:var(--dim);z-index:55}
 .hint{position:fixed;top:16px;right:20px;font-size:11px;color:var(--dim);z-index:55}
 @media(max-width:640px){.hint{display:none}.bubbles{height:200px}.registries{gap:8px}}
+
+/* ---------- accessibility: reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .scene{transition:none}
+  .scene.active .bub{animation:none;opacity:1}
+  .scene.active .bigq{animation:none;opacity:1}
+  .scene.active .flash{animation:none;opacity:0}
+  .scene.active .seal{animation:none;opacity:1;transform:none}
+  .scene.active .reg .check{animation:none;opacity:1}
+  .scene.active .env{animation:none;opacity:0}
+  .scene.active .nb-line{animation:none;opacity:1}
+  .scene.active .nb-small .line.target{animation:none}
+  .scene.active .eraser{animation:none;opacity:0}
+  .scene.active .redflash{animation:none;opacity:0}
+  .scene.active .caught{animation:none;opacity:1}
+  .scene.active .stamp{animation:none;opacity:1;transform:rotate(-1.5deg)}
+  .scene.active .s1-logo,.scene.active .s1-sub,.scene.active .s1-meta{animation:none;opacity:1}
+  .scene.active .s1-dot{animation:none}
+}
 </style>
 </head>
 <body>
 <div id="progress"></div>
-<div class="scene-counter"><span id="scNow">1</span> / 8</div>
+<div class="scene-counter" aria-live="polite"><span id="scNow">1</span> / 8</div>
 <div class="hint">חצים למעבר · רווח לעצירה</div>
 
 <div class="stage">
 
   <!-- 1 · title -->
-  <section class="scene" id="sc1">
+  <section class="scene" id="sc1" role="region" aria-roledescription="סצנה" aria-label="סצנה 1 מתוך 8">
     <div class="snum">SAOS · EXPLAINER</div>
     <div class="s1-logo">SAOS<span class="s1-dot">·</span></div>
     <div class="s1-sub">בשפה פשוטה. בלי מילים מפחידות.</div>
@@ -176,7 +200,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   </section>
 
   <!-- 2 · problem -->
-  <section class="scene" id="sc2">
+  <section class="scene" id="sc2" role="region" aria-roledescription="סצנה" aria-label="סצנה 2 מתוך 8">
     <div class="snum">הבעיה</div>
     <h2>כולם אומרים <span class="gold">"תאמין לי"</span></h2>
     <div class="bubbles">
@@ -191,7 +215,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   </section>
 
   <!-- 3 · the idea -->
-  <section class="scene" id="sc3">
+  <section class="scene" id="sc3" role="region" aria-roledescription="סצנה" aria-label="סצנה 3 מתוך 8">
     <div class="snum">הרעיון</div>
     <h2>אז מצלמים את המחברת. <span class="gold">וכל צילום מקבל חותמת.</span></h2>
     <div class="nb-wrap">
@@ -209,21 +233,21 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   </section>
 
   <!-- 4 · five registries -->
-  <section class="scene" id="sc4">
+  <section class="scene" id="sc4" role="region" aria-roledescription="סצנה" aria-label="סצנה 4 מתוך 8">
     <div class="snum">העדים</div>
     <h2>החותמת נשלחת ל<span class="purple">חמישה בתי רישום</span> בעולם</h2>
     <div class="registries">
-      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#d4af37" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">ETHEREUM</div><div class="free-tag">אגורות</div><div class="check">✓</div></div>
-      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#a78bfa" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">SOLANA</div><div class="free-tag">אגורות</div><div class="check">✓</div></div>
-      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#22c55e" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">STEEM</div><div class="free-tag">חינם</div><div class="check">✓</div></div>
-      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#eab308" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">HIVE</div><div class="free-tag">חינם</div><div class="check">✓</div></div>
-      <div class="reg"><div class="env">✉</div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#ef4444" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">TRON</div><div class="free-tag">אפס נטו</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="0.5" y="0.5" width="21" height="15" rx="2" fill="#18181b" stroke="#a1a1aa"/><path d="M1.5 1.5l9.5 7.5 9.5-7.5" fill="none" stroke="#d4af37" stroke-width="1.4"/></svg></div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#d4af37" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">ETHEREUM</div><div class="free-tag">אגורות</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="0.5" y="0.5" width="21" height="15" rx="2" fill="#18181b" stroke="#a1a1aa"/><path d="M1.5 1.5l9.5 7.5 9.5-7.5" fill="none" stroke="#d4af37" stroke-width="1.4"/></svg></div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#a78bfa" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">SOLANA</div><div class="free-tag">אגורות</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="0.5" y="0.5" width="21" height="15" rx="2" fill="#18181b" stroke="#a1a1aa"/><path d="M1.5 1.5l9.5 7.5 9.5-7.5" fill="none" stroke="#d4af37" stroke-width="1.4"/></svg></div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#22c55e" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">STEEM</div><div class="free-tag">חינם</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="0.5" y="0.5" width="21" height="15" rx="2" fill="#18181b" stroke="#a1a1aa"/><path d="M1.5 1.5l9.5 7.5 9.5-7.5" fill="none" stroke="#d4af37" stroke-width="1.4"/></svg></div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#eab308" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">HIVE</div><div class="free-tag">חינם</div><div class="check">✓</div></div>
+      <div class="reg"><div class="env"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="0.5" y="0.5" width="21" height="15" rx="2" fill="#18181b" stroke="#a1a1aa"/><path d="M1.5 1.5l9.5 7.5 9.5-7.5" fill="none" stroke="#d4af37" stroke-width="1.4"/></svg></div><svg viewBox="0 0 100 90"><rect x="12" y="34" width="76" height="50" fill="#18181b" stroke="#3f3f46" stroke-width="2"/><path d="M8 34 50 8 92 34" fill="none" stroke="#ef4444" stroke-width="3"/><rect x="22" y="44" width="8" height="40" fill="#27272a"/><rect x="36" y="44" width="8" height="40" fill="#27272a"/><rect x="56" y="44" width="8" height="40" fill="#27272a"/><rect x="70" y="44" width="8" height="40" fill="#27272a"/></svg><div class="rl">TRON</div><div class="free-tag">אפס נטו</div><div class="check">✓</div></div>
     </div>
     <div class="sub">פנקסים ציבוריים ענקיים שאי-אפשר למחוק מהם כלום — ושלא מכירים זה את זה. חלקם <b class="green">חינם לחלוטין</b>. מאות חותמות כבר נרשמו. אפס אי-דיוקים.</div>
   </section>
 
   <!-- 5 · cheater -->
-  <section class="scene" id="sc5">
+  <section class="scene" id="sc5" role="region" aria-roledescription="סצנה" aria-label="סצנה 5 מתוך 8">
     <div class="snum">הרמאי</div>
     <h2>ומה קורה כשמישהו מנסה <span class="red">לשנות את המחברת?</span></h2>
     <div class="nb-small">
@@ -237,7 +261,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   </section>
 
   <!-- 6 · price -->
-  <section class="scene" id="sc6">
+  <section class="scene" id="sc6" role="region" aria-roledescription="סצנה" aria-label="סצנה 6 מתוך 8">
     <div class="snum">המחיר</div>
     <h2>וכמה זה עולה? <span class="gold">פחות מגרגר חול.</span></h2>
     <div class="price-counter" id="priceNum">$1.0000000</div>
@@ -251,7 +275,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   </section>
 
   <!-- 7 · honesty -->
-  <section class="scene" id="sc7">
+  <section class="scene" id="sc7" role="region" aria-roledescription="סצנה" aria-label="סצנה 7 מתוך 8">
     <div class="snum">הכנות</div>
     <h2>ודבר אחרון: <span class="gold">אנחנו מפרסמים גם את הטעויות שלנו</span></h2>
     <div class="hcount" id="honestNum">0</div>
@@ -263,7 +287,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   </section>
 
   <!-- 8 · cta -->
-  <section class="scene" id="sc8">
+  <section class="scene" id="sc8" role="region" aria-roledescription="סצנה" aria-label="סצנה 8 מתוך 8">
     <div class="snum">השורה התחתונה</div>
     <div class="stamp">
       <div class="st1">SAOS. לא הבטחות — <span class="gold">קבלות.</span></div>
@@ -293,7 +317,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   const prog=document.getElementById('progress');
   const scNow=document.getElementById('scNow');
   const N=scenes.length, DUR=7500;
-  let cur=0, playing=true, t0=performance.now(), pausedAt=0;
+  let cur=0, playing=!window.matchMedia('(prefers-reduced-motion: reduce)').matches, t0=performance.now(), pausedAt=0;
 
   scenes.forEach((_,i)=>{
     const b=document.createElement('button');
@@ -350,6 +374,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidde
   document.getElementById('next').onclick=()=>{t0=performance.now();go(cur+1);};
   document.getElementById('prev').onclick=()=>{t0=performance.now();go(cur-1);};
   const playBtn=document.getElementById('play');
+  if(!playing){playBtn.textContent='\u25B6';}
   playBtn.onclick=()=>{
     playing=!playing;
     playBtn.textContent=playing?'II':'▶';
