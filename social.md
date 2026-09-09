@@ -205,6 +205,19 @@ Result: call #1 passes. Calls #2–#11 — blocked. 36 assertions around the rep
 This is how we write software: find the real failure, freeze it into a test, make sure it can never happen again.
 The defect museum is open. Every exhibit is a bug that can't come back.
 
+**L7 · הבורסה על הרשת שלנו (X + טלגרם, עברית)**
+הבורסה הריבונית חיה עכשיו על הרשת שלנו — לא סימולציה, לא testnet.
+3 בריכות · 72+ עסקאות אמיתיות · בוט ארביטראז' שמוכר כשהסטייה מול אורקל חי חוצה 0.8% (הוכחה: WETH נמכר בסטייה 5.04%) · וה-harvest זורם לשכר אמיתי — 36.4 יחידות, עם tx.
+והמספר שכולם יסתירו? TVL של $13.91.
+אנחנו מפרסמים גם אותו. המנגנון הוכח במסחר אמיתי; קנה-המידה הוא השער הבא, לא הטכנולוגיה.
+
+**L8 · הארגון שלא יכול לירות בטעות (X, עברית + EN)**
+66 תהליכים אצלנו מסוגלים לשדר לרשתות ציבוריות.
+ברירת המחדל של כולם: יבש.
+כדי לשדר באמת צריך שני מפתחות מודעים ביחד — ו"יבש" תמיד מנצח.
+—
+EN: 66 broadcast-capable daemons. Default: dry. Going live requires two conscious keys together — and dry always wins. An organization that cannot fire by accident. That's LIVE-GATE, rolled out estate-wide.
+
 ---
 
 ## הנחיות פרסום v2
