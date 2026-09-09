@@ -27,6 +27,9 @@ SAOS is a sovereign proof infrastructure: a deterministic state machine (54,983 
 | 36s | התאוששות עצמית מ-OOM kill של הקרנל — אפס מגע אדם, יומן append-only מלא | v26 SHOMER, מדידה חיה 23:58→23:59 |
 | 9/9 | וקטורי תקיפת הרשאות שנחסמו חי (פישינג, יעד זר, חציית סמכויות, burst) | v25 RESHUT self-test מה-UI |
 | 9/10 | חיילי צי-העוגנים שאומתו חיים על Hive (עיגון מרובה-חשבונות) | SETTLE-13 |
+| 72+ | עסקאות אמיתיות בבורסה הריבונית החיה על הרשת שלנו (v28 BIRSA) · הוכחת ארב: WETH נמכר בסטייה 5.04% מול אורקל חי · harvest לשכר עם tx | platform v28, tx 0xbaf0771a… browser-verified |
+| 66 | דמונים משדרים-פוטנציאליים, כולם dry-by-default (LIVE-GATE) · שידור חי = חמוש מודע כפול | security(28-b), live_gate משותף |
+| $258.46 | מפת האוצר המלאה שפורסמה בפומבי — שקיפות רדיקלית כמדיניות מותג | v28 cornerstone panel |
 
 ## קבלות לדוגמה (לתת לעיתונאי כקישורים)
 
