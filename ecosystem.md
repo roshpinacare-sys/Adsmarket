@@ -58,4 +58,4 @@
 - **שבוע 1 shipped:** Identity Verification API ממוטר (מפתחות SHA-256-only, quota 1,000/יום, ledger מלא)
 - **שבוע 2 shipped:** SDK רשמי `saos-id-verify` — אפס תלויות, dogfooded 3/3 נתיבים חיים
 - **שבוע 3 מוכן:** ערכת outreach עם 10 יעדים אמיתיים מאומתים (Splinterlands, MEXC, Gate, SimpleSwap, PeakD…)
-- **אבטחה הוכחה תחת אש:** רוטציית מפתחות חיה אחרי דליפה, עם קבלות on-chain ודיווח כן על מה שלא ניתן לסובב
+- **אבטחה כמוכחת יכולת:** רוטציית מפתחות on-chain הודגמה עם קבלות פומביות · דוקטרינת "מפתחות לעולם לא בריפו" · THE-GATE · כספת multi-home
