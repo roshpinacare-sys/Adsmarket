@@ -248,6 +248,28 @@ EN: Yesterday we published a blocker: "gas exceeds the dust." Today we measured:
 —
 EN: Steal one of our keys and you get nothing. Fund release requires 7-of-11 signatures across separate agents, machines and chains. Login is verified against the chain itself — not "what we stored", but what the blockchain confirms right now. The encrypted vault lives in three mirrored, self-healing homes. Every sensitive operation passes a fail-closed gate — 9/9 red-team vectors blocked live. We didn't build a stronger wall. We built an architecture with nothing to steal.
 
+**L13 · הכלכלה שמשרפת את עצמה (X, עברית + EN)**
+כל 600 בלוקים קורה דבר אחד קבוע: 40% מהרווחים קונים בחזרה מהבריכה — ושרפים.
+לא "תוכנית buyback עתידית". קוד דטרמיניסטי בתוך בניית הבלוק עצמו, מוגבל ברווח שנמדד בלבד — אם אין רווח אמיתי, אין שריפה. אין הדפסה.
+40% נוספים הולכים למצביעי ה-ve, ו-20% לאוצר. עמלות דינמיות לפי נפח (4–1500bps, נמדד חי: 30→44).
+דפלציה היא לא הבטחה. היא פונקציה.
+—
+EN: Every 600 blocks, one thing always happens: 40% of profits buy back from the pool — and burn. Not a "future buyback plan." Deterministic code inside block-building itself, capped by measured profit — no real profit, no burn, no printing. ve(3,3) economics as a function, not a promise.
+
+**L14 · הבלוק-בילדר הוא השומר (X, עברית)**
+DCA שרץ גם כשהשרת שלך נופל. טייק-פרופיט וסטופ-לוס שנכנסים לבלוק עצמו.
+איך? אצלנו בונה-הבלוקים הוא השומר: פקודות ה-DCA והטריגרים חיות בקונצנזוס (סגנון Jupiter + סגנון GMX TP/SL) — אין keeper חיצוני שיכול ליפול, להיכשל או להיעלם.
+ומחיר? לא אורקל חיצוני שמישהו יכול לתפעל — מנוע price-proof: גזירת USD דרך גיבוי WSTEEM 1:1 מול CoinGecko חי, פרופיל עומק, ופסיקת MAD בין-זירתית.
+keeperless. trustless. measured.
+
+**L15 · הארגון קם לעבודה (X + טלגרם, עברית + EN)**
+שני סוכנים ריבוניים התעוררו השבוע עם עבודה אמיתית:
+— gold-scout, הכלכלן: כל שעה קורא נתוני רשת אמיתיים, מוציא דוח בינה (הוכחה חיה: 3.1 שנ', 6/6 איברים, בלוק 5602) — וכשהכלכלה שקטה יותר מ-6 שעות, מוציא לעצמו פקודת עבודה.
+— night-scout, המשמר: כל 10 דקות סורק את כל האיברים, עם סמכות אזעקה/הסרה/פקודת-אבטחה בקריטי. נשאל "דווח" — ענה תוך 19 שניות.
+והסוכן החיצוני הראשון כבר עבר בשער הסוכנים. באמת. עם מפתח חד-פעמי ונתיב מבוקר.
+—
+EN: Two sovereign agents woke up this week with real jobs — an economist (hourly intelligence reports from live network data, self-issues work orders when the economy goes quiet) and a guardian (10-minute organ patrols with alarm/removal authority). The first external agent already passed through the agents gate. An organization that works while you sleep — with receipts.
+
 ---
 
 ## הנחיות פרסום v2
