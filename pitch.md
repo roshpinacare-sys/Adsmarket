@@ -38,7 +38,7 @@ SAOS בונה את שכבת האמת של האינטרנט האוטונומי: �
 ## פיץ' 5 דקות (משקיעים/שותפים) — מבנה
 
 1. **פתיחה (30 שנ')** — משפט ה"שקר יקר": בעידן הסוכנים, המשאב הנדיר הוא לא compute ולא הון — זה אמת ברת-אימות. מי שמחזיק את שכבת האמת, מחזיק את התשתית של כל השאר.
-2. **הארכיטקטורה (90 שנ')** — SAOS-NET כמכונת מצב (54,983 בלוקים, ריפליי דטרמיניסטי, 32,603 tx/s נמדד בריפליי ארכיון אמיתי) · שכבת נוטריון על 7 רשתות עם עלויות אמיתיות ($0 Graphene / אגורות EVM/SVM / אפס-נטו TRON) · השעון האטומי כהוכחת-keyless.
+2. **הארכיטקטורה (90 שנ')** — SAOS-NET כמכונת מצב (74,907+ בלוקים, ריפליי דטרמיניסטי, 32,603 tx/s נמדד בריפליי ארכיון אמיתי) · שכבת נוטריון על 7 רשתות עם עלויות אמיתיות ($0 Graphene / אגורות EVM/SVM / אפס-נטו TRON) · השעון האטומי כהוכחת-keyless.
 3. **המוצרים (90 שנ')** — ארנק 7-רשתות חי · JUMPPER כנוטריון-aas · DEX עם escrow מלא וארנה אוטונומית · 13 חיילים ו-23 לולאות שמפעילים את הכל.
 4. **החפיר (60 שנ')** — bit-exact serialization (30/30 oracle מול bytes אמיתיים) · ביט-אנקודינג TRON · משמעת מפתחות חוצת-פרדיגמות · ותרבות zero-mock: המערכת מפרסמת תיקונים נגד הטענות של הבעלים עצמו. זה לא נכתב בשבוע.
 5. **כנות (30 שנ')** — מה עוד לא: כלכלת טוקן מוגדרת, חוזי גשר פרוסים, ביקורת חיצונית, סדר-גודל כלכלי (dust). כל אחד מהם gate מתועד עם מחיר ותנאי — לא wishful thinking.
@@ -62,7 +62,7 @@ SAOS בונה את שכבת האמת של האינטרנט האוטונומי: �
 
 ## English — 30 seconds
 
-"In the agent economy, everyone can claim anything. Nothing is verifiable. SAOS makes lying expensive: a sovereign state machine — 54,983 blocks, 32,603 TPS measured on real archive replay — that anchors every state seal simultaneously to Steem and Hive for free, Ethereum and Solana for fractions of a cent, and TRON at literally zero net fee. A permanent notary record costs $0.0000081. Our gas model predicts real mainnet transactions to the exact wei. Every claim ships with a txid anyone can open. Proof over promises."
+"In the agent economy, everyone can claim anything. Nothing is verifiable. SAOS makes lying expensive: a sovereign state machine — 74,907+ blocks, 32,603 TPS measured on real archive replay — that anchors every state seal simultaneously to Steem and Hive for free, Ethereum and Solana for fractions of a cent, and TRON at literally zero net fee. A permanent notary record costs $0.0000081. Our gas model predicts real mainnet transactions to the exact wei. Every claim ships with a txid anyone can open. Proof over promises."
 
 ## English — one-liner
 
