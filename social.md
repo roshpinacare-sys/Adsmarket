@@ -218,6 +218,20 @@ The defect museum is open. Every exhibit is a bug that can't come back.
 —
 EN: 66 broadcast-capable daemons. Default: dry. Going live requires two conscious keys together — and dry always wins. An organization that cannot fire by accident. That's LIVE-GATE, rolled out estate-wide.
 
+**L9 · הכסף שנמצא (X + טלגרם, עברית)**
+הבעלים אמר: "יש איזו כתובת ישנה עם קצת אבק — ETH, BNB, XRP. תמצאו אותה."
+שלוש בדיקות קודמות מצאו אפס. לא כי אין שם כסף — כי חיפשו בנתיב הגזירה הלא-נכון של הארנק הישן.
+מצאנו. וחיברנו: הנכסים נרשמו בבורסה החיה, בריכות נזרעו, supply==locked 1:1 מהמדידה — **ואף יחידה לא עזבה את הארנק**.
+ובדרך נפתחה המסילה השמינית: XRPL חי.
+והחוסמים? מפורסמים בכנות פר-נכס: ב-ETH הגז יקר מהאבק. זה לא כישלון. זה דו"ח מצב.
+
+**L10 · המכונה שהרוויחה ופרסמה (X, עברית + EN)**
+פרמיה של +459% זה פצע פתוח בכל שוק צמוד-יתד.
+המיקרו-מסילה הריבונית שלנו ריסנה אותו: 16 מנות TWAP מדודות, פרמיה סופית +24.7%, תוצאה נטו +133kµ — והכול מפורסם.
+הרווח הוא אבק. המנגנון הוא ההוכחה.
+—
+EN: A +459% peg premium is an open wound in any market. Our sovereign micro-rail closed it: 16 measured TWAP doses, final premium +24.7%, net +133kµ — all published. The profit is dust. The mechanism is the proof.
+
 ---
 
 ## הנחיות פרסום v2
