@@ -184,6 +184,27 @@ EN: Our first product isn't a token. It's one function: prove that a Steem/Hive 
 פשוט: שום דבר חשוד לא יוצא החוצה. נקודה.
 אבטחה זה לא פיצ'ר שמוסיפים. זה שער שכל דבר עובר דרכו.
 
+**L4 · השומר (X, עברית)**
+ב-23:58 השרת שלנו מת. מערכת ההפעלה הרגה אותו מחוסר זיכרון.
+ב-23:59 הוא כבר חזר. בלי שאף בן אדם נגע.
+36 שניות ממוות מוכח (dmesg) עד HTTP 200, עם יומן מלא שלא ניתן למחיקה.
+והשומר עצמו? יש מי ששומר עליו — הוכחנו גם את זה: הרגנו אותו ב-00:22:50, הוחזר ב-00:27.
+מערכות לא נמדדות בזה שהן לא נופלות. הן נמדדות במה שקורה אחר-כך.
+
+**L5 · רשות (X, עברית)**
+v25 של הפלטפורמה נקראת "רשות". הכלל שלה פשוט:
+אף חתימה בלי רשות.
+10 פעולות רגישות — גזירת מפתח, פתיחת כספת, שידור עוגן — עוברות שער fail-closed דקלרטיבי.
+9 וקטורי תקיפה חיים נבדקו מהממשק: שחקן-פישינג, יעד זר, חציית סמכויות, התפרצות-קצב.
+כולם נחסמו. כל החלטה — נרשמה, ממוסכת.
+אבטחה אמיתית היא לא חומה. היא מדיניות שלא ניתן לעקוף.
+
+**L6 · שומר התקציב (X, EN)**
+We replayed a REAL defect against our new budget-guard: a loop that once fired 11 identical convert calls.
+Result: call #1 passes. Calls #2–#11 — blocked. 36 assertions around the replay.
+This is how we write software: find the real failure, freeze it into a test, make sure it can never happen again.
+The defect museum is open. Every exhibit is a bug that can't come back.
+
 ---
 
 ## הנחיות פרסום v2
