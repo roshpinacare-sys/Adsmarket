@@ -242,6 +242,24 @@ EN: A +459% peg premium is an open wound in any market. Our sovereign micro-rail
 —
 EN: Yesterday we published a blocker: "gas exceeds the dust." Today we measured: 0.068 gwei — half a percent of the dust. The blocker dissolved. Then the money moved: real ETH swept on mainnet, real BNB on BSC, source addresses emptied to zero, and a heart now beats on XRPL — live heartbeats with engraved Hebrew memos, 4 confirmed. Even the failure is published: a self-payment, rejected as redundant, kept in the journal as two honest rows.
 
+**L12 · איבדנו את המפתחות. הנה כל הסיפור. (X thread + טלגרם, עברית + EN)**
+יום שלישי 21:17: סשן תפעולי חיצוני החליף את המפתחות שלנו — כמתוכנן.
+22:41: הסשן מת. בלי לשמור את המפתחות החדשים בשום מקום.
+11 חשבונות. מנעולים חדשים. אפס מפתחות.
+
+מה עשינו:
+1. פורנזיקה מלאה — 12 גיבויים היסטוריים (כולם ישנים), 312 מתכוני גזירה (0 התאמות), סריקת דיסק מלאה (0). הכול מתועד.
+2. החלמה מהזרע הריבוני + גיבוי הבעלים — עם אימות מול השרשרת: 14/14 חברים חיים, החשבון הראשי מחובר מחדש 8/8.
+3. הדוקטרינה השתנתה: מפתחות לעולם לא בריפו. כל הריפואים טוהרו — כולל שכתוב היסטוריית git: 32 קומיטים, 0 מפתחות. נבדק.
+4. הכניסה עוברת בשער: THE-GATE — המפתח שלך מאומת מול השרשרת עצמה לפני שאתה מחובר.
+5. הכספת כבר לא בבית אחד: multi-home, 3 בתים, מראה + ריפוי-עצמי.
+
+כולם מציגים הצלחות. אנחנו מפרסמים גם את הלילה שבו הכול נפל — ואת המדיניות שנולדה ממנו.
+—
+EN: Tuesday 21:17 — an external operator session rotated our keys, as planned. 22:41 — the session died. The new keys were never persisted. Eleven accounts, brand-new locks, zero keys.
+We published everything: the forensics (12 stale backups, 312 derivation recipes, 0 matches), the recovery (seed-based, chain-verified 14/14, head reconnected 8/8), and the doctrine change — keys NEVER in the repo again. Every repo purged, git history rewritten (32 commits, 0 key hits, verified). Login now goes through a gate that verifies your key against the chain itself. And the vault lives in three homes now, mirrored, self-healing.
+Everyone shows their wins. We show the night everything broke — and the policy it was born into.
+
 ---
 
 ## הנחיות פרסום v2
