@@ -168,14 +168,12 @@ const r = await verifyIdentity({username})
 —
 EN: Our first product isn't a token. It's one function: prove that a Steem/Hive account and an EVM address share the same key — read from the chain itself, zero dependencies, honest FAILED outcomes metered like real work. npm i saos-id-verify
 
-**L2 · סיפור הרוטציה (טלגרם + X, עברית)**
-לפני כמה ימים דלפו מפתחות של החשבון הראשי שלנו.
-הנה מה שקרה אחר-כך, עם קבלות:
-· תוך שעות — כל ארבע הרשויות סובבו על Steem ועל Hive, בחתימת המפתח הישן עצמו (ככה זה עובד, ואין קיצורי דרך)
-· המפתחות הישנים מתים על השרשרת: tx 8313cdcb… בבלוק 109,410,651 · tx 92654439… בבלוק 109,745,168
-· 8/8 הרשויות החדשות אומתו חיות
-· ודיווחנו בכנות: 9 מחשבונות הצי לא ניתן היה לסובב כי המפתחות החיים לא היו בכספת — השרשרת דחתה, ואנחנו פרסמנו את זה כמו שזה
-מערכת אבטחה לא נמדדת בזה שאין תקלות. היא נמדדת במה שקורה כשיש.
+**L2 · איפה המפתחות? (טלגרם + X, עברית)**
+שואלים אותנו הרבה: איפה המפתחות שלכם?
+התשובה משעממת — וזאת בדיוק הנקודה: בשום מקום שאפשר לקחת ממנו.
+המפתחות לעולם לא נוגעים בריפו — לא בקוד, לא בקבצים, לא בהיסטוריית ה-git (סריקות מאמתות בכל דחיפה). הכניסה למערכת מזוהה מול השרשרת עצמה — לא "מה ששמרנו", אלא מה שהבלוקצ'יין מאשר עכשיו. הכספת המוצפנת חיה בשלושה בתים, משוכפלת ומתרפאת. וכסף זז רק ברוב של 7 מתוך 11 חתימות.
+גניבת מפתח אחד לא שווה כלום. גם שישה.
+אבטחה היא לא חומה. זו ארכיטקטורה שבה אין מה לגנוב.
 
 **L3 · מגן (X, עברית)**
 גרסה 24 של הפלטפורמה נקראת "מגן".
@@ -242,23 +240,13 @@ EN: A +459% peg premium is an open wound in any market. Our sovereign micro-rail
 —
 EN: Yesterday we published a blocker: "gas exceeds the dust." Today we measured: 0.068 gwei — half a percent of the dust. The blocker dissolved. Then the money moved: real ETH swept on mainnet, real BNB on BSC, source addresses emptied to zero, and a heart now beats on XRPL — live heartbeats with engraved Hebrew memos, 4 confirmed. Even the failure is published: a self-payment, rejected as redundant, kept in the journal as two honest rows.
 
-**L12 · איבדנו את המפתחות. הנה כל הסיפור. (X thread + טלגרם, עברית + EN)**
-יום שלישי 21:17: סשן תפעולי חיצוני החליף את המפתחות שלנו — כמתוכנן.
-22:41: הסשן מת. בלי לשמור את המפתחות החדשים בשום מקום.
-11 חשבונות. מנעולים חדשים. אפס מפתחות.
-
-מה עשינו:
-1. פורנזיקה מלאה — 12 גיבויים היסטוריים (כולם ישנים), 312 מתכוני גזירה (0 התאמות), סריקת דיסק מלאה (0). הכול מתועד.
-2. החלמה מהזרע הריבוני + גיבוי הבעלים — עם אימות מול השרשרת: 14/14 חברים חיים, החשבון הראשי מחובר מחדש 8/8.
-3. הדוקטרינה השתנתה: מפתחות לעולם לא בריפו. כל הריפואים טוהרו — כולל שכתוב היסטוריית git: 32 קומיטים, 0 מפתחות. נבדק.
-4. הכניסה עוברת בשער: THE-GATE — המפתח שלך מאומת מול השרשרת עצמה לפני שאתה מחובר.
-5. הכספת כבר לא בבית אחד: multi-home, 3 בתים, מראה + ריפוי-עצמי.
-
-כולם מציגים הצלחות. אנחנו מפרסמים גם את הלילה שבו הכול נפל — ואת המדיניות שנולדה ממנו.
+**L12 · שבעה מתוך אחד-עשר (X, עברית + EN)**
+מה מקבלים אם גונבים לנו מפתח אחד? כלום.
+שחרור כספים דורש 7 חתימות מתוך 11 סוכנים — מפתחות שונים, מכונות שונות, שרשראות שונות.
+הכניסה מזוהה מול השרשרת עצמה. הכספת המוצפנת חיה בשלושה בתים. וכל פעולה רגישה עוברת שער fail-closed — 9/9 וקטורי תקיפה נחסמו בבדיקה חיה.
+לא בנינו חומה חזקה יותר. בנינו ארכיטקטורה בלי מה לגנוב.
 —
-EN: Tuesday 21:17 — an external operator session rotated our keys, as planned. 22:41 — the session died. The new keys were never persisted. Eleven accounts, brand-new locks, zero keys.
-We published everything: the forensics (12 stale backups, 312 derivation recipes, 0 matches), the recovery (seed-based, chain-verified 14/14, head reconnected 8/8), and the doctrine change — keys NEVER in the repo again. Every repo purged, git history rewritten (32 commits, 0 key hits, verified). Login now goes through a gate that verifies your key against the chain itself. And the vault lives in three homes now, mirrored, self-healing.
-Everyone shows their wins. We show the night everything broke — and the policy it was born into.
+EN: Steal one of our keys and you get nothing. Fund release requires 7-of-11 signatures across separate agents, machines and chains. Login is verified against the chain itself — not "what we stored", but what the blockchain confirms right now. The encrypted vault lives in three mirrored, self-healing homes. Every sensitive operation passes a fail-closed gate — 9/9 red-team vectors blocked live. We didn't build a stronger wall. We built an architecture with nothing to steal.
 
 ---
 
