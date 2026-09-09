@@ -232,6 +232,16 @@ EN: 66 broadcast-capable daemons. Default: dry. Going live requires two consciou
 —
 EN: A +459% peg premium is an open wound in any market. Our sovereign micro-rail closed it: 16 measured TWAP doses, final premium +24.7%, net +133kµ — all published. The profit is dust. The mechanism is the proof.
 
+**L11 · "הוא חייב לזוז פיזית" (X + טלגרם, עברית + EN)**
+אתמול פרסמנו חוסם: "ב-ETH הגז יקר מהאבק".
+היום מדדנו חי: גז 0.068 — חצי אחוז מהאבק עצמו. החוסם התמוסס.
+ואז הכסף זז: ETH אמיתי נסחף ב-mainnet (tx 0x6ef5f0…), BNB נסחף ב-BSC (tx 0xa8e43d…) — לבית האוצר, וכתובות המקור רוקנו לאפס.
+ועל XRPL פועם לב: פעימות חיות עם ממו עברי חרוט — 4 אישורי tesSUCCESS.
+וגם הכישלון פורסם: תשלום-עצמי נדחה ע"י המנוע כ-temREDUNDANT. שתי שורות כנות ביומן.
+הכסף זז פיזית — וגם מועסק.
+—
+EN: Yesterday we published a blocker: "gas exceeds the dust." Today we measured: 0.068 gwei — half a percent of the dust. The blocker dissolved. Then the money moved: real ETH swept on mainnet, real BNB on BSC, source addresses emptied to zero, and a heart now beats on XRPL — live heartbeats with engraved Hebrew memos, 4 confirmed. Even the failure is published: a self-payment, rejected as redundant, kept in the journal as two honest rows.
+
 ---
 
 ## הנחיות פרסום v2
