@@ -7,11 +7,11 @@
 
 ## בויילרפלייט — עברית (להעתקה)
 
-SAOS היא תשתית ריבונית להוכחת עובדות: מערכת שמעגנת כל אירוע — כל חותם מצב, כל טענה, כל סירוב — בפנקסים ציבוריים בלתי-תלויים (Steem, Hive, Ethereum, Solana, TRON), כך שכל צד שלישי יכול לאמת אותה עצמאית ובחינם. המערכת פועלת כמכונת מצב דטרמיניסטית (54,983 בלוקים, 1,507 עסקאות מאומתות נכון לסריקה האחרונה), מעגנת הוכחות בעלות של אפס עד שברירי אגורות (רישום אצווה: $0.0000081 לרשומה, נמדד), ומפרסמת גם את מה שהיא סירבה לעשות — כולל תיקונים פומביים של טעויותיה שלה. מוצריה: ארנק רב-רשתי (7 רשתות), נוטריון הוכחות אצווה (JUMPPER), שעון אטומי רב-רשתי ללא מפתחות, ובורסה פנימית עם כללי כנות נאכפים-קוד.
+SAOS היא תשתית ריבונית להוכחת עובדות: מערכת שמעגנת כל אירוע — כל חותם מצב, כל טענה, כל סירוב — בפנקסים ציבוריים בלתי-תלויים (Steem, Hive, Ethereum, Solana, TRON), כך שכל צד שלישי יכול לאמת אותה עצמאית ובחינם. המערכת פועלת כמכונת מצב דטרמיניסטית (74,907+ בלוקים נכון ל-2026-09-09 05:00Z), מעגנת הוכחות בעלות של אפס עד שברירי אגורות (רישום אצווה: $0.0000081 לרשומה, נמדד), ומפרסמת גם את מה שהיא סירבה לעשות — כולל תיקונים פומביים של טעויותיה שלה. מוצריה: ארנק רב-רשתי (7 רשתות), נוטריון הוכחות אצווה (JUMPPER), שעון אטומי רב-רשתי ללא מפתחות, ובורסה פנימית עם כללי כנות נאכפים-קוד.
 
 ## Boilerplate — English (for copy)
 
-SAOS is a sovereign proof infrastructure: a deterministic state machine (54,983 blocks, 1,507 verified transactions at last audit) that anchors every state seal, claim and refusal to independent public ledgers (Steem, Hive, Ethereum, Solana, TRON), making every operational claim independently verifiable for free. Batch notarization costs $0.0000081 per record (measured on mainnet); its keyless Atomic Clock binds six heterogeneous networks into a single 32-byte root in under 16 ms at zero cost. SAOS publishes its own refusals (383,836 skipped trades) and its own corrections — honesty enforced as a code invariant, not a slogan.
+SAOS is a sovereign proof infrastructure: a deterministic state machine (74,907+ blocks at last audit, 2026-09-09) that anchors every state seal, claim and refusal to independent public ledgers (Steem, Hive, Ethereum, Solana, TRON), making every operational claim independently verifiable for free. Batch notarization costs $0.0000081 per record (measured on mainnet); its keyless Atomic Clock binds six heterogeneous networks into a single 32-byte root in under 16 ms at zero cost. SAOS publishes its own refusals (383,836 skipped trades) and its own corrections — honesty enforced as a code invariant, not a slogan.
 
 ## מספרי הכותרת (מאומתים)
 
@@ -27,6 +27,8 @@ SAOS is a sovereign proof infrastructure: a deterministic state machine (54,983 
 | 36s | התאוששות עצמית מ-OOM kill של הקרנל — אפס מגע אדם, יומן append-only מלא | v26 SHOMER, מדידה חיה 23:58→23:59 |
 | 9/9 | וקטורי תקיפת הרשאות שנחסמו חי (פישינג, יעד זר, חציית סמכויות, burst) | v25 RESHUT self-test מה-UI |
 | 9/10 | חיילי צי-העוגנים שאומתו חיים על Hive (עיגון מרובה-חשבונות) | SETTLE-13 |
+| 7/7 | חיזויי גז רצופים מדויקים על עוגני Ethereum חיים (32,680 gas כל אחד) — מודל שכייל את עצמו עד ה-wei | wallet anchors #4–#6, tx 0x4f27c008… blk 25,937,568 |
+| +459%→+24.7% | ריסון פרמיה ע"י מיקרו-מסילה TWAP ריבונית, 16 מנות מדודות, נטו +133kµ | SETTLE-16 |
 | 72+ | עסקאות אמיתיות בבורסה הריבונית החיה על הרשת שלנו (v28 BIRSA) · הוכחת ארב: WETH נמכר בסטייה 5.04% מול אורקל חי · harvest לשכר עם tx | platform v28, tx 0xbaf0771a… browser-verified |
 | 66 | דמונים משדרים-פוטנציאליים, כולם dry-by-default (LIVE-GATE) · שידור חי = חמוש מודע כפול | security(28-b), live_gate משותף |
 | $258.46 | מפת האוצר המלאה שפורסמה בפומבי — שקיפות רדיקלית כמדיניות מותג | v28 cornerstone panel |
