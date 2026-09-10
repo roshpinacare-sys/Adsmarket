@@ -159,14 +159,13 @@ Three verification tiers: self-verify (zero network), API, on-chain. Signing alw
 
 **L1 · השקת המפתחים (X, עברית + אנגלית)**
 המוצר הראשון שלנו לא מטבע. לא טוקן. לא "פלטפורמה".
-הוא פונקציה אחת:
-npm i saos-id-verify
+הוא פונקציה אחת (SDK אפס-תלויות, חי בריפו — ב-npm בקרוב):
 const r = await verifyIdentity({username})
 שאלה אחת, תשובה מתמטית: האם חשבון ה-Steem/Hive הזה וכתובת ה-EVM הזאת — אותו מפתח?
 ההוכחה נקראת מהשרשרת עצמה. אפס תלויות. עובד בדפדפן, בשרת, ב-edge.
 וגם "לא מוכח" היא תשובה כנה — נספרת, מוצגת, לא מוסתרת.
 —
-EN: Our first product isn't a token. It's one function: prove that a Steem/Hive account and an EVM address share the same key — read from the chain itself, zero dependencies, honest FAILED outcomes metered like real work. npm i saos-id-verify
+EN: Our first product isn't a token. It's one function: prove that a Steem/Hive account and an EVM address share the same key — read from the chain itself, zero dependencies, honest FAILED outcomes metered like real work. Zero-dep SDK live in the repo (npm publish pending).
 
 **L2 · איפה המפתחות? (טלגרם + X, עברית)**
 שואלים אותנו הרבה: איפה המפתחות שלכם?
@@ -206,7 +205,7 @@ The defect museum is open. Every exhibit is a bug that can't come back.
 **L7 · הבורסה על הרשת שלנו (X + טלגרם, עברית)**
 הבורסה הריבונית חיה עכשיו על הרשת שלנו — לא סימולציה, לא testnet.
 3 בריכות · 72+ עסקאות אמיתיות · בוט ארביטראז' שמוכר כשהסטייה מול אורקל חי חוצה 0.8% (הוכחה: WETH נמכר בסטייה 5.04%) · וה-harvest זורם לשכר אמיתי — 36.4 יחידות, עם tx.
-והמספר שכולם יסתירו? TVL של $13.91.
+והמספר שכולם יסתירו? TVL של $13.91 (v28 snapshot, 09.09).
 אנחנו מפרסמים גם אותו. המנגנון הוכח במסחר אמיתי; קנה-המידה הוא השער הבא, לא הטכנולוגיה.
 
 **L8 · הארגון שלא יכול לירות בטעות (X, עברית + EN)**
@@ -318,6 +317,8 @@ EN: When agents publish autonomously, who guards what goes out? We built the des
 
 - סדר עדיפות קמפיינים: (0) **השקת Identity API/SDK (L1–L3)** (1) "לשקר נהיה יקר"/JUMPPER (2) השעון האטומי (3) כנות-ו-תיקונים (4) זהות חוצת-פרדיגמות (5) גשרים 1:1
 - קצב: 3–4 פוסטים בשבוע, תמיד עם קישור אימות אחד לפחות
+- כלל ה-snapshot: מספר מתויג גרסה (כמו v28) הוא צילום מצב — לפני כל פרסום חוזר מרעננים מול ה-fact-sheet
+- כלל הזמינות: לא מפרסמים פקודת התקנה או URL בלי בדיקת חיות אמיתית מול משתמש חיצוני (npm/דפדפן) — לקח ה-roast של 10.09
 - תגובות לספקנים: לא מתווכחים — מגיבים עם txid או מדידה
 - ויזואליה: צילומי מסך חיים מהטרמינל ללא עריכה; טבלאות מדידה כפי שהן; לעולם לא mockups
 - איסורים: הבטחות תשואה, תחזיות מחיר, "השקעה", אימוג'ים, השוואות שווי לפרויקטים
