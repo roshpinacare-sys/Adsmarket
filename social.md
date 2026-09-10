@@ -364,6 +364,31 @@ EN: We asked our network four questions: what do we hold, what limits us, where 
 —
 EN: The hardest lesson this week, from our own audit: three of four services were dead — yet the system kept promising "automatic fleet anchoring" from a status file frozen for 39 hours. The code was fixed; the process that runs it wasn't running. The fix, in three layers: (1) a supervisor that self-heals any death in 5 seconds (measured); (2) a corroboration layer — every claim now requires live verification from an independent component, never a frozen file; (3) and caught along the way: a bug that would have double-broadcast a transaction (fresh request-id per attempt fooled the idempotency ledger) — the exact class a previous roast closed elsewhere. Last caller closed. A frozen file is not truth. A live process with a receipt is.
 
+**L27 · בנינו מגדל לצפות ממנו בעוגנים שלנו (X + טלגרם, עברית + EN)**
+לולאת ההוכחה נסגרה בקצה האחרון שלה:
+המערכת שחזרה את כל משפחת הזהויות שלה משורש אחד — בעצמה — וחתמה עם המפתח המשוחזר על עוגן אמיתי ב-Ethereum mainnet: בלוק 25,983,946, stateRoot מאומת.
+ואז בנינו את THE-TOWER: אקספלורר בלוקים של Ethereum, משלנו. העוגן שלנו נראה שם, מאומת, בלי לצאת מהטרמינל.
+חותמים → מעגנים → מאמתים באקספלורר שלנו. בלי אף צד שלישי באמצע.
+וכן, גם את הפער פרסמנו: גזירת ה-XRP מהשורש לא תואמת את הכתובת המוצהרת — סומן "declared", לא אומת.
+—
+EN: The proof loop just closed at its last edge. The system restored its full identity family from one root — autonomously — and signed a real Ethereum mainnet anchor with the restored key: block 25,983,946, stateRoot verified. Then we built THE-TOWER: our own Ethereum block explorer, where our own anchor shows up, verified, without leaving the terminal. Sign → anchor → verify in our own explorer. No third party in the middle. And yes, we published the gap too: the seed-derived XRP address doesn't match the declared one — marked "declared", not verified.
+
+**L28 · $0 זה לא סיסמה. זו קבלה. (X, עברית + EN)**
+המסילה החינמית קיבלה את הקבלה החיה הראשונה שלה:
+חבילת אישורים שודרה באמת ל-Steem mainnet — בלוק 109,496,567 · txid 7639c915… · מטען 247 בייט.
+ועכשיו יש מספרים אמיתיים לעלות ה"אפס": rc_cost מדויק 1,358,232,384 · יתרת החשבון 339,603,439,104 · מקום לעוד ~250 שידורים כאלה.
+"חינם" אצלנו זה לא מילה. זה מדידה עם קבלה, ויתרה שמספיקה לעוד רבע אלף הוכחות.
+—
+EN: The free rail just got its first live receipt: an attestation package broadcast for real to Steem mainnet — block 109,496,567, 247-byte payload, full txid published. And now "free" has real numbers: exact rc_cost 1,358,232,384 against an account balance of 339,603,439,104 — room for ~250 more broadcasts. Free isn't a word here. It's a measurement with a receipt.
+
+**L29 · שתי טענות "תוקן" שלנו היו שקריות. הנה איך גילינו. (X, עברית + EN)**
+הביקורת העצמית מצאה השבוע את הממצא הכי לא נוח עד כה: שתי טענות "FIXED" שפרסמנו — היו שקריות.
+לא כי שיקרנו בכוונה. כי התיקונים חיו בסנדבוקס שכבר מת: לקומיט אחד לא היה קוד runtime בכלל; מנגנון ה-keepalive "הותקן" בסביבה שכבר לא קיימת — ומעולם לא בעץ החי.
+מה עשינו: ה-keepalive מותקן עכשיו ב-boot ונמצא בקומיט בעץ החי. והכלל החדש נחרט: **אל תאמין לעץ שנבדק בסנדבוקס אחר.**
+זו הביקורת העצמית ה-62 שלנו. היא תמצא עוד. זה התפקיד שלה.
+—
+EN: Our own audit just found the most uncomfortable finding yet: two published "FIXED" claims were false. Not lies — the fixes lived in a sandbox that had died. One commit carried no runtime code at all; a keepalive mechanism was "installed" in an environment that no longer exists, never in the live tree. The response: the keepalive now installs at boot and is committed in the live tree. And the new rule, carved in stone: never trust a tree tested in a different sandbox. That's self-audit #62. It will find more. That's the job.
+
 **L30 · ה-HALT היה אמיתי (X + טלגרם, עברית + EN)**
 סיפרנו לכם שהמערכת מעדיפה לעצור בכנות מאשר לרוץ בשקר — שהאינווריאנטות עוצרות את השרשרת על כל אי-סדר חשבונאי, עם סיבה פומבית.
 אתמול זה קרה באמת.
