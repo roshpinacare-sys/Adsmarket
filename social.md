@@ -364,6 +364,16 @@ EN: We asked our network four questions: what do we hold, what limits us, where 
 —
 EN: The hardest lesson this week, from our own audit: three of four services were dead — yet the system kept promising "automatic fleet anchoring" from a status file frozen for 39 hours. The code was fixed; the process that runs it wasn't running. The fix, in three layers: (1) a supervisor that self-heals any death in 5 seconds (measured); (2) a corroboration layer — every claim now requires live verification from an independent component, never a frozen file; (3) and caught along the way: a bug that would have double-broadcast a transaction (fresh request-id per attempt fooled the idempotency ledger) — the exact class a previous roast closed elsewhere. Last caller closed. A frozen file is not truth. A live process with a receipt is.
 
+**L30 · ה-HALT היה אמיתי (X + טלגרם, עברית + EN)**
+סיפרנו לכם שהמערכת מעדיפה לעצור בכנות מאשר לרוץ בשקר — שהאינווריאנטות עוצרות את השרשרת על כל אי-סדר חשבונאי, עם סיבה פומבית.
+אתמול זה קרה באמת.
+באג: זריעת נזילות טבעה יתרות LP בלי לרשום אותן במאגר — LP פנטום. האינווריאנטה תפסה סחיפה של 4,448µ — ועצרה את השרשרת בגובה 20,808.
+ואז החלק החשוב: הביקורת מצאה את השורש תוך שעות. התיקון נכנס. והסחיפה לא טואטאה — פורסמה הצהרת סחיפה כנה.
+באותו סבב תוקן עוד שקר שקט: דגל "כסף אמיתי" שהיה false מבנית בגלל פרמטר חסר — עכשיו ok=true על 5/5 המסילות. וחור אימות אמיתי בגשר SOL (נמען נבדק, סכום לא) נסגר fail-closed.
+רשת בטיחות שלא תפסה נפילה אמיתית היא תיאוריה בלבד. שלנו תפסה.
+—
+EN: We told you the system prefers to stop honestly rather than run on a lie — that accounting invariants HALT the chain with a public reason. Yesterday it actually happened. A bug minted phantom LP balances; the invariant caught a 4,448µ drift and halted the chain at height 20,808. Then the part that matters: root cause found within hours, fix shipped, and the drift was not swept away — an honest drift declaration was published. Same round: a truth-flag that had been structurally lying (missing parameter) now reads ok=true on 5/5 rails, and a real bridge-verification hole (recipient checked, amount not) was closed fail-closed. A safety net that never caught a real fall is just theory. Ours caught one.
+
 ---
 
 ## הנחיות פרסום v2
