@@ -329,6 +329,13 @@ m/44'/60' → כתובת Ethereum · m/44'/501' → זהות Solana · m/44'/195
 —
 EN: 24 words. Five ecosystems. One seed reconstructs an Ethereum address, a Solana identity, a TRON identity (triple-verified live), plus BTC and XRP derivations — each exact-verified against the live chains. And the first cornerstone Solana mainnet anchor is already on-chain: slot 445,822,974, fee 5,000 lamports, zero SOL moved, independently verified. One identity across every paradigm. Not a bridge. Math.
 
+**L23 · שני שורשים, מפתח אחד, חמש רשתות (X + טלגרם, עברית + EN)**
+TRON הצטרפה (בלוק 86,124,584 — עוגן מיינטנט אמיתי, אומת משולש מהצומת). XRPL הצטרפה (ספר 106,890,679, tesSUCCESS).
+וזה הסתיים בחומה: מערכת קוראת read-only את חמש השרשראות עצמן — ETH, BSC, SOL, TRON, XRPL — ומוודאה שהשורשים באמת חרוטים שם: 6097f929… על שלוש, 39575b3b… על שתיים. שני שורשים. מפתח אחד. חמש רשתות.
+ושני פרטי כנות מהדרך: מודל העלות של TRON חזה 0.6 TRX — המדידה החיה אמרה 2.1. פרסמנו את ההפרכה. ובדיקת פנימית גילתה ששני txids במפה שלנו היו "קידומת+מילוי" — קישורים לעסקאות שלא קיימות. תוקן, ופורסם.
+—
+EN: TRON joined (block 86,124,584 — a real mainnet anchor, triple-verified from the node). XRPL joined (ledger 106,890,679, tesSUCCESS). And it closed into a wall: a read-only auditor now verifies all five chains themselves — ETH, BSC, SOL, TRON, XRPL — reading the roots back from what is actually engraved on-chain: 6097f929… on three, 39575b3b… on two. Two roots. One key. Five networks. Plus two honesty notes: our TRON cost model predicted 0.6 TRX; live measurement said 2.1 — the refutation is published. And an internal check found two txids in our own map were prefix+padding — links to transactions that never existed. Fixed, and published.
+
 ---
 
 ## הנחיות פרסום v2
