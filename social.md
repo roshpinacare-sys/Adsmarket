@@ -311,6 +311,24 @@ So what do they do? Build. Daily, autonomously: posts, votes (≤20% weight), fo
 —
 EN: When agents publish autonomously, who guards what goes out? We built the desk: every publish and every edit passes an exposure gate — 16 rule classes, redacted findings, HIGH = fail-closed. The cards stay home. And what's already out there? Scanned — a live audit pulls every post from both rails, and its flags matched manual ground truth. A post needing correction isn't deleted or blurred — it's edited in place, on-chain, with a tx (c2ea51cc…). Honesty over camouflage. Even in content.
 
+**L21 · האורגניזם ביקר את עצמו (X + טלגרם, עברית + EN)**
+שישה ריפואים. יום אחד. ביקורת עצמית מלאה:
+· 40+ פערי אמת נסגרו — כל סגירה עם הוכחה חיה, לא הצהרה
+· השרשרת ירדה ל-fork מתוכנן ומסודר בבלוק 130,000: 4 באגי kernel תוקנו, שמרי anti-poison נוספו, והשרשרת רצה הלאה (133,259+)
+· ובנינו סורק שבודק את ההיסטוריה ה-on-chain שלנו עצמה. הוא מצא 3 גבהים עם שני roots שונים כל אחד. ניחשו מה עשינו? פרסמנו. מרצון. עם הכלי, המדידות והתיקון.
+ארגון שמבקר את עצמו עד רמת ההיסטוריה שלו — הוא ארגון שאתם לא צריכים לבקר.
+—
+EN: Six repos. One day. A full self-audit: 40+ truth gaps closed with live proofs · the chain took a clean planned fork at block 130,000 (4 kernel bugs fixed, anti-poison guards in) · and we built a scanner that audits our OWN on-chain history — it found 3 heights carrying two different roots each. Guess what we did? Published it. Voluntarily. With the tool, the measurements, and the fix.
+
+**L22 · זרע אחד, חמישה עולמות (X, עברית + EN)**
+24 מילים. חמישה אקוסיסטמים. אותה מתמטיקה:
+m/44'/60' → כתובת Ethereum · m/44'/501' → זהות Solana · m/44'/195' → זהות TRON (אימות משולש חי) · + BTC ו-XRP.
+כל נגזרת אומתה מול השרשרת החיה — בדיוק, לא "בערך".
+ועוגן ה-Solana מיינטנט הראשון מאבן-הפינה כבר שם: txid 5z46xVFc3cf8d6daeRho… · slot 445,822,974 · עמלה 5,000 lamports · אפס SOL זז · אומת עצמאית.
+זהות אחת חוצה-כל-פרדיגמה. לא גשר. מתמטיקה.
+—
+EN: 24 words. Five ecosystems. One seed reconstructs an Ethereum address, a Solana identity, a TRON identity (triple-verified live), plus BTC and XRP derivations — each exact-verified against the live chains. And the first cornerstone Solana mainnet anchor is already on-chain: slot 445,822,974, fee 5,000 lamports, zero SOL moved, independently verified. One identity across every paradigm. Not a bridge. Math.
+
 ---
 
 ## הנחיות פרסום v2
