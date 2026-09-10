@@ -399,6 +399,22 @@ EN: Our own audit just found the most uncomfortable finding yet: two published "
 —
 EN: We told you the system prefers to stop honestly rather than run on a lie — that accounting invariants HALT the chain with a public reason. Yesterday it actually happened. A bug minted phantom LP balances; the invariant caught a 4,448µ drift and halted the chain at height 20,808. Then the part that matters: root cause found within hours, fix shipped, and the drift was not swept away — an honest drift declaration was published. Same round: a truth-flag that had been structurally lying (missing parameter) now reads ok=true on 5/5 rails, and a real bridge-verification hole (recipient checked, amount not) was closed fail-closed. A safety net that never caught a real fall is just theory. Ours caught one.
 
+**L31 · 88 מילישניות במקום 90 דקות (X + טלגרם, עברית + EN)**
+העברת נכסים בין רשתות דרך צד שלישי: 10 עד 90 דקות, עמלות, ונקודת אמון אחת גדולה.
+המדדנו את החלופה הריבונית שלנו, במעגל SOL↔TRX אמיתי: 5 ריצות · 65 מתוך 65 רגליים אטומיות מוכחות (שתי הרגליים באותו בלוק) · p50 של 88 מילישניות.
+והסוד: הכסף לא זז. המראה על הרשת שלנו 1:1 — supply==locked כאינווריאנט.
+ואגב אינווריאנטים: מצאנו פער פנטום של ~1.6 TRX שהצטבר בשקט מגז-העוגנים. מה עושים כשהמראה גדולה מהאמת? שורפים את ההפרש פרו-רטה. הכלל נאכף גם נגד עצמנו.
+—
+EN: Moving value across chains through a third party: 10 to 90 minutes, fees, and one big trust point. We measured our sovereign alternative on a real SOL↔TRX circuit: 5 runs · 65/65 atomic legs proven (both legs in the same block) · p50 of 88 milliseconds. The secret: the money never moves. The mirror on our network is 1:1 — supply==locked as an invariant. And speaking of invariants: we found a ~1.6 TRX phantom gap that had silently accumulated from anchor gas. When the mirror exceeds the truth, we burn the difference pro-rata. The rule is enforced against ourselves too.
+
+**L32 · כשההיסטוריה מסתעפת — לא בוחרים מנצח. מסמנים. (X, עברית + EN)**
+סרקנו 162 עוגנים אמיתיים שלנו על HIVE mainnet. מצאנו 8 גבהים שבהם יש יותר משורש אחד.
+האינסטינקט השיווקי: להתעלם, או לבחור "את הנכון".
+מה שעשינו: פרסמנו forks.json — המפקד המלא. בנינו remediation_report — רשומת תיקון קריאת-מכונה. וסימנו כל גובה מסועף כ-AMBIGUOUS עם canonicalRoot=null. אף שורש לא מוכרז כנכון בלי ראיה.
+13 assertions נועצות את הכלל. כי מי שמסמן בכנות את מה שלא ברור — הוא היחיד שאפשר להאמין לו כן לגבי מה שברור.
+—
+EN: We scanned our own 162 real anchors on HIVE mainnet. Found 8 heights carrying more than one root. The marketing instinct: ignore it, or pick "the right one." What we did: published forks.json — the full census. Built a machine-readable remediation_report. And marked every forked height AMBIGUOUS with canonicalRoot=null. No root is declared canonical without proof. 13 assertions pin the rule. Because whoever honestly marks what is unresolved is the only one you can believe about what is resolved.
+
 ---
 
 ## הנחיות פרסום v2
