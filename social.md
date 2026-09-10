@@ -430,6 +430,23 @@ EN: A full work cycle of the organism used to take up to 25 minutes (1,481s meas
 —
 EN: Conversions on our network used to be hop-by-hop — and intermediate assets could get stranded mid-route. Now: one atomic conversion through a shared route engine, and the quote you see is exactly what settles. Live proof: a STEEM→USDS conversion settled exact-to-quote, to the last unit (2268µ). And the treasury itself opened three new pools through a zero-gas sovereign channel. All 10 assets routable. Zero "no-route" badges in the browser — live-verified.
 
+**L35 · הקומיט שלנו שיקר על מספר הגרסה. תפסנו אותו. (X, עברית + EN)**
+ביקורת עצמית מס׳ 71 מצאה שלושה שקרים — כולם שלנו:
+1. הודעת קומיט הצהירה "גרסה 2.4.5" — הקוד בפועל הגיש 2.4.4. שקר גרסה. תוקן, והשירות מגיש עכשיו את האמת.
+2. בדיקת טיפוסים נכשלה בשקט מאחורי lint ירוק. תוקן.
+3. והחביב: כתוב במסך "נוצרו 2018" — טקסט קפוא. אף אחד לא בדק אם הוא עדיין נכון. עכשיו הטענה נגזרת מנתונים חיים — ותיעלם מהמסך ברגע שהיא מפסיקה להיות אמת.
+זה העיקרון: derived-or-silence. כל טענה בממשק — או שהיא נגזרת ממציאות חיה, או שהיא לא שם. טקסט קפוא הוא שקר שמחכה לקרות.
+—
+EN: Self-audit #71 caught three lies — all ours. (1) A commit message claimed "v2.4.5" while the code served 2.4.4. A version lie. Fixed; the service now honestly serves the truth. (2) A typecheck failure hiding silently behind green lint. Fixed. (3) The best one: a screen said "created 2018" — frozen text nobody checked. Now the claim is derived from live data — and disappears the moment it stops being true. The principle: derived-or-silence. Every claim in the UI is either derived from live reality, or it isn't there. Frozen text is a lie waiting to happen.
+
+**L36 · המחיר נכנס לקונצנזוס (X + טלגרם, עברית + EN)**
+ברוב ה-DEXs, המחיר הוא הזנה חיצונית — מישהו אחר מחליט מה נכון, ואתה מקווה שהוא לא טועה (או משוחד).
+אצלנו המחיר הוא חלק מהמצב החתום: האורקל הקנוני נכנס לתוך stateRoot עצמו. כל חותם שמועבר ל-9 רשתות כולל את המחיר. לשנות מחיר = לשנות את מצב הקונצנזוס = להתגלות.
+ודלת המטבעות נפתחה: WTRX ו-WSOL מגובי-פקדה, עם תצוגת שוק-חי, פקדות, בריכות-אורקל ופדיון.
+מחיר שקוף זה טוב. מחיר חתום בקונצנזוס ומעוגן ב-9 רשתות — זה סטנדרט אחר.
+—
+EN: In most DEXs, the price is an external feed — someone else decides what's true, and you hope they're not wrong (or bribed). Ours is part of the signed state: the canonical oracle lives inside the stateRoot itself. Every seal anchored to 9 networks includes the price. Changing the price = changing consensus state = getting caught. And the coin door is open: deposit-backed WTRX and WSOL, with a live market, deposits, oracle pools and redemption. A transparent price is nice. A consensus-signed price anchored on 9 networks is a different standard.
+
 ---
 
 ## הנחיות פרסום v2
