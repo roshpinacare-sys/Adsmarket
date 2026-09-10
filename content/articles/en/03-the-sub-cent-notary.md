@@ -40,7 +40,7 @@ One permanent, forever record of one document: **eight millionths of a dollar**.
 
 In human terms: one dollar records **one hundred thousand documents**. A regular notary charges roughly ten million times that.
 
-And this isn't an estimate. It was computed from real prices on a real network and validated against an actual on-chain transaction — to the exact wei. Our gas model has since called **7 consecutive live anchors exactly** (32,680 gas each). If you know enough to ask "how can we be sure?" — exactly, that's the point. We don't ask you to be sure of us. We give you the means to check.
+And this isn't an estimate. It was computed from real prices on a real network and validated against an actual on-chain transaction — to the exact wei. A separate anchor model has since called **7 consecutive live anchors exactly** (32,680 gas each). If you know enough to ask "how can we be sure?" — exactly, that's the point. We don't ask you to be sure of us. We give you the means to check.
 
 ## "And how do I verify it actually works?"
 
