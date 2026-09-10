@@ -415,6 +415,21 @@ EN: Moving value across chains through a third party: 10 to 90 minutes, fees, an
 —
 EN: We scanned our own 162 real anchors on HIVE mainnet. Found 8 heights carrying more than one root. The marketing instinct: ignore it, or pick "the right one." What we did: published forks.json — the full census. Built a machine-readable remediation_report. And marked every forked height AMBIGUOUS with canonicalRoot=null. No root is declared canonical without proof. 13 assertions pin the rule. Because whoever honestly marks what is unresolved is the only one you can believe about what is resolved.
 
+**L33 · מ-25 דקות ל-4 דקות. בלי לקנות כלום. (X, עברית + EN)**
+מחזור עבודה שלם של האורגניזם לקח עד 25 דקות (1481 שניות נמדדו במקרה הגרוע). חשבנו שזה "מחיר העבודה על הבלוקצ'יין".
+אז מדדנו. גילינו 31 נקודות שבהן הקוד חיכה בשקט לאישור שכבר הגיע — הקבלה הייתה שם, אבל אף אירוע לא העיר את ההמתנה. מיליארדיות של דולר בחישוב, דקות שלמות של המתנה לכלום.
+נתנו לכל שער דדליין של 15 שניות. הקצב החדש, נמדד חי: מחזור שלם ב-285 שניות, ואחריו 238.
+והדלק הכי זול בעולם: אף שדרוג חומרה. רק מדידה, ואז תיקון.
+—
+EN: A full work cycle of the organism used to take up to 25 minutes (1,481s measured worst case). We assumed that was "the cost of working on-chain." Then we measured: 31 sites where the code silently waited for confirmations that had already arrived — the receipt was there, no event ever woke the waiter. We gave every gate a 15-second deadline. New pace, measured live: a full cycle in 285 seconds, then 238. The cheapest fuel in the world: no hardware. Just measurement, then the fix.
+
+**L34 · כל הנכסים. מסלול אחד. בלי תקיעות באמצע. (X + טלגרם, עברית + EN)**
+המרות בין נכסים ברשת שלנו היו פעם "הופ-אחר-הופ" — ונכסי ביניים יכלו להיתקע בדרך.
+עכשיו: המרה אטומית אחת, דרך מנוע מסלול משותף, והציטוט שאתה רואה הוא בדיוק מה שמיושב. הוכחה חיה: המרת STEEM→USDS התיישבה exact-to-quote — עד היחידה האחרונה (2268µ).
+והאוצר פתח בעצמו שלוש בריכות חדשות בערוץ ריבוני אפס-גז. כל 10 הנכסים ניתנים לניתוב. אפס תגי "אין מסלול" בדפדפן — נבדק חי.
+—
+EN: Conversions on our network used to be hop-by-hop — and intermediate assets could get stranded mid-route. Now: one atomic conversion through a shared route engine, and the quote you see is exactly what settles. Live proof: a STEEM→USDS conversion settled exact-to-quote, to the last unit (2268µ). And the treasury itself opened three new pools through a zero-gas sovereign channel. All 10 assets routable. Zero "no-route" badges in the browser — live-verified.
+
 ---
 
 ## הנחיות פרסום v2
