@@ -277,7 +277,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
         <div class="pmeta">block 10,937,394 · <a href="https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177" target="_blank" rel="noopener">steemworld</a></div>
       </div>
       <div class="prow">
-        <div class="chain"><span class="st live"></span><div>HIVE<small>חי · 21 עיגונים ב-22 שע' · $0</small></div></div>
+        <div class="chain"><span class="st live"></span><div>HIVE<small>חי בפעימות RC · 21 עיגונים ב-22 שע' (נמדד 09.09 00:29Z) · $0</small></div></div>
         <div class="tx"><a href="https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5" target="_blank" rel="noopener">d4cf936b0b5e1eff8dcc8a508532f67c95682bd5</a></div>
         <div class="pmeta">blocks 109,708,562–734,678 · <a href="https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5" target="_blank" rel="noopener">hiveblocks</a></div>
       </div>
@@ -296,7 +296,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
       <div class="icon">1:1</div>
       <div>
         <h3>עקביות בין-שרשרתית — מוכחת, לא מוצהרת</h3>
-        <p>אותו stateRoot בדיוק — <span class="mono">d4970bb5…</span> בגובה 2388 — עוגן בו-זמנית ב-<strong>Ethereum</strong> (בלוק 25,929,269) וב-<strong>Solana</strong> (slot 445,209,689), ואומת bit-for-bit משתי קריאות RPC ציבוריות נפרדות. ומודל הגז שלנו לא חוזה פעם אחת — הוא צדק <span class="mono">7 פעמים ברצף</span> על עוגנים חיים (32,680 gas כל אחד, מדויק לחלוטין), אחרי שכייל את עצמו עד ה-wei מול בלוק 25,929,672 כולל תיקון EIP-7623 שרוב המודלים בתעשייה מפספסים.</p>
+        <p>אותו stateRoot בדיוק — <span class="mono">d4970bb5…</span> בגובה 2388 — עוגן בו-זמנית ב-<strong>Ethereum</strong> (בלוק 25,929,269) וב-<strong>Solana</strong> (slot 445,209,689), ואומת bit-for-bit משתי קריאות RPC ציבוריות נפרדות. ומודלי הגז שלנו נמדדו בנפרד, כל אחד מול הקבלה שלו: מודל הנוטריון חזה עסקת mainnet <span class="mono">עד ה-wei</span> (30,920 gas · 32,493,358,294,280 wei · בלוק 25,929,672 · כולל תיקון EIP-7623 שרוב המודלים בתעשייה מפספסים), ומודל עוגני הארנק צדק <span class="mono">7 פעמים ברצף</span> (32,680 gas מדויק לעוגן).</p>
       </div>
     </div>
     <div class="consistency rv" style="border-color:rgba(167,139,250,.4);background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(212,175,55,.03));margin-top:14px">
@@ -316,9 +316,9 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
     <p class="lead">SAOS היא לא מוצר בודד — זו מערכת שכבות, וכל מוצר הוא דלת לאותו עיקרון: הוכחה במקום אמון.</p>
     <div class="prod">
       <div class="pcard rv" style="grid-column:1/-1;border-color:rgba(212,175,55,.45);background:linear-gradient(135deg,rgba(212,175,55,.06),var(--panel2))">
-        <div class="pk" style="color:var(--gold)">IDENTITY API · המוצר הראשון שאפשר להשתמש בו היום</div>
+        <div class="pk" style="color:var(--gold)">IDENTITY API · המוצר הראשון שחי ומוכח</div>
         <h3>הוכחת זהות חוצת-רשתות — בקריאת API אחת</h3>
-        <p>שאלה אחת, תשובה מתמטית: <span class="hl">האם חשבון ה-Steem/Hive הזה וכתובת ה-EVM הזאת שייכים לאותו מפתח?</span> ההוכחה נקראת ישירות מהשרשרת (עוגן saos.id.v1 → EIP-191 → התאמת authority חיה). ממוטר ושקוף: מפתחות API נשמרים כ-hash בלבד, quota יומית, ledger של כל קריאה — וגם תשובה שלילית היא תוצאה כנה ומדודה, לא שגיאה. SDK רשמי באפס תלויות: <span class="mono">npm i saos-id-verify</span> · אומת חי מול בלוק 109,389,994.</p>
+        <p>שאלה אחת, תשובה מתמטית: <span class="hl">האם חשבון ה-Steem/Hive הזה וכתובת ה-EVM הזאת שייכים לאותו מפתח?</span> ההוכחה נקראת ישירות מהשרשרת (עוגן saos.id.v1 → EIP-191 → התאמת authority חיה). ממוטר ושקוף: מפתחות API נשמרים כ-hash בלבד, quota יומית, ledger של כל קריאה — וגם תשובה שלילית היא תוצאה כנה ומדודה, לא שגיאה. SDK רשמי באפס תלויות — חי בריפו ומאומת E2E (הפרסום ל-npm, <span class="mono">saos-id-verify</span>, בתהליך) · אומת חי מול בלוק 109,389,994.</p>
       </div>
       <div class="pcard rv">
         <div class="pk">WALLET · חי ומאומת</div>
@@ -335,7 +335,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
       <div class="pcard rv">
         <div class="pk">MARKET · חי על הרשת שלנו</div>
         <h3>SAOS DEX + בורסה (v28) — השוק שהסירובים שלו גלויים</h3>
-        <p>ספר הזמנות עם escrow מלא, מילוי במחיר-מייקר, ארנה אוטונומית עם שער-שוליים. ומעל הכול הבורסה הריבונית החיה על הרשת שלנו: AMM עם בוט ארביטראז' מול אורקל חי, harvest שזורם לשכר אמיתי (עם tx), וראוטר שמשווה מול Uniswap/Pancake/Sushi בזמן אמת. ומעל הכול מנוע כלכלה ve(3,3): כל 600 בלוקים 40% מהרווחים קונים-ושרפים (דפלציה אמיתית, מוגבלת ברווח-שנמדד בלבד), עמלות דינמיות 4–1500bps, ומסחר אוטומטי ללא-שומרים — DCA ו-TP/SL כשבונה-הבלוקים עצמו הוא השומר. וחדש: סליקת CoW אחידה פר-בלוק — העודף חוזר לסוחרים, חסינות-סנדוויץ' מבנית · לאונצ'פאד ריבוני עם graduation חי ל-AMM (100% POL) · ו-ProtoRev עם רווח אמיתי נמדד: ‎+50,468µ. 72+ עסקאות אמיתיות נמדדו; TVL זעיר בכנות — המנגנון הוכח, קנה-המידה הוא השער הבא.</p>
+        <p>ספר הזמנות עם escrow מלא, מילוי במחיר-מייקר, ארנה אוטונומית עם שער-שוליים. ומעל הכול הבורסה הריבונית החיה על הרשת שלנו: AMM עם בוט ארביטראז' מול אורקל חי, harvest שזורם לשכר אמיתי (עם tx), וראוטר שמשווה מול Uniswap/Pancake/Sushi בזמן אמת. ומעל הכול מנוע כלכלה ve(3,3): כל 600 בלוקים 40% מהרווחים קונים-ושרפים (דפלציה אמיתית, מוגבלת ברווח-שנמדד בלבד), עמלות דינמיות 4–1500bps, ומסחר אוטומטי ללא-שומרים — DCA ו-TP/SL כשבונה-הבלוקים עצמו הוא השומר. וחדש: סליקת CoW אחידה פר-בלוק — העודף חוזר לסוחרים, חסינות-סנדוויץ' מבנית · לאונצ'פאד ריבוני עם graduation חי ל-AMM (100% POL) · ו-ProtoRev עם רווח אמיתי נמדד: ‎+50,468µ. 72+ עסקאות אמיתיות נמדדו (v28 snapshot · 09.09); TVL זעיר בכנות — המנגנון הוכח, קנה-המידה הוא השער הבא.</p>
         <div class="metric">20bps: 10bps אוצר + 10bps צמיחת בריכות אוטונומית · הוכחת ארב: WETH נמכר בסטייה 5.04% · chaos 13/13</div>
       </div>
       <div class="pcard rv">
@@ -451,7 +451,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
     <div class="kicker">SOVEREIGN FLEET & WORKFORCE</div>
     <h2>ארגן שמפעיל את עצמו — ומראה את העבודה</h2>
     <div class="grid3">
-      <div class="card rv"><div class="v">13/13</div><h3>חיילים חיים על Steem</h3><p>אומת ב-get_accounts: @headcorner + 11 סוחברים + @powerspan. PnL פר-חייל פומבי (wog +163,295µ מוביל). RC/HP נמדד שעתיים. מפתחות לעולם לא עוזבים את המכונה.</p></div>
+      <div class="card rv"><div class="v">13/13</div><h3>חיילים חיים על Steem</h3><p>אומת ב-get_accounts (נמדד 08.09): @headcorner + 11 סוחברים + @powerspan. PnL פר-חייל פומבי (wog +163,295µ מוביל). RC/HP נמדד שעתיים. מפתחות לעולם לא עוזבים את המכונה.</p></div>
       <div class="card rv"><div class="v">23</div><h3>לולאות תפעול אוטונומיות</h3><p>claims · curation · trading · bridging · healing · sweeping — הכל תחת beat.lock יחיד (single-writer, אפס file-races). 5 לולאות = קריאת RPC אחת לחלון 15s. DRY_RUN ברירת-מחדל. והצי גם בונה את הרשת: סוכנים מפרסמים ומצביעים אוטונומית כל יום — בסמכות posting בלבד (השרשרת עצמה אוסרת עליה להזיז כספים) — עם E2E חי ו-tx אמיתי (פוסט בבלוק 109,443,160).</p></div>
       <div class="card rv"><div class="v">12 × 10</div><h3>רישום צי רב-פרוטוקולי</h3><p>12 סוכנים עם זהויות ב-EVM (7 רשתות) + TRON + SOL + BTC · מניפסט מעוגן on-chain · כתובות EVM זהות בכל הרשתות — מוכן ל-CREATE2 ולסף 7/11 (EIP-712) + כוונות גזלס עם gas-tank.</p>
         <div class="chips"><span class="chip hot">ethereum</span><span class="chip hot">bsc</span><span class="chip hot">polygon</span><span class="chip hot">arbitrum</span><span class="chip hot">optimism</span><span class="chip hot">base</span><span class="chip hot">avalanche</span><span class="chip">tron</span><span class="chip">solana</span><span class="chip">bitcoin</span></div>
@@ -516,7 +516,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 48px}
 <footer>
   <div class="wrap foot">
     <div class="disclaimer">
-      SAOS היא תשתית טכנולוגית ריבונית בשלב פיתוח. אין לראות באמור ייעוץ השקעות, הצעה לרכישת נייר ערך או הבטחת תשואה כלשהי. כל הנתונים נמדדים או מעוגנים on-chain וניתנים לאימות עצמאי; נתונים תיאורטיים מסומנים ככאלה במפורש, וגבולות כנים מצוינים לצד כל פריצת דרך. השימוש ברשתות ציבוריות (Steem, Hive, Blurt, TRON, Ethereum, Solana, Bitcoin) כשכבות אימות אינו מהווה שותפות או חסות של אותן רשתות. סימני מסחר שייכים לבעליהם.
+      SAOS היא תשתית טכנולוגית ריבונית בשלב פיתוח. אין לראות באמור ייעוץ השקעות, הצעה לרכישת נייר ערך או הבטחת תשואה כלשהי. כל הנתונים נמדדים או מעוגנים on-chain וניתנים לאימות עצמאי; נתונים תיאורטיים מסומנים ככאלה במפורש, וגבולות כנים מצוינים לצד כל פריצת דרך. השימוש ברשתות ציבוריות (Steem, Hive, Blurt, TRON, Ethereum, Solana, Bitcoin) כשכבות אימות אינו מהווה שותפות או חסות של אותן רשתות. סימני מסחר שייכים לבעליהם. כל המספרים בעמוד הם snapshot מדידה נכון ל-2026-09-10; המקורות החיים והתאריכים המדויקים ב-fact-sheet.
     </div>
     <div class="foot-links">
       <a href="fact-sheet.md">Fact Sheet v2 (מקור האמת)</a>
