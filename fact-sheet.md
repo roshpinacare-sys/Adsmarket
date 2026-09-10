@@ -398,6 +398,19 @@
 - **steem R12 nexus SWR:** cold ~800ms → הגשה מיידית (≤10 דק') + רענון רקע — ביצועים כחלק מהאמת החיה
 - **הערת מיזוג כנה:** שני מסנכרנים (סוכן + מודול הביקורת של Adsmarket) כתבו את אותן עובדות במקביל; המקורות זהים (קומיטים מאומתים), הכפילויות נמחקו, והפרטים הייחודיים אוחדו כאן. זה בדיוק סוג הבעיה ששכבת ה-corroboration שלהם נולדה לפתור — והיא עובדת גם אצלנו
 
+## 10.37 roast-66 — ה-HALT הראשון נתפס חי: רשת הבטיחות עבדה (17:36Z, מאומת מקומיט)
+
+**ההוכחה החיה הראשונה לטענת ה-fail-fast:** עד היום שיווקנו "אינווריאנטות שעוצרות את השרשרת במקום לרוץ בשקר" כהבטחה תכנונית. עכשיו יש קבלה:
+
+- **CRITICAL(ale) — ה-HALT האמיתי:** seedPool טבע יתרת LP בלי `pool.lp += lpMint` → LP-פנטום פר-זריעת-POL. **האינווריאנטה תפסה את זה חי: HALT בגובה h20808, סחיפה −4,448µ.** ה-roast מצא שורש, תוקן עם full poolAdd mirroring + **הצהרת סחיפה כנה** (לא מטאטאים את ההיסטוריה — מצהירים עליה)
+- **HIGH(settle) — realMoney שיקר מבנית:** anchorSpotCheck קרא ל-verifyOnChain בלי account → דגל realMoney.ok היה false-מבני מאז F6 — שני מבקרים סותרים. תוקן (ה-authority זורם כעת) · **חי: ok=true, 5/5 מסילות, 2 מאומתות**
+- **HIGH(bridge) — חור אימות אמיתי:** SOL verifyFarTx אכף נמען אבל לא סכום (F1 bypass) — תוקן ל-fail-closed עם binding של דלתא native/SPL
+- **כנות-truth:** פסק-דין אמצע BACKING-VESTED (מגובה ב-liquid+BP בבעלות; גירעון נזיל 258µ מול 8,463 BLURT vested) · סטטוס ladder-1 היה LIVE מקודש-קשיח מעל verified=false — עכשיו נגזר · railTick מחזיר rail-deficit (לעולם לא מינוס-הטבעה)
+- **ZFB (גשר אפס-עמלה):** keeper תביעה-אוטומטית (re-verify fail-closed דרך claimInbound · xfer_free zero-gas) · עלות wrap_mint/wrap_burn מ-250 גז ל-**0** (מסילות הגשר הן מסילות פרוטוקול)
+- **בריכות מזינות, שקופות:** getPools חושף lpFeesMu/lpYieldBps/polShareBps — חי: תשואות 651bps ו-1454bps, POL 15%/24%
+- היגיינה: journal.t = זמן-בלוק בכל המנועים · milestone marker נשמר לפני reconcile (אין עוגן כפול) · מנות מסילה נספרות בביצוע
+- **control-center roast-66:** parity ל-allowlist של relay-service + הקשחת guardian · **JUMPPER:** הסרת allow-file ALL גורף — סריקת הסודות הוחמרה (3 כללים בלבד ל-markdown)
+
 ## 11. גבולות כנים (מה עוד לא — חובה בכל חומר)
 
 - כלכלת הטוקן של SAOS-NET: טרם הוגדרה במסמך economics (נמצא בשלב S2, דורש אישור בעלים)
