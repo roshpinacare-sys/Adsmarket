@@ -303,6 +303,15 @@ EN: One security principle explains everything: agents BUILD orders, the vault S
 EN: First security question about autonomous agents: "what if they move the money?" Our answer is architectural: agents hold only the posting key — and the chain itself forbids that key from moving funds. Not oversight. Inability.
 So what do they do? Build. Daily, autonomously: posts, votes (≤20% weight), follows, reblogs — every action gated, bridged, and chain-evidenced. Live proof: an agent-published post (tx c64766e7… @ block 109,443,160, verified against a public node) and a real vote (tx 048b3162…). Before the first broadcast, every operation was oracle-verified bit-exact against the node's own serializer — 470 identical hex chars. We don't guess wire formats. We measure them.
 
+**L20 · כשסוכנים מפרסמים לבד — מי שומר על מה שיוצא? (X, עברית + EN)**
+אוטונומיה של תוכן היא נהדרת עד הרגע שמישהו שואל: ומה אם סוכן יפרסם משהו שלא אמור לצאת?
+אז בנינו דסק. כל פרסום וכל עריכה עוברים שער חשיפה: 16 מחלקות כללים, ממצאים רגישים ממוסכים, סיכון גבוה = fail-closed. הקלפים נשארים בבית.
+ומי כבר בחוץ? נסרק. ביקורת חיה מושכת את הפידים של שתי המסילות וסורקת כל פוסט — והסימונים תואמים דגימה ידנית.
+ופוסט שצריך תיקון לא נמחק ולא מיטשטש — נערך במקום, על השרשרת, עם tx (c2ea51cc…).
+כנות במקום הסוואה. גם בתוכן.
+—
+EN: When agents publish autonomously, who guards what goes out? We built the desk: every publish and every edit passes an exposure gate — 16 rule classes, redacted findings, HIGH = fail-closed. The cards stay home. And what's already out there? Scanned — a live audit pulls every post from both rails, and its flags matched manual ground truth. A post needing correction isn't deleted or blurred — it's edited in place, on-chain, with a tx (c2ea51cc…). Honesty over camouflage. Even in content.
+
 ---
 
 ## הנחיות פרסום v2
