@@ -407,7 +407,7 @@ EN: We told you the system prefers to stop honestly rather than run on a lie —
 —
 EN: Moving value across chains through a third party: 10 to 90 minutes, fees, and one big trust point. We measured our sovereign alternative on a real SOL↔TRX circuit: 5 runs · 65/65 atomic legs proven (both legs in the same block) · p50 of 88 milliseconds. The secret: the money never moves. The mirror on our network is 1:1 — supply==locked as an invariant. And speaking of invariants: we found a ~1.6 TRX phantom gap that had silently accumulated from anchor gas. When the mirror exceeds the truth, we burn the difference pro-rata. The rule is enforced against ourselves too.
 
-**L32 · כשההיסטוריה מסתעפת — לא בוחרים מנצח. מסמנים. (X, עברית + EN)**
+**L32 · כשההיסטוריה מסתעפת — לא בוחרים מנצח. מסמנים. [קהל טכני] (X, עברית + EN)**
 סרקנו 162 עוגנים אמיתיים שלנו על HIVE mainnet. מצאנו 8 גבהים שבהם יש יותר משורש אחד.
 האינסטינקט השיווקי: להתעלם, או לבחור "את הנכון".
 מה שעשינו: פרסמנו forks.json — המפקד המלא. בנינו remediation_report — רשומת תיקון קריאת-מכונה. וסימנו כל גובה מסועף כ-AMBIGUOUS עם canonicalRoot=null. אף שורש לא מוכרז כנכון בלי ראיה.
@@ -421,6 +421,8 @@ EN: We scanned our own 162 real anchors on HIVE mainnet. Found 8 heights carryin
 
 - סדר עדיפות קמפיינים: (0) **השקת Identity API/SDK (L1–L3)** (1) "לשקר נהיה יקר"/JUMPPER (2) השעון האטומי (3) כנות-ו-תיקונים (4) זהות חוצת-פרדיגמות (5) גשרים 1:1
 - קצב: 3–4 פוסטים בשבוע, תמיד עם קישור אימות אחד לפחות
+- מדיניות ארכיון: L1–L12 הם עידן ההשקה (ארכיון היסטורי — המספרים בהם הם צילום זמנם; לא לפרסם כחדש בלי רענון מול ה-fact-sheet). הקמפיינים הפעילים: L21 ואילך
+- תיוג קהל: פוסטים טכניים-עמוקים מסומנים [קהל טכני] — מיועדים ל-X של מפתחים/אודיטורים, לא לקהל קר
 - כלל ה-snapshot: מספר מתויג גרסה (כמו v28) הוא צילום מצב — לפני כל פרסום חוזר מרעננים מול ה-fact-sheet
 - כלל הזמינות: לא מפרסמים פקודת התקנה או URL בלי בדיקת חיות אמיתית מול משתמש חיצוני (npm/דפדפן) — לקח ה-roast של 10.09
 - תגובות לספקנים: לא מתווכחים — מגיבים עם txid או מדידה
