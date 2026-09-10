@@ -336,6 +336,23 @@ TRON הצטרפה (בלוק 86,124,584 — עוגן מיינטנט אמיתי, �
 —
 EN: TRON joined (block 86,124,584 — a real mainnet anchor, triple-verified from the node). XRPL joined (ledger 106,890,679, tesSUCCESS). And it closed into a wall: a read-only auditor now verifies all five chains themselves — ETH, BSC, SOL, TRON, XRPL — reading the roots back from what is actually engraved on-chain: 6097f929… on three, 39575b3b… on two. Two roots. One key. Five networks. Plus two honesty notes: our TRON cost model predicted 0.6 TRX; live measurement said 2.1 — the refutation is published. And an internal check found two txids in our own map were prefix+padding — links to transactions that never existed. Fixed, and published.
 
+**L24 · סרקנו את ההיסטוריה שלנו עצמנו. מצאנו. פרסמנו. (X + טלגרם, עברית + EN)**
+בנינו סורק-פורקים לזרמי עוגנים ציבוריים, והרצנו אותו על הדבר הראשון שבא ליד: 153 עסקאות העיגון האמיתיות שלנו עצמנו על HIVE.
+התוצאה: 8 גבהים נושאים שורשי-מצב סותרים מאותו חשבון — שניים מהם 30 ו-198 שניות זה מזה.
+סיבת השורש, בלי איפור: מונה-גבהים פר-תהליך (6 איפוסים, 4 חזרות) שפורסם לספר-קבע כאילו היה גלובלי.
+התיקון המבני: כל שורש חי כעת במרחב-שם של epoch — איפוס כבר לא יכול לזייף היסטוריה.
+והשורה הכי כנה בדוח: 93,118 תווים של "מנגנון אנטי-פורק" שכתבנו בעבר — מעולם לא נגעו בשרשרת. גם זה פורסם.
+—
+EN: We built a fork-detector for public anchor streams — and ran it on the first subject available: our own 153 real anchor operations on HIVE. Result: 8 heights carrying contradictory state roots from the same account. Root cause, unvarnished: a per-process height counter published to a permanent ledger as if it were global. Structural fix: every root now lives in an epoch namespace — a reset can no longer fake history. And the most honest line in the report: 93,118 characters of our own "anti-fork machinery" never once touched a chain. Published too.
+
+**L25 · המערכת מדדה את פריצת הדרך הבאה שלה. המחיר: 94 סנט. (X, עברית + EN)**
+שאלנו את הרשת שלנו ארבע שאלות: מה יש לנו ביד? מה מגביל אותנו? איפה הפריצה? ומה היא עולה?
+אז בנינו מנוע ששואל את השאלות האלה בעצמו — 7 מקורות אמת במקביל, 6 אילוצים מקוונטפים, 5 מועמדי פריצה מדורגים השפעה/מאמץ, וציון ריבונות חי: 43/100.
+והאבחנה החיה: 7 דלתות EVM כבר מוכחות-צינור וממתינות לגז. תקציב הפריצה, במחירי גז חיים: **$0.94**. פחות מדולר מפריד בין נוכחות עיגון של 5 רשתות ל-12.
+"הזהות מוכנה. הנוכחות ממתינה לגז." — זו לא סיסמה. זו שורת פלט של מנוע מדידה.
+—
+EN: We asked our network four questions: what do we hold, what limits us, where is the breakthrough, and what does it cost? So we built an engine that asks them itself — 7 truth sources in parallel, 6 quantified constraints, 5 candidates ranked by impact/effort, and a live sovereignty score: 43/100. The live diagnosis: 7 EVM doors are already pipeline-proven and awaiting gas. Breakthrough budget at live gas prices: **$0.94**. Less than a dollar separates an anchoring presence of 5 networks from 12. "Identity ready, presence awaiting gas" — not a slogan. An engine output.
+
 ---
 
 ## הנחיות פרסום v2
