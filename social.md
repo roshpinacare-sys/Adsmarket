@@ -463,6 +463,15 @@ EN: Self-audit #72 found this: one of our monitors' status files froze — 3 hou
 —
 EN: Forensics on 69 incomplete runs led to one conclusion: as long as the fleet's lifetime depends on someone's session, it isn't truly autonomous. So a birth doctrine was born: processes are spawned only the one way that survives — detached, from a long-lived mother process. Measured against the environment's reaper: every other channel got killed. Result: the organism runs when nobody is connected. And it keeps growing: 8 repos became 12, and live network research already verified expansion candidates — SKALE with free gas, NOSTR, Vara. Autonomy isn't a slogan. It's running forensics on 69 failures and fixing the root of all of them.
 
+**L39 · את התיקון מפרסמים בדיוק איפה שהשגיאה נמצאת (X + טלגרם, עברית + EN)**
+לפני שבוע גילינו ש-8 גבהים על HIVE נושאים שורשים סותרים. פרסמנו את המפקד, בנינו רשומת תיקון קריאת-מכונה, וסימנו הכול AMBIGUOUS.
+ואז מישהו שאל את השאלה הנכונה: הרשומה יושבת אצלנו בריפו — אבל המאמת בשטח פוגש את השורשים הסותרים על השרשרת, בלי לראות אותה לעולם.
+אז בנינו עוגן-תיקון: כל 8 הגבהים מקודדים ל-831 בייט — 10.1% מתקציב החינם — ועולים על השרשרת עצמה, בעסקה אחת ללא עמלה, בדיוק איפה שהפיצולים חיים.
+ושום דבר לא נמשך אחורה: העוגנים המקוריים נשארים קריאים. המערכת מסרבת להכריז שורש "נכון" בלי ראיה — וגם מסרבת לקבל שורש מומצא (הוא יידחה כפיצול חדש).
+24 בדיקות על הנתונים האמיתיים נועצות את הכלל: אף אחד לא הכריע — אז שום דבר לא מוכרז.
+—
+EN: A week ago we found 8 heights on HIVE carrying contradictory roots. We published the census, built a machine-readable remediation record, and marked everything AMBIGUOUS. Then someone asked the right question: the record sits in our repo — but a verifier out there meets the contradictory roots on-chain, without ever seeing it. So we built a correction anchor: all 8 heights encoded into 831 bytes — 10.1% of the free budget — going on-chain itself, in one zero-fee transaction, exactly where the forks live. Nothing is retracted: the original anchors stay readable. The system refuses to declare a "correct" root without proof — and refuses an invented root too (rejected as a new fork). 24 assertions on the real data pin the rule: nobody adjudicated, so nothing is declared canonical.
+
 ---
 
 ## הנחיות פרסום v2
