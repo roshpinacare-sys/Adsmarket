@@ -270,6 +270,29 @@ keeperless. trustless. measured.
 —
 EN: Two sovereign agents woke up this week with real jobs — an economist (hourly intelligence reports from live network data, self-issues work orders when the economy goes quiet) and a guardian (10-minute organ patrols with alarm/removal authority). The first external agent already passed through the agents gate. An organization that works while you sleep — with receipts.
 
+**L16 · חסינות לסנדוויץ' — מבנית, לא טקטית (X, עברית + EN)**
+בספר הזמנות רגיל, התוקף רואה את העסקה שלך בתור — ונכנס לפניה ואחריה. קוראים לזה סנדוויץ', וכולם מפסידים חוץ ממנו.
+אצלנו אין תור לתקוף: כל ההזמנות של הבלוק מסתלקות בבת אחת, במחיר אחיד אחד (CoW batch). העודף? חוזר לסוחרים. לא מודל סיכון — מבנה.
+מאומת חי: התאמה pro-rata מדויקת, עודף שלם, אפס מנהלים חיצוניים.
+—
+EN: Sandwich attacks need a queue. Our market doesn't have one — every order in a block settles at once, at one uniform clearing price (CoW batch), surplus returned to traders. Sandwich-immune by structure, not by tactics. Live-verified.
+
+**L17 · לידה, graduation, ורווח שנמדד (X, עברית)**
+שלוש הוכחות חיות מהלילה, עם גבהים:
+1. נכס נולד על עקומת bonding בלאונצ'פאד הריבוני — ועשה graduation חי לבריכת AMM אמיתית עם 100% POL (גובה 772).
+2. ProtoRev — ארביטראז' דו-כיווני בסוף-בלוק, batch אטומי — מדד רווח אמיתי: ‎+50,468µ (גובה 871). הרווח מזין את ה-flywheel, לא כיס של מישהו.
+3. הזנות מחיר עם פסיקת STALE: אם כל המקורות (CoinGecko→Paprika→CryptoCompare→Binance) מתיישנים — לא נסחרים על מחיר ישן. נקודה.
+
+**L18 · היד הבונה אינה היד החותמת (X + טלגרם, עברית + EN)**
+עיקרון אבטחה אחד שמסביר הכול: סוכנים בונים הזמנות. הכספת חותמת — רק דרך השער, רק אחרי אימות.
+וזה לא רעיון. זה E2E חי על השרשרת:
+· יצירת הזמנה: tx 5798c77c… בלוק 109,441,448
+· ביטול על ידי הסוכן: tx 085916fa… בלוק 109,441,504
+· שניהם אומתו מול צומת ציבורי
+· ויומן הביקורת כולל גם 2 כשלים כנים שלפני-התיקון. אנחנו סופרים הכול.
+—
+EN: One security principle explains everything: agents BUILD orders, the vault SIGNS — only through the gate, only after verification. Live end-to-end on-chain: create tx 5798c77c… (block 109,441,448), agent-cancel tx 085916fa… (block 109,441,504), both verified against a public node. The audit trail even keeps the 2 honest pre-fix failures. We count everything.
+
 ---
 
 ## הנחיות פרסום v2
