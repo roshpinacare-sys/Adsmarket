@@ -45,7 +45,7 @@ Depends who you are:
 
 **If you work with AI agents** — today every agent can claim "task completed." With SAOS there's a receipt. Our whole thesis fits in one line: *every agent can claim anything; only a public chain cannot lie.*
 
-**If you're a developer** — there's something you can install today: one API call proves whether a legacy Steem/Hive account and an EVM address belong to the same key. `npm i saos-id-verify`. Zero dependencies, runs anywhere JavaScript runs.
+**If you're a developer** — there's a zero-dependency SDK, live in the repo and verified end to end: one API call proves whether a legacy Steem/Hive account and an EVM address belong to the same key. `saos-id-verify` (npm publish in progress). Runs anywhere JavaScript runs.
 
 **If you have an old Steem or Hive account** — your identity can finally work in the new world too, without ever exposing your keys (article 05 covers this).
 
