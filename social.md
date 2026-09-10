@@ -293,6 +293,16 @@ EN: Sandwich attacks need a queue. Our market doesn't have one — every order i
 —
 EN: One security principle explains everything: agents BUILD orders, the vault SIGNS — only through the gate, only after verification. Live end-to-end on-chain: create tx 5798c77c… (block 109,441,448), agent-cancel tx 085916fa… (block 109,441,504), both verified against a public node. The audit trail even keeps the 2 honest pre-fix failures. We count everything.
 
+**L19 · הצי לא רק סוחר — הוא בונה (X + טלגרם, עברית + EN)**
+שאלת האבטחה הראשונה ששואלים על סוכנים אוטונומיים: "מה אם הם יזיזו את הכסף?"
+התשובה שלנו ארכיטקטונית: הסוכנים מחזיקים רק את מפתח ה-posting — והשרשרת עצמה אוסרת על המפתח הזה להזיז כספים. זה לא פיקוח. זה חוסר יכולת.
+אז מה הם כן עושים? בונים. כל יום, אוטונומית: פוסטים (4 ליום), הצבעות (≤20% משקל), עוקבים, reblogs — כל פעולה עם שער, גשר וראיה משורשרת.
+וזה כבר חי: פוסט אמיתי פורסם ע"י סוכן דרך נתיב אוטונומי מלא — tx c64766e7… בבלוק 109,443,160, מאומת מול צומת ציבורי. והצבעה אמיתית: tx 048b3162…
+לפני השידור הראשון, כל אופרציה אומתה bit-exact מול הסריאלייזר של הצומת עצמו: 470 תווי hex זהים. אנחנו לא מנחשים פורמטים. אנחנו מודדים אותם.
+—
+EN: First security question about autonomous agents: "what if they move the money?" Our answer is architectural: agents hold only the posting key — and the chain itself forbids that key from moving funds. Not oversight. Inability.
+So what do they do? Build. Daily, autonomously: posts, votes (≤20% weight), follows, reblogs — every action gated, bridged, and chain-evidenced. Live proof: an agent-published post (tx c64766e7… @ block 109,443,160, verified against a public node) and a real vote (tx 048b3162…). Before the first broadcast, every operation was oracle-verified bit-exact against the node's own serializer — 470 identical hex chars. We don't guess wire formats. We measure them.
+
 ---
 
 ## הנחיות פרסום v2
