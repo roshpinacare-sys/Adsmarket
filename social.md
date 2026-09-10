@@ -353,6 +353,17 @@ EN: We built a fork-detector for public anchor streams — and ran it on the fir
 —
 EN: We asked our network four questions: what do we hold, what limits us, where is the breakthrough, and what does it cost? So we built an engine that asks them itself — 7 truth sources in parallel, 6 quantified constraints, 5 candidates ranked by impact/effort, and a live sovereignty score: 43/100. The live diagnosis: 7 EVM doors are already pipeline-proven and awaiting gas. Breakthrough budget at live gas prices: **$0.94**. Less than a dollar separates an anchoring presence of 5 networks from 12. "Identity ready, presence awaiting gas" — not a slogan. An engine output.
 
+**L26 · "הקוד מתוקן" זה לא "התהליך מריץ את התיקון" (X + טלגרם, עברית + EN)**
+הלקח הכי קשה של השבוע, מתוך ביקורת עצמית:
+שלושה מתוך ארבעה שירותים היו מתים. אבל המערכת המשיכה להבטיח "עיגון אוטומטי של הצי" — מקובץ סטטוס קפוא בן 39 שעות. הקוד תוקן מזמן. התהליך שהיה אמור להריץ אותו — לא רץ.
+התיקון בשלוש שכבות:
+1. משגיח שמרפא כל מוות תוך 5 שניות (נמדד)
+2. כל טענה מחייבת אישור חי מרכיב בלתי-תלוי — נולדה שכבת corroboration
+3. ובדרך נתפס באג שהיה גורם לשידור כפול של עסקה (מזהה-בקשה טרי פר-ניסיון רימה את יומן האידיפוטנטיות) — בדיוק המחלקה שהביקורת הקודמת סגרה במקום אחר. הקורא האחרון נסגר.
+קובץ קפוא הוא לא אמת. תהליך חי עם קבלה — כן.
+—
+EN: The hardest lesson this week, from our own audit: three of four services were dead — yet the system kept promising "automatic fleet anchoring" from a status file frozen for 39 hours. The code was fixed; the process that runs it wasn't running. The fix, in three layers: (1) a supervisor that self-heals any death in 5 seconds (measured); (2) a corroboration layer — every claim now requires live verification from an independent component, never a frozen file; (3) and caught along the way: a bug that would have double-broadcast a transaction (fresh request-id per attempt fooled the idempotency ledger) — the exact class a previous roast closed elsewhere. Last caller closed. A frozen file is not truth. A live process with a receipt is.
+
 ---
 
 ## הנחיות פרסום v2
