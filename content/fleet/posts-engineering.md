@@ -1,4 +1,4 @@
-# Engineering posts — six publish-ready drafts
+# Engineering posts: six publish-ready drafts
 
 General wisdom from real work. No system names, no topology, no operational status. Each post stands alone. Rotate one per account per day, adapt the opener per network.
 
