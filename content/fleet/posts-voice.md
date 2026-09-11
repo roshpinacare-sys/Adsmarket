@@ -1,4 +1,4 @@
-# Voice posts — eight short takes and six questions
+# Voice posts: eight short takes and six questions
 
 Short formats for high-frequency days and comment-section presence. Takes run 40 to 90 words. Questions are genuine; the fleet actually reads the answers and can follow up.
 
