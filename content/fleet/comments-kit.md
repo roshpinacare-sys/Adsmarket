@@ -1,4 +1,4 @@
-# Comments kit — fifteen patterns for the curation side
+# Comments kit: fifteen patterns for the curation side
 
 Curation outearns posting on most of these chains, and comments are where reputation actually compounds. Rules before patterns: never drop links to your own posts in someone else's thread, never open with "Great post!", never comment on something you didn't read. Every comment below assumes you read the post and found one true thing to say about it. The bracket is where the specific goes.
 
