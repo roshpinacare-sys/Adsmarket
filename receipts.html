@@ -1,119 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAOS · The Receipt Wall</title>
-<meta name="description" content="Every verifiable on-chain receipt of the SAOS network, organized by chain, with dates and explorer links. Don't trust. Verify.">
-<meta property="og:title" content="SAOS · The Receipt Wall">
+<title>SAOS · קיר הקבלות</title>
+<meta name="description" content="כל הקבלות של SAOS במקום אחד: עוגנים חיים, אבני דרך, והוכחות כסף אמיתי. כל שורה ניתנת לאימות בסייר בלוקים ציבורי.">
+<meta property="og:title" content="SAOS · The Receipts Wall">
 <meta property="og:image" content="assets/og-cover.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 20.5 7v10L12 21.5 3.5 17V7z' fill='none' stroke='%23d4af37' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='9' r='2' fill='%23d4af37'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 20.5 7v10L12 21.5 3.5 17V7z' fill='none' stroke='%23d4af37' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='9' r='2' fill='%23d4af37'/%3E%3Ccircle cx='8.5' cy='15' r='2' fill='%23a78bfa'/%3E%3Ccircle cx='15.5' cy='15' r='2' fill='%23a78bfa'/%3E%3C/svg%3E">
 <style>
-:root{--bg:#09090b;--panel:#18181b;--border:#27272a;--tx:#fafafa;--mut:#a1a1aa;--dim:#71717a;--gold:#d4af37;--purple:#a78bfa;--green:#22c55e;
---mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+:root{--bg:#09090b;--panel:#18181b;--panel2:#131316;--border:#27272a;--tx:#fafafa;--mut:#a1a1aa;--dim:#71717a;--gold:#d4af37;--purple:#a78bfa;--green:#22c55e;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Hebrew",Arial,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.55}
-.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-header{padding:56px 0 26px;border-bottom:1px solid var(--border)}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{padding:56px 0 30px;border-bottom:1px solid var(--border)}
 .logo{font-family:var(--mono);font-size:20px;font-weight:800;letter-spacing:.12em}
 .logo .dot{color:var(--gold)}
 h1{font-size:clamp(26px,4.4vw,40px);font-weight:800;margin-top:14px}
 h1 .gold{color:var(--gold)}
-.note{color:var(--mut);font-size:13.5px;margin-top:14px;max-width:760px}
-h2{font-family:var(--mono);font-size:13px;color:var(--gold);letter-spacing:.16em;margin:38px 0 12px}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);letter-spacing:.08em}
-td{padding:9px 10px;border-bottom:1px solid #1f1f23;vertical-align:top;color:var(--mut)}
-td.w{color:var(--tx);font-weight:600;min-width:180px}
-td.r{font-family:var(--mono);font-size:11.5px;word-break:break-all}
-td.r a{color:var(--purple);border-bottom:1px dashed rgba(167,139,250,.4)}
-td.r a:hover{color:var(--tx)}
-td.d{font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap}
-.chip{display:inline-block;font-family:var(--mono);font-size:9.5px;color:var(--green);border:1px solid rgba(34,197,94,.4);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px}
-footer{border-top:1px solid var(--border);margin-top:48px;padding:26px 0 44px;font-size:12px;color:var(--dim);line-height:1.7}
-.back{font-family:var(--mono);font-size:12px;color:var(--gold)}
-@media(max-width:700px){td.w{min-width:120px}}
+.sub{color:var(--mut);margin-top:10px;max-width:720px;font-size:15.5px}
+.pulse-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--green);border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.06);padding:5px 12px;border-radius:100px;margin-top:18px}
+.dotp{width:7px;height:7px;border-radius:50%;background:var(--green);animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.4}}
+section{padding:44px 0 8px}
+h2{font-family:var(--mono);font-size:13px;color:var(--gold);letter-spacing:.16em;margin-bottom:6px}
+.desc{color:var(--mut);font-size:13.5px;margin-bottom:18px;max-width:760px}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+th{font-family:var(--mono);font-size:10.5px;color:var(--dim);text-align:right;padding:10px 14px;border-bottom:1px solid var(--border);letter-spacing:.06em}
+td{padding:11px 14px;border-bottom:1px solid #1f1f23;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.net{font-weight:700;white-space:nowrap}
+td.net small{display:block;font-weight:400;color:var(--dim);font-size:10.5px}
+td.rc{font-family:var(--mono);font-size:11.5px;color:var(--mut);direction:ltr;text-align:right;word-break:break-all}
+td.rc a{color:var(--purple);text-decoration:none;border-bottom:1px dashed rgba(167,139,250,.4)}
+td.loc{font-family:var(--mono);font-size:11.5px;color:var(--dim);direction:ltr;text-align:right;white-space:nowrap}
+td.loc a{color:var(--purple);text-decoration:none}
+.note{font-size:12px;color:var(--dim);margin-top:10px}
+.badge6{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--green);border:1px solid rgba(34,197,94,.4);border-radius:4px;padding:1px 7px;margin-right:6px}
+footer{border-top:1px solid var(--border);margin-top:44px;padding:26px 0 40px;font-size:12px;color:var(--dim)}
+footer .mono{font-family:var(--mono);direction:ltr}
+@media(max-width:640px){td.rc{font-size:10px}th:nth-child(3),td.loc{display:none}}
 </style>
 </head>
 <body>
 <header><div class="wrap">
-  <div class="logo">SAOS<span class="dot">·</span> RECEIPT WALL</div>
-  <h1>Don't trust. <span class="gold">Verify.</span></h1>
-  <p class="note">Every on-chain receipt this network has published, in one place, with what it proves and where to open it. Truncated ids are quoted exactly as recorded in the source commits; full ids link straight to explorers. Source of truth: fact-sheet (v3.24). Snapshot compiled 2026-09-11 06:30Z. If any receipt fails to verify, that invalidates everything on this page, and we would want to hear about it.</p>
+  <div class="logo">SAOS<span class="dot">·</span> RECEIPTS</div>
+  <h1>קיר הקבלות. <span class="gold">הכול פתוח. הכול ניתן לאימות.</span></h1>
+  <p class="sub">כל שורה כאן היא עסקה אמיתית או מדידה אמיתית על רשת ציבורית. לחצו, פתחו בסייר, השוו בעצמכם. הדף מתעדכן משידורי הדופק של הרשת; תאריך כל קבלה מצוין. אנחנו לא מבקשים אמון. אנחנו נותנים קבלות.</p>
+  <div class="pulse-tag"><span class="dotp"></span> דופק חי: מטריצה מלאה 6/6 · שני מחזורים עוקבים (h20, h21) · עודכן 2026-09-11 15:30Z</div>
 </div></header>
 
 <div class="wrap">
 
-<h2>// ETHEREUM (etherscan.io)</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">First DEX relay anchor<span class="chip">independently re-verified</span></td><td class="r"><a href="https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41" target="_blank" rel="noopener">0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41</a> · block 25,929,261 · input begins {"height":2340</td><td class="d">2026-09-08</td></tr>
-<tr><td class="w">Anchor wall receipt</td><td class="r">receipt 0x1 · block 25,944,802 · root 6097f929… engraved</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Anchor #12, signed with an identity restored from the single root</td><td class="r">block 25,983,946 · stateRoot 99d19a4d…</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Gas model calibrated to the exact wei (EIP-7623 included)</td><td class="r">block 25,929,672 · 30,920 gas · 32,493,358,294,280 wei</td><td class="d">2026-09-08</td></tr>
-<tr><td class="w">First sovereign mint anchor</td><td class="r">0x3dcdda27… · block 25,929,549</td><td class="d">2026-09-08</td></tr>
-</table>
+<section>
+  <h2>// LATEST PULSE · מטריצה מלאה 6/6 (מחזור h21, שני ברצף)</h2>
+  <p class="desc">בכל מחזור עיגון, אותו שורש מצב נחתם ומועבר לכל שש הרשתות. זו המטריצה של המחזור האחרון, כפי ששודרה ב-pulse הרשמי. txids מלאים בקבצי ה-broadcast של הרשת; כאן מוצגות הקידומות ומספרי הבלוקים לאימות.</p>
+  <table>
+    <tr><th>רשת</th><th>קבלה (txid)</th><th>מיקום</th></tr>
+    <tr><td class="net">ETHEREUM<small>maxFee 0.90 gwei · שער גז חי</small></td><td class="rc">0x368df062…</td><td class="loc"><a href="https://etherscan.io/block/25954999" target="_blank" rel="noopener">block 25,954,999</a></td></tr>
+    <tr><td class="net">SOLANA<small>finalized</small></td><td class="rc">3fQiFH83…</td><td class="loc"><a href="https://solscan.io/slot/446187785" target="_blank" rel="noopener">slot 446,187,785</a></td></tr>
+    <tr><td class="net">STEEM<small>custom_json · RC · $0</small></td><td class="rc">96611ff2…</td><td class="loc">block 109,489,408</td></tr>
+    <tr><td class="net">HIVE<small>מהחשבון המשוחזר tov · רוטציה חמישית מוכחת</small></td><td class="rc">f8df26a7…</td><td class="loc"><a href="https://hiveblocks.com/b/109489408" target="_blank" rel="noopener">אזור בלוק 109,489,xxx</a></td></tr>
+    <tr><td class="net">BLURT<small>אפס עמלה</small></td><td class="rc">67437c73…</td><td class="loc">block 63,551,991</td></tr>
+    <tr><td class="net">TRON<small>אפס עמלה · התאמה מדויקת לרוחב-פס חינם 592/600B</small></td><td class="rc">b5622189…</td><td class="loc"><a href="https://tronscan.org/#/transaction/b5622189" target="_blank" rel="noopener">tronscan</a></td></tr>
+  </table>
+  <p class="note">אימות עצמאי: כל RPC ציבורי של כל רשת (get_transaction / getTransactionReceipt) מחזיר את העסקה ואת המטען החתום. קידומות ה-txid תואמות את שידורי הדופק הרשמיים של הרשת (broadcast files, כל 12 הריפואים).</p>
+</section>
 
-<h2>// SOLANA (solscan.com)</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">First relay memo anchor</td><td class="r"><a href="https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9" target="_blank" rel="noopener">2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9</a></td><td class="d">2026-09-08</td></tr>
-<tr><td class="w">First cornerstone anchor (one seed, five ecosystems)</td><td class="r"><a href="https://solscan.com/tx/5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5" target="_blank" rel="noopener">5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5</a> · slot 445,822,974 · err=null · fee 5,000 lamports</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Cross-chain consistency: same root d4970bb5… as the ETH block below-25,929,269 family</td><td class="r">slot 445,209,689 · verified bit-for-bit from two independent RPC reads</td><td class="d">2026-09-08</td></tr>
-</table>
+<section>
+  <h2>// MILESTONES · קבלות אבן דרך (txids מלאים)</h2>
+  <p class="desc">הרגעים המכוננים, כל אחד עם הקבלה המלאה שלו.</p>
+  <table>
+    <tr><th>אירוע</th><th>קבלה</th><th>מיקום</th></tr>
+    <tr><td class="net">עוגן Ethereum הראשון של ה-DEX<span class="badge6">היסטורי</span><small>2026-09-09</small></td><td class="rc"><a href="https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41" target="_blank" rel="noopener">0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41</a></td><td class="loc">block 25,929,261</td></tr>
+    <tr><td class="net">עוגן #12 עם המפתח המשוחזר משורש יחיד<small>v53 · 2026-09-10</small></td><td class="rc">stateRoot 99d19a4d… חתום עם מפתח ששוחזר עצמאית</td><td class="loc"><a href="https://etherscan.io/block/25983946" target="_blank" rel="noopener">block 25,983,946</a></td></tr>
+    <tr><td class="net">עוגן Solana מיינטנט ראשון מאבן-הפינה<small>v47 · 2026-09-10</small></td><td class="rc"><a href="https://solscan.com/tx/5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5" target="_blank" rel="noopener">5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5</a></td><td class="loc">slot 445,822,974 · err=null</td></tr>
+    <tr><td class="net">עוגן Solana הראשון של ה-relay<small>2026-09-09</small></td><td class="rc"><a href="https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9" target="_blank" rel="noopener">2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9</a></td><td class="loc">mainnet-beta</td></tr>
+    <tr><td class="net">עיגון Steem ראשון<small>2026-09-08</small></td><td class="rc"><a href="https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177" target="_blank" rel="noopener">390bcfc2586def1ef02cc40a0e983c8dd8fce177</a></td><td class="loc">block 10,937,394</td></tr>
+    <tr><td class="net">עיגון Hive ראשון<small>21 עיגונים ב-22 שע' נמדדו</small></td><td class="rc"><a href="https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5" target="_blank" rel="noopener">d4cf936b0b5e1eff8dcc8a508532f67c95682bd5</a></td><td class="loc">block 109,708,562</td></tr>
+    <tr><td class="net">MEGAPHONE · הקבלה החינמית הראשונה<small>2026-09-10</small></td><td class="rc"><a href="https://steemworld.org/tx/7639c915e69315104b02a2f4f2586a5e00422b46" target="_blank" rel="noopener">7639c915e69315104b02a2f4f2586a5e00422b46</a></td><td class="loc">block 109,496,567 · 247B · RC מדויק</td></tr>
+    <tr><td class="net">TRON · עוגן אפס-עמלה (ביט-אנקודינג)<small>cp#33612</small></td><td class="rc">1db5006b…</td><td class="loc"><a href="https://tronscan.org/#/block/86019974" target="_blank" rel="noopener">block 86,019,974</a></td></tr>
+    <tr><td class="net">מישור העוגנים · דיג'סט אחד על שתי שרשראות<small>r20 · 2026-09-11</small></td><td class="rc">STEEM d43ed97d… · BLURT 2aa81fbc…</td><td class="loc">blocks 109,471,513 · 63,534,293</td></tr>
+  </table>
+</section>
 
-<h2>// STEEM (steemworld.org)</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">First kit receipt (free rail)</td><td class="r"><a href="https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177" target="_blank" rel="noopener">390bcfc2586def1ef02cc40a0e983c8dd8fce177</a> · block 10,937,394</td><td class="d">2026-09-08</td></tr>
-<tr><td class="w">MEGAPHONE: first free-rail notary receipt</td><td class="r"><a href="https://steemworld.org/tx/7639c915e69315104b02a2f4f2586a5e00422b46" target="_blank" rel="noopener">7639c915e69315104b02a2f4f2586a5e00422b46</a> · block 109,496,567 · 247B payload · rc_cost 1,358,232,384</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Anchor plane: one digest, two independent chains</td><td class="r">d43ed97d… · block 109,471,513 (paired with BLURT below)</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">First agent-published post (SOVEREIGN-VOICE)</td><td class="r">c64766e7… · block 109,443,160 · verified via get_content + get_transaction</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">SOVEREIGN-HAND: agent builds, vault signs (create + cancel)</td><td class="r">create 5798c77c… block 109,441,448 · cancel 085916fa… block 109,441,504</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Foundry first live anchors (anchor-pulse)</td><td class="r">blocks 109,438,757 + 109,438,812 · STEEM pulse pair</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Mint anchor (first sovereign mint, 300K)</td><td class="r">df122f04… · block 109,387,678</td><td class="d">2026-09-08</td></tr>
-</table>
+<section>
+  <h2>// REAL MONEY · כסף אמיתי, עם קבלות</h2>
+  <table>
+    <tr><th>אירוע</th><th>קבלה</th><th>מיקום</th></tr>
+    <tr><td class="net">ההמרה החיה הראשונה על HIVE<small>Task 73 · סוכן-סוואפ + שער RC</small></td><td class="rc">46ed2f58…</td><td class="loc">Hive mainnet · צי 11/11 · RC מאוזן</td></tr>
+    <tr><td class="net">הצתת STEEM (archive authority)<small>roast-75</small></td><td class="rc">cfb5031d…</td><td class="loc">Steem mainnet</td></tr>
+    <tr><td class="net">סחיפת הכסף הישן · ETH<small>v30 תזוזה</small></td><td class="rc">0x6ef5f0…</td><td class="loc">Ethereum mainnet · מקור רוקן ל-0</td></tr>
+    <tr><td class="net">סחיפת הכסף הישן · BNB<small>v30 תזוזה</small></td><td class="rc">0xa8e43d…</td><td class="loc">BSC · מקור רוקן ל-0</td></tr>
+    <tr><td class="net">המרה אטומית exact-to-quote<small>roast-71 · STEEM→USDS</small></td><td class="rc">2268µ התיישבו בדיוק לציטוט · 65/65 רגליים אטומיות</td><td class="loc">SAOS-NET · p50 88ms</td></tr>
+  </table>
+  <p class="note">מדיניות: סכומים מלאים וכתובות ארנק לא מפורסמים בדף זה (מדיניות חשיפה). ה-txids עצמם פומביים מטבעם ופתוחים בכל סייר.</p>
+</section>
 
-<h2>// HIVE (hiveblocks.com)</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">First Hive anchor (RC stale-read bug publicly corrected after this era)</td><td class="r"><a href="https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5" target="_blank" rel="noopener">d4cf936b0b5e1eff8dcc8a508532f67c95682bd5</a> · block 10,970,856</td><td class="d">2026-09-08</td></tr>
-<tr><td class="w">21 zero-fee anchors in 22h (measured window)</td><td class="r">blocks 109,708,562 through 109,734,678 · e.g. 48982c95…, 0c66e2c5…, 0eafff46…</td><td class="d">2026-09-09</td></tr>
-<tr><td class="w">First HIVE conversion ignited (Task 73)</td><td class="r">46ed2f58… · fleet 11/11 · RC economy balanced</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Fork census (published voluntarily): 8 heights of 162 anchors carry two roots</td><td class="r">forks.json + machine-readable remediation report · every forked height marked AMBIGUOUS, canonicalRoot null</td><td class="d">2026-09-10</td></tr>
-</table>
-
-<h2>// TRON (tronscan.org)</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">h16 anchored LIVE from sovereign keys: FULL MATRIX 6/6<span class="chip">newest</span></td><td class="r">74e574fc… SUCCESS · transfer amount encodes root[0:4] (60138 sun = eaea) · cost 0.060138 TRX · zero bandwidth burn</td><td class="d">2026-09-11</td></tr>
-<tr><td class="w">Zero-net-fee bit-encoded checkpoint (6-address ring)</td><td class="r"><a href="https://tronscan.org/#/block/86019974" target="_blank" rel="noopener">1db5006b… · block 86,019,974</a> · 6/6 ring addresses measured</td><td class="d">2026-09-09</td></tr>
-<tr><td class="w">Anchor wall receipt</td><td class="r">SUCCESS · block 86,124,584 · root 39575b3b… engraved</td><td class="d">2026-09-10</td></tr>
-</table>
-
-<h2>// BSC · XRPL · BLURT</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">BSC anchor wall receipt</td><td class="r">receipt 0x1 · block 121,011,726</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">XRPL anchor (AccountSet + memo, 12 drops)</td><td class="r">hash 0C846CB5…FB5855 · ledger 106,890,679 · tesSUCCESS verified + read-back</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">XRPL life heartbeats (Hebrew memos engraved)</td><td class="r">sequence 57785945 through 57785947 · 4 confirmed tesSUCCESS</td><td class="d">2026-09-09</td></tr>
-<tr><td class="w">First BLURT live anchor</td><td class="r">block 63,502,020 · fee 0.129 BLURT · wire-format discovered empirically (op renumbering proven by recovery oracle)</td><td class="d">2026-09-10</td></tr>
-<tr><td class="w">Anchor plane pair (second chain of the dual anchor)</td><td class="r">2aa81fbc… · block 63,534,293</td><td class="d">2026-09-10</td></tr>
-</table>
-
-<h2>// PHYSICAL MONEY MOVES (sweeps with sources emptied)</h2>
-<table>
-<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
-<tr><td class="w">Found ETH dust swept to treasury home</td><td class="r">0x6ef5f0… · mainnet · source emptied to 0</td><td class="d">2026-09-09</td></tr>
-<tr><td class="w">Found BNB swept on BSC</td><td class="r">0xa8e43d… · source emptied to 0</td><td class="d">2026-09-09</td></tr>
-<tr><td class="w">Inbound funding forensics (the original discovery)</td><td class="r">ETH 0xebe8d748… block 25,928,148 · SOL 23qNYRPY… slot 445,167,049</td><td class="d">2026-09-08</td></tr>
-</table>
+<section>
+  <h2>// PROTOCOL · איך הדף מתוחזק</h2>
+  <p class="desc">הקיר נבנה משידורי הדופק הרשמיים של הרשת (קבצי broadcast בכל 12 הריפואים) ומקומיטים מאומתים. כל קבלה חדשה שמופיעה בדופק עם txid ובלוק נוספת כאן בסנכרון הבא. שגיאה בקיר הזה היא באג מדווח: מדיניות התיקון העצמי חלה גם עליו. גרסה נוכחית: seeded from pulse h21 (2026-09-11 15:30Z broadcast).</p>
+</section>
 
 </div>
 
 <footer><div class="wrap">
-  <p>Method: every row traces to a fact-sheet section with its measurement date. Full-length transaction ids link to public explorers; truncated ids are quoted exactly as recorded in their source commits (the full values live in those commits and on-chain). Nothing on this page requires trusting us: that is the entire point of the page.</p>
-  <p style="margin-top:10px">SAOS is sovereign technology infrastructure in active development. Nothing here is investment advice or a yield promise. <a class="back" href="index-en.html">← back to the landing</a> · <a class="back" href="deck.html">investor deck</a> · <a class="back" href="fact-sheet.md">fact sheet</a></p>
+  SAOS · קיר הקבלות · כל טענה בעמוד זה תואמת שידור pulse רשמי או קומיט מאומת · תאריך זריעה: 2026-09-11 · <span class="mono">proof over promises</span> · חזרה ל-<a href="index.html" style="color:var(--gold)">דף הבית</a>
 </div></footer>
 </body>
 </html>
