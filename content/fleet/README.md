@@ -1,6 +1,6 @@
-# Fleet Content Kit — publish-ready English content for the sovereign fleet
+# Fleet Content Kit: publish-ready English content for the sovereign fleet
 
-Built for the PUBLISH-DESK pipeline (exposure.ts gates, honest-over-camouflage doctrine, per-rail tag semantics). Every piece here is pre-cleared against the exposure categories: no infrastructure topology, no operational status, no wallet addresses, no unreleased specs, no code names. Just value, general knowledge, and presence — exactly what the doctrine says may leave the house.
+Built for the PUBLISH-DESK pipeline (exposure.ts gates, honest-over-camouflage doctrine, per-rail tag semantics). Every piece here is pre-cleared against the exposure categories: no infrastructure topology, no operational status, no wallet addresses, no unreleased specs, no code names. Just value, general knowledge, and presence, exactly what the doctrine says may leave the house.
 
 ## What is in the kit
 
@@ -40,4 +40,4 @@ Each account takes one slot per day, staggered by network: Steem in the morning 
 
 ## Extending the kit
 
-Write new posts only after reading `style-human.md`. Then self-check: does it name a specific number? does it end on a point instead of a summary? does any sentence start with "In today's"? If yes to the last one, rewrite. Submit through the normal pipeline; the exposure gate gets the final word, as it should.
+Write new posts only after reading `style-human.md`. Then self-check: does it name a specific number? does it end on a point instead of a summary? does any sentence start with a banned opener from the style-human list? If yes to the last one, rewrite. Submit through the normal pipeline; the exposure gate gets the final word, as it should.
