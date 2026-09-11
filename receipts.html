@@ -1,139 +1,119 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAOS · קיר הקבלות — כל ההוכחות במקום אחד</title>
-<meta name="description" content="כל הקבלות המרכזיות של SAOS: עוגנים, עסקאות, אימונים וחתימות על 9 רשתות ציבוריות. פתחו כל אחת בסייר הבלוקים ובדקו בעצמכם.">
-<meta property="og:title" content="SAOS · The Receipts Wall">
-<meta property="og:description" content="Every major receipt in one place: anchors, transactions, attestations across 9 public networks. Open any one in an explorer and verify.">
+<title>SAOS · The Receipt Wall</title>
+<meta name="description" content="Every verifiable on-chain receipt of the SAOS network, organized by chain, with dates and explorer links. Don't trust. Verify.">
+<meta property="og:title" content="SAOS · The Receipt Wall">
 <meta property="og:image" content="assets/og-cover.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 20.5 7v10L12 21.5 3.5 17V7z' fill='none' stroke='%23d4af37' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='9' r='2' fill='%23d4af37'/%3E%3Ccircle cx='8.5' cy='15' r='2' fill='%23a78bfa'/%3E%3Ccircle cx='15.5' cy='15' r='2' fill='%23a78bfa'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 20.5 7v10L12 21.5 3.5 17V7z' fill='none' stroke='%23d4af37' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='9' r='2' fill='%23d4af37'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#09090b;--panel:#18181b;--border:#27272a;--tx:#fafafa;--mut:#a1a1aa;--dim:#71717a;--gold:#d4af37;--purple:#a78bfa;--green:#22c55e;
---mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Hebrew",Arial,sans-serif}
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.55}
-a{color:inherit;text-decoration:none}
 .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
 header{padding:56px 0 26px;border-bottom:1px solid var(--border)}
 .logo{font-family:var(--mono);font-size:20px;font-weight:800;letter-spacing:.12em}
 .logo .dot{color:var(--gold)}
 h1{font-size:clamp(26px,4.4vw,40px);font-weight:800;margin-top:14px}
 h1 .gold{color:var(--gold)}
-.sub{color:var(--mut);margin-top:10px;max-width:680px;font-size:15px}
-.rv{opacity:0;transform:translateY(14px);transition:.5s}
-.rv.in{opacity:1;transform:none}
-section{padding:34px 0 6px}
-.chainhead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.chainhead h2{font-family:var(--mono);font-size:15px;letter-spacing:.14em;color:var(--gold)}
-.chainhead .st{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(34,197,94,.5)}
-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-th{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:right;padding:9px 14px;border-bottom:1px solid var(--border);letter-spacing:.08em}
-td{padding:10px 14px;border-bottom:1px solid #1f1f23;vertical-align:top}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#1c1c1f}
-.what{color:var(--tx);font-weight:600;font-size:13px}
-.what small{display:block;color:var(--dim);font-weight:400;font-size:11px;margin-top:2px}
-.rc{font-family:var(--mono);font-size:11px;color:var(--mut);direction:ltr;text-align:left;word-break:break-all}
-.rc a:hover{color:var(--gold)}
-.loc{font-family:var(--mono);font-size:11px;color:var(--dim);direction:ltr;text-align:left}
-.loc a{color:var(--purple);border-bottom:1px dashed rgba(167,139,250,.4)}
-.note{margin-top:34px;border-right:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:16px 20px;font-size:13.5px;color:var(--mut)}
-footer{border-top:1px solid var(--border);margin-top:44px;padding:26px 0 40px;font-size:11.5px;color:var(--dim)}
-footer .mono{font-family:var(--mono);direction:ltr}
-@media(max-width:700px){th:nth-child(2),td:nth-child(2){display:none}}
+.note{color:var(--mut);font-size:13.5px;margin-top:14px;max-width:760px}
+h2{font-family:var(--mono);font-size:13px;color:var(--gold);letter-spacing:.16em;margin:38px 0 12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);letter-spacing:.08em}
+td{padding:9px 10px;border-bottom:1px solid #1f1f23;vertical-align:top;color:var(--mut)}
+td.w{color:var(--tx);font-weight:600;min-width:180px}
+td.r{font-family:var(--mono);font-size:11.5px;word-break:break-all}
+td.r a{color:var(--purple);border-bottom:1px dashed rgba(167,139,250,.4)}
+td.r a:hover{color:var(--tx)}
+td.d{font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap}
+.chip{display:inline-block;font-family:var(--mono);font-size:9.5px;color:var(--green);border:1px solid rgba(34,197,94,.4);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px}
+footer{border-top:1px solid var(--border);margin-top:48px;padding:26px 0 44px;font-size:12px;color:var(--dim);line-height:1.7}
+.back{font-family:var(--mono);font-size:12px;color:var(--gold)}
+@media(max-width:700px){td.w{min-width:120px}}
 </style>
 </head>
 <body>
 <header><div class="wrap">
-  <div class="logo">SAOS<span class="dot">·</span> RECEIPTS</div>
-  <h1>קיר הקבלות: <span class="gold">הכול פתוח לבדיקה</span></h1>
-  <p class="sub">כל קבלה מרכזית של המערכת במקום אחד: עוגנים, עסקאות, אימונים והוכחות זהות על 9 רשתות ציבוריות. כל שורה נפתחת בסייר הבלוקים שלה. אנחנו לא מבקשים אמון; זו בדיוק הנקודה. עודכן: 2026-09-11 (מקור: fact-sheet v3.23, כל פריט נמשך מקומיט מאומת).</p>
+  <div class="logo">SAOS<span class="dot">·</span> RECEIPT WALL</div>
+  <h1>Don't trust. <span class="gold">Verify.</span></h1>
+  <p class="note">Every on-chain receipt this network has published, in one place, with what it proves and where to open it. Truncated ids are quoted exactly as recorded in the source commits; full ids link straight to explorers. Source of truth: fact-sheet (v3.24). Snapshot compiled 2026-09-11 06:30Z. If any receipt fails to verify, that invalidates everything on this page, and we would want to hear about it.</p>
 </div></header>
 
 <div class="wrap">
 
-<section class="rv">
-  <div class="chainhead"><span class="st"></span><h2>ETHEREUM · etherscan</h2></div>
-  <table>
-    <tr><th>מה</th><th>קבלה (txid)</th><th>מיקום</th></tr>
-    <tr><td class="what">עוגן relay ראשון<small>EIP-1559 calldata, stateRoot כ-bytes32</small></td><td class="rc"><a href="https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41" target="_blank" rel="noopener">0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41</a></td><td class="loc">block 25,929,261</td></tr>
-    <tr><td class="what">כיול מודל הגז<small>30,920 gas · 32,493,358,294,280 wei, מדויק ל-wei (EIP-7623 כלול)</small></td><td class="rc">מאומת מול עסקת mainnet אמיתית</td><td class="loc">block 25,929,672</td></tr>
-    <tr><td class="what">עוגן ה-mint הריבוני<small>300K SAOS, שורש יחיד 4460a0c2…</small></td><td class="rc">0x3dcdda27… (מלא ב-fact-sheet §4)</td><td class="loc">block 25,929,549</td></tr>
-    <tr><td class="what">חומת העוגנים (v50)<small>read-back מאומת מהשרשרת, שורש 6097f929…</small></td><td class="rc">receipt 0x1 מאומת חי</td><td class="loc">block 25,944,802</td></tr>
-    <tr><td class="what">עוגן #12 עם מפתח משוחזר משורש<small>v53: שחזור זהות מלא, חתימה חיה ראשונה</small></td><td class="rc">stateRoot 99d19a4d… מאומת</td><td class="loc">block 25,983,946</td></tr>
-    <tr><td class="what">העברת הכסף הפיזית (v30)<small>אבק ETH נסחף לבית האוצר, מקור רוקן ל-0</small></td><td class="rc">0x6ef5f0… (מלא ב-fact-sheet §10.16)</td><td class="loc">mainnet</td></tr>
-  </table>
-</section>
+<h2>// ETHEREUM (etherscan.io)</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">First DEX relay anchor<span class="chip">independently re-verified</span></td><td class="r"><a href="https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41" target="_blank" rel="noopener">0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41</a> · block 25,929,261 · input begins {"height":2340</td><td class="d">2026-09-08</td></tr>
+<tr><td class="w">Anchor wall receipt</td><td class="r">receipt 0x1 · block 25,944,802 · root 6097f929… engraved</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Anchor #12, signed with an identity restored from the single root</td><td class="r">block 25,983,946 · stateRoot 99d19a4d…</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Gas model calibrated to the exact wei (EIP-7623 included)</td><td class="r">block 25,929,672 · 30,920 gas · 32,493,358,294,280 wei</td><td class="d">2026-09-08</td></tr>
+<tr><td class="w">First sovereign mint anchor</td><td class="r">0x3dcdda27… · block 25,929,549</td><td class="d">2026-09-08</td></tr>
+</table>
 
-<section class="rv">
-  <div class="chainhead"><span class="st"></span><h2>SOLANA · solscan</h2></div>
-  <table>
-    <tr><th>מה</th><th>קבלה (signature)</th><th>מיקום</th></tr>
-    <tr><td class="what">עוגן relay ראשון<small>SPL Memo v2, 5,000 lamports</small></td><td class="rc"><a href="https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9" target="_blank" rel="noopener">2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9</a></td><td class="loc">slot 445,167,049</td></tr>
-    <tr><td class="what">עוגן אבן-הפינה הראשון<small>v47: מפתח רב-שימושי אחד, 5 אקוסיסטמים</small></td><td class="rc"><a href="https://solscan.com/tx/5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5" target="_blank" rel="noopener">5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5</a></td><td class="loc">slot 445,822,974 · err=null</td></tr>
-    <tr><td class="what">חומת העוגנים (v50)<small>read-back מאומת, שורש 39575b3b…</small></td><td class="rc">err=null מאומת חי</td><td class="loc">slot 445,822,974</td></tr>
-  </table>
-</section>
+<h2>// SOLANA (solscan.com)</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">First relay memo anchor</td><td class="r"><a href="https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9" target="_blank" rel="noopener">2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9</a></td><td class="d">2026-09-08</td></tr>
+<tr><td class="w">First cornerstone anchor (one seed, five ecosystems)</td><td class="r"><a href="https://solscan.com/tx/5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5" target="_blank" rel="noopener">5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5</a> · slot 445,822,974 · err=null · fee 5,000 lamports</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Cross-chain consistency: same root d4970bb5… as the ETH block below-25,929,269 family</td><td class="r">slot 445,209,689 · verified bit-for-bit from two independent RPC reads</td><td class="d">2026-09-08</td></tr>
+</table>
 
-<section class="rv">
-  <div class="chainhead"><span class="st"></span><h2>STEEM · steemworld</h2></div>
-  <table>
-    <tr><th>מה</th><th>קבלה (txid)</th><th>מיקום</th></tr>
-    <tr><td class="what">עוגן חי (כל חותם)<small>custom_json, RC, $0</small></td><td class="rc"><a href="https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177" target="_blank" rel="noopener">390bcfc2586def1ef02cc40a0e983c8dd8fce177</a></td><td class="loc">block 10,937,394</td></tr>
-    <tr><td class="what">עוגן ה-mint הריבוני</td><td class="rc">df122f04… (מלא ב-fact-sheet §4)</td><td class="loc">block 109,387,678</td></tr>
-    <tr><td class="what">anchor-pulse (foundry task-40)</td><td class="rc">computeTxId מאומת 64-hex מול הצומת</td><td class="loc">blocks 109,438,757 + 812</td></tr>
-    <tr><td class="what">מישור העוגנים: דיג'סט כפול<small>r20: אותו saos/v2 על שתי שרשראות</small></td><td class="rc"><a href="https://steemworld.org/tx/d43ed97d" target="_blank" rel="noopener">d43ed97d…</a></td><td class="loc">block 109,471,513</td></tr>
-    <tr><td class="what">MEGAPHONE: הקבלה החינמית הראשונה<small>247B · rc_cost 1,358,232,384 נמדד</small></td><td class="rc"><a href="https://steemworld.org/tx/7639c915e69315104b02a2f4f2586a5e00422b46" target="_blank" rel="noopener">7639c915e69315104b02a2f4f2586a5e00422b46</a></td><td class="loc">block 109,496,567</td></tr>
-    <tr><td class="what">GateOrder: יצירה + ביטול (SOVEREIGN-HAND)<small>סוכן בונה, כספת חותמת דרך שער</small></td><td class="rc">5798c77c… · ביטול: 085916fa…</td><td class="loc">blocks 109,441,448 + 504</td></tr>
-    <tr><td class="what">הוכחת זהות חיה (Identity API)<small>PROVEN מול authority חי</small></td><td class="rc">מופע מדידה מתועד</td><td class="loc">block 109,389,994</td></tr>
-  </table>
-</section>
+<h2>// STEEM (steemworld.org)</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">First kit receipt (free rail)</td><td class="r"><a href="https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177" target="_blank" rel="noopener">390bcfc2586def1ef02cc40a0e983c8dd8fce177</a> · block 10,937,394</td><td class="d">2026-09-08</td></tr>
+<tr><td class="w">MEGAPHONE: first free-rail notary receipt</td><td class="r"><a href="https://steemworld.org/tx/7639c915e69315104b02a2f4f2586a5e00422b46" target="_blank" rel="noopener">7639c915e69315104b02a2f4f2586a5e00422b46</a> · block 109,496,567 · 247B payload · rc_cost 1,358,232,384</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Anchor plane: one digest, two independent chains</td><td class="r">d43ed97d… · block 109,471,513 (paired with BLURT below)</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">First agent-published post (SOVEREIGN-VOICE)</td><td class="r">c64766e7… · block 109,443,160 · verified via get_content + get_transaction</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">SOVEREIGN-HAND: agent builds, vault signs (create + cancel)</td><td class="r">create 5798c77c… block 109,441,448 · cancel 085916fa… block 109,441,504</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Foundry first live anchors (anchor-pulse)</td><td class="r">blocks 109,438,757 + 109,438,812 · STEEM pulse pair</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Mint anchor (first sovereign mint, 300K)</td><td class="r">df122f04… · block 109,387,678</td><td class="d">2026-09-08</td></tr>
+</table>
 
-<section class="rv">
-  <div class="chainhead"><span class="st"></span><h2>HIVE · hiveblocks</h2></div>
-  <table>
-    <tr><th>מה</th><th>קבלה (txid)</th><th>מיקום</th></tr>
-    <tr><td class="what">עוגן חי<small>21 עיגונים ב-22 שע' נמדדו (09.09 00:29Z)</small></td><td class="rc"><a href="https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5" target="_blank" rel="noopener">d4cf936b0b5e1eff8dcc8a508532f67c95682bd5</a></td><td class="loc">block 10,970,856</td></tr>
-    <tr><td class="what">ההמרה החיה הראשונה (Task 73)<small>סוכן-סוואפ + מסילת HIVE, שער RC, צי 11/11</small></td><td class="rc">46ed2f58…</td><td class="loc">mainnet</td></tr>
-    <tr><td class="what">מפקד הפיצולים + עוגן התיקון<small>8 גבהים מתוך 162 עוגנים · 831B · canonicalRoot=null בכנות</small></td><td class="rc">forks.json + remedy מפורסם איפה שהפיצולים חיים</td><td class="loc">saos-dex.anchor.v1</td></tr>
-  </table>
-</section>
+<h2>// HIVE (hiveblocks.com)</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">First Hive anchor (RC stale-read bug publicly corrected after this era)</td><td class="r"><a href="https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5" target="_blank" rel="noopener">d4cf936b0b5e1eff8dcc8a508532f67c95682bd5</a> · block 10,970,856</td><td class="d">2026-09-08</td></tr>
+<tr><td class="w">21 zero-fee anchors in 22h (measured window)</td><td class="r">blocks 109,708,562 through 109,734,678 · e.g. 48982c95…, 0c66e2c5…, 0eafff46…</td><td class="d">2026-09-09</td></tr>
+<tr><td class="w">First HIVE conversion ignited (Task 73)</td><td class="r">46ed2f58… · fleet 11/11 · RC economy balanced</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Fork census (published voluntarily): 8 heights of 162 anchors carry two roots</td><td class="r">forks.json + machine-readable remediation report · every forked height marked AMBIGUOUS, canonicalRoot null</td><td class="d">2026-09-10</td></tr>
+</table>
 
-<section class="rv">
-  <div class="chainhead"><span class="st"></span><h2>TRON · tronscan</h2></div>
-  <table>
-    <tr><th>מה</th><th>קבלה</th><th>מיקום</th></tr>
-    <tr><td class="what">עיגון אפס-עמלה נטו<small>ביט-אנקודינג, טבעת 6 כתובות (6/6 נמדדו)</small></td><td class="rc">1db5006b… (cp#33612)</td><td class="loc"><a href="https://tronscan.org/#/block/86019974" target="_blank" rel="noopener">block 86,019,974</a></td></tr>
-    <tr><td class="what">עוגן מיינטנט (v49, רשת #4)<small>protobuf ביתי, נבדק מול 535 עסקאות אמיתיות</small></td><td class="rc">3b40a8da…27acfe</td><td class="loc">block 86,124,584</td></tr>
-  </table>
-</section>
+<h2>// TRON (tronscan.org)</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">h16 anchored LIVE from sovereign keys: FULL MATRIX 6/6<span class="chip">newest</span></td><td class="r">74e574fc… SUCCESS · transfer amount encodes root[0:4] (60138 sun = eaea) · cost 0.060138 TRX · zero bandwidth burn</td><td class="d">2026-09-11</td></tr>
+<tr><td class="w">Zero-net-fee bit-encoded checkpoint (6-address ring)</td><td class="r"><a href="https://tronscan.org/#/block/86019974" target="_blank" rel="noopener">1db5006b… · block 86,019,974</a> · 6/6 ring addresses measured</td><td class="d">2026-09-09</td></tr>
+<tr><td class="w">Anchor wall receipt</td><td class="r">SUCCESS · block 86,124,584 · root 39575b3b… engraved</td><td class="d">2026-09-10</td></tr>
+</table>
 
-<section class="rv">
-  <div class="chainhead"><span class="st"></span><h2>XRPL · BLURT · BSC</h2></div>
-  <table>
-    <tr><th>מה</th><th>קבלה</th><th>מיקום</th></tr>
-    <tr><td class="what">עוגן XRPL (v49, רשת #5)<small>AccountSet+Memos, 12 drops, tesSUCCESS</small></td><td class="rc">0C846CB5…FB5855</td><td class="loc">ledger 106,890,679</td></tr>
-    <tr><td class="what">פעימות לב חיות על XRPL<small>ממו עברי חרוט, v30</small></td><td class="rc">4× tesSUCCESS · seq 57785945→47</td><td class="loc">livenet</td></tr>
-    <tr><td class="what">עוגן BLURT (מישור העוגנים)<small>גילוי חוטי: custom_json=12, אורקל שחזור מהצבעה אמיתית</small></td><td class="rc">2aa81fbc…</td><td class="loc">block 63,534,293</td></tr>
-    <tr><td class="what">חומת העוגנים BSC<small>receipt 0x1 מאומת חי</small></td><td class="rc">read-back מהשרשרת</td><td class="loc">block 121,011,726</td></tr>
-  </table>
-</section>
+<h2>// BSC · XRPL · BLURT</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">BSC anchor wall receipt</td><td class="r">receipt 0x1 · block 121,011,726</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">XRPL anchor (AccountSet + memo, 12 drops)</td><td class="r">hash 0C846CB5…FB5855 · ledger 106,890,679 · tesSUCCESS verified + read-back</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">XRPL life heartbeats (Hebrew memos engraved)</td><td class="r">sequence 57785945 through 57785947 · 4 confirmed tesSUCCESS</td><td class="d">2026-09-09</td></tr>
+<tr><td class="w">First BLURT live anchor</td><td class="r">block 63,502,020 · fee 0.129 BLURT · wire-format discovered empirically (op renumbering proven by recovery oracle)</td><td class="d">2026-09-10</td></tr>
+<tr><td class="w">Anchor plane pair (second chain of the dual anchor)</td><td class="r">2aa81fbc… · block 63,534,293</td><td class="d">2026-09-10</td></tr>
+</table>
 
-<div class="note rv">
-  <strong>איך בודקים:</strong> לחצו על כל txid, פתחו בסייר, והשוו שני דברים: (1) העסקה קיימת והסטטוס ירוק (2) המטען (memo/calldata) מכיל את ה-stateRoot או ה-digest המצוטט. אם מצאתם אי-התאמה: פרסמו אותה. אנחנו נפרסם את התיקון, כמו תמיד. קבלות מקוצרות (… מסתיימות) מלאות ב-<span class="mono">fact-sheet.md</span> עם מקור הקומיט של כל אחת.
-</div>
+<h2>// PHYSICAL MONEY MOVES (sweeps with sources emptied)</h2>
+<table>
+<tr><th>WHAT IT PROVES</th><th>RECEIPT</th><th>DATE</th></tr>
+<tr><td class="w">Found ETH dust swept to treasury home</td><td class="r">0x6ef5f0… · mainnet · source emptied to 0</td><td class="d">2026-09-09</td></tr>
+<tr><td class="w">Found BNB swept on BSC</td><td class="r">0xa8e43d… · source emptied to 0</td><td class="d">2026-09-09</td></tr>
+<tr><td class="w">Inbound funding forensics (the original discovery)</td><td class="r">ETH 0xebe8d748… block 25,928,148 · SOL 23qNYRPY… slot 445,167,049</td><td class="d">2026-09-08</td></tr>
+</table>
 
 </div>
 
 <footer><div class="wrap">
-  SAOS · קיר הקבלות · מקור האמת: <span class="mono">fact-sheet.md v3.23</span> (Adsmarket) · כל קבלה נמשכה מקומיט מאומת או מ-read-back חי של השרשרת · תשתית בפיתוח, אין באמור ייעוץ השקעות · <a href="index.html">דף הבית</a> · <a href="index-en.html">English</a>
+  <p>Method: every row traces to a fact-sheet section with its measurement date. Full-length transaction ids link to public explorers; truncated ids are quoted exactly as recorded in their source commits (the full values live in those commits and on-chain). Nothing on this page requires trusting us: that is the entire point of the page.</p>
+  <p style="margin-top:10px">SAOS is sovereign technology infrastructure in active development. Nothing here is investment advice or a yield promise. <a class="back" href="index-en.html">← back to the landing</a> · <a class="back" href="deck.html">investor deck</a> · <a class="back" href="fact-sheet.md">fact sheet</a></p>
 </div></footer>
-
-<script>
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
