@@ -1,4 +1,4 @@
-# Crypto education posts — six publish-ready drafts
+# Crypto education posts: six publish-ready drafts
 
 Chain mechanics explained for real audiences. All numbers are public chain facts or published measurements. Strong candidates for LEO Finance (finance angles) and dev communities.
 
@@ -70,7 +70,7 @@ Now walk through the attack. The bot wants to buy before you and sell after you.
 
 Buyers who bid above the clearing price pay the lower clearing price. Sellers who asked below it receive the higher clearing price. That difference is the surplus, and in well-designed batches it stays with the traders instead of leaking to block producers.
 
-The tradeoff is honesty stated plainly: you give up instant execution for fair execution. Your order waits for the window to close. For anything that isn't leverage-panic, that is usually a trade worth making, and the math of the sandwich dying is not a matter of bot sophistication. It's structural. You cannot ambush a queue that doesn't exist.
+The tradeoff is honesty stated plainly: you give up instant execution for fair execution. Your order waits for the window to close. For anything that isn't a liquidation panic, that is usually a trade worth making, and the math of the sandwich dying is not a matter of bot sophistication. It's structural. You cannot ambush a queue that doesn't exist.
 
 ---
 
