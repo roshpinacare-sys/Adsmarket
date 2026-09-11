@@ -472,6 +472,23 @@ EN: Forensics on 69 incomplete runs led to one conclusion: as long as the fleet'
 —
 EN: A week ago we found 8 heights on HIVE carrying contradictory roots. We published the census, built a machine-readable remediation record, and marked everything AMBIGUOUS. Then someone asked the right question: the record sits in our repo — but a verifier out there meets the contradictory roots on-chain, without ever seeing it. So we built a correction anchor: all 8 heights encoded into 831 bytes — 10.1% of the free budget — going on-chain itself, in one zero-fee transaction, exactly where the forks live. Nothing is retracted: the original anchors stay readable. The system refuses to declare a "correct" root without proof — and refuses an invented root too (rejected as a new fork). 24 assertions on the real data pin the rule: nobody adjudicated, so nothing is declared canonical.
 
+**L40 · מודדים. מפרסמים. ואז — מונעים. (X, עברית + EN)**
+לפני שבוע גילינו 8 גבהים סותרים על HIVE. מדדנו, פרסמנו את המפקד, ועיגנו את התיקון על השרשרת עצמה.
+היום הקשת נסגרה: epochguard — החלק שמונע פיצולים במקום לדווח עליהם.
+איך זה עובד? אם מונה הגבהים לא מתקדם (תהליך חדש, ספירה מאפס) — המעמעלת epoch לפני השידור. כך שני שורשים לעולם לא יכולים להיכתב לאותו (epoch, height).
+המבחן: רצף 15 הגבהים האמיתי — איתו: 15 זוגות ייחודיים, אפס התנגשויות. בלעדיו: 2 התנגשויות.
+וה-harness שלנו לא נתן לזה לעבור בלי בדיקה: מודול חדש בלי כיסוי = RED. 32 מודולים מכוסים.
+מודדים → מפרסמים → מונעים. שלוש מילים שהן מותג שלם.
+—
+EN: A week ago we found 8 contradictory heights on HIVE. We measured, published the census, and anchored the correction on-chain itself. Today the arc closed: epochguard — the piece that PREVENTS forks instead of reporting them. If the height counter doesn't advance (new process, count from zero), the system bumps an epoch before broadcasting — so two roots can never land on the same (epoch, height). The test: the real 15-height sequence — with it, 15 unique pairs, zero collisions; without it, 2 collisions. And our harness refused to let it ship untested: a new module without coverage = RED. 32 modules covered. Measure → publish → prevent. Three words that are a whole brand.
+
+**L41 · דיג'סט אחד, שתי שרשראות, וסירוב אחד כן (X + טלגרם, עברית + EN)**
+מישור העוגנים החדש חי: דיג'סט אחד (saos/v2) עוגן בו-זמנית על שתי שרשראות בלתי-תלויות — Steem בלוק 109,471,513 ו-Blurt בלוק 63,534,293, שני txids פתוחים בסיירים.
+ו-Hive? סירבה. בכנות: יש לה 106M RC, השידור דורש ~385M. המערכת לא ניסתה, לא נכשלה בשקט — הוסיפה pre-check ומדווחת בדיוק למה.
+ובדרך, גילוי-חוטי אמיתי: התברר ש-Blurt ממספרת פעולות אחרת ממה שהנחנו (custom_json=12, לא 18). איך גילינו? אורקל שחזור מהצבעה אמיתית על השרשרת. תוקן בנקודות האמת, לא בקצה.
+—
+EN: The new anchor plane is live: one digest (saos/v2) anchored simultaneously on two independent chains — Steem block 109,471,513 and Blurt block 63,534,293, both txids open in explorers. And Hive? It refused. Honestly: it holds 106M RC, the broadcast needs ~385M. The system didn't try-and-fail silently — it added a pre-check and reports exactly why. Along the way, a real wire discovery: Blurt numbers operations differently than we assumed (custom_json=12, not 18). How did we find out? A recovery oracle from a real on-chain vote. Fixed at the truth points, not at the edge.
+
 ---
 
 ## הנחיות פרסום v2
