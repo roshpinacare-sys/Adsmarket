@@ -66,7 +66,7 @@ Each rail has its own audience, its own reward physics, and its own unwritten ru
 
 ## LEO Finance (the cross-cutting niche)
 
-Not a chain: a community on Hive with its own token and curation engine, reachable via the leofinance tag or the hive-167922 community. For any post touching money mechanics (batch auctions, wrapped assets, tokenomics comparisons, gas economics), publishing on Hive with leofinance first is the single highest-leverage routing decision in this kit. Their curators specialize, vote with real weight, and finance-literate content is rarer than their appetite for it.
+Not a chain: a community on Hive with its own token and curation engine, reachable via the leofinance tag or the hive-167922 community. For any post touching money mechanics (batch auctions, wrapped assets, tokenomics comparisons, gas economics), publishing on Hive with leofinance first is the single highest-value routing decision in this kit. Their curators specialize, vote with real weight, and finance-literate content is rarer than their appetite for it.
 
 ---
 
