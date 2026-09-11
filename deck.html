@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAOS · Pitch Deck · Proof Over Promises</title>
+<meta name="description" content="SAOS investor and partner deck: sovereign notarized ledger, live on 9 public chains. Every figure measured or on-chain.">
+<meta property="og:title" content="SAOS · Pitch Deck">
+<meta property="og:description" content="Proof over promises. The sovereign ledger witnessed by public chains.">
+<meta property="og:image" content="assets/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5 20.5 7v10L12 21.5 3.5 17V7z' fill='none' stroke='%23d4af37' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='9' r='2' fill='%23d4af37'/%3E%3Ccircle cx='8.5' cy='15' r='2' fill='%23a78bfa'/%3E%3Ccircle cx='15.5' cy='15' r='2' fill='%23a78bfa'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#09090b;--panel:#18181b;--panel2:#131316;--border:#27272a;--tx:#fafafa;--mut:#a1a1aa;--dim:#71717a;--gold:#d4af37;--purple:#a78bfa;--green:#22c55e;--yellow:#eab308;--red:#ef4444;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#000}
+body{font-family:var(--sans);color:var(--tx);overflow:hidden}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 7vw;background:var(--bg)}
+.slide.active{display:flex}
+.kick{font-family:var(--mono);font-size:clamp(10px,1.2vw,13px);color:var(--gold);letter-spacing:.22em;margin-bottom:2.2vh}
+h1{font-size:clamp(30px,5.2vw,64px);font-weight:800;line-height:1.12;letter-spacing:-.02em}
+h2{font-size:clamp(22px,3.4vw,44px);font-weight:800;line-height:1.15;margin-bottom:2.4vh;letter-spacing:-.01em}
+.gold{color:var(--gold)}.purple{color:var(--purple)}.green{color:var(--green)}.red{color:var(--red)}
+.mono{font-family:var(--mono)}
+.sub{font-size:clamp(14px,1.7vw,21px);color:var(--mut);line-height:1.55;max-width:60ch;margin-top:2.4vh}
+.grid{display:grid;gap:1.2vw;margin-top:3vh}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel2);border:1px solid var(--border);border-radius:14px;padding:2.2vh 1.4vw}
+.card .v{font-family:var(--mono);font-size:clamp(19px,2.5vw,34px);font-weight:800;color:var(--gold)}
+.card .v.g{color:var(--green)}.card .v.p{color:var(--purple)}.card .v.r{color:var(--red)}
+.card .l{font-size:clamp(11px,1.15vw,15px);color:var(--mut);margin-top:.9vh;line-height:1.45}
+.card h3{font-size:clamp(13px,1.4vw,18px);margin-bottom:.8vh}
+.card p{font-size:clamp(11px,1.1vw,14px);color:var(--mut);line-height:1.5}
+ul.pts{margin-top:2.6vh;list-style:none}
+ul.pts li{font-size:clamp(13px,1.55vw,20px);color:var(--tx);padding:1.15vh 0 1.15vh 1.6em;position:relative;line-height:1.45}
+ul.pts li::before{content:"·";position:absolute;left:.2em;color:var(--gold);font-weight:900}
+ul.pts li b{color:var(--gold);font-weight:700}
+ul.pts li .mut{color:var(--mut)}
+.foot{position:absolute;bottom:3vh;left:7vw;right:7vw;display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(9px,1vw,12px);color:var(--dim)}
+.nav{position:fixed;bottom:2.2vh;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:50}
+.dot{width:8px;height:8px;border-radius:50%;background:#3f3f46;border:none;cursor:pointer;transition:.2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.arrows{position:fixed;bottom:1.6vh;right:2vw;display:flex;gap:8px;z-index:50}
+.arrows button{background:var(--panel);border:1px solid var(--border);color:var(--mut);width:36px;height:36px;border-radius:8px;cursor:pointer;font-family:var(--mono)}
+.arrows button:hover{color:var(--tx);border-color:var(--gold)}
+.pagenum{position:fixed;bottom:2.6vh;left:2.5vw;font-family:var(--mono);font-size:11px;color:var(--dim);z-index:50}
+.quote{font-size:clamp(20px,3.2vw,42px);font-weight:800;line-height:1.3;max-width:24ch}
+.biglogo{font-family:var(--mono);font-size:clamp(40px,8vw,110px);font-weight:800;letter-spacing:.12em}
+.biglogo .dotg{color:var(--gold)}
+.statrow{display:flex;gap:2.5vw;margin-top:4vh;flex-wrap:wrap}
+.stat .v{font-family:var(--mono);font-size:clamp(20px,2.8vw,40px);font-weight:800}
+.stat .l{font-size:clamp(10px,1.1vw,14px);color:var(--mut);margin-top:.4vh}
+table.rc{width:100%;border-collapse:collapse;margin-top:2.5vh;font-size:clamp(11px,1.2vw,15px)}
+table.rc td{padding:1.1vh .8vw;border-bottom:1px solid var(--border);vertical-align:top}
+table.rc td:first-child{font-weight:700;white-space:nowrap}
+table.rc td.mono{font-family:var(--mono);font-size:.85em;color:var(--mut);direction:ltr}
+.ask{background:linear-gradient(135deg,rgba(212,175,55,.08),var(--panel2));border:1px solid rgba(212,175,55,.4);border-radius:14px;padding:2.4vh 1.6vw}
+.ask h3{color:var(--gold);font-size:clamp(14px,1.5vw,19px);margin-bottom:1vh}
+.ask p{font-size:clamp(11px,1.2vw,15px);color:var(--mut);line-height:1.55}
+@media print{
+ body{overflow:visible;background:#fff}
+ .slide{display:flex !important;position:relative;inset:auto;width:297mm;height:167mm;page-break-after:always;padding:14mm 18mm}
+ .nav,.arrows,.pagenum{display:none}
+}
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="kick">SAOS · INVESTOR & PARTNER DECK · 2026-09-11</div>
+  <div class="biglogo">SAOS<span class="dotg">·</span></div>
+  <h1 style="margin-top:2vh">Proof over promises.</h1>
+  <p class="sub">A sovereign ledger witnessed by nine public chains it does not own. Every seal, every claim, every refusal ships with a receipt anyone can verify. This deck contains zero projections: every figure is measured or on-chain.</p>
+  <div class="statrow">
+    <div class="stat"><div class="v gold">9</div><div class="l">public chains live</div></div>
+    <div class="stat"><div class="v gold">133,259+</div><div class="l">blocks, survived a planned fork</div></div>
+    <div class="stat"><div class="v gold">32,603 tx/s</div><div class="l">measured on real archive replay</div></div>
+    <div class="stat"><div class="v gold">0</div><div class="l">cross-chain mismatches, ever</div></div>
+  </div>
+  <div class="foot"><span>github.com/roshpinacare-sys/Adsmarket</span><span>all figures: measured snapshots, dated in fact-sheet v3.23</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">02 · THE PROBLEM</div>
+  <div class="quote">"Every agent can claim anything.<br><span class="gold">Only a public chain cannot lie."</span></div>
+  <ul class="pts">
+    <li>The agent economy runs on claims: <span class="mut">"task done", "shipped", "verified". None of them carry proof, and nobody can check.</span></li>
+    <li>Cross-chain trust is the most expensive attack surface in crypto: <span class="mut">over $2B lost through bridges that asked users to trust a committee.</span></li>
+    <li>Proof infrastructure today costs dollars per record and minutes per verification, <span class="mut">or it doesn't exist at all.</span></li>
+  </ul>
+  <div class="foot"><span>SAOS · proof over promises</span><span>02</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">03 · THE SOLUTION</div>
+  <h2>A sovereign state machine with public witnesses</h2>
+  <div class="grid g3">
+    <div class="card"><h3>1 · The notebook</h3><p>Deterministic kernel, 3-second blocks, resident state, zero replay per beat. Every action is recorded in canonical order.</p></div>
+    <div class="card"><h3>2 · The seal</h3><p>Every 12 blocks (~36s) the full state becomes one sha256 merkle root: a 32-byte fingerprint. Natively bytes32 for the EVM, a memo rider elsewhere.</p></div>
+    <div class="card"><h3>3 · The witnesses</h3><p>The root is anchored to independent public chains at once. Free on Graphene (RC), cents on EVM/SVM, zero net fee on TRON. Nobody can erase a witness.</p></div>
+  </div>
+  <p class="sub" style="margin-top:3vh">Not another blockchain. Not a bridge. A truth layer that turns public chains into its notary court.</p>
+  <div class="foot"><span>SAOS · proof over promises</span><span>03</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">04 · LIVE PROOF</div>
+  <h2>The anchor wall: <span class="gold">5/5 verified from the chains themselves</span></h2>
+  <table class="rc">
+    <tr><td>ETHEREUM</td><td class="mono">receipt 0x1 · block 25,944,802 · anchor #12 signed with a root-restored key at block 25,983,946</td></tr>
+    <tr><td>BSC</td><td class="mono">receipt 0x1 · block 121,011,726</td></tr>
+    <tr><td>SOLANA</td><td class="mono">err=null · slot 445,822,974 · cornerstone anchor 5z46xVFc… (fee 5,000 lamports, zero SOL moved)</td></tr>
+    <tr><td>TRON</td><td class="mono">SUCCESS · block 86,124,584 · bit-encoded zero-net-fee ring, 6/6 addresses measured</td></tr>
+    <tr><td>XRPL</td><td class="mono">tesSUCCESS · ledger 106,890,679 · Hebrew memos engraved, 12 drops per beat</td></tr>
+  </table>
+  <p class="sub">Two roots, one key, five networks: <span class="mono gold">6097f929…</span> on ETH/BSC/SOL, <span class="mono gold">39575b3b…</span> on TRON/XRPL. Plus free Graphene rails: Steem, Hive, Blurt live. Gas model called 7 consecutive anchors exactly (32,680 gas each), after calibrating to the wei.</p>
+  <div class="foot"><span>every receipt opens in a public explorer</span><span>04</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">05 · REAL MONEY</div>
+  <h2>The money already moves. With receipts.</h2>
+  <div class="grid g4">
+    <div class="card"><div class="v">88ms</div><div class="l">p50 cross-chain conversion (SOL↔TRX circuit, 65/65 atomic legs proven) vs 10-90 minutes via third parties. The money never moves: the mirror is 1:1.</div></div>
+    <div class="card"><div class="v g">46ed2f58</div><div class="l">txid of the first live HIVE conversion. Fleet 11/11, RC economy balanced.</div></div>
+    <div class="card"><div class="v p">+459% → +24.7%</div><div class="l">peg premium tamed by the sovereign micro-rail in 16 measured doses. Net P&L +133kµ, published.</div></div>
+    <div class="card"><div class="v r">~1.6 TRX</div><div class="l">a phantom gap found in our own mirror, burned pro-rata in honesty. supply==locked enforced against ourselves.</div></div>
+  </div>
+  <p class="sub">Legacy funds found through the correct derivation path, connected 1:1, then physically swept to the treasury home with real mainnet transactions. Source addresses emptied to zero.</p>
+  <div class="foot"><span>SAOS · proof over promises</span><span>05</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">06 · PRODUCT FAMILY</div>
+  <h2>Five doors into one sovereignty</h2>
+  <div class="grid g3" style="grid-template-columns:1fr 1fr 1fr">
+    <div class="card"><h3 class="gold">Identity API + SDK · live</h3><p>One call proves a Steem/Hive account and an EVM address share one key, read from the chain. Metered, quota'd, honest FAILED outcomes. Zero-dependency SDK (saos-id-verify).</p></div>
+    <div class="card"><h3>JUMPPER notary</h3><p>Permanent records at $0.0000081 (10K batch, exact to the wei). Free rail live: attestation anchor on Steem block 109,496,567, ~250 free broadcasts of measured capacity.</p></div>
+    <div class="card"><h3>Sovereign DEX + BIRSA</h3><p>Full-escrow order book, ve(3,3) buy-and-burn capped by measured profit, structurally sandwich-immune CoW batches, launchpad with live graduation, keeperless DCA/TP-SL.</p></div>
+    <div class="card"><h3>Saosmartwallet</h3><p>Self-custodial across 7 networks (M0-M4 verified against real chain bytes). Keys never leave the client. Live bridge router with honest quotes.</p></div>
+    <div class="card"><h3>Atomic Clock</h3><p>Six heterogeneous chains into one 32-byte root: keyless, gasless, $0. 15.9ms compute, 6.8ms verify, 435B proof. Re-readable by anyone.</p></div>
+    <div class="card"><h3>Fleet workforce</h3><p>13 soldiers, 23+ autonomous loops, an intelligence swarm with a gated door (first external agent passed). Builds, curates, audits and heals itself on schedule.</p></div>
+  </div>
+  <div class="foot"><span>SAOS · proof over promises</span><span>06</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">07 · SPEED & SCALE</div>
+  <h2>Measured, not marketed</h2>
+  <div class="grid g4">
+    <div class="card"><div class="v">32,603 tx/s</div><div class="l">65,238 real archive transactions replayed in 2,001ms. Mechanism ceiling ~2.8B/day.</div></div>
+    <div class="card"><div class="v">1481s → 238s</div><div class="l">full work cycles after closing 31 silent wait-gates. 5-7x, no hardware. Then probes: 9s → 2.52s.</div></div>
+    <div class="card"><div class="v">3s blocks</div><div class="l">133,259+ blocks. Survived a planned fork at 130,000: 4 economic kernel bugs fixed, anti-poison guards in, chain never stopped.</div></div>
+    <div class="card"><div class="v">$0.0000081</div><div class="l">per permanent notary record. One dollar records 123,000 documents. Measured on mainnet, exact to the wei.</div></div>
+  </div>
+  <div class="foot"><span>figures: measured snapshots, dated in the fact-sheet</span><span>07</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">08 · WHY NOW</div>
+  <h2>Three doors are open. All three are cheap.</h2>
+  <ul class="pts">
+    <li><b>The agent economy needs proof rails.</b> <span class="mut">Every autonomous worker will soon need to prove what it did. We already do: the fleet publishes, votes and converts on-chain with receipts, daily.</span></li>
+    <li><b>Millions of legacy Graphene identities have no path to the new world.</b> <span class="mut">One seed reconstructs five ecosystems exactly (EVM, SOL, TRON, BTC, XRP paths live-verified). The identity API is built and dogfooded.</span></li>
+    <li><b>The next network doubling costs 94 cents.</b> <span class="mut">Seven EVM doors are pipeline-proven and waiting for gas: BSC $0.07, Polygon $0.04, Avalanche $0.001. Presence 5→12, ranked ×11.9 impact by our own measurement engine. Sovereignty score: 43/100, identity ready.</span></li>
+  </ul>
+  <div class="foot"><span>SAOS · proof over promises</span><span>08</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">09 · THE MOAT</div>
+  <h2>What is hard to copy, honestly stated</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Technical</h3><p>Bit-exact serialization (30/30 oracle against real chain bytes). Cross-paradigm key discipline (one scalar = Graphene authority + EVM address, proven via ecrecover). Zero-net-fee TRON bit-encoding. A deterministic kernel that survived a live planned fork.</p></div>
+    <div class="card"><h3>Cultural (the real moat)</h3><p>383,836 refused trades published. 100+ truth gaps closed in one day across six repos. Four public self-audits, including one that caught our own marketing lying. Zero-mock enforced by tests that fail on their own authors.</p></div>
+  </div>
+  <p class="sub" style="margin-top:2.5vh">Not a moat yet, stated plainly: economic scale (dust), deployed EVM/SOL bridge contracts, defined tokenomics, third-party audit. Each is a documented gate with a price, not a wish.</p>
+  <div class="foot"><span>SAOS · proof over promises</span><span>09</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">10 · SECURITY & TRUST</div>
+  <h2>Architecture with nothing to steal</h2>
+  <div class="grid g4">
+    <div class="card"><div class="v g">7</div><div class="l">key guardianship layers: no keys in repos (history verified clean), chain-verified login gate, vault in three homes, 7-of-11 release threshold, permission gates, anti-phishing, 21 two-way crypto rules.</div></div>
+    <div class="card"><div class="v g">66</div><div class="l">broadcast-capable daemons, all dry-by-default (LIVE-GATE). Going live needs two conscious keys. You cannot fire by accident.</div></div>
+    <div class="card"><div class="v g">36s</div><div class="l">self-heal from a kernel OOM kill, zero human touch, full journal. Mutual watch: the runner revives the keeper, proven live.</div></div>
+    <div class="card"><div class="v g">h20808</div><div class="l">the safety net caught a real fall: phantom LP detected by invariants, chain HALTed, root cause fixed in hours, drift declared honestly.</div></div>
+  </div>
+  <p class="sub" style="margin-top:2.5vh">687 files under live secret-sweep: zero real holes. 9/9 permission red-team vectors blocked live. Audit package byte-identical to production, staged for external review.</p>
+  <div class="foot"><span>SAOS · proof over promises</span><span>10</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">11 · HONEST BOUNDARIES</div>
+  <h2>What is not ready. On purpose.</h2>
+  <ul class="pts">
+    <li><b>Economic scale:</b> <span class="mut">TVL is dust and we publish the exact figure ($13.91 at v28). The mechanism is proven; scale is a budget gate.</span></li>
+    <li><b>Tokenomics:</b> <span class="mut">not defined yet. The memo will be written from what the code actually enforces, under owner review. No speculation will be sold before it exists.</span></li>
+    <li><b>SDK on npm + public gateway:</b> <span class="mut">publish-ready, owner actions in progress. We do not market availability we do not have.</span></li>
+    <li><b>Third-party audit:</b> <span class="mut">not performed. The byte-identical package with 13 invariants and 9 crypto assumptions is staged and waiting.</span></li>
+    <li><b>Bridge contracts on ETH/SOL:</b> <span class="mut">staged, not deployed. Deployment is a budgeted owner decision.</span></li>
+  </ul>
+  <div class="foot"><span>a system that publishes its gaps is a system you can check</span><span>11</span></div>
+</section>
+
+<section class="slide">
+  <div class="kick">12 · THE ASK</div>
+  <h1>Don't trust us. <span class="gold">Verify us.</span></h1>
+  <div class="grid g3" style="margin-top:4vh">
+    <div class="ask"><h3>Owner decisions</h3><p>Publish the public bundle (deployment path documented, checklist ready). Approve npm publish + gateway. Seed ~$0.94 of gas to double the anchored presence from 5 to 12 networks.</p></div>
+    <div class="ask"><h3>Developers</h3><p>Integrate the identity API (zero-dependency SDK, 3 lines). Read the API reference and the 30-minute integration guide. Report anything that disagrees with reality; we publish corrections.</p></div>
+    <div class="ask"><h3>Partners</h3><p>Ten verified outreach targets (games, exchanges, frontends with Graphene exposure). Pilot the sybil-proof identity check or the sub-cent notary. Every pilot ships with receipts.</p></div>
+  </div>
+  <p class="sub" style="margin-top:3.5vh"><span class="mono">Adsmarket repo: deck, landings, one-pagers, fact-sheet, press kit, receipts wall, fleet content kit.</span> Every claim in this deck traces to a dated measurement or an explorer link.</p>
+  <div class="foot"><span>SAOS · 2026-09-11</span><span>12</span></div>
+</section>
+
+<div class="pagenum"><span id="pn">1</span> / 12</div>
+<div class="nav" id="nav"></div>
+<div class="arrows"><button id="prev" aria-label="previous">←</button><button id="next" aria-label="next">→</button></div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const nav=document.getElementById('nav');
+  const pn=document.getElementById('pn');
+  let cur=0;
+  slides.forEach((_,i)=>{const b=document.createElement('button');b.className='dot'+(i===0?' on':'');b.onclick=()=>go(i);nav.appendChild(b);});
+  const dots=[...nav.children];
+  function go(i){
+    if(i<0)i=slides.length-1; if(i>=slides.length)i=0;
+    slides[cur].classList.remove('active');dots[cur].classList.remove('on');
+    cur=i;
+    slides[cur].classList.add('active');dots[cur].classList.add('on');
+    pn.textContent=cur+1;
+  }
+  document.getElementById('next').onclick=()=>go(cur+1);
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(cur+1);}
+    if(e.key==='ArrowLeft')go(cur-1);
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(slides.length-1);
+  });
+  let tx=null;
+  document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(tx===null)return;
+    const dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>60)go(dx<0?cur+1:cur-1);
+    tx=null;
+  },{passive:true});
+  slides[0].classList.add('active');
+})();
+</script>
+</body>
+</html>
