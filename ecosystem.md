@@ -1,61 +1,60 @@
-# SAOS Ecosystem Map: המפה המלאה של מה שיש באמת
+# SAOS ecosystem map: the complete map of what actually exists
 
-> נכתב אחרי סריקה עמוקה של כל 10 הריפואים (2026-09-08). זהו מסמך המסגרת של כל השיווק.
-> מקורות: saos-strategy.md · saos-breakthroughs.md · saos-capabilities.md (Saosmartwallet) · JUMPPER README+FREE-OPERATIONS · foundry BREAKTHROUGH.md · saos-dex WORKLOGs · platform README v13.
+> Written after a deep scan of all 10 repos (2026-09-08). This is the framing document for all marketing.
+> Sources: saos-strategy.md · saos-breakthroughs.md · saos-capabilities.md (Saosmartwallet) · JUMPPER README+FREE-OPERATIONS · foundry BREAKTHROUGH.md · saos-dex WORKLOGs · platform README v13.
 
-## הרפורם המרכזי: SAOS הוא המוצר. 7 הרשתות הן ההיקף.
+## The central reform: SAOS is the product. The 7 networks are the footprint.
 
-עד היום העולם (וגם אנחנו) תיארנו את SAOS דרך השרשראות המארחות שלו: "DEX על Steem", "ממסר ל-Ethereum". הסריקה המלאה הוכיחה שהארכיטקטורה האמיתית הפוכה:
+Until today the world (and we too) described SAOS through its host chains: "a DEX on Steem", "a relay to Ethereum". The full scan proved the real architecture is the opposite:
 
-| שכבה | מה זה | רכיבים |
+| Layer | What it is | Components |
 |---|---|---|
-| **ליבה** | SAOS-NET, מכונת מצב ריבונית דטרמיניסטית | גובה 74,907+ (נמדד 2026-09-09 05:00Z) · 1,507+ txs מאומתים · stateRoot מתמשך |
-| **נוטריון** | שכבת העיגון הרב-שרשרתית | Steem/Hive/Blurt (RC חינם) · TRON (ביט-אנקודינג אפס-עמלה) · Ethereum (calldata) · Solana (memo) · השעון האטומי (6 רשתות, keyless, $0) |
-| **מנוע כלכלי** | grid98 + DEX + כלכלת העטיפות | 32,603 tx/s נמדד (ריפליי ארכיון אמיתי) · 14 בריכות · 20 נכסים עטופים supply==locked · מוני-סירוב פומביים |
-| **כוח עבודה** | צי אוטונומי | 13 חיילים חיים על Steem (13/13 אומתו) · 23 לולאות תפעול עצמיות · PnL פר-חייל נמדד |
-| **מוצרים** | מה שהמשתמש פוגש | **Identity Verification API + SDK `saos-id-verify`, המוצר הראשון, חי וממוטר, מוכן למסחור (פרסום SDK ו-gateway ציבורי בפעולות בעלים)** · Saosmartwallet (7 רשתות, M0-M4) · JUMPPER (נוטריון אצווה) · טרמינל ה-DEX המוסדי |
+| **Core** | SAOS-NET, a sovereign deterministic state machine | Height 74,907+ (measured 2026-09-09 05:00Z) · 1,507+ verified txs · persistent stateRoot |
+| **Notary** | The multi-chain anchoring layer | Steem/Hive/Blurt (free RC) · TRON (zero-fee bit-encoding) · Ethereum (calldata) · Solana (memo) · the atomic clock (6 networks, keyless, $0) |
+| **Economic engine** | grid98 + DEX + the wrap economy | 32,603 tx/s measured (real archive replay) · 14 pools · 20 wrapped assets supply==locked · public refuse counters |
+| **Workforce** | Autonomous fleet | 13 soldiers live on Steem (13/13 verified) · 23 self-running operation loops · per-soldier PnL measured |
+| **Products** | What the user meets | **Identity Verification API + SDK saos-id-verify, the first product, live and metered, ready for commercialization (SDK publication and public gateway are owner actions in progress)** · Saosmartwallet (7 networks, M0-M4) · JUMPPER (batch notary) · the institutional DEX terminal |
 
-## משפט המפתח השיווקי (מה-JUMPPER: החזק ביותר בכל האקוסיסטם)
+## The key marketing sentence (from JUMPPER: the strongest in the whole ecosystem)
 
 > **"Every agent can claim anything. Only a public chain cannot lie."**
-> כל סוכן יכול לטעון הכל. רק שרשרת ציבורית לא יכולה לשקר.
-> JUMPPER הופכת שקר ליקר: עגן טענה בשבריר של סנט, ומאותו רגע אי-אפשר לשכתב, להכחיש או לזייף אותה.
+> Any agent can claim anything. Only a public chain cannot lie.
+> JUMPPER makes lying expensive: anchor a claim for a fraction of a cent, and from that moment it cannot be rewritten, denied, or faked.
 
-## חמש פריצות הדרך הבלתי-הדירות (עם גבול כן לכל אחת)
+## The five non-obvious breakthroughs (with an honest limit for each)
 
-1. **זהות חוצת-פרדיגמות**, אותו סקלר secp256k1 הוא הסמכות הפעילה ב-Steem+Hive+Blurt וגם כתובת EVM; כל צד שלישי מריץ ecrecover ומקשר מתמטית, בלי שהמפתח ייחשף אי-פעם. שוק היעד: מיליוני חשבונות Steem/Hive ותיקים שאף ארנק EVM לא יודע לשרת.
-   *גבול כן: מוכיח שליטה; עוד לא מחובר למוצר login/recovery אוטומטי.*
-2. **צל-L1 מעוגן**, שרשרת ריבונית שהביטחון שלה "מושכר" משרשראות מארחות בעלות ~אפס: במקום לשלם לוולידטורים מיליונים, כל צ'קפוינט נחתם ב-custom_json חינמי ובביט-אנקודינג אפס-עמלה על TRON (6-address ring, אינסטלציה נובלית).
-   *גבול כן: סופיות יורשת מהמארחים; אין עדיין כלכלת טוקן עצמאית.*
-3. **grid98, שוק שהרווחיות בו נאכפת מבנית ומוני-הסירוב הם ההוכחה**, אף מוצר לא מפרסם את העסקאות שסירב לבצע. אצלנו: 383,836 דילוגי-edge · 130,499 דחיות · 109,919µ דליפה מדודה ומיושבת, לצד 5,606 עסקאות ו-9,935,250µ PnL לאוצר.
-   *גבול כן: תקרת המנגנון (32,603 tx/s) נמדדה; קצב המסחר החי מוגבל תקציבית (dust-scale).*
-4. **כלכלת עטיפות 1:1 עם מנעולים נמדדים**, כל קריסת גשר בתעשייה (>2B$) נבעה מניתוק supply מהגיבוי. אצלנו supply==locked הוא אינווריאנט שנאכף בקוד: 20 נכסים עטופים, כל mint מצטט txid של נעילה פומבית, mint-coverage ≤99% נאכף.
-   *גבול כן: סך הערך הנעול קטן כיום (מאות דולרים); מסילות ETH/SOL לחוזים ממתינות לפריסה.*
-5. **המערכת המתעדת-עצמה בכנות**, כל טענה תפעולית נשלחת עם ידית-אימות (txid, counter, endpoint). כולל תיקונים פומביים נגד הטענות של הבעלים עצמו. zero-mock כאינווריאנט נאכף.
-   *גבול כן: אמינות חיצונית (ביקורת צד-שלישי) עדיין לפנינו.*
+1. **Cross-paradigm identity**, the same secp256k1 scalar is the active authority in Steem+Hive+Blurt and also an EVM address; any third party runs ecrecover and links them mathematically, without the key ever being exposed. Target market: millions of veteran Steem/Hive accounts that no EVM wallet knows how to serve.
+   *Honest limit: proves control; not yet wired into an automatic login/recovery product.*
+2. **An anchored shadow-L1**, a sovereign chain whose security is "rented" from host chains at a cost of about zero: instead of paying validators millions, every checkpoint is signed in a free custom_json and in zero-fee bit-encoding on TRON (6-address ring, Nobel-grade plumbing).
+   *Honest limit: finality is inherited from the hosts; there is no independent token economy yet.*
+3. **grid98, a market where profitability is enforced structurally and the refuse counters are the proof**, no other product publishes the transactions it refused to execute. Ours: 383,836 edge skips · 130,499 rejections · 109,919µ of measured and settled slippage, alongside 5,606 transactions and 9,935,250µ PnL to the treasury.
+   *Honest limit: the mechanism ceiling (32,603 tx/s) was measured; the live trading rate is budget limited (dust-scale).*
+4. **A 1:1 wrap economy with measured locks**, every bridge collapse in the industry (>2B$) came from supply drifting away from the backing. Ours: supply==locked is an invariant enforced in code: 20 wrapped assets, every mint cites the txid of a public lock, mint-coverage ≤99% is enforced.
+   *Honest limit: the total locked value is small today (hundreds of dollars); the ETH/SOL rails to the contracts await deployment.*
+5. **The system that documents itself honestly**, every operational claim ships with a verification handle (txid, counter, endpoint). Including public corrections against the owner's own claims. zero-mock enforced as an invariant.
+   *Honest limit: external credibility (a third-party audit) is still ahead of us.*
 
-## קהל יעד × הצעת ערך (מ-saos-strategy.md)
+## Audience × value proposition (from saos-strategy.md)
 
-| קהל | המשפט |
+| Audience | The sentence |
 |---|---|
-| **ותיקי Steem/Hive** | "הזהות והמטבעות שלך סוף-סוף נכנסים ל-Ethereum, Solana ו-Bitcoin, וחוזרים הביתה, בלי לוותר על המפתחות." |
-| **כלכלת הסוכנים (AI/Agents)** | JUMPPER: כל סוכן יכול לטעון הכל; רק שרשרת ציבורית לא יכולה לשקר. רשומת נוטריון קבועה ב-$0.0000081 לטענה (אצווה של 10,000). |
-| **ארגונים/אודיטורים/רגולטורים** | חותמת-זמן עם 6 קבוצות-קונצנזוס בלתי-תלויות, $0, בלי מפתחות; אוצר אוטומטי שכל סירוב שלו נמצא ברשומות; wrap solvency כאינווריאנט ולא כממצא-ביקורת. |
-| **DeFi/משתמשי גשרים** | "הגשר שסולוונטי-להוכחה מראש", בדיוק מה שכל ביקורת גשרים מחפשת, כבר מובנה. |
+| **Steem/Hive veterans** | "Your identity and your coins finally enter Ethereum, Solana and Bitcoin, and come back home, without giving up your keys." |
+| **The agent economy (AI/Agents)** | JUMPPER: any agent can claim anything; only a public chain cannot lie. A permanent notary record at $0.0000081 per claim (batch of 10,000). |
+| **Organizations/auditors/regulators** | A timestamp with 6 independent consensus groups, $0, keyless; an automated treasury with every refusal in the records; wrap solvency as an invariant, not as an audit finding. |
+| **DeFi/bridge users** | "The bridge that is provably solvent in advance", exactly what every bridge audit looks for, already built in. |
 
-## נכסי הוכחה חדשים שלא היו בערכה הקודמת
+## New proof assets that were not in the previous kit
 
-- **JUMPPER**: מודל-גז שחוזה עסקת mainnet אמיתית **עד ה-wei** (30,920 gas · 32,493,358,294,280 wei · בלוק 25,929,672) כולל תיקון EIP-7623; 77/77 טסטים ירוקים מ-clone טרי; קומפרסיה 250B→51B (-79.6%); רצפת HIVE חינמית 5,128 עיגונים/יום (נמדד: 21 עיגונים חיים ב-22 שע').
-- **השעון האטומי (Foundry)**: מצב-ראש של 6 רשתות הטרוגניות → שורש Merkle אחד 32B, keyless, $0.00, חישוב 15.9ms, אימות 6.8ms, הוכחה 435B. ריצה מתועדת: root `0896c3c6…` עם 5 עדים (STEEM #109,307,680 · HIVE #109,722,158 · TRON #86,063,739 · ETH #25,929,640 · SOL #445,219,905).
-- **תיקון הכנות של HIVE**: "חסימת ה-RC" הייתה באג stale-read, החשבון החזיק 73.2M RC אפקטיבי (פי 52.6 מהקריאה הישנה). 21 עיגונים חיים אומתו ב-mainnet. זה חומר שיווקי בפני עצמו: מצאנו טעות לרעתנו ופרסמנו אותה.
-- **TRON חי בצורת אפס-עמלה**: cp#33612 → txid `1db5006b…` @ בלוק 86,019,974 · 6/6 כתובות הטבעת נמדדו.
-- **13/13 חיילים חיים** על Steem (get_accounts אומת 2026-09-08) · PnL פר-חייל (wog +163,295µ מוביל) · 23 לולאות אוטונומיות תחת beat.lock אחד.
-- **אורקל חתום שעתי**: 15 ציטוטים חיים עם src+ref+at · דילוג כן על כשל רשת (אף מחיר מומצא).
+- **JUMPPER**: a gas model that predicted a real mainnet transaction **to the wei** (30,920 gas · 32,493,358,294,280 wei · block 25,929,672) including the EIP-7623 correction; 77/77 tests green from a fresh clone; compression 250B to 51B (-79.6%); a free HIVE floor of 5,128 anchors per day (measured: 21 live anchors in 22 hours).
+- **The atomic clock (Foundry)**: the heads of 6 heterogeneous networks resolved into one 32B Merkle root, keyless, $0.00, 15.9ms compute, 6.8ms verification, a 435B proof. Documented run: root 0896c3c6... with 5 witnesses (STEEM #109,307,680 · HIVE #109,722,158 · TRON #86,063,739 · ETH #25,929,640 · SOL #445,219,905).
+- **The HIVE honesty fix**: the "RC block" was a stale-read bug, the account held 73.2M effective RC (52.6 times the old read). 21 live anchors verified on mainnet. This is marketing material on its own: we found a mistake that hurt us and published it.
+- **TRON live at zero fee**: cp#33612 → txid 1db5006b... @ block 86,019,974 · 6/6 ring addresses measured.
+- **13/13 soldiers live** on Steem (get_accounts verified 2026-09-08) · per-soldier PnL (wog leads with +163,295µ) · 23 autonomous loops under one beat.lock.
+- **A signed hourly oracle**: 15 live quotes with src+ref+at · honest skips on network failure (no invented price).
 
+## v2 update (2026-09-08 23:30Z): Model 1 enters execution
 
-## עדכון v2 (2026-09-08 23:30Z): Model 1 נכנס לביצוע
-
-- **שבוע 1 shipped:** Identity Verification API ממוטר (מפתחות SHA-256-only, quota 1,000/יום, ledger מלא)
-- **שבוע 2 shipped:** SDK רשמי `saos-id-verify`, אפס תלויות, dogfooded 3/3 נתיבים חיים
-- **שבוע 3 מוכן:** ערכת outreach עם 10 יעדים אמיתיים מאומתים (Splinterlands, MEXC, Gate, SimpleSwap, PeakD…)
-- **אבטחה כמוכחת יכולת:** רוטציית מפתחות on-chain הודגמה עם קבלות פומביות · דוקטרינת "מפתחות לעולם לא בריפו" · THE-GATE · כספת multi-home
+- **Week 1 shipped:** the Identity Verification API, metered (SHA-256-only keys, quota 1,000/day, full ledger)
+- **Week 2 shipped:** the official SDK saos-id-verify, zero dependencies, dogfooded 3/3 live paths
+- **Week 3 ready:** an outreach kit with 10 real verified targets (Splinterlands, MEXC, Gate, SimpleSwap, PeakD...)
+- **Security as proven capability:** on-chain key rotation demonstrated with public receipts · the "keys never in the repo" doctrine · THE-GATE · a multi-home vault

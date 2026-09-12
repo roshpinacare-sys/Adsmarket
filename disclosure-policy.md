@@ -1,64 +1,64 @@
-# מדיניות חשיפה: מה מפרסמים, מה לעולם לא, ולמה
+# Disclosure policy: what we publish, what we never publish, and why
 
-> המסמך המחייב של כל מי שכותב בשם SAOS. נולד מההבנה הבאה:
-> **כנות = כל טענה שאנחנו מפרסמים היא אמת הניתנת לאימות. כנות ≠ לשדר כל אירוע פנימי.**
+> The binding document for anyone writing in SAOS's name. It was born from this understanding:
+> **Honesty means every claim we publish is a verifiable truth. Honesty is not broadcasting every internal event.**
 
 ---
 
-## העיקרון המנחה
+## The guiding principle
 
-המותג שלנו הוא "קבלות, לא הבטחות", וזה חל על **טענות מוצר**. אבל אבטחה היא התחום היחיד שבו שקט הוא חלק מההגנה. לפרסם אירוע אבטחה זה לא כנות, זה למסור לתוקפים מפה: מה נפרץ, מתי, איך, ומה עדיין חשוף.
+Our brand is "receipts, not promises", and that applies to **product claims**. But security is the one domain where silence is part of the defense. Publishing a security event is not honesty, it is handing attackers a map: what was breached, when, how, and what is still exposed.
 
-## מה מפרסמים: ולמה
+## What we publish: and why
 
-| מפרסמים | למה |
+| We publish | Why |
 |---|---|
-| יכולות + קבלות (txids, מדידות, גרפים) | לב המותג: כל טענה ניתנת לאימות עצמאי |
-| סטטוס מוצר כן כולל מגבלות ("ממתין מימון", "TVL קטן", "עוד לא נפרס") | מונע הבטחות-יתר ובונה אמון ארוך-טווח |
-| תיקון של טענה טכנית שפרסמנו בעצמנו (כמו באג קריאת ה-RC) | פרסמנו טענה שגויה, התיקון הוא חלק מהכנות |
-| כשלים תפעוליים שהם שיעורי מוצר (ריפוי-עצמי, chaos, HALT בפיתוח) | מציגים עמידות כפיצ'ר, בלי לחשוף וקטור תקיפה |
-| דוקטרינת אבטחה כעיקרון תכנון ("מפתחות לעולם לא בריפו") | מחזקת אמון בלי לספר מה הוביל אליה |
+| Capabilities + receipts (txids, measurements, charts) | The heart of the brand: every claim is independently verifiable |
+| Product status including limitations ("awaiting funding", "small TVL", "not yet deployed") | Prevents over-promising and builds long-term trust |
+| Correction of a technical claim we ourselves published (like the RC read bug) | We published a wrong claim, the correction is part of honesty |
+| Operational failures that are product lessons (self-healing, chaos, HALT in development) | Shows resilience as a feature without exposing an attack vector |
+| Security doctrine as a design principle ("keys never in the repo") | Strengthens trust without telling what led to it |
 
-## מה לעולם לא מפרסמים: ולמה
+## What we never publish: and why
 
-| לא מפרסמים | למה |
+| We never publish | Why |
 |---|---|
-| אירועי אבטחה: דליפות מפתחות, אובדן גישה, חדירות, רוטציות חירום | מפה לתוקף + פגיעה באמון גם כשהאירוע נפתר |
-| פרטי החלמה, פורנזיקה, או שיטות שחזור | אותה מפה, ביתר פירוט |
-| כתובות ארנקים שמחזיקות כספים, מבנה מפתחות, נהלי הפעלה פנימיים | צביעת מטרה |
-| אירוע מתמשך מכל סוג | תמונה חלקית מייצרת בהלה מטעת |
-| כל פרט אישי של הבעלים (זרעים, סיסמאות, תוכן צ'אטים) | מובן מאליו |
+| Security events: key leaks, loss of access, intrusions, emergency rotations | A map for an attacker + damage to trust even when the event is resolved |
+| Recovery details, forensics, or restoration methods | The same map, in more detail |
+| Wallet addresses holding funds, key structure, internal operating procedures | Painting a target |
+| An ongoing event of any kind | A partial picture creates misleading panic |
+| Any personal detail of the owner (seeds, passwords, chat contents) | Self-explanatory |
 
-## כמה חושפים?
+## How much do we reveal?
 
-**עד רמת היכולת, לא רמת האירוע.**
-- מותר: "המפתחות לעולם לא נמצאים בריפו, כל ההיסטוריה נבדקה ונקייה (0 מפתחות ב-32 קומיטים)."
-- אסור: "…כי איבדנו את המפתחות ביום שלישי."
-- מותר: "רוטציית מפתחות on-chain היא יכולת מוכחת עם קבלות פומביות."
-- אסור: הסיפור על מה שהצריך את הרוטציה.
-- המספרים שמפגינים חוזן מתפרסמים (14/14 אימותים, 3 בתים לכספת, THE-GATE). הסיפור שמאחוריהם, לא.
+**Up to the capability level, not the event level.**
+- Allowed: "The keys were never in the repo, the whole history was checked and clean (0 keys in 32 commits)."
+- Forbidden: "...because we lost the keys on a Tuesday."
+- Allowed: "On-chain key rotation is a proven capability with public receipts."
+- Forbidden: the story of what made the rotation necessary.
+- The numbers that demonstrate strength are published (14/14 verifications, 3 homes for the vault, THE-GATE). The story behind them is not.
 
-## איך מנסחים? (חוקי ניסוח)
+## How do we phrase it? (phrasing laws)
 
-1. **פוזיטיבי, לא צלקתי:** דוקטרינה כעיקרון תכנון מלידה, "מפתחות לעולם לא נוגעים בריפו", לא "אחרי הדליפה הוצאנו את המפתחות".
-2. **יכולת, לא אירוע:** רוטציה/שחזור/טיהור מוצגים כשרירים שנבדקו, בלי טריגר.
-3. **שאלה ישירה של עיתונאי:** תשובת ה-press-kit היא הדוקטרינה + "אנחנו לא מתייחסים לאירועים תפעוליים ספציפיים, זו עצמה מדיניות האבטחה."
-4. **ה-fact-sheet הפנימי מתעד הכול** (כולל אירועים, מתויגים ⚠ פנימי), כדי שהצוות לומד ושום לקח לא הולך לאיבוד, ושום גזירת שיווק לא נגעת בסעיפים מתויגים.
+1. **Positive, not scarred:** doctrine as a design principle from day one, "keys never touch the repo", not "after the leak we removed the keys".
+2. **Capability, not event:** rotation, recovery and purging are shown as tested muscles, without a trigger.
+3. **A direct journalist question:** the press-kit answer is the doctrine + "we do not comment on specific operational events, that is itself the security policy."
+4. **The internal fact-sheet records everything** (including events, tagged internally as warning items), so the team learns and no lesson is lost, and so no marketing cut touches the tagged sections.
 
-## מבחן שלוש השאלות לפני כל פרסום
+## The three-question test before every publication
 
-1. **האם הטענה נכונה ומאומתת?** לא → לא מפרסמים.
-2. **האם הפרסום חושף חולשה, תזמון או שיטה לתוקף?** כן → לא מפרסמים.
-3. **האם זה תיקון של משהו שפרסמנו בעצמנו?** כן → חייבים לפרסם. זו הכנות.
+1. **Is the claim true and verified?** No, we do not publish.
+2. **Does the publication expose a weakness, timing, or method to an attacker?** Yes, we do not publish.
+3. **Is this a correction of something we ourselves published?** Yes, we must publish. That is honesty.
 
-## שלושה כללים חדשים (נולדו ב-roast של 2026-09-10: roast/2026-09-10-truth-gaps.md)
+## Three new rules (born in the roast of 2026-09-10: roast/2026-09-10-truth-gaps.md)
 
-1. **כלל הזמינות:** לא מפרסמים פקודת התקנה, URL או endpoint בלי בדיקת חיות אמיתית מול משתמש חיצוני (npm registry / דפדפן / curl). פקודה שפורסמה ומחזירה 404 היא טענת-שווא מותגית, בדיוק החטא שהמותג יוצא נגדו.
-2. **כלל ה-Snapshot:** כל מספר נמדד מוצמד לתאריך מדידה. מספר מתויג-גרסה (v28) או counter מונוטוני מסומן "נכון ל-X". snapshot שמוצג כ-live הוא שקר שמחכה שיימדד שוב.
-3. **כלל הפנים/חוץ:** "חי ומוכח בתוך המערכת" ≠ "זמין היום לכל אחד". הניסוח חייב להבחין בין השניים במפורש, תמיד.
+1. **The availability rule:** we do not publish an install command, URL, or endpoint without a real liveness check against an external user (npm registry / browser / curl). A published command that returns 404 is a false claim at the brand level, exactly the sin the brand speaks against.
+2. **The snapshot rule:** every measured number is attached to a measurement date. A version-tagged number (v28) or a monotonic counter is marked "as of X". A snapshot presented as live is a lie waiting to be measured again.
+3. **The inside/outside rule:** "live and proven inside the system" is not "available today to anyone". The phrasing must distinguish the two explicitly, always.
 
-4. **כלל אימות-הקריאה (נוסף אחרי אירוע הקונפבולציה, 2026-09-10):** כשקריאת כלי נכשלת או מחזירה שגיאה, **שום תוכן מ"זיכרון" הקריאה לא נכתב ושום מסקנה ממנה לא מתפרסמת**. מושכים מחדש, או שלא כותבים. טקסט שנכתב מקריאה כושלת הוא המצאה, גם אם הכוונה טובה. (אירוע אפס-נזק לריפו, אך דווח למפעיל כתיקון עצמי #3, ראו fact-sheet 10.31.)
+4. **The read-verification rule (added after the confabulation event, 2026-09-10):** when a tool read fails or returns an error, **no content from the read's "memory" is written and no conclusion drawn from it is published**. Pull again, or do not write. Text written from a failed read is an invention, however good the intention. (Zero damage to the repo, reported to the operator as self-correction #3, see fact-sheet 10.31.)
 
-## רטרואקטיב
+## Retroactive
 
-תוכן אירועי שכבר פורסם בערכה, נמחק או מנוסח מחדש לפי המדיניות (בוצע עם אימוץ המסמך: כתבה 07 נמחקה, פוסט L12 הוסר, L2 נוסח מחדש כדוקטרינה, ה-press-kit והלנדינגים תוקנו). מה שלא פורסם, לא יפורסם.
+Event content already published in the kit was deleted or rephrased according to the policy (done upon adopting the document: article 07 was deleted, post L12 was removed, L2 was rephrased as doctrine, the press-kit and the landing pages were corrected). What was not published will not be published.

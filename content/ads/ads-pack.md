@@ -1,146 +1,146 @@
-# חבילת מודעות: SAOS בשפה פשוטה
+# Ad pack: SAOS in plain language
 
-> כל מודעה כאן מוכנה להעתקה. לכל אחת כיוון ויזואלי מצורף.
-> חוקי ברזל: אפס אימוג'ים · אפס הבטחות תשואה · כל מספר = מספר אמיתי מה-fact-sheet · תמיד CTA של "תבדקו", לא "תקנו".
-
----
-
-## A. פייסבוק / אינסטגרם (3 גרסאות)
-
-### גרסה A1: "הבעיה" (מודעת מודעות)
-**ויזואליה:** מסך צ'אט חשוך. בועות הודעה נערמות: "העברתי לך!" "ביצעתי!" "הכול עובד, תאמין לי!", וכולן מתמוססות לעשן. באמצע: סימן שאלה גדול.
-**טקסט:**
-כולם אומרים "תאמין לי".
-אף אחד לא יכול להוכיח.
-בנינו מערכת שהופכת כל "תאמין לי" לקבלה שאי-אפשר למחוק.
-רשומה קבועה עולה פחות מגרגר חול, פחות ממאית האגורה.
-לא הבטחות. קבלות.
-**כפתור:** "לראות איך זה עובד" (30 שניות, בלי מילים מסובכות)
-
-### גרסה A2: "המחיר" (הלם תמחור)
-**ויזואליה:** משקל מאזניים ישן. צד אחד: חותמת נוטריון כבדה עם תג מחיר "₪400". צד שני: גרגר חול זוהר עם תג "$0.0000081". המאזניים נוטים עד הסוף.
-**טקסט:**
-כמה עולה להוכיח שמסמך קיים?
-נוטריון: מאות שקלים. תור. נסיעה.
-SAOS: שמונה מיליוניות הדולר. קבלה בפנקס ציבורי. לנצח.
-ואתם לא צריכים להאמין לנו, הקבלה פתוחה לכולם.
-**כפתור:** "לבדוק את הקבלות"
-
-### גרסה A4: "חצות" (עמידות)
-**ויזואליה:** שעון מחוגים על 23:58, חדר שרתים חשוך. פריים אחד אחרי: 23:59, מסך דולק, שורת לוג ירוקה: "HTTP 200". ביניהם, אף יד אנושית.
-**טקסט:**
-23:58, השרת מת. מערכת ההפעלה הרגה אותו מחוסר זיכרון.
-23:59, הוא חי שוב. אף בן אדם לא נגע.
-36 שניות. תיעוד מלא. כולל המוות עצמו.
-SAOS: מערכת ששומרת על עצמה, ומראה את העבודה.
-**כפתור:** "לקרוא את סיפור התקלה המלא"
-
-### גרסה A3: "הכנות" (בונה אמון)
-**ויזואליה:** יומן פתוח. שורה אחת מסומנת בטוש אדום, ולידה בכתב יד: "פה טעינו. הנה התיקון."
-**טקסט:**
-טעינו.
-דיווחנו שרשת אחת "חסומה", בפועל הייתה לנו תקלת קריאה, והיו לנו פי 52 יותר משאבים ממה שחשבנו.
-גילינו. פרסמנו. תיקנו. בנינו בדיקות שזה לא יחזור.
-מערכת שמסוגלת להגיד "טעינו", אפשר לסמוך על ה"צדקנו" שלה.
-SAOS: הכול גלוי. כולל הטעויות.
-**כפתור:** "לקרוא את הסיפור המלא"
+> Every ad here is ready to copy. Each one comes with a visual direction.
+> Iron rules: zero emojis · zero promises of returns · every number is a real number from the fact sheet · always a "check it" CTA, never a "buy" CTA.
 
 ---
 
-## B. X / טוויטר (5 מודעות קצרות)
+## A. Facebook / Instagram (3 versions)
+
+### Version A1: "The problem" (video ad)
+**Visual:** A dark chat screen. Message bubbles pile up: "I sent it", "Done", "Everything works, trust me", and all of them dissolve into smoke. In the middle: one big question mark.
+**Text:**
+Everyone says "trust me".
+No one can prove it.
+We built a system that turns every "trust me" into a receipt no one can delete.
+A permanent record costs less than a grain of sand. Less than a hundredth of an agora.
+No promises. Receipts.
+**Button:** "See how it works" (30 seconds, no complicated words)
+
+### Version A2: "The price" (pricing shock)
+**Visual:** An old balance scale. One side: a heavy notary stamp with a price tag reading "about 400 shekels". The other side: a glowing grain of sand with a price tag reading "$0.0000081". The scale tips all the way.
+**Text:**
+How much does it cost to prove a document exists?
+Notary: hundreds of shekels. A line. A trip.
+SAOS: eight millionths of a dollar. A receipt in a public ledger. Forever.
+And you do not have to take our word for it. The receipt is open for everyone.
+**Button:** "Check the receipts"
+
+### Version A4: "Midnight" (resilience)
+**Visual:** An analog clock at 23:58, a dark server room. One frame later: 23:59, a lit screen, a green log line: "HTTP 200". Between them, no human hand.
+**Text:**
+23:58, the server dies. The operating system killed it: out of memory.
+23:59, it is alive again. No human touched it.
+36 seconds. Full documentation. Including the death itself.
+SAOS: a system that keeps itself alive, and shows its work.
+**Button:** "Read the full incident story"
+
+### Version A3: "The honesty" (trust builder)
+**Visual:** An open journal. One line marked in red marker, and next to it, in handwriting: "We messed up. Here is the fix."
+**Text:**
+We messed up.
+We reported a chain as "blocked". In fact it was a read failure on our side, and we had 52 times more resources than we thought.
+We found it. We published it. We fixed it. We built checks so it does not come back.
+When a system can say "we messed up", you can trust its "we were right".
+SAOS: everything is open. Including the mistakes.
+**Button:** "Read the full story"
+
+---
+
+## B. X / Twitter (5 short ads)
 
 **B1:**
-כולם יכולים לטעון הכול.
-רק פנקס ציבורי לא יכול לשקר.
-SAOS, קבלה לכל טענה, בפחות ממאית האגורה.
+Anyone can claim anything.
+Only a public ledger cannot lie.
+SAOS: a receipt for every claim, for less than a hundredth of an agora.
 
 **B2:**
-נוטריון: ₪400 + תור + נסיעה.
-SAOS: $0.0000081 + קבלה פתוחה לנצח.
-זה לא שיפור בנוטריון. זה סוף הצורך בו.
+Notary: about 400 shekels + a line + a trip.
+SAOS: $0.0000081 + a receipt open forever.
+This is not an improvement on the notary. This is the end of needing one.
 
 **B3:**
-שאלה אחת שתסנן לכם כל חברה:
-"תראו לי את הטעויות שלכם."
-שלנו? ביומן הפתוח. כולל הפעם שדיווחנו "חסום" וטעינו בפי 52.
+One question that will filter any company for you:
+"Show me your mistakes."
+Ours? In the open journal. Including the time we reported "blocked" and were wrong by a factor of 52.
 
 **B4:**
 383,836.
-זה מספר העסקאות שהמערכת שלנו סירבה לבצע, ופרסמה.
-כי מי שרואה את הסירובים, יכול לסמוך על הביצועים.
+That is the number of transactions our system refused to execute, and then published.
+If you can see the refusals, you can trust the executions.
 
 **B5:**
-יש לכם חשבון Steem או Hive ישן משנת 2017?
-הזהות שלכם יכולה סוף-סוף לעבוד גם בעולם החדש.
-בלי לחשוף מפתחות. בלי להעביר כסף. רק הוכחה מתמטית.
-פרטים בקישור.
+Have an old Steem or Hive account from 2017?
+Your identity can finally work in the new world as well.
+Without exposing keys. Without moving funds. Just mathematical proof.
+Details in the link.
 
 ---
 
-## C. Google Ads (כותרות 30 תווים + תיאורים 90 תווים)
+## C. Google Ads (headlines of 30 characters + descriptions of 90 characters)
 
-**קמפיין 1, "נוטריון דיגיטלי"**
-כותרות:
-- נוטריון דיגיטלי בפחות מאגורה
-- הוכחת קיום מסמך, לנצח
-- קבלה שאי אפשר למחוק
-תיאורים:
-- רישום קבוע בפנקס ציבורי בעלות של פחות ממאית האגורה. בדיקה עצמאית, בלי לסמוך על אף אחד.
-- כל מסמך מקבל טביעת אצבע מתמטית שנרשמת לנצח. הפרטיות שלכם נשארת אצלכם. נסו עכשיו.
+**Campaign 1, "Digital notary"**
+Headlines:
+- A digital notary for less than an agora
+- Proof a document exists, forever
+- A receipt that cannot be deleted
+Descriptions:
+- A permanent record in a public ledger for less than a hundredth of an agora. Independent verification, trusting no one.
+- Every document gets a mathematical fingerprint, recorded forever. Your privacy stays yours. Try it now.
 
-**קמפיין 2, "אימות תוכן / עידן ה-AI"**
-כותרות:
-- להוכיח מה אמיתי בעידן ה-AI
-- כל סוכן טוען. אנחנו מוכיחים.
-- אימות תוכן בפנקס ציבורי
-תיאורים:
-- בעולם שבו כל בוט יכול לטעון שביצע, SAOS נותן קבלה. רישום קבוע, פומבי, בר-אימות עצמאית.
-- שכבת האמת לאינטרנט האוטונומי: חותמות זמן מרובות רשתות, אפס מפתחות, בדיקה בחינם.
-
----
-
-## D. טלגרם (קהילות: פוסט ארוך)
-
-**גרסת קהילה:**
-שאלה פשוטה לקהילה: איך אתם יודעים שפרויקט קריפטו לא משקר לכם?
-
-התשובות הרגילות: "הצוות מוכר", "הקהילה חזקה", "הביקורת עברה".
-כולן = "תאמין למישהו".
-
-הגישה שלנו שונה: אל תאמינו לאף אחד. גם לא לנו.
-
-SAOS שולחת כל 36 שניות "צילום חתום" של כל מה שקורה במערכת לחמישה פנקסים ציבוריים בלתי-תלויים. אם משהו במערכת ישתנה אחורה, הצילומים לא יתאימו וכולם יראו.
-
-מספרים אמיתיים, בלי עיגולים:
-רישום קבוע: $0.0000081 (נמדד על רשת אמיתית)
-מאות עיגונים בוצעו עד היום: אפס אי-דיוקים
-כן, גם טעינו פעם (דיווחנו "רשת חסומה" כשהייתה תקלת קריאה אצלנו), ופרסמנו את התיקון
-
-מי שרוצה לבדוק בעצמו במקום להאמין, כל הקבלות פתוחות. הקישור בהודעה הבאה.
+**Campaign 2, "Content verification / the AI era"**
+Headlines:
+- Prove what is real in the AI era
+- Every agent claims. We prove.
+- Content verification in a public ledger
+Descriptions:
+- In a world where any bot can claim it acted, SAOS gives a receipt. A permanent, public record, open to independent verification.
+- The truth layer for the autonomous web: timestamps across multiple chains, zero keys, verification is free.
 
 ---
 
-## E. לינקדאין (B2B)
+## D. Telegram (communities: long post)
 
-**כותרת:** מה עולה לעסק שלכם לומר "תאמין לי"?
+**Community version:**
+A simple question for the community: how do you know a crypto project is not lying to you?
 
-**גוף:**
-כל עסקה עסקית מבוססת על משהו שאי-אפשר למדוד: אמון. חשבוניות, דוחות, אישורי מסירה, כולם בסוף "מילה של מישהו".
+The usual answers: "the team is known", "the community is strong", "the audit passed".
+All of them = "trust someone".
 
-בנינו תשתית שהופכת את המילה הזאת למשהו שאפשר לבדוק: כל אירוע עסקי מקבל חותמת זמן מתמטית, נרשם בפנקסים ציבוריים בלתי-תלויים, וכל צד שלישי, לקוח, רואה חשבון, בית משפט, יכול לאמת אותו בעצמו, בחינם, בשניות.
+Our approach is different: trust no one. Not even us.
 
-עלות רישום קבוע: פחות ממאית האגורה. (כן, נמדד. כן, על רשת אמיתית. לא, זה לא טריק, זה פשוט ניצול נכון של תשתיות קיימות.)
+Every 36 seconds, SAOS sends a "signed snapshot" of everything that happens in the system to five independent public ledgers. If anything in the system gets rewritten, the snapshots will not match, and everyone will see.
 
-אנחנו מחפשים שותפי פיילוט: לוגיסטיקה שצריכה אישורי מסירה בלתי-הפיכים, משרדים שצריכים חותמות זמן לרגולציה, וחברות AI שצריכות להוכיח מה הסוכנים שלהן באמת עשו.
+Real numbers, no rounding:
+A permanent record: $0.0000081 (measured on a real network)
+Hundreds of anchors performed to date: zero inaccuracies
+Yes, we messed up once too (we reported "chain blocked" when it was a read failure on our side), and we published the fix
 
-בלי הבטחות. עם קבלות. בואו לבדוק.
+If you want to check for yourself instead of believing, all the receipts are open. Link in the next message.
 
 ---
 
-## הנחיות ויזואליות לכלל המודעות
+## E. LinkedIn (B2B)
 
-1. **פלטת הצבעים:** רקע כמעט-שחור (#09090b), טקסט לבן, מבטא זהב (#d4af37), תחושה של "מסמך רשמי בחושך", לא של קזינו.
-2. **טיפוגרפיה:** מספרים תמיד במונוספייס (כמו קבלה אמיתית). כותרות גדולות ונקיות.
-3. **אסור:** מטוסים לחלל, טילים, גרפים ירוקים עולים, אנשים במשקפי שמש, "x100", ספירות לאחור, אימוג'ים.
-4. **מותר ומעודד:** מחברות, חותמות שעווה, קבלות נייר, מאזניים, יומנים, פנקסים, כל דימוי של "רישום רציני".
-5. **כל מודעה = טענה אחת בלבד.** לא מערבבים נוטריון + גשר + מסחר באותה מודעה.
+**Headline:** What does it cost your business to say "trust me"?
+
+**Body:**
+Every business transaction rests on something that cannot be measured: trust. Invoices, reports, delivery confirmations. In the end, each one is "someone's word".
+
+We built infrastructure that turns that word into something checkable: every business event gets a mathematical timestamp, recorded in independent public ledgers, and any third party (a client, an accountant, a court) can verify it on its own, for free, in seconds.
+
+The cost of a permanent record: less than a hundredth of an agora. (Yes, it was measured. Yes, on a real network. No, it is not a trick. It is simply the right use of infrastructure that already exists.)
+
+We are looking for pilot partners: logistics companies that need irreversible delivery confirmations, offices that need timestamps for compliance, and AI companies that need to prove what their agents actually did.
+
+No promises. Receipts. Come and check.
+
+---
+
+## Visual directions for all ads
+
+1. **Color palette:** a near-black background (#09090b), white text, a gold accent (#d4af37). The feel of "an official document in the dark", not of a casino.
+2. **Typography:** numbers always in monospace (like a real receipt). Big, clean headlines.
+3. **Forbidden:** planes in space, rockets, rising green graphs, people in sunglasses, "x100", countdowns, emojis.
+4. **Allowed and encouraged:** notebooks, wax seals, paper receipts, scales, journals, ledgers, any image of "serious record-keeping".
+5. **Every ad = one claim only.** Never mix notary + bridge + trading in the same ad.

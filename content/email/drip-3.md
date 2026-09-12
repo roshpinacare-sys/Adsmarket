@@ -1,99 +1,99 @@
-# רצף אימיילים: 3 מכתבים שמספרים סיפור
+# Email sequence: 3 letters that tell a story
 
-> קצב: יום 0 / יום 3 / יום 7. טון: מכתב מחבר שמבין, לא ניוזלטר חברתי.
-> נושא קצר (עד 45 תווים), גוף קצר, CTA אחד בלבד לכל מכתב.
-
----
-
-## מכתב 1: יום 0 · "שאלה קטנה"
-
-**נושא:** שאלה קטנה: איך אתה יודע?
-
-שלום {שם},
-
-שאלה קצרה, ואני באמת מתכוון אליה:
-כשמישהו באינטרנט אומר לך "ביצעתי", "שלחתי", "הכול בסדר", איך אתה יודע?
-
-התשובה הכנה: אתה לא יודע. אתה מאמין.
-וזה בסדר גמור, עד שיום אחד זה עולה לך כסף, זמן, או לקוח.
-
-בנינו מערכת בשם SAOS שעושה דבר אחד: הופכת "תאמין לי" לקבלה.
-כל דבר שקורה בה מקבל חותמת שנרשמת בפנקסים ציבוריים, מקומות שאף אחד, כולל אנחנו, לא יכול למחוק מהם כלום.
-
-עלות רישום קבוע: פחות ממאית האגורה. נמדד. על רשת אמיתית.
-
-במכתב הבא אספר לך איך זה עובד, במחברת אחת וחמישה עדים.
-בינתיים, אם בא לך לראות בעיניים: יש לנו הסבר מונפש בן שתי דקות, בלי מילים מסובכות.
-
-[כפתור: לראות את ההסבר המונפש]
-
-בלי הבטחות,
-{שם שולח} · SAOS
-
-נ.ב. אם משהו בהסבר לא ברור, ענה למכתב הזה. ברצינות. אנחנו משפרים לפי מה שאנשים לא מבינים.
+> Pace: day 0 / day 3 / day 7. Tone: a letter from someone who understands, not a social newsletter.
+> Short subject (up to 45 characters), short body, a single CTA per letter.
 
 ---
 
-## מכתב 2: יום 3 · "המחברת וחמשת העדים"
+## Letter 1: day 0 · "A Small Question"
 
-**נושא:** מחברת אחת, חמישה עדים, אפס שקרים
+**Subject:** A small question: how do you know?
 
-שלום {שם},
+Hello {name},
 
-הבטחתי הסבר פשוט. הנה הוא, בארבעה צעדים:
+A short question, and I really mean it:
+when someone online tells you "I did it", "I sent it", "all good", how do you know?
 
-1. דמיינו מחברת שבה נרשם הכול. כל פעולה. כל הבטחה.
-2. כל 36 שניות מצלמים את כל המחברת. מהצילום נוצרת טביעת אצבע מתמטית, ייחודית כמו טביעת אצבע אמיתית.
-3. את הטביעה שולחים לחמישה בתי רישום ציבוריים ענקיים, שלא מכירים זה את זה. חלקם בחינם גמור.
-4. עכשיו נסו לשנות משהו במחברת. הטביעות לא יתאימו. כולם יראו. מיד.
+The honest answer: you don't know. You believe.
+And that is perfectly fine, until the day it costs you money, time, or a client.
 
-זה הכול. בלי קסם, בלי ועדות, בלי "סמכו עלינו".
+We built a system called SAOS that does one thing: it turns "believe me" into a receipt.
+Everything that happens inside it gets a stamp recorded in public ledgers, places from which no one, including us, can erase anything.
 
-והחלק שאנחנו הכי גאים בו: המערכת שלנו מפרסמת גם את מה שהיא סירבה לעשות.
-383,836 עסקאות נדחו עד היום, וכולן רשומות בגלוי. אף מערכת מסחר לא מראה לכם את רשימת הסירובים שלה. אנחנו כן.
+A fixed recording cost: less than a hundredth of an agora. Measured. On a real network.
 
-למה? כי מי שרואה את הסירובים, יכול סוף-סוף לסמוך על הביצועים.
+In the next letter I will tell you how it works, with one notebook and five witnesses.
+Meanwhile, if you feel like seeing it with your own eyes: we have a two-minute animated explainer, no complicated words.
 
-[כפתור: לראות את הסירובים בעיניים]
+[Button: Watch the animated explainer]
 
-{שם שולח} · SAOS
+No promises,
+{sender name} · SAOS
 
----
-
-## מכתב 3: יום 7 · "הטעות שלנו"
-
-**נושא:** טעינו. הנה מה שקרה.
-
-שלום {שם},
-
-לפני שנפרד מרצף המכתבים הזה, סיפור אחד אחרון, עלינו.
-
-לפני כמה שבועות דיווחנו שאחת הרשתות "חסומה" בפנינו.
-זה לא היה נכון. הייתה לנו תקלת קריאה קטנה: חשבנו שיש לנו מעט משאבים, ובפועל היו לנו פי 52 יותר.
-
-אף אחד לא תפס אותנו. יכולנו לתקן בשקט ולהמשיך הלאה.
-בחרנו לפרסם: מה קרה, למה, ואיך בנינו בדיקות שזה לא יחזור.
-
-למה אני מספר לך את זה במכתב שיווקי?
-בגלל השאלה היחידה שבאמת צריך לשאול כל מערכת, כל חברה, כל אפליקציה:
-
-**"תראו לי את הטעויות שלכם."**
-
-מי שמראה, שווה את הזמן שלך. מי שמחביא, תברח.
-היומן שלנו פתוח. גם החלק הזה בפנים.
-
-אם SAOS מעניינת אותך, כל הקבלות פתוחות לציבור, וההסבר המונפש מחכה.
-ואם לא, תודה שקראת עד כאן. באמת.
-
-[כפתור: לקרוא את הסיפור המלא]
-
-{שם שולח} · SAOS
+P.S. If anything in the explainer is unclear, reply to this letter. Seriously. We improve based on what people don't understand.
 
 ---
 
-## הערות הטמעה
+## Letter 2: day 3 · "The Notebook and the Five Witnesses"
 
-- שדה {שם} אופציונלי: אם אין שם, המכתב עובד גם בלעדיו ("שלום,").
-- כל CTA מקשר לנכס קיים: מכתב 1 → content/explainer/index.html · מכתב 2 → דף הנחיתה (סקשן מוני הסירוב) · מכתב 3 → כתבה 04.
-- אפס אימוג'ים בגוף המכתב. חתימה טקסטואלית בלבד.
-- שורת הסרה בתחתית: "קיבלת את המכתב כי נרשמת לעדכוני SAOS. להסרה, קישור אחד, בלי שאלות."
+**Subject:** One notebook, five witnesses, zero lies
+
+Hello {name},
+
+I promised a simple explanation. Here it is, in four steps:
+
+1. Imagine a notebook where everything is written down. Every action. Every promise.
+2. Every 36 seconds the whole notebook is photographed. From the photo a mathematical fingerprint is created, unique like a real fingerprint.
+3. The fingerprint is sent to five huge public registries that do not know one another. Some of them completely free.
+4. Now try to change something in the notebook. The fingerprints will not match. Everyone will see. Immediately.
+
+That is all. No magic, no committees, no "trust us".
+
+And the part we are proudest of: our system also publishes what it refused to do.
+383,836 transactions declined to date, all of them recorded in the open. No trading system shows you its list of refusals. We do.
+
+Why? Because whoever sees the refusals can finally trust the performance.
+
+[Button: See the refusals with your own eyes]
+
+{sender name} · SAOS
+
+---
+
+## Letter 3: day 7 · "Our Mistake"
+
+**Subject:** We were wrong. Here is what happened.
+
+Hello {name},
+
+Before we part from this letter sequence, one last story, about us.
+
+A few weeks ago we reported that one of the networks was "blocked" to us.
+That was not true. We had a small reading glitch: we thought we had few resources, and in fact we had 52 times more.
+
+No one caught us. We could have fixed it quietly and moved on.
+We chose to publish: what happened, why, and how we built checks so that it will not return.
+
+Why am I telling you this in a marketing letter?
+Because of the only question that truly needs to be asked of any system, any company, any app:
+
+**"Show me your mistakes."**
+
+Whoever shows them is worth your time. Whoever hides them, run.
+Our journal is open. This chapter is in it too.
+
+If SAOS interests you, all the receipts are public, and the animated explainer is waiting.
+And if not, thank you for reading this far. Really.
+
+[Button: Read the full story]
+
+{sender name} · SAOS
+
+---
+
+## Embedding notes
+
+- The {name} field is optional: with no name, the letter works without it ("Hello,").
+- Each CTA links to an existing asset: letter 1 → content/explainer/index.html · letter 2 → the landing page (the refusals counter section) · letter 3 → article 04.
+- Zero emoji in the letter body. A text-only signature.
+- Unsubscribe line at the bottom: "You received this letter because you subscribed to SAOS updates. To unsubscribe, one link, no questions."

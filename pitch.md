@@ -1,62 +1,62 @@
-# SAOS Pitch v2: אקוסיסטם, לא מוצר בודד
+# SAOS pitch v2: an ecosystem, not a single product
 
-> נגזר מ-fact-sheet.md v2 בלבד. הרפורם: SAOS הוא המוצר; 7 הרשתות הן ההיקף.
+> Derived from fact-sheet.md v2 only. The reform: SAOS is the product; the 7 networks are its footprint.
 
 ---
 
-## משפט הפתיחה האוניברסלי (לכל קהל)
+## The universal opening line (for every audience)
 
 **"Every agent can claim anything. Only a public chain cannot lie."**
-SAOS בונה את שכבת האמת של האינטרנט האוטונומי: מערכת ריבונית שמעגנת כל מצב, כל טענה וכל סירוב על 7 רשתות ציבוריות, בעלות של אגורות, עם קבלה לכל דבר.
+SAOS builds the truth layer of the autonomous internet: a sovereign system that anchors every state, every claim and every refusal on 7 public networks, at a cost of agorot, with a receipt for everything.
 
 ---
 
-## פיץ' 30 שניות
+## The 30-second pitch
 
-"יש היום שתי דרכים להוכיח משהו בקריפטו: לבקש אמון מוועדת ולידטורים, או לשלם גז. SAOS מוכיחה שאפשר גם וגם לא, והמוצר הראשון כבר חי ומוכח מקצה לקצה (SDK אפס-תלויות בריפו; הפרסום ל-npm בתהליך): מכונת מצב ריבונית, 74,907+ בלוקים, 32,603 עסקאות לשנייה נמדד בריפליי ארכיון אמיתי, שמעגנת כל חותם על Steem ו-Hive בחינם, על Ethereum ו-Solana בעלות של אגורות, ועל TRON באפס עמלה נטו. רשומת נוטריון קבועה עולה אצלנו $0.0000081. כל טענה מגובה ב-txid שכל אחד פותח לבד. לא הבטחות, קבלות."
-
----
-
-## פיץ' 2 דקות
-
-**הבעיה.** בעולם שבו כל סוכן AI וכל פרויקט יכולים לטעון הכל, "הכל ירוק", "הכל נדחף", "הכל מאומת", אין שום דרך בלתי-תלויה לוודא. 13 סבבי עבודה שלנו עצמנו דיווחו "הכל עובד"; בדיקה חיצונית מצאה שאי-אפשר היה לאמת אף אחד מהם. זו הבעיה של כלכלת הסוכנים כולה.
-
-**הפתרון.** SAOS הופכת טענות לעובדות משורשרות. כל מצב נחתם לשורש Merkle כל 36 שניות ומעוגן בו-זמנית על רשתות בלתי-תלויות: Graphene (חינם, RC), Ethereum (calldata), Solana (memo), TRON (ביט-אנקודינג אפס-עמלה, אינסטלציה נובלית שלנו). אותו root בדיוק מאומת bit-for-bit משתי קריאות RPC נפרדות.
-
-**ההוכחות החזקות.**
-- מודל הגז שלנו כבר **צדק 7 פעמים ברצף** על עוגנים חיים (32,680 gas מדויק כל אחד), אחרי שכייל את עצמו עד ה-wei מול בלוק 25,929,672, כולל תיקון EIP-7623 שרוב המודלים בתעשייה מפספסים
-- השעון האטומי: ראשי 6 רשתות → שורש אחד 32B, keyless, $0, חישוב 16ms, אימות 7ms
-- JUMPPER: נוטריון קבוע ל-10,000 טענות ב-$0.08, $0.0000081 לרשומה
-- ואנחנו מפרסמים גם את מה שכשל: 383,836 עסקאות שהמנוע סירב לבצע, באג ה-RC שלנו עצמו (פי 52.6 דיווח-חסר) שגילינו ותיקנו בפומבי
-
-**הכלכלה.** עמלות 30bps, 70% לנזילות. 20 נכסים עטופים שבהם supply==locked הוא אינווריאנט שנאכף בקוד, בדיוק מה שכל ביקורת גשרים מחפשת ואף גשר לא נותן. אפס הבטחות תשואה.
-
-**לאן.** הארנק (7 רשתות חיות, M0-M4 מאומתים) הוא הדלת; זהות חוצת-פרדיגמות (מפתח Graphene אחד = כתובת EVM, בלי לחשוף כלום) היא המפתח למיליוני חשבונות ותיקים; וכספת wSAOS בסף 7/11 היא היעד המוסדי."
+"There are two ways today to prove something in crypto: ask a validator committee for trust, or pay gas. SAOS proves you can skip both, and the first product is already live and proven end to end (a zero-dependency SDK in the repo; npm publication in progress): a sovereign state machine, 74,907+ blocks, 32,603 transactions per second measured on a real archive replay, anchoring every seal on Steem and Hive for free, on Ethereum and Solana for agorot, and on TRON at zero net fee. A permanent notary record costs us $0.0000081. Every claim is backed by a txid anyone can open alone. Not promises, receipts."
 
 ---
 
-## פיץ' 5 דקות (משקיעים/שותפים): מבנה
+## The 2-minute pitch
 
-1. **פתיחה (30 שנ')**, משפט ה"שקר יקר": בעידן הסוכנים, המשאב הנדיר הוא לא compute ולא הון, זה אמת ברת-אימות. מי שמחזיק את שכבת האמת, מחזיק את התשתית של כל השאר.
-2. **הארכיטקטורה (90 שנ')**, SAOS-NET כמכונת מצב (74,907+ בלוקים, ריפליי דטרמיניסטי, 32,603 tx/s נמדד בריפליי ארכיון אמיתי) · שכבת נוטריון על 7 רשתות עם עלויות אמיתיות ($0 Graphene / אגורות EVM/SVM / אפס-נטו TRON) · השעון האטומי כהוכחת-keyless.
-3. **המוצרים (90 שנ')**, ארנק 7-רשתות חי · JUMPPER כנוטריון-aas · DEX עם escrow מלא וארנה אוטונומית · 13 חיילים ו-23 לולאות שמפעילים את הכל.
-4. **החפיר (60 שנ')**, bit-exact serialization (30/30 oracle מול bytes אמיתיים) · ביט-אנקודינג TRON · משמעת מפתחות חוצת-פרדיגמות · ותרבות zero-mock: המערכת מפרסמת תיקונים נגד הטענות של הבעלים עצמו. זה לא נכתב בשבוע.
-5. **כנות (30 שנ')**, מה עוד לא: כלכלת טוקן מוגדרת, חוזי גשר פרוסים, ביקורת חיצונית, סדר-גודל כלכלי (dust). כל אחד מהם gate מתועד עם מחיר ותנאי, לא wishful thinking.
-6. **סגירה (30 שנ')**, "מה שרולאפים מוציאים עליו מיליונים, זמינות נתונים, הוכחות הונאה, escape hatch, אנחנו מקבלים באגורות, כי אנחנו לא בונים עוד שרשרת. אנחנו בונים את שכבת האמת. וכל מילה כאן, יש לה txid."
+**The problem.** In a world where every AI agent and every project can claim anything, "all green", "all pushed", "all verified", there is no independent way to check. 13 of our own work rounds reported "everything works"; an external check found that not one of them could be verified. That is the problem of the entire agent economy.
+
+**The solution.** SAOS turns claims into chained facts. Every state is sealed into a Merkle root every 36 seconds and anchored simultaneously on independent networks: Graphene (free, RC), Ethereum (calldata), Solana (memo), TRON (zero-fee bit-encoding, our own Nobel-grade plumbing). The exact same root is verified bit-for-bit from two separate RPC calls.
+
+**The strongest proofs.**
+- Our gas model has already **been right 7 times in a row** on live anchors (32,680 gas exact, every one of them), after calibrating itself to the wei against block 25,929,672, including the EIP-7623 correction most industry models miss
+- The atomic clock: the heads of 6 networks resolved into one 32B root, keyless, $0, 16ms compute, 7ms verification
+- JUMPPER: a permanent notary for 10,000 claims at $0.08, $0.0000081 per record
+- And we publish what failed too: 383,836 transactions the engine refused to execute, and our own RC bug (a 52.6 times under-report) that we found and fixed publicly
+
+**The economics.** Fees of 30bps, 70% to liquidity. 20 wrapped assets where supply==locked is an invariant enforced in code, exactly what every bridge audit looks for and no bridge gives. Zero return promises.
+
+**Where this goes.** The wallet (7 live networks, M0-M4 verified) is the door; cross-paradigm identity (one Graphene key = an EVM address, without exposing anything) is the key to millions of veteran accounts; and the wSAOS vault at the 7/11 threshold is the institutional destination.
 
 ---
 
-## פיץ' פר-קהל (משפט אחד כל אחד)
+## The 5-minute pitch (investors/partners): structure
 
-**ותיק Steem/Hive:** "הזהות והמטבעות שלך סוף-סוף נכנסים ל-Ethereum, Solana ו-Bitcoin, וחוזרים הביתה, בלי לוותר על המפתחות ובלי לחשוף אותם לעולם."
+1. **Opening (30 sec)**, the "lying is expensive" sentence: in the agent era, the scarce resource is not compute and not capital, it is verifiable truth. Whoever holds the truth layer holds the infrastructure for everything else.
+2. **The architecture (90 sec)**, SAOS-NET as a state machine (74,907+ blocks, deterministic replay, 32,603 tx/s measured on a real archive replay) · a notary layer on 7 networks with real costs ($0 Graphene / agorot EVM/SVM / zero-net TRON) · the atomic clock as the keyless proof.
+3. **The products (90 sec)**, a live 7-network wallet · JUMPPER as notary-as-a-service · a DEX with full escrow and an autonomous arena · 13 soldiers and 23 loops running all of it.
+4. **The moat (60 sec)**, bit-exact serialization (30/30 oracle against real bytes) · TRON bit-encoding · cross-paradigm key discipline · and a zero-mock culture: the system publishes corrections against the owner's own claims. This was not written in a week.
+5. **Honesty (30 sec)**, what is still missing: a defined token economy, deployed bridge contracts, an external audit, economic scale (dust). Each one is a documented gate with a price and a condition, not wishful thinking.
+6. **Close (30 sec)**, "What rollups spend millions on: data availability, fraud proofs, an escape hatch, we get for agorot, because we are not building yet another chain. We are building the truth layer. And every word here has a txid."
 
-**כלכלת הסוכנים (AI):** "הסוכן שלך יכול לטעון שביצע משימה. JUMPPER נותן לו להוכיח: עוגן את הטענה ב-$0.0000081, ומאותו רגע אי-אפשר לשכתב, להכחיש או לזייף אותה."
+---
 
-**ארגונים/אודיטורים:** "חותמת-זמן עם 6 קבוצות-קונצנזוס בלתי-תלויות, אפס מפתחות, אפס עלות, אימות ב-7ms, ואוצר אוטומטי שכל סירוב שלו מתועד ברשומות."
+## Per-audience pitch (one sentence each)
 
-**DeFi:** "כל קריסת גשר בתעשייה נבעה מניתוק supply מהגיבוי. אצלנו supply==locked הוא אינווריאנט שנאכף בקוד, עם txid נעילה לכל mint. הגשר שסולוונטי-להוכחה מראש."
+**Steem/Hive veteran:** "Your identity and your coins finally enter Ethereum, Solana and Bitcoin, and come back home, without giving up your keys and without ever exposing them."
 
-**מפתחים:** "ה-SDK חי בריפו ומאומת E2E, `saos-id-verify`, אפס תלויות, הוכחת זהות חוצת-רשתות בקריאה אחת, ממוטר ושקוף, עם תוצאה כנה גם בכישלון. (התקנת npm תיפתח עם פרסום החבילה, פעולת בעלים בתהליך.) ועוד בארגז: golden vectors לפורטים בין-שפתיים, מודל גז מדויק ל-wei כולל EIP-7623, 77/77 טסטים מ-clone טרי, וחבילת ביקורת byte-identical."
+**The agent economy (AI):** "Your agent can claim it completed a task. JUMPPER lets it prove it: anchor the claim at $0.0000081, and from that moment it cannot be rewritten, denied, or faked."
+
+**Organizations/auditors:** "A timestamp with 6 independent consensus groups, zero keys, zero cost, verification in 7ms, and an automated treasury with every refusal documented in the records."
+
+**DeFi:** "Every bridge collapse in the industry came from supply drifting away from the backing. Ours: supply==locked is an invariant enforced in code, with a lock txid for every mint. The bridge that is provably solvent in advance."
+
+**Developers:** "The SDK lives in the repo and is verified E2E, saos-id-verify, zero dependencies, cross-network identity proof in a single call, metered and transparent, with an honest result even on failure. (npm install opens when the package is published, an owner action in progress.) Also in the box: golden vectors for cross-language ports, a gas model accurate to the wei including EIP-7623, 77/77 tests from a fresh clone, and a byte-identical audit package."
 
 ---
 
