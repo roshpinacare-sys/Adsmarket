@@ -489,6 +489,21 @@ EN: A week ago we found 8 contradictory heights on HIVE. We measured, published 
 
 EN: The new anchor plane is live: one digest (saos/v2) anchored simultaneously on two independent chains, Steem block 109,471,513 and Blurt block 63,534,293, both txids open in explorers. And Hive? It refused. Honestly: it holds 106M RC, the broadcast needs ~385M. The system didn't try-and-fail silently, it added a pre-check and reports exactly why. Along the way, a real wire discovery: Blurt numbers operations differently than we assumed (custom_json=12, not 18). How did we find out? A recovery oracle from a real on-chain vote. Fixed at the truth points, not at the edge.
 
+**L42 · המטרונום (X + טלגרם, עברית + EN)**
+פעם היינו צריכים להתאמץ כדי להוכיח שעוגן אחד עובד.
+עכשיו זה מטרונום: עשרה מחזורים רצופים, כל מחזור מטריצה מלאה, כל חותם נקלט על Ethereum עם קבלה. h25 שורש 8f513865 בבלוק 25,958,268. h26 שורש fe1679aa בבלוק 25,958,483. וזה פשוט ממשיך.
+הדוח היומי שלנו מסודר בארבעה יסודות: מצב, ראיות, תוכניות, כנות. היסוד הרביעי הוא הסיבה שאתם מאמינים לשלושה הראשונים.
+—
+EN: We used to strain to prove a single anchor works. Now it's a metronome: ten consecutive cycles, full matrix each time, every seal ingested on Ethereum with a receipt. h25 root 8f513865 at block 25,958,268. h26 root fe1679aa at block 25,958,483. And it just keeps going. Our daily report has four elements: status, evidence, plans, honesty. The fourth one is why you can believe the first three.
+
+**L43 · למטבע שלנו יש תעודת זהות. כולל מה שעוד לא קרה. (X, עברית + EN)**
+הבעלים שאל למה אין מקום אחד שמרכז הכול על המטבע. אז נבנה כזה: זהות קנונית, נקודת אמת אחת, תשעה סעיפים.
+מה יש שם: wSAOS עטוף 1:1 מול פיקדונות אמיתיים בלבד, לעולם לא מוטבע ישירות. 402,981.83 wSAOS חיים, כל אחד מגובה בפיקדון נמדד. 108 החלפות אמיתיות. 5 בריכות. עמלה של 20bps שמתחלקת 10 לאוצר ו-10 לצמיחת הבריכות.
+ומה עוד יש שם, וזה החלק החשוב: מדיניות ההטבעה של 300,000 יחידות מוצהרת בבירור כטרם בוצעה. אפס רשומות בפנקס, וזה כתוב ככה במפורש.
+תעודת זהות אמיתית כוללת גם את השורות שלא נוחות. במיוחד את השורות שלא נוחות.
+—
+EN: The owner asked why there's no single place with everything about the coin. So one was built: a canonical identity, one truth endpoint, nine sections. What's in it: wSAOS wrapped 1:1 against real deposits only, never minted directly. 402,981.83 wSAOS live, each backed by a measured deposit. 108 real swaps. Five pools. A 20bps fee split 10 to treasury, 10 to pool growth. And here's the part that matters: the 300,000-unit mint policy is explicitly declared as NOT executed. Zero ledger records, stated in plain text. A real identity document includes the uncomfortable lines. Especially the uncomfortable lines.
+
 ---
 
 ## הנחיות פרסום v2
