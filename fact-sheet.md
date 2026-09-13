@@ -770,6 +770,13 @@ The R11/R12 KEYS-ACCESS event: a broadcast-borne exposure was remediated by full
 ### INTERNAL (not for publication, per disclosure policy)
 control-center R16: relay event-bus handshake auth (owner room + guest allowlist for chat/task/guard channels). Security-topology detail stays internal.
 
+## 10.59 Fleet-wide secret sweep: a permanent capability (measured 2026-09-09..13)
+
+- **fleet_pass_sweep** (permanent platform capability): every credential that enters the vault is verified and swept against the whole fleet - 12 soldiers across the Steem/Hive/Blurt authorities, and every match is sealed into the vault in the same pass. Future secrets ride the same muscle automatically.
+- **Measured scale, capability level:** one full sweep sealed **120 credentials** and widened signing capability **3 to 33 signers**, with **31 live fleet votes** on all three Graphene rails as public receipts (STEEM 10/10, HIVE 9/9, BLURT 10/11 - re-checkable on steemworld.org / hiveblocks.com / Blurt explorers).
+- **Identity-anchor verifier upgraded (2026-09-13):** the history scan now filters `custom_json` operations and pages in parallel (wall-clock bounded by the slowest page, not the sum of pages), so the on-chain anchor is provable at any account-history depth; equality or drift is reported per chain on every run.
+- **What we deliberately do not publish:** the events behind these numbers. Capability, not story; that is the disclosure policy.
+
 ## 11. Honest limits (what is not yet done: required in every material)
 
 - SAOS-NET token economics: not yet defined in the economics document (currently at stage S2, requires owner approval)
@@ -778,8 +785,9 @@ control-center R16: relay event-bus handshake auth (owner room + guest allowlist
 - Third-party audit: the package is bundled, the audit not yet performed
 - Economic scale: dust-scale today, the ceiling is technological, the economy is bootstrapping
 - JUMPPER live broadcast: requires an external seal + owner approval (by design)
+- Identity anchor: one measured drift open until a fresh anchor is signed by the current active authority (see section 12, 2026-09-13)
 
 ## 12. Independent verification links
 
 steemworld.org (Steem) · hiveblocks.com (Hive) · etherscan.io (ETH) · solscan.com (SOL) · tronscan.org (TRON)
-Anchor account: @headcorner, active authority verified against live RPC on Steem, Hive and Blurt (same key)
+Anchor account: @headcorner - the identity-anchor verifier is a live, math-only capability any third party can re-run. Live measurement 2026-09-13: the on-chain anchor (2026-09-09) is internally valid (EIP-191 recovers its claimed address), while live authorities are measured per chain on every run: key equality or drift is reported, never assumed. A fresh anchor signed by the current active authority closes a measured drift; that is a signing-gate action by design.
