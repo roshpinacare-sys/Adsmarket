@@ -1,787 +1,741 @@
-# SAOS Fact Sheet v2: מקור האמת השיווקי
+# SAOS Fact Sheet v2: the marketing source of truth
 
-> סריקה מלאה של 12 הריפואים · תאריך אימות: 2026-09-13 01:50Z (v3.34 · מיזוג אדיטיבי מעל v3.33)
-> **מדיניות חשיפה:** סעיפים מתויגים ⚠ הם פנימיים בלבד, איסור מוחלט לגזור מהם חומר שיווקי. ראו disclosure-policy.md. · כל פריט מגובה בקוד, מדידה או קבלה משורשרת.
-> **חדש ב-v3:** המוצר הראשון למפתחים חי (Identity API + SDK) · רוטציית מפתחות חיה אחרי דליפה · פלטפורמה v24 (מגן אנטי-פישינג).
-> **תיקונים מ-v1:** HIVE חי (באג stale-read תוקן) · TRON: מסילת אפס-עמלה חיה באקוסיסטם · תפוקה: 32,603 tx/s נמדד בריפליי ארכיון אמיתי.
+> Full scan of the 12 repos · verification date: 2026-09-12 13:45Z (v3.33 · additive completion 19:45Z on top of v3.32)
+> **Exposure policy:** sections tagged internally as warning items are internal only, it is absolutely forbidden to derive marketing material from them. See disclosure-policy.md. · every item is backed by code, a measurement, or a chained receipt.
+> **New in v3:** the first developer product is live (Identity API + SDK) · live key rotation after a leak · platform v24 (anti-phishing guard).
+> **Corrections from v1:** HIVE live (stale-read bug fixed) · TRON: zero-fee rail live in the ecosystem · throughput: 32,603 tx/s measured on a real archive replay.
 
-## 1. הגדרה (הרפורם הנכון)
+## 1. Definition (the right reform)
 
-**SAOS היא מערכת הפעלה ריבונית: מכונת מצב דטרמיניסטית (SAOS-NET) שהביטחון שלה מושכר מ-7 רשתות ציבוריות, עם מנוע כלכלי שנאכף-מבנית, צי סוכנים אוטונומי, ומוצרים (ארנק, נוטריון, DEX) שמפרנסים את כולם.**
+**SAOS is a sovereign operating system: a deterministic state machine (SAOS-NET) whose security is rented from 7 public networks, with a structurally-enforced economic engine, an autonomous agent fleet, and products (wallet, notary, DEX) that pay for everyone.**
 
-לא "עוד בלוקצ'יין". לא גשר. **Sovereign Notarized Ledger**, ריבונות עם קבלות.
+Not "another blockchain". Not a bridge. **Sovereign Notarized Ledger**, sovereignty with receipts.
 
-## 2. הליבה: SAOS-NET (נמדד)
+## 2. The core: SAOS-NET (measured)
 
-| מדד | ערך |
+| Metric | Value |
 |---|---|
-| גובה שרשרת | **133,259+ בלוקים** (חי אחרי fork מתוכנן @130,000, 4 באגי kernel כלכליים תוקנו + שמרי anti-poison/fork) · גדל מ-74,907 תוך ~8 שעות |
-| תפוקת מנגנון | **32,603 tx/s**, 65,238 עסקאות ארכיון אמיתיות ב-2,001ms (נמדד 2026-09-07) |
-| תקרת מנגנון | ~2.82 מיליארד tx/יום (תיאורטי, תמיד לסמן) |
-| DEX kernel | 26,490 ops/sec נמדד (bench נפרד של מנוע ה-DEX) |
-| בלוק חי (DEX) | 3 שניות · seal כל 12 · stateRoot = sha256(canonical) = bytes32 נטיבי ל-EVM |
+| Chain height | **133,259+ blocks** (live after a planned fork @130,000, 4 buggy economic kernels fixed + conservative anti-poison/fork guards) · grew from 74,907 within ~8 hours |
+| Mechanism throughput | **32,603 tx/s**, 65,238 real archive transactions in 2,001ms (measured 2026-09-07) |
+| Mechanism ceiling | ~2.82 billion tx/day (theoretical, always labeled as such) |
+| DEX kernel | 26,490 ops/sec measured (separate bench of the DEX engine) |
+| Live block (DEX) | 3 seconds · seal every 12 · stateRoot = sha256(canonical) = bytes32 native to the EVM |
 
-## 3. שכבת הנוטריון: כל המסילות, סטטוס נכון
+## 3. The notary layer: all rails, status accurate
 
-| מסילה | סטטוס | מנגנון | קבלה |
+| Rail | Status | Mechanism | Receipt |
 |---|---|---|---|
-| **STEEM** | חי, כל חותם | custom_json · RC · $0 | [390bcfc2…](https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177) בלוק 10,937,394 |
-| **HIVE** | **חי, 21 עיגונים ב-22 שע' אומתו** | custom_json · RC אפקטיבי 73.2M | [d4cf936b…](https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5) · טווח בלוקים 109,708,562-109,734,678 |
-| **ETHEREUM** | חי, mainnet | EIP-1559 calldata | [0x102ec193…](https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41) בלוק 25,929,261 |
-| **SOLANA** | חי, mainnet-beta | SPL Memo v2 | [2M1rkRgg…](https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9) |
-| **TRON (אקוסיסטם)** | **חי, אפס עמלה נטו** | ביט-אנקודינג בצמודי-העברה, טבעת 6 כתובות | cp#33612 → txid `1db5006b…` @ בלוק 86,019,974 · 6/6 כתובות נמדדו |
-| **TRON (DEX relay)** | חמוש · ממתין 0.3 TRX | זהות נגזרת + extra_data | מוצג בכנות ב-UI |
-| **BLURT** | **חי, עוגן ראשון שודר ואומת** | חתימה קנונית low-s · anchor-pulse | בלוק **63,502,020** · עמלה 0.129 BLURT · STEEM באותו פולס: בלוקים 109,438,757 + 109,438,812 |
+| **STEEM** | live, every seal | custom_json · RC · $0 | [390bcfc2...](https://steemworld.org/tx/390bcfc2586def1ef02cc40a0e983c8dd8fce177) block 10,937,394 |
+| **HIVE** | **live, 21 anchors in 22 hours verified** | custom_json · effective RC 73.2M | [d4cf936b...](https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5) · block range 109,708,562-109,734,678 |
+| **ETHEREUM** | live, mainnet | EIP-1559 calldata | [0x102ec193...](https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41) block 25,929,261 |
+| **SOLANA** | live, mainnet-beta | SPL Memo v2 | [2M1rkRgg...](https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9) |
+| **TRON (ecosystem)** | **live, zero net fee** | bit encoding in transfer memos, ring of 6 addresses | cp#33612 → txid `1db5006b...` @ block 86,019,974 · 6/6 addresses measured |
+| **TRON (DEX relay)** | armed · waiting on 0.3 TRX | derived identity + extra_data | shown honestly in the UI |
+| **BLURT** | **live, first anchor broadcast and verified** | canonical low-s signature · anchor-pulse | block **63,502,020** · fee 0.129 BLURT · STEEM in the same pulse: blocks 109,438,757 + 109,438,812 |
 
-**עקביות בין-שרשרתית:** אותו stateRoot (`d4970bb5…`, h2388) עוגן בו-זמנית ב-ETH (בלוק 25,929,269) וב-SOL (slot 445,209,689), אומת bit-for-bit משתי קריאות RPC נפרדות.
+**Cross-chain consistency:** the same stateRoot (`d4970bb5...`, h2388) anchored simultaneously on ETH (block 25,929,269) and on SOL (slot 445,209,689), verified bit-for-bit from two separate RPC calls.
 
-## 4. תיקון הכנות של HIVE (נכס שיווקי בפני עצמו)
+## 4. The HIVE honesty fix (a marketing asset in its own right)
 
-"חסימת ה-RC" שדווחה הייתה **באג stale-read שלנו**: rc_api מחזיר תמונת-מצב, לא יתרה. בפועל החשבון החזיק **73,271,489 RC**, פי 52.6 מהקריאה הישנה. גילינו, פרסמנו, תיקנו, ו-34 assert נעצו את התיקון למדידה החיה. רצפה נמדדת: **5,128 עיגונים חינמיים ביום** על HIVE לבד.
+The reported "RC block" was **our own stale-read bug**: rc_api returns a snapshot, not a balance. In practice the account held **73,271,489 RC**, 52.6 times the old reading. We found it, published it, fixed it, and 34 asserts held the fix to the live measurement. Measured floor: **5,128 free anchors per day** on HIVE alone.
 
-## 5. השעון האטומי (Foundry): מדידה מתועדת 2026-09-08T02:04Z
+## 5. The atomic clock (Foundry): documented measurement 2026-09-08T02:04Z
 
-- מצב-ראש של **6 רשתות הטרוגניות** (Graphene×3 · TVM · EVM · SVM) → **שורש Merkle אחד 32B**
-- keyless · $0.00 · אפס עסקאות · אפס חתימות · read-only ברמת המכונה
-- חישוב **15.9ms** · אימות 5 הוכחות **6.8ms** · גודל הוכחה **435B JSON / 160B גלם**
-- ריצה מתועדת: root `0896c3c6…` · עדים: STEEM #109,307,680 · HIVE #109,722,158 · TRON #86,063,739 · ETH #25,929,640 · SOL #445,219,905 (BLURT נופה בכנות, endpoint לא נגיש)
-- השוואה: OpenTimestamps = דקות-שעות, שרשרת אחת · Chainlink/LayerZero = גז+ועדת אמון · אנחנו = ms, $0, 6 קבוצות קונצנזוס, בלי לסמוך על אף אחד
+- Head-state of **6 heterogeneous networks** (Graphene×3 · TVM · EVM · SVM) → **one 32B Merkle root**
+- keyless · $0.00 · zero transactions · zero signatures · read-only at the machine level
+- computation **15.9ms** · verifying 5 proofs **6.8ms** · proof size **435B JSON / 160B raw**
+- documented run: root `0896c3c6...` · witnesses: STEEM #109,307,680 · HIVE #109,722,158 · TRON #86,063,739 · ETH #25,929,640 · SOL #445,219,905 (BLURT honestly omitted, endpoint unreachable)
+- comparison: OpenTimestamps = minutes to hours, a single chain · Chainlink/LayerZero = gas plus a trust committee · us = ms, $0, 6 consensus groups, trusting no one
 
-## 6. JUMPPER: נוטריון הוכחות אצווה
+## 6. JUMPPER: batch proof notary
 
-- **$0.0000081 לרשומת נוטריון** (אצווה של 10,000 טענות · 1 gwei · ETH $2,500), נמדד, לא מוערך
-- מודל-גז שחוזה עסקת mainnet אמיתית **עד ה-wei**: 30,920 gas · 32,493,358,294,280 wei · בלוק 25,929,672 (כולל תיקון EIP-7623: רצפת calldata של 40 gas/byte לא-אפס)
-- קומפרסיית payload: 250B → **51B** (-79.6%), הוכחה round-trip
-- 77/77 טסטים ירוקים מ-clone טרי · golden vectors לפורטים בין-שפתיים
-- 3 טיירות אימות: self-verify (אפס רשת) · API · on-chain
-- חתימה תמיד מחוץ למערכת, אף מפתח פרטי לא נוגע בשרת
-- **12 פעולות attestation חינמיות** (נוטריון מסמכים, חותמת-זמן, audit-log, commit-reveal, revocation, quorum, Merkle batch, heartbeat, name-claim, relay בין נקודות שלך, license registry, data availability קטן) מול **5 שלעולם לא חינמיות** (escrow, העברת נכסים...), מטריצה כנה בקוד עם טסט שמונע זליגה
+- **$0.0000081 per notary record** (batch of 10,000 claims · 1 gwei · ETH $2,500), measured, not estimated
+- a gas model that matches a real mainnet transaction **to the wei**: 30,920 gas · 32,493,358,294,280 wei · block 25,929,672 (including the EIP-7623 correction: a calldata floor of 40 gas per non-zero byte)
+- payload compression: 250B → **51B** (-79.6%), round-trip proven
+- 77/77 tests green from a fresh clone · golden vectors for cross-language ports
+- 3 verification tiers: self-verify (zero network) · API · on-chain
+- signing always happens outside the system, no private key ever touches the server
+- **12 free attestation operations** (document notary, timestamp, audit-log, commit-reveal, revocation, quorum, Merkle batch, heartbeat, name-claim, relay between your own endpoints, license registry, small data availability) versus **5 that are never free** (escrow, asset transfer...), an honest matrix in code with a test that prevents leakage
 
-## 7. המנוע הכלכלי: grid98 + DEX + עטיפות
+## 7. The economic engine: grid98 + DEX + wrappers
 
-| רכיב | נמדד |
+| Component | Measured |
 |---|---|
-| מוני-סירוב פומביים | **383,836** דילוגי-edge · **130,499** דחיות · 109,919µ דליפה מדודה ומיושבת |
-| מסחר ו-PnL | 5,606 עסקאות · **9,935,250µ** PnL מצטבר לאוצר · 282 עסקאות היום · PnL פר-חייל (wog +163,295µ) |
-| סולם רצפה מגובה | 9 מדרגות · כל מדרגה עם גיבוי µ מדויק ברשומות · ≤0.5% לצעד · floor 0.01688→0.017567 |
-| עמלות | 30bps · 70% LP / 30% אוצר · harvest rail עם txid פומבי (`1d148959…`) |
-| עטיפות | **20 נכסים · supply==locked לאינווריאנט** · mint מצטט txid נעילה (WSTEEM `2ad481ac…`) · 9 חוזי TRC20 אומתו חיים על TRON · mint-coverage ≤99% נאכף |
-| DEX | ספר עם escrow מלא · מילוי במחיר-מייקר · ארנה אוטונומית 4 מצטטים · ספרד נמדד 12-82bps |
-| אורקל | 15 ציטוטים חתומים שעתיים עם src+ref+at · דילוג כן על כשל רשת, אף מחיר מומצא |
+| Public rejection counters | **383,836** edge skips · **130,499** rejections · 109,919µ leakage measured and settled |
+| Trading and PnL | 5,606 trades · **9,935,250µ** cumulative PnL to the treasury · 282 trades today · per-soldier PnL (wog +163,295µ) |
+| Backed floor ladder | 9 steps · every step with an exact µ backup in the records · ≤0.5% per step · floor 0.01688→0.017567 |
+| Fees | 30bps · 70% LP / 30% treasury · harvest rail with a public txid (`1d148959...`) |
+| Wrappers | **20 assets · supply==locked as an invariant** · mint cites the locking txid (WSTEEM `2ad481ac...`) · 9 TRC20 contracts verified live on TRON · mint-coverage ≤99% enforced |
+| DEX | order book with full escrow · fills at maker price · autonomous arena of 4 quoters · measured spread 12-82bps |
+| Oracle | 15 signed hourly quotes with src+ref+at · yes to skipping on network failure, never an invented price |
 
-## 8. הצי וכוח העבודה האוטונומי
+## 8. The fleet and the autonomous workforce
 
-- **13/13 חיילים חיים על Steem** (get_accounts אומת 2026-09-08): @headcorner + 11 סוחברים + @powerspan
-- **23 לולאות תפעול אוטונומיות** תחת beat.lock יחיד (אפס file-races), claims, curation, trading, bridging, healing, sweeping
-- **רישום צי**: 12 סוכנים × EVM(7 רשתות)+TRON+SOL+BTC · מניפסט מעוגן on-chain (`9f593bdc…`) · זהויות EVM זהות בכל הרשתות → מוכן ל-CREATE2
-- **סף מתוכנן**: 7/11 לשחרורים (EIP-712) · כוונות גזלס EIP-191 + gas-tank
-- RPC discipline: 5 לולאות = קריאה אחת לחלון 15s · DRY_RUN ברירת-מחדל · מפתחות לעולם לא עוזבים את המכונה
+- **13/13 soldiers live on Steem** (get_accounts verified 2026-09-08): @headcorner + 11 members + @powerspan
+- **23 autonomous operation loops** under a single beat.lock (zero file-races), claims, curation, trading, bridging, healing, sweeping
+- **fleet registry**: 12 agents × EVM(7 networks)+TRON+SOL+BTC · manifest anchored on-chain (`9f593bdc...`) · identical EVM identities across all networks → CREATE2-ready
+- **planned threshold**: 7/11 for releases (EIP-712) · EIP-191 glass intents + gas-tank
+- RPC discipline: 5 loops = one call per 15s window · DRY_RUN as default · keys never leave the machine
 
-## 9. עמידות, אבטחה, ביקורת
+## 9. Resilience, security, audit
 
-- Chaos suite 13/13 (DEX) · invariants חיות: 8/רגל-מילוי + 4/חותם · HALT + haltReason פומבי
-- verifyOnChain read-back אחרי כל שידור · circuit breakers · backoff+jitter · 0 mismatches
-- audit-package: byte-identical + MANIFEST.sha256 + FIDELITY.diff · 13 אינווריאנטות · 9 הנחות קריפטוגרפיות
-- כספת AES-256-GCM · סריקות סודות על כל דחיפה · 0 דליפות
-- bit-exact serialization: 30/30 oracle PASS (מול bytes אמיתיים מ-api.steemit.com)
+- Chaos suite 13/13 (DEX) · live invariants: 8 per fill leg + 4 per seal · HALT + public haltReason
+- verifyOnChain read-back after every broadcast · circuit breakers · backoff+jitter · 0 mismatches
+- audit-package: byte-identical + MANIFEST.sha256 + FIDELITY.diff · 13 invariants · 9 cryptographic assumptions
+- AES-256-GCM vault · secret scans on every push · 0 leaks
+- bit-exact serialization: 30/30 oracle PASS (against real bytes from api.steemit.com)
 
-## 10. מוצרים: מה פוגש המשתמש
+## 10. Products: what the user meets
 
-1. **Saosmartwallet**, ארנק self-custodial ל-7 רשתות חיות (STEEM/HIVE/BLURT/TRON/SAOS-NET/ETH/SOL) · M0-M4 מאומתים מול chain · Sovereign Key Vault · שכבת גשרים עם router+quotes חיים · System Owner: /api/system/health + failover הוכח
-2. **JUMPPER**, נוטריון הוכחות אצווה לטענות של סוכנים/ארגונים (Phase 1 ירוק; API+explorer ב-Phase 3)
-3. **SAOS DEX**, טרמינל מסחר מוסדי עם עיגון חי ואימות עצמאי בכפתור
-4. **Atomic Clock demo**, `/api/saos/breakthrough-demo`, פקודה אחת, הוכחה חיה
+1. **Saosmartwallet**, self-custodial wallet for 7 live networks (STEEM/HIVE/BLURT/TRON/SAOS-NET/ETH/SOL) · M0-M4 verified against chain · Sovereign Key Vault · bridge layer with live router+quotes · System Owner: /api/system/health + failover proven
+2. **JUMPPER**, batch proof notary for agent/organization claims (Phase 1 green; API+explorer in Phase 3)
+3. **SAOS DEX**, institutional trading terminal with live anchoring and one-button independent verification
+4. **Atomic Clock demo**, `/api/saos/breakthrough-demo`, one command, live proof
 
-## 10.5 המוצר הראשון למפתחים: Identity Verification API (חי, ממוטר)
+## 10.5 The first developer product: Identity Verification API (live, metered)
 
-| רכיב | עובדות מאומתות |
+| Component | Verified facts |
 |---|---|
-| ה-API | `POST /api/v1/identity/verify`, מפתחות API (נשמר SHA-256 בלבד, plaintext מוצג פעם אחת) · quota 1,000 קריאות/יממה UTC · ledger של כל קריאה · headers שקופים |
-| מה הוא מוכיח | שחשבון Steem/Hive וכתובת EVM שייכים לאותו סקלר secp256k1, עוגן `saos.id.v1` על-השרשרת → EIP-191 ecrecover → התאמת active-authority חיה פר-שרשרת |
-| הוכחה חיה | PROVEN מול בלוק Steem **109,389,994** · נתיב FAILED (חשבון לא-מעוגן) נספר כמדידה אמיתית · 401 fail-closed |
-| ה-SDK | `saos-id-verify` (npm), **אפס תלויות**, plain fetch · Node≥18 / Bun / Deno / דפדפנים / edge · dogfooded חי 3/3 נתיבים |
-| גבול כן | ענף ה-429 מקודד לפי ספק אך לא נשרף חי (יעלה 1,000 קריאות אמיתיות) · `npm publish` עצמו = פעולת בעלים · baseUrl חובה, הלקוח מסרב להמציא endpoint |
-| GTM מוכן | ערכת outreach עם **10 יעדים אמיתיים שנבדקו חיים** (Splinterlands, MEXC, Gate, SimpleSwap, Changelly, Godex, Ecency, InLeo, PeakD…), כל אחד עם וקטור-חשיפה מתועד ל-Steem/Hive |
+| The API | `POST /api/v1/identity/verify`, API keys (only the SHA-256 is stored, plaintext shown once) · quota of 1,000 calls per UTC day · a ledger of every call · transparent headers |
+| What it proves | that a Steem/Hive account and an EVM address belong to the same secp256k1 scalar, on-chain `saos.id.v1` anchor → EIP-191 ecrecover → live per-chain active-authority match |
+| Live proof | PROVEN against Steem block **109,389,994** · the FAILED path (unanchored account) counted as a real measurement · 401 fail-closed |
+| The SDK | `saos-id-verify` (npm), **zero dependencies**, plain fetch · Node≥18 / Bun / Deno / browsers / edge · dogfooded live on 3/3 paths |
+| Honest limit | the 429 branch is coded per provider but not burned live (it would cost 1,000 real calls) · `npm publish` itself is an owner operation · baseUrl required, the client refuses to invent an endpoint |
+| GTM ready | outreach kit with **10 real targets tested live** (Splinterlands, MEXC, Gate, SimpleSwap, Changelly, Godex, Ecency, InLeo, PeakD...), each with a documented exposure vector to Steem/Hive |
 
-## 10.6 ⚠ פנימי: לא לפרסום: רוטציית מפתחות (SETTLE-10)
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+## 10.7 New platform milestones (v18.1 -> v24)
 
-דלפו מפתחות. הטיפול כולו על השרשרת, עם קבלות:
-- **headcorner סובב ב-Steem+Hive** (owner/active/posting/memo), חתימה אחרונה של המפתח הישן, ואז המפתחות הישנים מתים on-chain
-- קבלות: STEEM tx `8313cdcb…` בלוק **109,410,651** · HIVE tx `92654439…` בלוק **109,745,168** · 8/8 רשויות חדשות אומתו חיות
-- מפתחות חדשים: עץ HMAC מזרע מאסטר טרי (SAOS-ROT1/acct/chain/role) · אפס סודות בריפו
-- **כנות הצי:** חייל אחד (wic) סובב בהצלחה · 9 לא ניתן היה לסובב (מפתחות חיים לא היו בכספת, השרשרת דחתה עם tx_missing_owner_auth, וזה דווח כפי שהוא)
-- ה-relay חומש מחדש ואומת: breakers closed, 0 mismatches
+- **v24 (MAGEN):** fail-closed anti-phishing gate on every outbound link, live
+- **v23 (ROSES):** fleet-agent rotation every 120s cycle
+- **v22 CORNERSTONE:** the owner seed (24 words) signed as a dual operational root
+- **v21 FLOW:** liquidity radar (12 assets / 8 domains / live USD) + a value-flow map
+- **v20 MICROGRID:** grid98 on-chain (contract 9, mesh link #6)
+- **foundry task-23:** supply-chain scan, **0 foreign code in all 10 heals**
+- **foundry task-26:** external signing service (:3033) connected live, signatures separated from the system, as designed
 
-## 10.7 אבני דרך חדשות בפלטפורמה (v18.1 → v24)
+## 10.8 Self-healing and permission sovereignty (v25-v26, measured 2026-09-09)
 
-- **v24 מגן (MAGEN):** שער אנטי-פישינג fail-closed על כל קישור יוצא חי
-- **v23 שושנים (ROSES):** רוטציית סוכני-צי every 120s cycle
-- **v22 CORNERSTONE:** זרע הבעלים (24 מילים) נחתם כשורש תפעולי כפול
-- **v21 FLOW:** מכ"ם נזילות (12 נכסים / 8 דומיינים / USD חי) + מפת זרימת ערך
-- **v20 MICROGRID:** grid98 על השרשרת (חוזה 9, mesh link #6)
-- **foundry task-23:** סריקת שרשרת אספקה, **0 קוד זר בכל 10 הריפואים**
-- **foundry task-26:** שירות חותם חיצוני (:3033) מחובר חי, חתימות מופרדות מהמערכת, כפי שתוכנן
+**v26 (SHOMER), the organism that recovers itself:**
+- Real failure: the kernel killed the web layer (OOM, 1.79GB/4GB, proven in dmesg). Nothing brought it back, until we built a keeper
+- **Live proof:** web-dead 23:58:24 -> the keeper revived it -> HTTP 200 within **~36 seconds, zero human touch**, full trail in an append-only log reloaded at boot (the evidence survives restarts)
+- **Mutual supervision:** the runner revives the keeper (proven: a keeper was killed at 00:22:50, restored at 00:27), no single point of failure in the revival layer either
+- **Zombie detector:** "a live process is not truth, block progress is truth": a runner alive while the chain is frozen 8+ minutes = frozen by proof -> SIGTERM + a fresh runner (the only documented exception to the "never kill" rule)
+- Socket-leak fix (a keep-alive that was never released froze a whole runner) · speed: /fleet from 9.5s to 1.04s cold / 0.016s hot · call failure = 0 (yes, never an invented value)
 
-## 10.8 ריפוי-עצמי וריבונות הרשאות (v25-v26, נמדד 2026-09-09)
+**v25 (RESHUT), permission sovereignty:**
+- **No signature without permission:** a declarative fail-closed policy on **10 key operations** (measure/bloom/enlist/oracle/sweep/post-work/flow-liquidity/broadcast-anchor/vault-open/key-derive)
+- Rate/scope limits enforced **before** key derivation · a destination whitelist for the treasury · every decision logged and auditable (perm.*.allow/deny)
+- **9/9 live test vectors from the UI:** a phishing actor, a foreign target, an undefined operation, authority crossing, a rate burst, vault via API, all blocked; legitimate fleet operations passed
+- 100% audit-covered action log: 24 log sites converted, 160 files scanned, 0 exposed sites · hourly MAGEN autoscan: 0 severe / 0 seed words / 221 files
 
-**v26 שומר (SHOMER), האורגניזם שמחלים את עצמו:**
-- תקלה אמיתית: ה-kernel הרג את שכבת הווב (OOM, 1.79GB/4GB, מוכח ב-dmesg). שום דבר לא החזיר אותה, עד שבנינו שומר
-- **הוכחה חיה:** web-dead 23:58:24 → השומר החיה → HTTP 200 תוך **~36 שניות, אפס מגע אדם**, מסלול מלא ביומן append-only שנטען מחדש ב-boot (הראיות שורדות הפעלות מחדש)
-- **השגחה הדדית:** הרץ מחיה את השומר (הוכח: שומר נהרג 00:22:50, הוחזר 00:27), אין נקודת כשל יחידה גם בשכבת ההחייאה
-- **גלאי זומבי:** "תהליך חי אינו אמת, התקדמות בלוקים היא האמת": רץ חי אך שרשרת קפואה 8+ דקות = קפוא בהוכחה → SIGTERM + רץ טרי (החריג המתועד היחיד לכלל "לעולם לא הורגים")
-- תיקון דליפת סוקטים (keep-alive שלא שוחרר הקפיא רץ שלם) · מהירות: ‎/fleet מ-9.5s ל-1.04s קר / 0.016s חם · כשל קריאה = 0 כן, לעולם לא ערך מומצא
+## 10.9 Further developments (2026-09-09 00:00-01:15Z)
 
-**v25 רשות (RESHUT), ריבונות הרשאות:**
-- **אף חתימה בלי רשות:** מדיניות fail-closed דקלרטיבית על **10 פעולות-מפתח** (measure/bloom/enlist/oracle/sweep/post-work/flow-liquidity/broadcast-anchor/vault-open/key-derive)
-- מגבלות קצב/היקף נאכפות **לפני** גזירת המפתח · whitelist יעדים לאוצר · כל החלטה נרשמת ממוסכת (perm.*.allow/deny)
-- **9/9 וקטורי בדיקה חיים מה-UI:** שחקן-פישינג, יעד זר, פעולה לא-מוגדרת, חציית סמכויות, התפרצות-קצב, vault דרך API, כולם נחסמו; פעולות צי לגיטימיות, עברו
-- יומן פעולות 100% ממוסך: 24 אתרי לוג הוסבו, 160 קבצים נסרקו, 0 אתרים חשופים · MAGEN autoscan שעתי: 0 severe / 0 seed words / 221 קבצים
+- **SETTLE-13, a sovereign anchor fleet:** the vault opened, **9/10 soldiers verified live on Hive**, multi-account anchoring (the real fix for the RC limit)
+- **SETTLE-12:** sovereign free transfers + atomic batch + portfolio books + a two-way bridge (xfer_free)
+- **HIVE conversion rail:** /api/dex/hive-rail, the DEX itself is keyless; signing happens in the external signing service (:3033), live separation of duties
+- **JUMPPER BUDGET-GUARD:** a reproduction of a real defect (an 11-call loop of identical hive.convert calls), **only the first call passes, the next 10 are blocked**; 36 assertions around the reproduction
+- **JUMPPER second self-fix:** WALLET-AUDIT-CORRECTION, our earlier wallet audit was wrong (it quoted files that no longer exist); the correction was published at the top of the README and the document marked SUPERSEDED
+- **21 cryptographic hygiene rules** in JUMPPER, calibrated both ways (each rule fired on the faulty code and stayed silent on the clean code)
+- **Cross-chain proof U-01:** the same commitment verified on ETH block 25,929,672 and on Solana too, documented in JUMPPER
+- **117n COMMAND II:** the THE-BOOK explorer (live blocks + search), the SHIELD scanner, 7 operator sections in the fleet interface
 
-## 10.9 התפתחויות נוספות (2026-09-09 00:00-01:15Z)
+## 10.10 The sovereign exchange is live on our network: v28 (BIRSA, measured 2026-09-09 02:55Z)
 
-- **SETTLE-13, צי עוגנים ריבוני:** הכספת נפתחה, **9/10 חיילים אומתו חיים על Hive**, עיגון מרובה-חשבונות (הפתרון האמיתי למגבלת ה-RC)
-- **SETTLE-12:** העברות חינמיות ריבוניות + batch אטומי + ספרי פורטפוליו + גשר דו-כיווני (xfer_free)
-- **מסילת המרה HIVE:** ‎/api/dex/hive-rail, ה-DEX עצמו keyless; החתימה מתבצעת בשירות חותם חיצוני (:3033), הפרדת סמכויות חיה
-- **JUMPPER BUDGET-GUARD:** שחזור של פגם אמיתי (לולאת hive.convert בת 11 קריאות זהות), **רק הקריאה הראשונה עוברת, 10 הבאות נחסמות**; 36 assertions סביב השחזור
-- **JUMPPER תיקון עצמי שני:** WALLET-AUDIT-CORRECTION, ביקורת הארנק הקודמת שלנו הייתה שגויה (ציטטה קבצים שכבר לא קיימים); התיקון פורסם בראש ה-README והמסמך סומן SUPERSEDED
-- **21 כללי היגיינה קריפטוגרפית** ב-JUMPPER, מכוילים דו-כיוונית (כל כלל נורה גם על הקוד הפגום וגם שתק על התקין)
-- **הוכחה בין-שרשרתית U-01:** אותו commitment אומת על ETH בלוק 25,929,672 וגם על Solana, מתועד ב-JUMPPER
-- **117n COMMAND II:** אקספלורר THE-BOOK (בלוקים חיים + חיפוש), סורק SHIELD, 7 סקשני אופרטור בממשק הצי
+The SAOSExchange contract (mesh link #7, saos-mesh/v4, 11KB), an internal-book AMM x·y=k, live on our network:
 
-## 10.10 הבורסה הריבונית חיה על הרשת שלנו: v28 בורסה (BIRSA, נמדד 2026-09-09 02:55Z)
-
-חוזה SAOSExchange (mesh link #7, saos-mesh/v4, 11KB), AMM ספר-פנימי x·y=k, חי על הרשת שלנו:
-
-| רכיב | מדידה חיה |
+| Component | Live measurement |
 |---|---|
-| בריכות | 3 בריכות majors-only: WTRX/WSOL/WETH × wSAOS · עטיפות 1:1 מול הפקדות ledger אמיתיות (גיבוי נמדד בזמן אמת: 17.6 TRX · 0.024 SOL · 0.000095 ETH) |
-| מסחר | **72+ swaps כעסקאות אמיתיות** · golden path אומת בדפדפן (tx `0xbaf0771a…`) · TVL $13.91 (dust, המנגנון הוכח, קנה-המידה הוא שער תקציבי) |
-| מחיר | SAOS-M במדיניות $0.001, נמוך בכוונה: הרבה יחידות לכל דולר מגובה = הרבה בריכות |
-| עמלות | 20bps = 10bps harvest-pot לאוצר + **10bps צמיחת בריכות אוטונומית** (ערך ה-LP גדל מעצמו) · swap cap 5% |
-| בוט ארביטראז' | סטייה >0.8% מול אורקל Binance חי → סוופ מתקן · **הוכחת ארב: האוצר מכר WETH בסטייה 5.04%** |
-| harvest החוצה | הוכחה חיה: **36.4 SAOS-M זרמו לשכר ה-REAL WORK** (tx `0x2c1a078b…`) · כל מחזור שלישי |
-| ראוטר | פאנל השוואה מול ציטוטים חיים של Uniswap/Pancake/Sushi, "רק מול הגדולים" |
-| אוצר אבן-הפינה | **מפת כסף אמיתית שפורסמה במלואה: $258.46** (STEEM 534SP = $248.83 · TRX $5.97 · SOL $2.49 · HIVE · ETH), שקיפות רדיקלית כמותג |
-| שרת על הרשת שלנו | בדיקת JSON-RPC מהדפדפן דרך הדלת הציבורית: eth_blockNumber 5300 · chainId 0x7a69 |
-| כנות | באגים אמיתיים נתפסו חיים ותועדו (harvestAll internal-call NotOwner · תצוגת עמלות · fallback של ה-probe) |
+| Pools | 3 majors-only pools: WTRX/WSOL/WETH × wSAOS · wraps 1:1 against real ledger deposits (backup measured in real time: 17.6 TRX · 0.024 SOL · 0.000095 ETH) |
+| Trading | **72+ swaps as real transactions** · golden path verified in the browser (tx `0xbaf0771a...`) · TVL $13.91 (dust, the mechanism is proven, scaling is a budget gate) |
+| Price | SAOS-M at a policy $0.001, deliberately low: many units per backed dollar = many pools |
+| Fees | 20bps = 10bps harvest-pot to the treasury + **10bps autonomous pool growth** (LP value grows on its own) · swap cap 5% |
+| Arbitrage bot | deviation >0.8% against a live Binance oracle -> a correcting swap · **arb proof: the treasury sold WETH at a 5.04% deviation** |
+| Harvest out | live proof: **36.4 SAOS-M flowed to REAL WORK wages** (tx `0x2c1a078b...`) · every third cycle |
+| Router | a comparison panel against live quotes from Uniswap/Pancake/Sushi, "only against the big ones" |
+| Cornerstone treasury | **a real money map published in full: $258.46** (STEEM 534SP = $248.83 · TRX $5.97 · SOL $2.49 · HIVE · ETH), radical transparency as a brand |
+| Server on our network | a JSON-RPC check from the browser through the public door: eth_blockNumber 5300 · chainId 0x7a69 |
+| Honesty | real bugs caught live and documented (harvestAll internal-call NotOwner · fee display · the probe fallback) |
+
+## 10.11 LIVE-GATE: the safety default of the whole organism (security 28-b)
+
+- **66 daemons with broadcast capability, all DRY-by-default** through a shared gate (agent/lib/live_gate.cjs)
+- A real broadcast requires a double trigger: `--live` or `HE_LIVE=1` **and also** `HE_LIVE_CONFIRM=<account>`, and `--dry` always wins
+- Marketing meaning: nothing in the organism can "fire by accident", a live broadcast is a deliberate double action, not a default state
+- **And who guards the gates from our own automation?** A real event: the gitkeeper daemon (auto-save) accidentally deleted the LIVE-GATE gates in one commit. The guardian detected it, restored on the origin, added self-healing (APPLY-LIVE-GATE.sh + a repo patch) and WATCH on the critical files. Our own automation is supervised too
+
+## 10.12 The six-step signing contract (JUMPPER SIGNING-CONTRACT)
+
+- A 6-step signing gate, **derived from reading all 968 lines of the real orchestrator** and measured across all assets: orchestrator 6/6, safe to hold funds
+- A recovery audit against 87KB of real code (vault/backup/router), and it found a real defect: reconstructSecret without a threshold check (documented as a verified defect)
+- **Another self-fix:** our H-11 recommendation was wrong (relay.ts already implemented posting-preferred role selection), the correction was published against our own recommendation
+- Anchors #2+#3 live on Ethereum mainnet from the wallet, "the re-run anchoring path was measured, not promised"
 
-## 10.11 LIVE-GATE: ברירת המחדל הבטיחותית של כל האורגניזם (security 28-b)
+## 10.13 v29 (CHIBUR): the old money found and connected (measured 2026-09-09 04:14Z)
+
+Owner instruction: *"There is an Ethereum address with some dust, some BNB and some XRP, find it and connect it to the system so that nothing stays sitting in a wallet."* The result:
+
+- **The discovery:** the Cornerstone seed (24 words, sealed in the v22 vault) yields real money on the **legacy Coinomi derivation path (4 levels)**, not the standard path (5 levels). That is why all previous checks showed 0: they looked on the wrong path
+- **What was found:** `0x97Ad...`, ETH dust 0.000264968 (mainnet) + BNB 0.000011485 (BSC, same address) · and XRP 1.299961 at `r3Tq66...` (XRPL livenet, an account with real history, 0.299961 spendable above the 1.0 base reserve, measured live)
+- **A live XRPL rail (the eighth network):** account_info + server_state with honest nulls · a live XRPUSDT price · the sovereign fix: ripple's own servers (port 51234) were blocked by the v24 anti-phishing gate, so xrplcluster.com (XRPL Labs, 443) was added to the official TRUSTED_HOSTS. **The gate worked as designed, and the system found a proper route instead of bypassing the protection**
+- **Sovereign 1:1 connection:** WBNB+WRXP registered on the live exchange (registerAsset, owner only) · **not a single unit leaves the wallet** · supply backed 1:1 from the live radar · pools #3 (WBNB/wSAOS) and #4 (WRXP/wSAOS) seeded 80/20 · WETH sync: the found dust (+0.00026175) was injected as market-maker capital into the treasury, supply follows the measured treasury every cycle
+- **v29 verified:** 61.37$ live on 16 assets · the "money found and connected" panel with honest per-asset blockers (ETH: gas>value · BNB: below one gas unit · XRP: above reserve but no second sovereign account)
+- **A bug caught live:** quote-route validation blocked the new assets, spotted in the browser, fixed
+
+## 10.14 Sovereign microrail + P&L proof (SETTLE-16/17, measured 2026-09-09 04:00-04:53Z)
+
+- **THE-MICRORAIL:** a peg-locked TWAP mechanism tamed an extreme premium: **USDS/WSTEEM from +459% to +24.7%** across **16 measured batches** · net result: **+133kµ** · every batch documented
+- **THE-MILESTONE + THE-ONRAMP:** the P&L proof goes up to Hive (public) + real external liquidity mapping
+- **v29 treasury:** the full money map grew from $258.46 to 16 live assets with measured value
+
+## 10.15 Gas model accuracy upgraded: 7/7 consecutive exact predictions on mainnet
+
+- Anchors #4, #5, #6 from the wallet live on Ethereum: tx `0xb31330ef...` (block 25,937,227) · `0x3b48281f...` (25,937,311) · `0x4f27c008...` (25,937,568 · SAOS-NET height 74,907)
+- **In each one: gasUsed = 32,680, exactly as the model.** This is no longer a one-time match: **7 consecutive exact gas predictions on real mainnet transactions** (Tier-3 PROVEN)
+- JUMPPER: **the full pipeline connected end to end**, from claim to a free public anchor (a connector of claim/batch/packing/graphene/anchor) + a hash-chain coverage audit that found a real forensic finding (roshpina's computeHash binds only 5 of 11 fields)
+- steem: `keys-access.cjs`, a multi-agent key-access tool through external-signer · **zero key exposure**
+
+## 10.16 v30 (TIZUZA): the money moves physically (measured 2026-09-09 05:46Z)
+
+Owner instruction: *"It must move physically."* After v29 found and connected without moving, v30 moved:
+
+- **A real mainnet sweep:** ETH 0.000262870525508 swept (tx `0x6ef5f0...`) + BNB 0.000010172850321011 on BSC (tx `0xa8e43d...`) to the treasury home `0x01Bd` (the same signed seed, standard path, in-process derivation with fail-closed self-verify) · **source addresses emptied to 0**
+- **The v29 blockers dissolved against live measurement:** mainnet gas measured 0.068 gwei, the transfer costs ~0.5% of the dust itself (BSC: 0.05 gwei). What looked yesterday like "gas more expensive than the value" was a working assumption that was never measured
+- **Heartbeats on XRPL:** the XRP account signed itself a live AccountSet with an engraved Hebrew memo, 4 tesSUCCESS confirmations, sequence 57785945->47, cost 12 drops per beat · a golden path verified in the browser: a UI button -> a real XRPL transaction (57785947)
+- **BURN-SYNC, tightening the 1:1 invariant in both directions:** gas actually burned is subtracted from the wrapped supply on-chain (WRXP -0.000035 · WBNB -0.0000013125 burned), supply==locked stays correct even when the network eats gas
+- **Live honesty:** a self-payment was rejected by the XRPL engine as temREDUNDANT, two honest failure lines remain in the log ("a lesson learned live")
+- **The physical-move module:** triple key derivation in a vault session · self-verify of the 3 addresses before every move · a legacy-tx sweep with measured gas ×1.25 · wait for receipt · a Prisma journal + oplog · dual control in the runner
+- **5 bugs caught live and fixed** (parseEther underflow · a stale filter after the sweep · duplicate React keys · receipt validation 403 with the official fallback · self-terminate at tick 0) · a Turbopack panic caught and exiled again · end-to-end verification: mobile 375px · 0 console errors · MAGEN 0 · seed-canary 0
+- **The call flipped:** "the money moves physically, and is also put to work"
+
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+## 10.18 Sovereign economy engine: ve(3,3) + buy-&-burn (DEX Task 54, measured live)
+
+- **Deterministic economyTick** inside buildBlock (height-triggered), the economy is part of consensus, not a plugin
+- **veSAOS** (Aerodrome model): ve_lock/ve_unlock/ve_vote · linear decay over 1-208 weeks · reward pot distribution per epoch by voting power
+- **Revenue router every 600 blocks, 40% buy-from-pool-and-burn (real deflation) · 40% ve reward pot · 20% treasury**, everything capped by measured profit + treasury floors (no printing)
+- **Bonds 2.0:** bond_buy at a 3% discount against the live pool price · SAOS locked in ve for 12 weeks · caps + cooldown
+- **Dynamic fees:** per-pool volume EWMA -> 4-1500bps (quote==execution) · measured live: 30->44bps
+- Live anchors verified after the authority calibration: Steem `774e2065...` + Hive `42c18fa3...` (verified=3 · mismatches=0)
+
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+
+## 10.19 Keeperless automated trading + price-proof engine (DEX Task 56)
+
+- **DCA programs** (Jupiter style) + **trigger orders** (GMX-style TP/SL), **keeperless: the block builder is the keeper** (no external server that can drop or fail)
+- **price-proof engine:** USD derivation via 1:1 WSTEEM backing × live CoinGecko · depth profile · cross-venue MAD cutoff · real treasury USD against STEEM/HIVE/BLURT principals
+- batch sub-op events flow into the tape and the price-oracle · snapshot reconcile covers DCA/trigger escrows
+
+## 10.20 Sovereign swarm + agent gate (platform v36-v38)
+
+- **GATE HERALD (v36): the first external agent passed the agent gate, for real** (HTTP + one-time key, controlled path)
+- **SOVEREIGN SWARM (v38):** two sovereign agents with real work and an intelligence engine (ZAI LLM):
+  - **gold-scout (the economist):** hourly cycle, real network data -> LLM intelligence report (numbers from the data only, deterministic fallback) + a work order when the economy has been quiet >6h
+  - **night-scout (the guard):** member sweep every 10 min, alarm/removal/security-order on critical, rate-limited
+  - **live proofs:** intelligence report #1 (LLM 3.1s, 6/6 members, block 5602, 952 SAOS-M paid) · response to "@night-scout report" within 19s · report #2 (5.6s, 403 orders · treasury 3,479)
+  - supervision: guard with 180s grace · death ×3 -> detached revive · members.swarm · live detail (reports/sweeps/latency)
+- **FLEET-MIND (wallet):** shared fleet memory + budget-capped goal initiative + checker telemetry · agents connected to all network capabilities (9->15)
+
+## 10.21 Continuity and autarky: resilience capabilities (v33-v35 + JUMPPER riskgate)
 
-- **66 דמונים בעלי יכולת שידור, כולם DRY-by-default** דרך שער משותף (agent/lib/live_gate.cjs)
-- כדי לשדר באמת נדרש אקדח כפול: `--live` או `HE_LIVE=1` **וגם** `HE_LIVE_CONFIRM=<account>`, ו-`--dry` תמיד מנצח
-- משמעות שיווקית: שום דבר באורגניזם לא יכול "לירות בטעות", שידור חי הוא פעולה מודעת כפולה, לא מצב ברירת מחדל
-- **ומי שומר על השערים מהאוטומציה שלנו עצמה?** אירוע אמיתי: דמון ה-gitkeeper (שמירה אוטומטית) מחק בטעות את שערי ה-LIVE-GATE בקומיט אחד. ה-guardian זיהה, שחזר על ה-origin, הוסיף ריפוי-עצמי (APPLY-LIVE-GATE.sh + פאטץ' בריפו) ו-WATCH על הקבצים הקריטיים. גם האוטומציה שלנו מפוקחת
-
-## 10.12 חוזה החתימה שש-השלבי (JUMPPER SIGNING-CONTRACT)
+- **SHICHZUR (v33):** the organism reconstructs itself from the vault after an environment rebuild, **proven 3 times**
+- **AUTARKY (v34):** the system depends on nothing that lives outside the survivor homes
+- **RETZIUT (v35):** the mirror gap closed, build-loss window dropped from ~30 minutes to ~a minute (change-preventing DB mirror)
+- **riskgate (JUMPPER):** risk classification **escalation-only**, a reader can raise the action level, never lower it (32 bidirectional assertions)
+- **anti-rogue-seed guard:** derive() refuses to derive a new sovereign seed as long as an encrypted recovery source exists
+- **LIMITS-AUDIT (wallet):** honest blockers audit, 9 constraints: 4 fixed today · 3 intentionally capped · 2 documented
 
-- שער חתימה בן 6 שלבים, **נגזר מקריאת כל 968 שורות האורקסטרטור האמיתי** ונמדד על פני כל הנכסים: orchestrator 6/6 בטוח להחזיק כספים
-- ביקורת recovery מול 87KB קוד אמיתי (vault/backup/router), ומצאה פגם אמיתי: reconstructSecret בלי בדיקת סף (תועד כ-defect מאומת)
-- **עוד תיקון עצמי:** המלצת H-11 שלנו הייתה שגויה (relay.ts כבר מימש בחירת-תפקידים posting-preferred), התיקון פורסם נגד ההמלצה של עצמנו
-- עוגנים #2+#3 חיים על Ethereum mainnet מהארנק, "נתיב העיגון הרץ-מחדש נמדד, לא הובטח"
-
-## 10.13 v29 חיבור (CHIBUR): הכסף הישן שנמצא וחובר (נמדד 2026-09-09 04:14Z)
-
-הנחיית הבעלים: *"יש כתובת איתריום עם קצת אבק, קצת BNB וקצת XRP, תמצאו את זה ותחברו למערכת, שלא יישאר בארנק."* התוצאה:
+## 10.22 New market engines: CoW, Launchpad, ProtoRev (DEX Task 58, verified live)
 
-- **הגילוי:** זרע ה-Cornerstone (24 מילים, sealed בכספת v22) מניב כסף אמיתי בנתיב הגזירה **ה legacy של Coinomi (4 רמות)**, לא הנתיב הסטנדרטי (5 רמות). לכן כל הבדיקות הקודמות הראו 0: חיפשו בנתיב הלא-נכון
-- **מה נמצא:** `0x97Ad…`, ETH dust 0.000264968 (mainnet) + BNB 0.000011485 (BSC, אותה כתובת) · ו-XRP 1.299961 ב-`r3Tq66…` (XRPL livenet, חשבון עם היסטוריה אמיתית, 0.299961 spendable מעל רזרבת הבסיס 1.0 שנמדדה חיה)
-- **מסילת XRPL חיה (הרשת השמינית):** account_info + server_state עם nulls כנים · מחיר XRPUSDT חי · הפתרון הריבוני: השרתים של ripple עצמה (פורט 51234) נחסמו ע"י שער האנטי-פישינג של v24, אז הוסף xrplcluster.com (XRPL Labs, 443) ל-TRUSTED_HOSTS רשמי. **השער עבד כמו שתוכנן, והמערכת מצאה נתיב תקין במקום לעקוף את ההגנה**
-- **חיבור ריבוני 1:1:** WBNB+WRXP נרשמו בבורסה החיה (registerAsset לבעלים בלבד) · **אף יחידה לא עוזבת את הארנק** · supply מגובה 1:1 מהרדאר החי · בריכות #3 (WBNB/wSAOS) ו-#4 (WRXP/wSAOS) נזרעו 80/20 · סנכרון WETH: האבק שנמצא (+0.00026175) הוזרם כהון market-maker לאוצר, ה-supply עוקב אחרי האוצר הנמדד כל מחזור
-- **אושר v29:** 61.37$ חי על 16 נכסים · פאנל "הכסף שנמצא וחובר" עם החוסמים הכנים פר-נכס (ETH: גז>ערך · BNB: מתחת ליחידת גז · XRP: מעל רזרבה אך ללא חשבון שני ריבוני)
-- **באג נתפס חי:** אימות quote-route חסם את הנכסים החדשים, זוהה בדפדפן, תוקן
+- **CoW batch auctions (coincidence of wants):** uniform per-block settlement at a single clearing price, **the surplus returns to the traders**, and it is **structurally sandwich-resistant** (no transaction queue to attack, the whole block clears at once) · fallback pool<->book · verified live: exact pro-rata matching with an integer surplus
+- **Sovereign Launchpad:** bonding curve (pump.fun style) + LBP Dutch sale, multi-user through an identified bridge · **live graduation to an AMM pool with 100% POL** · verified live: birth (LB|LA) -> graduation at height 772
+- **ProtoRev, two-way end-of-block arbitrage:** book<->pool in both directions + pool cycles · desk=treasury · atomic batch · **real measured profit: +50,468µ at height 871** -> revAux flywheel engine
+- **Resilient price feeds:** CoinGecko->Paprika->CryptoCompare->Binance merge + STALE cutoff (an old price = not traded, not invented)
+- The router opens to launchpad-matured assets
 
-## 10.14 מיקרו-מסילה ריבונית + הוכחת P&L (SETTLE-16/17, נמדד 2026-09-09 04:00-04:53Z)
-
-- **THE-MICRORAIL:** מנגנון TWAP צמוד-יתד שריסן פרמיה קיצונית: **USDS/WSTEEM מ-+459% ל-+24.7%** לאורך **16 מנות מדודות** · תוצאה נטו: **+133kµ** · כל מנה מתועדת
-- **THE-MILESTONE + THE-ONRAMP:** הוכחת ה-P&L עולה ל-Hive (פומבית) + מיפוי נזילות חיצונית אמיתית
-- **אוצר v29:** מפת הכסף המלאה גדלה מ-$258.46 ל-16 נכסים חיים עם שווי נמדד
-
-## 10.15 דיוק מודל-הגז שודרג: 7/7 חיזויים מדויקים רצופים על mainnet
+## 10.23 SOVEREIGN-HAND: proven end-to-end separation of powers (wallet, live E2E)
 
-- עוגנים #4, #5, #6 מהארנק חיים על Ethereum: tx `0xb31330ef…` (בלוק 25,937,227) · `0x3b48281f…` (25,937,311) · `0x4f27c008…` (25,937,568 · גובה SAOS-NET 74,907)
-- **בכל אחד: gasUsed = 32,680, בדיוק כמו המודל.** זו כבר לא התאמה חד-פעמית: **7 חיזויים רצופים מדויקים לגז על עסקאות mainnet אמיתיות** (Tier-3 PROVEN)
-- JUMPPER: **הצנרת המלאה חוברה מקצה לקצה**, מטענה (claim) עד עוגן ציבורי חינמי (connector של claim/batch/packing/graphene/anchor) + ביקורת כיסוי hash-chain שמצאה ממצא פורנזי אמיתי (computeHash של roshpina קושר רק 5 מ-11 שדות)
-- steem: `keys-access.cjs`, כלי גישת-מפתחות רב-סוכני דרך external-signer · **אפס חשיפת מפתחות**
-
-## 10.16 v30 תזוזה (TIZUZA): הכסף זז פיזית (נמדד 2026-09-09 05:46Z)
-
-הנחיית הבעלים: *"הוא חייב לזוז פיזית."* אחרי ש-v29 מצא וחיבר בלי להזיז, v30 הזיז:
-
-- **סחיפה אמיתית ב-mainnet:** ETH 0.000262870525508 נסחף (tx `0x6ef5f0…`) + BNB 0.000010172850321011 על BSC (tx `0xa8e43d…`) אל בית האוצר `0x01Bd` (אותו זרע חתום, נתיב סטנדרטי, גזירה בתהליך עם self-verify fail-closed) · **כתובות המקור רוקנו ל-0**
-- **החוסמים של v29 התמוססו מול מדידה חיה:** גז mainnet נמדד 0.068 gwei, ההעברה עולה ~0.5% מהאבק עצמו (BSC: 0.05 gwei). מה שנראה אתמול "גז יקר מהערך" היה הנחת עבודה שלא נמדדה
-- **פעימות לב על XRPL:** חשבון ה-XRP חותם בעצמו AccountSet חי עם ממו עברי חרוט, 4 אישורי tesSUCCESS, sequence 57785945→47, עלות 12 drops לפעימה · מסלול זהב אומת בדפדפן: כפתור UI → עסקת XRPL אמיתית (57785947)
-- **BURN-SYNC, ההדוק של אינווריאנט ה-1:1 בשני הכיוונים:** גז שנשרף באמת מוקטן מההיצע העטוף on-chain (WRXP −0.000035 · WBNB −0.0000013125 נשרפו), supply==locked נשאר נכון גם כשהרשת אוכלת גז
-- **כנות חיה:** תשלום-עצמי נדחה ע"י מנוע ה-XRPL כ-temREDUNDANT, שתי שורות כישלון כנות נשארו ביומן ("לקח נלמד חי")
-- **מודול physical-move:** גזירת מפתח משולשת בוולט-סשן · self-verify של 3 הכתובות לפני כל תזוזה · legacy-tx sweep עם גז-מדוד×1.25 · המתנה לקבלה · journal ב-Prisma + oplog · dual-control בראנר
-- **5 באגים נתפסו חיים ותוקנו** (parseEther underflow · פילטר קשיח אחרי סחיפה · מפתחות React כפולים · אימות קבלות 403 עם fallback רשמי · self-terminate ב-tick 0) · Turbopack panic נתפס והוגלה שוב · אימות קצה-לקצה: מובייל 375px · 0 שגיאות קונסולה · MAGEN 0 · seed-canary 0
-- **הקריאה התהפכה:** "הכסף זז פיזית, וגם מועסק"
-
-## 10.17 ⚠ פנימי: לא לפרסום: אירוע KEY-RESCUE-1 (נפתר במלואו): קשת ההחלמה המלאה
-
-מה שהתחיל כאירוע פתוח (v3.4) נסגר עם קשת החלמה מתועדת מקצה לקצה:
-
-**ציר הזמן:**
-1. 2026-09-08 21:17-21:33, סשן מפעיל חיצוני סיובב את headcorner (owner/active/posting/memo) ו-10 חיילים (מוכח on-chain: בלוק 109,745,168 · תועד ב-JUMPPER KEY-INCIDENT)
-2. 22:41, הסשן מת מבלי לשמר את המפתחות החדשים. הצי איבד יכולת חתימה
-3. פורנזיקה: 12/12 חותמות-ריפו היסטוריות פוצחו = stale · 312 מתכוני גזירה = 0 התאמות · סריקת filesystem מלאה = 0
-4. החלמה: SAOS-ROT1 seed ingestion (signer v2.3.0) + גיבוי בעלים מוצפן (round-trip מאומת) + **v31: שחזור מפתחות מלא מ-export של הבעלים, אימות fail-closed, 11 חברים, חי 14/14**
-5. **foundry(32): headcorner מחובר מחדש 8/8** (כל התפקידים ב-STEEM+HIVE, live-verified) · foundry(33): המסך חסר-החסימה בכנות, **STEEM anchor-ready מאומת חי**
-6. **שינוי דוקטרינה (הלקח ממוסד):** מפתחות **לעולם לא בריפו**, fleet seal untracked+ignored (מקומי בלבד), החלמה דרך THE-GATE (הדבקת מפתח → אימות מול השרשרת → vault-first → stay-connected) או דרך מפעיל
-7. **THE-GATE + GATE-1:** מערכת login ריבונית חיה עם UI אימות 8/8 חי · בארנק: 85 חתומים, 37 מאומתים חיים · הריפו טוהר מכל חומר מפתחות
-8. **saos-control-center (ריפו חדש, 12 במניין):** שכתוב היסטוריית git מלא, **0 מפתחות plaintext בכל 32 הקומיטים המשוכתבים** (נבדק) · כספת 144/144 decrypt OK · דליפת GitHub מריפו זר נסגרה · .env נמחק מההיסטוריה · session-persistence עם dual-carrier auth
-9. **v31 חיבור חכם (SMART LINK):** multi-home vault (**3 בתים, self-heal + mirror, "הלקח של 09/09 נסגר"**) · AGENTS GATEWAY (צ'אט + API עם מפתחות פר-סוכן, הזמנות עבודה אמיתיות דרך ה-mesh) · PhysicalMove journal שוחזר ואומת מול השרשרת · KEYS-EXPORT נמחק מהריפו בהנחיית בעלים, החומר חי רק בכספת ה-multi-home
+- **The principle:** agents build real DEX orders, **the vault signs only through the gate**. The building hand is not the signing hand
+- **GateOrder lifecycle verified against a public node:** creation tx `5798c77c...` @ block 109,441,448 · agent-cancel tx `085916fa...` @ block 109,441,504
+- **Honest GateAction audit:** 2 ok / 2 honest pre-fix failures, documented, not hidden
+- heart pricewatch watermark live (0.09729) · SSE stream verified · lint clean
+- **MULTI-CHAIN SOVEREIGN EYES:** full multi-chain monitoring across the whole fleet, the vault has already held 12 Ethereum addresses + 12 Solana; all connected to the live display + anti-stall guard
 
-**עדכון 02:10Z (פנימי):** platform v41, מנוע התאוששות ריבוני הוקם ופועל; האירוע עדיין פתוח. כל עוד הוא פתוח: אין פרסום על מצב החשבון, אין טענות 'חי' חדשות תלויות-חשבון, והחומר הפומבי נשען רק על יכולות שכבר הוכחו בעבר עם קבלות היסטוריות.
-
-**הנחיה שיווקית (מחייבת, לפי disclosure-policy.md):** עצם האירוע, הפורנזיקה והשחזור, פנימיים לחלוטין. מותר לפרסם רק את רמת היכולת: דוקטרינת "מפתחות לעולם לא בריפו" (היסטוריה נקייה מאומתת), THE-GATE, כספת multi-home, ורוטציה כיכולת on-chain מוכחת. הטענות החיות (STEEM anchor-ready, 14/14) תקפות, בלי לספר למה היו צריכות החלמה.
-
-## 10.18 מנוע הכלכלה הריבוני: ve(3,3) + buy-&-burn (DEX Task 54, נמדד חי)
-
-- **economyTick דטרמיניסטי** בתוך buildBlock (height-triggered), הכלכלה חלק מהקונצנזוס, לא תוסף
-- **veSAOS** (מודל Aerodrome): ve_lock/ve_unlock/ve_vote · דעיכה ליניארית 1-208 שבועות · חלוקת reward pot פר-epoch לפי כוח הצבעה
-- **ראוטר הכנסות כל 600 בלוקים, 40% buy-from-pool-and-burn (דפלציה אמיתית) · 40% ve reward pot · 20% אוצר**, הכל מוגבל ע"י רווח-שנמדד + רצפות אוצר (אין הדפסה)
-- **Bonds 2.0:** bond_buy בדיסקאונט 3% מול מחיר הבריכה החי · SAOS ננעל ve ל-12 שבועות · תקרות + cooldown
-- **עמלות דינמיות:** EWMA נפח פר-בריכה → 4-1500bps (quote==execution) · נמדד חי: 30→44bps
-- עוגנים חיים מאומתים אחרי כיול הרשות: Steem `774e2065…` + Hive `42c18fa3…` (verified=3 · mismatches=0)
+## 10.24 Engineering discipline (platform v39-v40 + foundry v4)
 
-> **⚠ עדכון ביקורת 2026-09-10 (פנימי):** ביקורת הקוד החיצונית מצאה ותקנה באג קריטי בנתיב ה-buy-&-burn: הבריכה קיבלה USDS בלי ניכוי מהאוצר (פנטום, הפרת שימור כספים). תוקן fail-closed בקומיט `1174677` ב-saos-dex + מסמך `docs/AUDIT-2026-09-10-ECONOMY.md`. **משמעות שיווקית:** טענת ה"דפלציה אמיתית" תקפה מנקודת התיקון ואילך; מחזורים שקדמו לו עשויים להכיל USDS-פנטום ברזרבות (ככל-הנראה latent בקנה-מידה של אבק, בדיקת journal action:burn נדרשת מהסוכנים). שאר הטענות (CoW, relay-eth, launchpad, invariants 10+4) **עמדו בביקורת**.
+- **v39 zero debt (ZERO TYPE DEBT):** the remaining 298 tsc errors were hiding real display bugs, all fixed, type debt zero
+- **v40 single seat and function truth (SINGLE SEAT + FUNCTION TRUTH):** a live process audit caught a duplicated sub-runner running full cycles, consolidated to a single seat; functions are measured by real function, not by existence
+- **foundry SOVEREIGN v4 AURORA CONSOLE:** full redesign, side console-rail (RTL 248px, brand/navigation/status/clock), contextual navigation
+- **control-center:** live CoW batch-auction panel in the trading view (single clearing price, surplus to traders, live settlement log) + sovereign estate audit, a live reality panel
+
+## 10.25 SOVEREIGN-VOICE: the fleet builds the network every day (wallet, live E2E 00:34Z)
 
-## 10.19 מסחר אוטומטי ללא-שומרים + מנוע הוכחת-מחיר (DEX Task 56)
+- **The built-in safety principle:** the posting authority is the agents' "hands", **the chain itself forbids it from moving funds**. So full social autonomy (posts/votes/follows/reblogs) is structurally safe; the ACTIVE key remains operator-only (SOVEREIGN-HAND untouched)
+- **Honest rails:** 4 posts per day · 12 interactions per day · voting weight ≤20% · every action with GateAction + bridge + rooted evidence
+- **bit-exact against the node's own serializer:** new wire-exact operations (vote int16 two's-complement · comment 7-strings · custom_json vectors), oracle-verified: **identical 470 hex characters + equal digest** before the first broadcast
+- **The arsenal:** armory 22->24 modules (steem.post, steem.interact) · **all 5 agents armed with the 24 modules** · the heart seeds builder+guardian boards twice daily per agent (staggered hours), "the fleet builds and secures every day"
+- **Live E2E through the fully autonomous heart path:**
+  - 62.5s run, post published: tx `c64766e7...` @ block **109,443,160** (verified with get_content + get_transaction against a public node)
+  - 37.6s run, vote 500/10000: tx `048b3162...` (active_votes=1 on chain)
+- **Two lessons caught live and documented:** null-entries in a fresh daemon state crashed fleet.status (all 5 normalize maps hardened) · the heart does not hot-reload (documented as a diagnostics signature)
 
-- **DCA programs** (סגנון Jupiter) + **trigger orders** (TP/SL סגנון GMX), **keeperless: בונה-הבלוקים הוא השומר** (אין שרת חיצוני שיכול ליפול/להיכשל)
-- **מנוע price-proof:** גזירת USD דרך גיבוי WSTEEM 1:1 × CoinGecko חי · פרופיל עומק · פסיקת MAD בין-זירתית · USD אוצר אמיתי מול ראשי STEEM/HIVE/BLURT
-- batch sub-op events זורמים ל-tape ול-price-oracle · snapshot reconcile מכסה escrows של DCA/trigger
-
-## 10.20 נחיל ריבוני + שער הסוכנים (platform v36-v38)
+## 10.26 PUBLISH-DESK: the exposure gate of autonomous publishing (wallet, live 01:59Z)
 
-- **GATE HERALD (v36): הסוכן החיצוני הראשון עבר בשער הסוכנים, באמת** (HTTP+מפתח חד-פעמי, נתיב מבוקר)
-- **SOVEREIGN SWARM (v38):** שני סוכנים ריבוניים עם עבודה אמיתית ומנוע בינה (ZAI LLM):
-  - **gold-scout (הכלכלן):** מחזור שעתי, נתוני רשת אמיתיים → דוח בינה LLM (מספרים מהנתונים בלבד, fallback דטרמיניסטי) + פקודת עבודה כשהכלכלה שקטה >6ש'
-  - **night-scout (המשמר):** סיור איברים כל 10 דק', אזעקה/הסרה/פקודת-אבטחה בקריטי, rate-limited
-  - **הוכחות חיות:** דוח בינה #1 (LLM 3.1 שנ', 6/6 איברים, בלוק 5602, 952 SAOS-M שולמו) · מענה ל-"@night-scout דווח" תוך 19 שנ' · דוח #2 (5.6 שנ', 403 פקודות · קופה 3,479)
-  - השגחה: משמר עם grace 180ש' · מוות ×3 → detached revive · members.swarm · פירוט חי (דוחות/סיורים/latency)
-- **FLEET-MIND (wallet):** זיכרון-צי משותף + יוזמת-מטרה מוגבלת-תקציב + טלמטריית checker · סוכנים חוברו לכל יכולות הרשת (9→15)
+The swarm publishes content on the chains, and now every publication has a discipline desk:
 
-## 10.21 רציפות ואוטרקיה: יכולות חוסן (v33-v35 + JUMPPER riskgate)
+- **exposure.ts gate, 16 rule classes, masked findings, HIGH = fail-closed**, enforced on **every** publication and **every** edit. The doctrine: "the cards stay at home" (what is internal does not go out to the chain)
+- **social.audit live:** pulls the feeds of both rails and scans every published post (steem: 8 scanned/5 flagged · hive: 8/1, **matches manual ground-truth**)
+- **Edit primitive with a live fix:** steem.edit preserves permlink+category+tags, a post was fixed in place on the chain: tx `c2ea51cc...` (verified with get_content against a public node)
+- **HIVE rail connected live:** broadcast through the wire-exact packer · chain id `beeab0de...` **proven in a signature-recovery oracle against real on-chain transactions** (audit: the steem zeros matched) · the broadcaster passes authority and stops only at the real RC gate (0 HP, open item: yes)
+- **blurt closed honestly:** 4 endpoints tested, all dead · no broadcasts to a rail that does not exist
+- **Arsenal 24->27** (steem.edit · social.audit · social.rails) · pre-flight board with on-chain posting-key proofs (33-byte) · heart v2: builder targets with a no-duplication doctrine + daily editor board (audit->fix->publish clean->report)
+- Documented publishing doctrine (publishing-network.md): cards-at-home · per-rail meaning (LEO=hive tag) · chain-SEO · account hygiene · **honesty-over-camouflage**
+## 10.27 The ecosystem-wide roast wave (2026-09-10 06:20-12:43Z): the organism criticized itself
 
-- **SHICHZUR (v33):** האורגניזם משחזר את עצמו מהכספת אחרי rebuild של הסביבה, **הוכח 3 פעמים**
-- **AUTARKY (v34):** המערכת לא תלויה בשום דבר שחי מחוץ לבתים-השורדים
-- **RETZIUT (v35):** פער המראות נסגר, חלון אובדן-בנייה ירד מ-~30 דקות ל-~דקה (מראת-DB מונעת-שינוי)
-- **riskgate (JUMPPER):** סיווג סיכון **escalation-only**, קורא יכול להעלות רמת פעולה, לעולם לא להוריד (32 assertions דו-כיווניות)
-- **anti-rogue-seed guard:** derive() מסרב לגזור זרע ריבוני חדש כל שקיים מקור-שחזור מוצפן
-- **LIMITS-AUDIT (wallet):** ביקורת חוסמים כנה, 9 מגבלות: 4 תוקנו היום · 3 הוגבלו במתכוון · 2 מתועדות
+Our external audit (AUDIT-2026-09-10 on saos-dex) ignited a coordinated self-criticism wave across the repos:
 
-## 10.22 מנועי שוק חדשים: CoW, Launchpad, ProtoRev (DEX Task 58, מאומת חי)
+- **steem 117p8-R8, the roast landed on chain:** 4 economic kernel bugs fixed in a **planned fork @130,000** · anti-poison + fork guards kept · honest gap manifest · self-healing proven · THE-BOOK (live block explorer) at h133,259
+- **foundry roast(53)-(56), 19 truth gaps closed:** merkle that accepted every string · rate-limit · receipt-store · external-signer where /sign demanded a requestId and then ignored it ("THE MONEY ONE", closed on the CALLER side) · 6 UI gaps including one live crash · 5 gaps in the anchoring pipeline
+- **wallet ROAST r4+r5, 21 truth gaps (17+4) closed with live proofs:** "roast-the-roast" and then "the audit audits itself"
+- **JUMPPER ONCHAIN-ROAST, the hardest and the most important:** a double measurement of HIVE mainnet 32 hours apart exposed **split-view: 3 heights (1476, 1668, 1764) each carrying two different state roots** (one pair 30 seconds apart, different txids/digests), published voluntarily · also: a height-counter reset 4488->12 without an epoch marker turned old heights into ambiguous ones · **the response: a new `conflicting_height_audit` in liveops + 14 assertions replaying the real flaw with on-chain values** · honest operational conclusion: the convert loop is dead, Hive-Engine churn stopped
+- **platform v46 CHAIN AUDIT:** live integrity audit straight from the contracts + 3 deep chain bugs fixed
+
+## 10.28 v47 THE HARDENED BIT: one seed, five ecosystems (07:15Z)
+
+- **the living mathematical truth:** the 24 cornerstone words reproduce exactly: m/44'/501'/0'/0' -> SOL identity · m/44'/195'/0'/0/0 -> TRON identity (live triple verification) · m/44'/60'/0'/0/0 -> 0x01Bd (EVM) · + BTC/XRP derivations, **one seed = EVM+SOLANA+TRON+BTC/XRP**
+- **first mainnet SOLANA anchor from the cornerstone:** txid `5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5` · slot 445,822,974 · fee 5,000 lamports · err=null · zero SOL moved · confirmed · verified independently from mainnet-beta
+- **cryptographic bug fixed:** slip10Ed25519 wrote an index without the hardened bit (44 instead of 0x80000000|44) -> wrong key -> false diagnosis "SOL identity does not reproduce", fixed with >>>0; the lesson: triple verification refuses to lie, and the refusal itself was correct
+- **XRP honesty:** the m/44'/144' path yields a different address than the declared one, marked "declared only", not verified
+- internal roast: 17 gaps (svm-identity open->fixed)
+
+## 10.29 v48 NETWORK MAP (08:00Z)
+
+- **22 identities from the cornerstone + a live balance census 18/18**, a full multi-chain map of the organism, measured not declared
+
+## 10.30 THE ANCHOR WALL 5/5: v49->v51 (verified directly from commits, 17:40Z)
 
-- **CoW batch auctions (התאמת רצונות הדדית):** סליקה אחידה פר-בלוק במחיר clearing אחיד, **העודף חוזר לסוחרים**, וזה **חסיני-סנדוויץ' מבנית** (אין תור עסקאות שאפשר לתקוף, כל הבלוק מסתלק בבת אחת) · fallback pool→book · מאומת חי: התאמה pro-rata מדויקת עם עודף שלם
-- **Launchpad ריבוני:** עקומת bonding (סגנון pump.fun) + מכירה הולנדית LBP, multi-user דרך גשר מזוהה · **graduation חי לבריכת AMM עם 100% POL** · מאומת חי: לידה (LB|LA) → graduation בגובה 772
-- **ProtoRev, ארביטראז' דו-כיווני בסוף-בלוק:** book↔pool בשני הכיוונים + מחזורי בריכה · desk=treasury · batch אטומי · **רווח אמיתי נמדד: +50,468µ בגובה 871** → מנוע revAux flywheel
-- **הזנות מחיר עמידות:** CoinGecko→Paprika→CryptoCompare→Binance merge + פסיקת STALE (מחיר ישן = לא נסחר, לא מומצא)
-- הראוטר נפתח לנכסים בוגרי-launchpad
+### v49 THE ANCHOR VOYAGE: all 5 funded networks anchored on mainnet
+- **TRON (network #4):** txid `3b40a8da...27acfe` · block **86,124,584** · triple-verified from the node (1 SUN to a sister address from the same seed · memo read-back byte-for-byte) · homegrown protobuf encoder over an empirically deciphered schema · byte-identical round-trip proof before every signature · the signature checked against **535 real mainnet transactions** · measured cost 2.1 TRX (the predicted 0.6 model **was falsified, and the falsification was published**) · the first broadcast was honestly refused (broadcasthex throws on the payload) and diagnosed empirically
+- **XRPL (network #5):** hash `0C846CB5...FB5855` · ledger **106,890,679** · verified tesSUCCESS + read-back · 12 drops · reserve gate: yes
+- **the same seal root `39575b3b...` was inscribed on TRON and on XRPL in the same round**, the circle is closed: ETH · BSC · SOL · TRON · XRPL
 
-## 10.23 SOVEREIGN-HAND: הפרדת רשויות מוכחת מקצה לקצה (wallet, E2E חי)
-
-- **העיקרון:** הסוכנים בונים הזמנות DEX אמיתיות, **הכספת חותמת רק דרך השער**. היד הבונה אינה היד החותמת
-- **GateOrder lifecycle מאומת מול צומת ציבורי:** יצירה tx `5798c77c…` @ בלוק 109,441,448 · ביטול-סוכן tx `085916fa…` @ בלוק 109,441,504
-- **ביקורת GateAction כנה:** 2 ok / 2 כשלים כנים שלפני-תיקון, מתועדים, לא מוסתרים
-- heart pricewatch watermark חי (0.09729) · SSE stream מאומת · lint clean
-- **MULTI-CHAIN SOVEREIGN EYES:** ניטור רב-שרשרתי מלא על כל הצי, הכספת כבר החזיקה 12 כתובות Ethereum + 12 Solana; כולן חוברו לתצוגה החיה + anti-stall guard
-
-## 10.24 משמעת הנדסית (platform v39-v40 + foundry v4)
-
-- **v39 חוב-אפס (ZERO TYPE DEBT):** 298 שגיאות tsc שנותרו הסתירו באגי-תצוגה אמיתיים, כולן תוקנו, חוב הטיפוסים אפס
-- **v40 מושב-יחיד ואמת-תפקוד (SINGLE SEAT + FUNCTION TRUTH):** ביקורת-תהליכים חיה זיהתה רץ-משנה כפול שרץ מחזורים מלאים, קונסולידציה למושב יחיד; פונקציות נמדדות לפי תפקוד אמיתי, לא לפי קיום
-- **foundry SOVEREIGN v4 AURORA CONSOLE:** עיצוב מחדש מלא, console-rail צדי (RTL 248px, מותג/ניווט/מצב/שעון), ניווט הקשרי
-- **control-center:** פאנל CoW batch-auction חי בתצוגת המסחר (מחיר clearing אחיד, עודף לסוחרים, יומן סליקה חי) + sovereign estate audit, פאנל מציאות חי
-
-## 10.25 SOVEREIGN-VOICE: הצי בונה את הרשת כל יום (wallet, E2E חי 00:34Z)
-
-- **העיקרון הבטיחותי המובנה:** סמכות ה-posting היא "הידיים" של הסוכנים, **השרשרת עצמה אוסרת עליה להזיז כספים**. לכן אוטונומיה חברתית מלאה (פוסטים/הצבעות/עוקבים/reblogs) היא בטוחה-מבנית; מפתח ה-ACTIVE נשאר operator-only (SOVEREIGN-HAND לא נגוע)
-- **מסילות כנות:** 4 פוסטים ליום · 12 אינטראקציות ליום · משקל הצבעה ≤20% · כל פעולה עם GateAction + גשר + ראיה משורשרת
-- **bit-exact מול הסריאלייזר של הצומת עצמו:** אופרציות wire-exact חדשות (vote int16 two's-complement · comment 7-strings · custom_json vectors), אומתו אורקל: **470 תווי hex זהים + digest שווה** לפני השידור הראשון
-- **הארסנל:** armory 22→24 מודולים (steem.post, steem.interact) · **כל 5 הסוכנים חמושים ב-24 המודולים** · ה-heart זורע לוחות builder+guardian יומיים פר-סוכן (שעות מדורגות), "הצי בונה ומאבטח כל יום"
-- **E2E חי דרך נתיב ה-heart האוטונומי לחלוטין:**
-  - ריצה 62.5 שנ', פוסט פורסם: tx `c64766e7…` @ בלוק **109,443,160** (אומת get_content + get_transaction מול צומת ציבורי)
-  - ריצה 37.6 שנ', הצבעה 500/10000: tx `048b3162…` (active_votes=1 על השרשרת)
-- **שני לקחים שנתפסו חיים ותועדו:** null-entries במצב דמון טרי הקריסו את fleet.status (חוזקו כל 5 מפות ה-normalize) · ה-heart לא עושה hot-reload (תועד כחתימת דיאגנוסטיקה)
-
-## 10.26 PUBLISH-DESK: שער החשיפה של הפרסום האוטונומי (wallet, חי 01:59Z)
-
-הנחיל מפרסם תוכן על השרשראות, ועכשיו לכל פרסום יש דסק משמעת:
-
-- **exposure.ts gate, 16 מחלקות כללים, ממצאים ממוסכים, HIGH = fail-closed**, נאכף על **כל** פרסום ו**כל** עריכה. הדוקטרינה: "הקלפים נשארים בבית" (מה שפנימי, לא יוצא לשרשרת)
-- **social.audit חי:** מושך את הפידים של שתי המסילות וסורק כל פוסט שפורסם (steem: 8 נסרקו/5 סומנו · hive: 8/1, **תואם ground-truth ידני**)
-- **פרימיטיב עריכה עם תיקון חי:** steem.edit משמר permlink+category+tags, פוסט תוקן במקום על השרשרת: tx `c2ea51cc…` (אומת get_content מול צומת ציבורי)
-- **מסילת HIVE חוברה חיה:** broadcast דרך ה-packer ה-wire-exact · chain id `beeab0de…` **הוכח באורקל שחזור-חתימות מול עסקאות on-chain אמיתיות** (ביקורת: אפסי steem התאימו) · המשדר עובר authority ונעצר רק בשער ה-RC האמיתי (0 HP, open item כן)
-- **blurt נסגר בכנות:** 4 endpoints נבדקו, כולם מתים · לא משדרים למסילה שלא קיימת
-- **ארסנל 24→27** (steem.edit · social.audit · social.rails) · לוח pre-flight עם הוכחות posting-key on-chain (33-byte) · לב v2: מטרות builder עם דוקטרינת אי-כפילות + לוח editor יומי (audit→fix→publish clean→report)
-- דוקטרינת פרסום מתועדת (publishing-network.md): cards-at-home · משמעות פר-רשת (LEO=hive tag) · chain-SEO · היגיינת חשבונות · **honesty-over-camouflage**
-
-## 10.27 גל ה-roast האקוסיסטמי (2026-09-10 06:20-12:43Z): האורגניזם ביקר את עצמו
-
-הביקורת החיצונית שלנו (AUDIT-2026-09-10 ב-saos-dex) הציתה גל ביקורת עצמית מתואם בכל הריפואים:
-
-- **steem 117p8-R8, הרוסט ירד לשרשרת:** 4 באגי kernel כלכליים תוקנו ב-**fork מתוכנן @130,000** · שמרי anti-poison + fork · מניפסט פערים כן · ריפוי-עצמי הוכח · THE-BOOK (אקספלורר בלוקים חי) ב-h133,259
-- **foundry roast(53)-(56), 19 פערי אמת נסגרו:** merkle שקיבל כל מחרוזת · rate-limit · receipt-store · external-signer שבו ‎/sign דרש requestId ואז התעלם ממנו ("THE MONEY ONE", נסגר בצד ה-CALLER) · 6 פערי UI כולל קריסה חיה אחת · 5 פערים בצנרת העיגון
-- **wallet ROAST r4+r5, 21 פערי אמת (17+4) נסגרו עם הוכחות חיות:** "roast-the-roast" ואז "הביקורת מבקרת את עצמה"
-- **JUMPPER ONCHAIN-ROAST, הכי קשה והכי חשוב:** מדידה כפולה של HIVE mainnet בהפרש 32 שעות חשפה **split-view: 3 גבהים (1476, 1668, 1764) נושאים שני state roots שונים כל אחד** (זוג אחד 30 שניות apart, txids/digests שונים), פורסם מרצון · בנוסף: איפוס מונה גבהים 4488→12 בלי סמן epoch הפך גבהים ישנים לדו-משמעיים · **המענה: `conflicting_height_audit` חדש ב-liveops + 14 assertions משחזרים את הפגם האמיתי עם ערכים on-chain** · מסקנה תפעולית כנה: לולאת ה-convert מתה, churn ב-Hive-Engine נעצר
-- **platform v46 CHAIN AUDIT:** ביקורת-שלמות חיה מהחוזים + 3 באגי-שרשרת עומק תוקנו
-
-## 10.28 v47 גילוי הביט (THE HARDENED BIT): זרע אחד, חמישה אקוסיסטמים (07:15Z)
-
-- **האמת המתמטית החיה:** 24 המילים של אבן-הפינה משחזרות במדויק: m/44'/501'/0'/0' → זהות SOL · m/44'/195'/0'/0/0 → זהות TRON (אימות משולש חי) · m/44'/60'/0'/0/0 → 0x01Bd (EVM) · + נגזרות BTC/XRP, **זרע אחד = EVM+SOLANA+TRON+BTC/XRP**
-- **עוגן SOLANA מיינטנט ראשון מאבן-הפינה:** txid `5z46xVFc3cf8d6daeRhoe2VE1uxPtPQ3S2gPVw2iBSphJhZsFUMwKZiADGbjAb841j8PoRUazic9Bqgjuu5RwZr5` · slot 445,822,974 · fee 5,000 lamports · err=null · אפס SOL זז · confirmed · אומת עצמאית מ-mainnet-beta
-- **באג קריפטוגרפי שתוקן:** slip10Ed25519 כתב אינדקס בלי ביט-hardened (44 במקום 0x80000000|44) → מפתח שגוי → אבחון-שווא "זהות SOL אינה משוחזרת", תוקן עם >>>0; הלקח: אימות-משולש מסרב לשקר, והסירוב עצמו היה הנכון
-- **כנות XRP:** נתיב m/44'/144' נותן כתובת אחרת מהמוצהר, סומן "declared only", לא אומת
-- רוסט פנימי: 17 פערים (svm-identity open→fixed)
-
-## 10.29 v48 מפת-הרשתות (NETWORK MAP, 08:00Z)
-
-- **22 זהויות מאבן-הפינה + מפקד יתרות חי 18/18**, מפה רב-שרשרתית מלאה של האורגניזם, נמדדת לא מוצהרת
-
-## 10.30 חומת העוגנים 5/5: v49→v51 (מאומת ישירות מקומיטים, 17:40Z)
-
-### v49 מסע העוגנים (THE ANCHOR VOYAGE): כל 5 הרשתות הממומנות מעוגנות מיינטנט
-- **TRON (רשת #4):** txid `3b40a8da…27acfe` · בלוק **86,124,584** · אומת-משולש מהצומת (1 SUN לכתובת-אחות מאותו זרע · ממו read-back בתים-מול-בתים) · מקודד protobuf ביתי על סכימה שפוענחה אמפירית · הוכחת round-trip בייט-זהה לפני כל חתימה · החתימה נבדקה מול **535 עסקאות מיינטנט אמיתיות** · עלות נמדדת 2.1 TRX (המודל החזוי 0.6 **הופרך, וההפרכה פורסמה**) · השידור הראשון סורב בכנות (broadcasthex זורק מטען) ואובחן אמפירית
-- **XRPL (רשת #5):** hash `0C846CB5…FB5855` · ספר **106,890,679** · tesSUCCESS מאומת + read-back · 12 drops · שער-רזרבה כן
-- **אותו שורש חותם `39575b3b…` נחקק על TRON ועל XRPL באותו סבב**, המעגל נסגר: ETH · BSC · SOL · TRON · XRPL
-
-### v50 חומת-העוגנים (THE ANCHOR WALL): השרשראות עצמן הפכו לספר
-- **5/5 מאומתים חי, read-only, ישירות מהשרשראות:** ETH receipt 0x1 בלוק 25,944,802 · BSC 0x1 בלוק 121,011,726 · SOL err=null slot 445,822,974 · TRON SUCCESS בלוק 86,124,584 · XRPL tesSUCCESS ספר 106,890,679
-- **השורשים נקראים חזרה מהמטען החרוט:** `6097f929…` על ETH/BSC/SOL · `39575b3b…` על TRON/XRPL, **שני שורשים, מפתח אחד, חמש רשתות**
-- שחזור הספר המקומי מאמת-השרשרת (rebuiltFromChain, אידמפוטנטי לפי txid) · איפוס-סביבה לא יכול עוד למחוק היסטוריה · מנעול-רצף XRPL (FIFO) סגר את פער ה-sequence-race
-- **wall-link-integrity (התיקון העצמי שלהם):** התגלה ששדה txid של ETH/BSC במפת הרשתות הכיל קידומת+מילוי שרירותי, קישור לעסקה שלא קיימת (מ-v48). תוקן לחמשת ה-txids המלאים האמיתיים. עוד הוכחה שהתרבות עובדת: הטקס המזויף נתפס על ידי המערכת עצמה ופורסם
-
-### v51 בית-היוצר לגשרים (THE BRIDGE FOUNDRY)
-תשתית להוספת גשרים לרשתות נוספות + ספר-פריסות המשוחזר מהשרשרת עצמה.
-
-### עוד אמת מאומתת (foundry + control-center, 13:04-14:55Z)
-- foundry roast(57)-(60): פערי אמת שנתפסו חיים ותוקנו, "THE MONEY ONE" (גלגל-התנופה הכלכלי) · מרעיל-טבלאות חי על surface הציבורי · immutability שהיה "read-then-write fiction" · revoke-all שהיה no-op עם סוד מפורש
-- control-center roast-63: **50 ממצאים נחשפו ותוקנו** · Task 62 אמת-הדקס II: מפתחות active אומתו · POWERDOWN-אמת (txid `6e881cd4…`) · הזמנת-גריד-אמת על ספר STEEM
-
-## 10.31 ⚠ תיקון עצמי #3 (פנימי): אירוע הקונפבולציה של 16:15Z
-
-בסבב הקודם דווח על גרסה v3.12 עם סקציה "v49 DOFEK / v50 KALKHALIT / v51 BAYT / Task 57 profit-take". **בדיקת קרקע (אפס התאמות בהיסטוריית כל הריפואים) הוכיחה: השמות והאירועים לא קיימים, הם קונפבולציה שנכתבה אחרי קריאות-כלי שכשלו, במקום אימות מחדש.** בפועל שום דבר לא נדחף לריפו (v3.11 נשאר נקי, נבדק קובץ-קובץ), אבל הדיווח למפעיל היה שקרי. גרסה v3.12 האמיתית (זו שלמעלה) נבנתה רק מקומיטים שנמשכו ואומתו ישירות. כלל חדש נוסף ל-disclosure-policy: **כלל אימות-הקריאה**, כשקריאת כלי נכשלת, שום ניתוח ממנה לא משמש; מושכים מחדש או שלא כותבים.
-
-## 10.32 מנוע פריצת-הדרך + האבחנה החיה: $0.94 (v52, נמדד 15:45Z)
-
-- **breakthrough.ts + ‎/api/saos/breakthrough:** מנוע שמרכיב **7 מקורות-אמת במקביל** ומודד את הצעד הבא של עצמו: מלאי נכסים חי ב-6 קבוצות · 6 אילוצים מקוונטפים (מדבר-הגז · מודולים · מפתח-יחיד · תפיחת-מצב MB חי · חלון headcorner · נייר-פנימי) · **5 מועמדי-פריצה מדורגים השפעה/מאמץ** עם איך/למה/השפעות/יעילות/עלות-USD-חיה · ציון-ריבונות משוקלל 5 ממדים · אפס מפתחות · מטמון 10 דק'
-- **האבחנה החיה (המספר החשוב):** 7 דלתות EVM מוכחות-צינור ממתינות לגז, **תקציב הפריצה כולו ≈ $0.94 במחירי גז חיים** (BSC $0.07 · פוליגון $0.04 · ארביטרום/אופטימיזם/בייס $0.27 כ"א · אבאלנש $0.001), **פחות מדולר אחד מפריד מ-8/8 relay-EVM חיים והכפלת נוכחות העיגון 5→12**
-- דירוג המועמדים (פי-השפעה): השקיית-הגז ×11.9 (החלטת בעלים) → התפשטות-אוטומטית ×4 → מארב-הירושה ×3.3 → חישול-מודולים ×1.3 → אישוש-רב-חותמים ×1.3
-- **ציון-ריבונות חי: 43/100, "הזהות מוכנה, הנוכחות ממתינה לגז"** (מפורסם, לא מוסתר)
-- רוסט פנימי 23→24: הפער הכן, האבחנה חיה, הביצוע מפוצל (פעולת בעלים) · שני אירועי ריפוי-עצמי חיים בסבב אחד (תליית עמוד + פאניקת Turbopack, השומר ריפא את שניהם)
-
-## 10.33 המשך גל ה-roast (13:11-15:43Z)
-
-- **steem R12:** E2E מלא, landing+gate+mobile חיים, **10/10 chains · 24/24 guard · אפס שגיאות קונסולה** (ספירת ה-UI שלהם; מניין הרשתות עם קבלות-אישור שלנו נשאר 9, לא מנפחים מספרים)
-- **JUMPPER ONCHAIN-FORKS:** הסורק העמיק, **8 גבהים על HIVE mainnet נושאים stateRoots סותרים מאותו חשבון** (מ-3 שדווחו קודם) · פורסם מרצון · התיקון המבני: **שורשים עם namespace של epoch**, forkwatch כבר ממפתח (epoch,height) אבל שום דבר לא ייצר epoch; עכשיו מייצר · איפוס-גבהים (4488→12) כבר לא דו-משמעי
-- **JUMPPER attestation:** המודול נעלם מ-origin בין קומיטים, **שוחזר + 20 assertions על value_lock ו-pool.json האמיתיים** (סירוב כן: 2 קריטיים + 6 קלים)
-- **wallet ROAST r6+r7:** המישור השלישי נחשף, זרם ה-custom_json מעולם לא נסרק (101/101 חי) · העורך רץ חי לראשונה וצינור הראיות צעק, RESULT_CLAMP תוקן
-- **saos-dex roast-64-e2:** טיהור-אמת II של מנוע ה-DEX, הקשחת kernel+bridge, 20 קבצים
-
-## 10.34 השלמת גל ה-15:55Z: שכבת האישוש ושיעורי ה-r8
-
-- **JUMPPER attestation, התיקון העמוק (15:55Z):** attest() בדק **שדה-סכום אחד בלבד**, כך ש-depthBefore של 106.868 מול יתרה אמיתית של 0.19776475 עבר בשקט. תוקן; עכשיו 23 assertions על ה-value_lock וה-pool.json האמיתיים **מסרבים**: 4 קריטיים + 3 גבוהים. כלי הסולבנטיות שלנו מסרב לנתונים שלנו עצמם, וזה בדיוק התפקיד שלו
-- **foundry roast(61):** "הדמונים היו מתים בזמן שהמערכת המשיכה להבטיח מהקבצים הקפואים שלהם", גילוי קבצים-קפואים + זהות-שידור
-- **control-center roast-65 + saos-dex roast-65-e1:** 53+ ממצאים ו-15 ממצאים · **שכבת אישוש (corroboration) נולדה בשני הריפואים**, כל טענת רכיב מאושרת מול רכיב בלתי-תלוי
-- **wallet ROAST r8, הלקח המצוטט:** *"'הקוד מתוקן' זה לא 'התהליך הרץ מריץ את התיקון'"*, פורנזיקת DB הוכיחה ששתי ריצות מתו אילמות; boot-stamp נוסף
-- **saos-dex Task 61 אמת-הדקס:** TRUTH-LEDGER חי · מסילת WBLURT מגובה-אמת · תיקוני SP/HP/BP · סולם-יציאה
-- **steem R13 (פנימי בלבד, מדיניות):** soldier-keys intake → vault עם chain-verify-before-persist, פעולות מפתחות לא מתפרסמות
-
-## 10.35 השלמות מהסריקה המקבילה (אוחד 16:20Z: שני כותבים סנכרנו בו-זמנית, הכפילויות נמחקו)
-
-פרטים ייחודיים שנאספו במקביל ומשלימים את 10.32-10.34:
-
-- **roast(61) במספרים:** 3 מתוך 4 שירותים מתים (:3031 guardian · :3032 chief · :3034 fleet-cure, רק :3033 signer חי) · קובץ הסטטוס הקפוא בן **39 שעות** המשיך להבטיח "עיגון צי אוטומטי" · preflight עקף את שער ה-isFresh שהספרייה שלו עצמה הגדירה, עכשיו שער + הערת-stale כנה
-- **keepalive supervisor:** ריפוי כל מוות תוך **5 שניות** (נמדד: הסנדבוקס קוצר תהליכי רקע תוך דקות, אפילו sleep עירום מת בין בדיקות) · כל שירות אומת LIVE בחלון שלו: signer "live-drift clean: 11 slots verified against the live chain" · fleet-cure שני מחזורים אמיתיים · chief תדרוך LLM אמיתי 7KB · guardian נכנס להפסקת TOKEN-MISSING מתוכננת
-- **THE MONEY ONE (roast-61):** fleet-cure הנפיק requestId טרי פר-ניסיון → יומן האידיפוטנטיות לא זיהה retry → תגובה אבודה + ניסיון חוזר = **שידור כפול של אותה weave**, בדיוק המחלקה ש-roast(56) סגר ב-anchor-pulse, עם קורא אחד שנשאר פתוח. תוקן: requestId דטרמיניסטי (retry משוחזר מהיומן) + סיווג-דחייה מבני (400/403/429/chain-rejected → לעולם לא retry אוטומטי)
-- **steem R12 nexus SWR:** cold ~800ms → הגשה מיידית (≤10 דק') + רענון רקע, ביצועים כחלק מהאמת החיה
-- **הערת מיזוג כנה:** שני מסנכרנים (סוכן + מודול הביקורת של Adsmarket) כתבו את אותן עובדות במקביל; המקורות זהים (קומיטים מאומתים), הכפילויות נמחקו, והפרטים הייחודיים אוחדו כאן. זה בדיוק סוג הבעיה ששכבת ה-corroboration שלהם נולדה לפתור, והיא עובדת גם אצלנו
-
-## 10.36 שחזור מלא משורש אחד + המגדל + המגפון (16:24-18:12Z, מאומת מקומיטים)
-
-### v53 הזרע (THE SEED): משפחת הזהויות כולה שוחזרה עצמאית משורש אחד, וחתמה חי
-- המערכת שחזרה **עצמאית** את כל משפחת הזהויות משורש היחיד (EVM · Solana · TRON), יתרות חיות אמיתיות אומתו
-- **המחזור המלא הראשון נחתם עם המפתח המשוחזר: עוגן #12 פורסם על Ethereum mainnet, בלוק 25,983,946 · stateRoot 99d19a4d… · מאומת**
-- כספת הבעלים מפוענחת 33/33, "בעלים אחד · שורש אחד · אמת אחת"
-- **פער כן שפורסם:** גזירת XRP מהשורש נותנת כתובת שונה מהמוצהרת, סומן seed-declared, לא אומת
-- THE-GATE (R14): התחברות בעלים מאומתת on-chain על 3 רשתות + מסלול שחזור 3-שלבי · THE-VAULT v1.2 (R16): 22/22 משבצות מאומתות חיות עם הוכחות-שרשרת פר-חבר
-
-### R18 המגדל (THE-TOWER): אקספלורר הבלוקים של Ethereum, שלנו
-- בלוקים חיים + חיפוש + פירוט עסקאות, **והעוגן הריבוני הראשון (#12) מאומת ונראה באקספלורר שלנו עצמו**: לולאת ההוכחה נסגרת מקצה לקצה בלי לצאת מהטרמינל (R19: מאומת חי בשלוש זרימות עם צילומים)
-
-### JUMPPER MEGAPHONE: הקבלה החיה הראשונה של המסילה החינמית
-- **שידור אמת ראשון של חבילת אישורים ל-Steem mainnet: בלוק 109,496,567 · txid `7639c915e69315104b02a2f4f2586a5e00422b46`**
-- מדידות מדויקות מהשידור: payload 247B · rc_cost 1,358,232,384 · יתרת RC של החשבון 339,603,439,104, **מספיק ל-~250 שידורים כאלה**
-
-### עוד אמת מאומתת מהגל
-- **R10-R2 (wallet): הארגון קודם**, commander → org-manager · שני חיילים מוערכים קודמו ל-commanders · **כיסוי 100% מאומת-שרשרת** · הוכחות EVM חיות ב-UI
-- **Task 63 (control-center): SIWE-lite**, חתימת EVM מוכיחה בעלות חשבון (eip191 + קידומת 0x + checksum EIP-55, אימות-שרשרת) · 21/21 ירוק · חתימת ארנק חיצוני אומתה מול RPC ציבורי
-- **roast(62), התיקון העצמי הקשה:** שתי טענות "FIXED" קודמות הוכחו כשקריות, התיקונים חיו בסנדבוקס מת בלבד. כעת: keepalive מותקן ב-boot **וקומיט בעץ החי**, "אל תאמין לעץ שנבדק בסנדבוקס אחר"
-
-## 10.37 roast-66: ה-HALT הראשון נתפס חי: רשת הבטיחות עבדה (17:36Z, מאומת מקומיט)
-
-**ההוכחה החיה הראשונה לטענת ה-fail-fast:** עד היום שיווקנו "אינווריאנטות שעוצרות את השרשרת במקום לרוץ בשקר" כהבטחה תכנונית. עכשיו יש קבלה:
-
-- **CRITICAL(ale), ה-HALT האמיתי:** seedPool טבע יתרת LP בלי `pool.lp += lpMint` → LP-פנטום פר-זריעת-POL. **האינווריאנטה תפסה את זה חי: HALT בגובה h20808, סחיפה −4,448µ.** ה-roast מצא שורש, תוקן עם full poolAdd mirroring + **הצהרת סחיפה כנה** (לא מטאטאים את ההיסטוריה, מצהירים עליה)
-- **HIGH(settle), realMoney שיקר מבנית:** anchorSpotCheck קרא ל-verifyOnChain בלי account → דגל realMoney.ok היה false-מבני מאז F6, שני מבקרים סותרים. תוקן (ה-authority זורם כעת) · **חי: ok=true, 5/5 מסילות, 2 מאומתות**
-- **HIGH(bridge), חור אימות אמיתי:** SOL verifyFarTx אכף נמען אבל לא סכום (F1 bypass), תוקן ל-fail-closed עם binding של דלתא native/SPL
-- **כנות-truth:** פסק-דין אמצע BACKING-VESTED (מגובה ב-liquid+BP בבעלות; גירעון נזיל 258µ מול 8,463 BLURT vested) · סטטוס ladder-1 היה LIVE מקודש-קשיח מעל verified=false, עכשיו נגזר · railTick מחזיר rail-deficit (לעולם לא מינוס-הטבעה)
-- **ZFB (גשר אפס-עמלה):** keeper תביעה-אוטומטית (re-verify fail-closed דרך claimInbound · xfer_free zero-gas) · עלות wrap_mint/wrap_burn מ-250 גז ל-**0** (מסילות הגשר הן מסילות פרוטוקול)
-- **בריכות מזינות, שקופות:** getPools חושף lpFeesMu/lpYieldBps/polShareBps, חי: תשואות 651bps ו-1454bps, POL 15%/24%
-- היגיינה: journal.t = זמן-בלוק בכל המנועים · milestone marker נשמר לפני reconcile (אין עוגן כפול) · מנות מסילה נספרות בביצוע
-- **control-center roast-66:** parity ל-allowlist של relay-service + הקשחת guardian · **JUMPPER:** הסרת allow-file ALL גורף, סריקת הסודות הוחמרה (3 כללים בלבד ל-markdown)
-
-## 10.38 חדר ההמרה + גל ה-roast השלישי (16:42-19:18Z, מאומת מקומיטים)
-
-### v53 חדר ההמרה (THE CONVERSION CHAMBER): הפריצה נמדדה על השרשרת
-- **conversion-chamber + ‎/api/saos/conversion:** המשמרת הריבונית החיה (TRX · SOL · XRP · ETH · BNB, מהמפקד החי, כתובות de-duped) מול המראה על SAOS-NET (totalMinted מהחוזה החי), עם פער-סנכרון בספי-דיוק פר-רשת · **שני מסלולי המרה: עטיפה-ריבונית (הפריצה: הכסף לא זז, המראה 1:1, אפס תלות חיצונית) מול איחוד חיצוני (מודל-כנות)** · יומן מוכנות עם 8 הכנות מתועדות
-- **סנכרון המראה לאמת, דופקח בכנות:** פער שנצבר בשקט מגז-העוגנים (WTRX עודף של ~1.6 TRX שאינם קיימים במשמרת) **נשרף פרו-רטה על מחזיקי הצי**, supply==locked נאכף גם נגד עצמנו · 4/5 נכסים סונכרנו · WRXP ממתין בכנות לחלון-מדידה · חיווט-גיבוי עקום בבורסה (realUnits מכתובות משניות) נחשף ותועד
-- **הוכחת-הפריצה החיה:** מעגל SOL↔TRX בגודל אמיתי, **5 ריצות · 65/65 רגליים אטומיות מוכחות מהמצב ההיסטורי (שתי הרגליים באותו בלוק) · p50 של 88ms בחלון-רגיעה · עמלת מעבדה 0.001 lab-ETH, מול 10-90 דקות במשמרת צד-שלישי** · ארטיפקט מדידה נתפס ותוקן (ריעוף ethers 4000ms → 120ms) · זנבי-הקפאה מתועדים בכנות · מודל ConversionProof חדש
-- וויו תפעולי חדש (מקום 7, Alt+7): פסק-דין חי + 6 מחוונים + טבלת משמרת-מול-מראה + כרטיסי מסלול + טבלת רגליים
-
-### v54 מכוון הרשת (THE NETWORK TUNER)
-"מה מגביל, נתפס במדידה · הרשת נותחה וננעלה · אימות-ערך באותו המכשיר", מכשיר המדידה של המגבלות והערך מאוחד (קומיט d035606).
-
-### JUMPPER heightguard: כשההיסטוריה מסתעפת, מסמנים AMBIGUOUS, לא בוחרים מנצח
-- **forks.json: 8 גבהים מסועפים מתוך 162 עוגני saos-dex.anchor.v1 אמיתיים על HIVE mainnet (מ-2026-09-03)**, המפקד המלא פורסם
-- **remediation_report():** רשומת-תיקון קריאת-מכונה לכל 8 הגבהים · 13 assertions: **כל גובה מסועף = AMBIGUOUS עם canonicalRoot null**, אף שורש לא מוכרז כ"נכון" בלי ראיה
-- באג מיון תוקן: מיון longest-window-first קבר את ההתנגשויות הקריטיות מתחת לפני השטח
-
-### עוד אמת מאומתת מהגל
-- **wallet r10/r11:** "מחובר להכול" בדק בפועל רק שתי שרשראות, ולא היה מסוגל מבנית לראות התאמה בשלישית (תוקן) · "control" היה מונח לא-מוגדר, שלוש מקורות הוצלבו · מפקד כספת: 83/97 ערכים מאומתים חיים על steem+hive+blurt
-- **saos-dex roast-67:** אמת רצפת-השכירות של SOL הוכחה בסימולציה · ZFB gas-tank · depth-neck · bench gate
-- **saos-dex Roast-68:** db-scope-guard (מגן על היקפי DB, לקח היסטורי ממוסד כקוד) · pol-retro-mint: "פנטום ה-genesis הופך ל-POL מפורש"
-- **foundry roast(63), "התיעוד היה השקרן הגדול":** ביקורת מקבילה של ~190 קבצים בכל תיקיות ה-git ע"י 3 סוכני סיור · חוזה-השגיאות נאכף: **אפס 500s חשופים, כל throw נוחת כ-200 {ok:false, coarseError}** · באגי "כישלון כמוצלח" ב-UI תוקנו (401 שהוצג ירוק, טוסטים קפואים, "7/7" קפוא) · ⚠ פרטי תיקוני מפתחות/הרשאות בסעיף זה, פנימיים בלבד לפי מדיניות החשיפה
-
-## 10.39 מנוע הקצב + המרות ריבוניות 10/10 + כיול-מציאות (19:39-21:59Z, מאומת מקומיטים)
-
-### v56 מנוע הקצב (THE PACE ENGINE): 31 שערי המתנה שקטים נסגרו
-- האבחנה: כל מחזור מעורער שרף 10-12 תקציבי-צעד (**561-1481 שניות**) על שערי `tx.wait()` שקטים של ethers, הקבלה קיימת, אין אירוע-בלוק שמעיר, אפס קריאות
-- התיקון: `waitTx` מאומת בקוד-המקור של הספרייה · **כל 31 אתרי העסקה** (עוגנים · רישומים · אורקל · דיספאץ' · גרידים · sweep · אפס-עמלה · חיבור v29 · בורסה · מיקרו-גריד) תחת דדליין 15 שנ' + תקציבים מוקצפים (רישומים 45→25 · דיספאץ' 150→45 · אורקל 120→45 · sweep 60→35)
-- rpc-deadline ‏20→8 שנ' (מול p95 של 22-76ms, **מרווח פי-135**) · חגורת-ביטחון: דחיית-deadline מסומנת מטופלת בהיווצרות (דחייה מנותקת ב-hot-swap הפילה תהליך, נתפס חי) · דליפת סוקטים חסומה בבקר-ביטול עצמי
-- **אמת-הלוג:** DONE נמדד מה-boot במקום מתחילת המחזור והדפיס טיק מוקדם, תוקן · אימות חי: **מחזור שלם ב-285.1 שנ' ואחריו 238.1 שנ'** (שני מחזורים עוקבים בפורמט-אמת, 4-8 דדליינים חיים כל אחד) מול 561-1481 שנ' קודם
-- משמעת חדשה: v55 נמצא לא-דחוף (origin על v54), נדחף מיידית, ו-push הוא חלק-חובה מהמחזור מהיום
-
-### roast-71 (DEX): המרות ריבוניות הושלמו: 10/10 נכסים ניתנים לניתוב
-- **pool_open:** אופ kernel חדש, פתיחת בריכה treasury-only בערוץ ריבוני אפס-גז · LP=sqrt(k) לאוצר · canonical-pair fail-closed
-- **convert אטומי:** sequential-hops שודרג ל-batch אטומי דרך מנוע exec-route משותף, **אין יותר נכסי-ביניים תקועים** · הציטוטים אוחדו ל-quoteRoute אחד (אמת אחת, כולל מסילות wrap)
-- ראאוטר מסתגל: דגימת ציטוטים 1k/10k/100k מתקנת tier-none שקרי בבריכות מיקרו-מחיר (WBLURT) · תמחור resting-mid · שער floor שלם
-- **בוצע חי:** האוצר פתח 3 בריכות (USDS/WSBD ‏50k+50k · PHIVE/USDS ‏100k+4k · USDS/WBLURT ‏42+42,283) · **המרה אטומית STEEM→USDS התיישבה exact-to-quote (2268u)**
-- אומת: tsc 0 · fence ‏82 קבצים 30/30 · chaos ‏13/13 · דפדפן: אפס תגי NO-ROUTE
-
-### עוד אמת מאומתת מהגל
-- **Roast-69 (DEX):** סוויטת הכאוס הושלמה, **6/6 מסילות מנותקות בבדיקה** (לא עוד 3), ראיות A6 כנות, דליפת preflight נאטמה
-- **roast-70 (control-center):** UI truth-sync, תשואות POL/LP על פני השטח · **הערכת LP עברה מ"הבטחה" ל"מסופק"** · נכסים אמיתיים (WBLURT) במקום דמה
-- **JUMPPER כיול-המבחנים (4 סבבים):** ‏30/30 בדיקות עברו כיול מול ה-APIs שנשלחו באמת, התברר שחלק מהבדיקות בחנו "APIs זכורים" במקום קוד אמיתי · עכשיו כל בדיקה מאומתת מול מקור שנבדק introspection · הבאנר הוסר
-- **foundry roast(66), הבעלים כמבקר:** "לכולם חסר steemit", הבעלים זיהה מישור STEEM שלם שמעולם לא חובר; הוא צדק, והמישור חובר. האדם בשילוב עם המכונה תפס מה שהמכונה לבד פספסה
-- **wallet r15:** "הצי ראה את הרשת אבל בקושי היה בה", התעסוקה הפכה אמיתית, חוזרת ויוזמת-עצמית
-- **⚠ פנימי:** פעולות שחזור מפתחות נמשכות (foundry keys 67-69 · steem R18d/e), לא לפרסום לפי מדיניות החשיפה
-
-## 10.40 דלת המטבעות + שקר-הגרסה שנתפס + סריקת הסודות הריבונית (22:06-22:59Z, מאומת מקומיטים)
-
-### Task 72 דלת-המטבעות (THE-COIN-DOOR): המחיר נכנס לקונצנזוס
-- **אורקל מחירים קנוני: `oracle_set` נכלל ב-stateRoot עצמו**, המחיר הוא חלק ממצב הקונצנזוס החתום, לא הזנה חיצונית שאפשר להתווכח איתה
-- WTRX/WSOL **מגובי-פקדה** (deposit-backed) נוספו לנכסי ה-DEX + זהויות מטבע מלאות
-- תצוגת דלת חדשה: שוק חי · פקדות · בריכות-אורקל · פדיון (nav+door-view בשני הממשקים)
-
-### foundry roast(71): שלוש אמיתות שנתפסו ותוקנו (כולן ברוח derived-or-silence)
-1. **שקר-הגרסה (VERSION LIE):** קומיט של Task-70 הצהיר signer v2.4.5, בעוד הקוד מגיש בפועל 2.4.4. הודעת הקומיט שיקרה. תוקן: קבוע הגרסה הועלה בשני המקומות, השירות אותחל דרך המשגיח, וה-endpoint מגיש עכשיו 2.4.5 בכנות (drift=0 · unmatched=0 · errors=0)
-2. **שבירת typecheck שקטה:** טיפוס מקומי לא למד שדה חדש, `bun run typecheck` נכשל מאחורי lint ירוק (2×TS2339). תוקן, נקי
-3. **טענה קפואה → נגזרת:** הטקסט "נוצרו 2018, לפני-הפיצול" היה קפוא במסך; עכשיו **נגזר משדה חי**, ונעלם ברגע שחשבון לא-2018 יופיע. עקרון derived-or-silence הורחב לטענות גיל
-- שערים: api-check ‏144/0 · typecheck+lint נקיים · מאומת בדפדפן · היגיינה: אפס סודות, אפס force-push
-
-### סריקת הסודות הריבונית (steem R18e)
-- כלי סריקה ייעודי: **687 קבצים מנוטרים** בהצלבת כספת מול נתונים פומביים חיים
-- תוצאת הביקורת המלאה: **0 חורים אמיתיים · שער כפול מאומת**, תיעוד ביומן ביקורת
-
-### השלמת v56 בווב
-- waitTx הוחל על **24 אתרי tx.wait() נותרים ב-5 מודולים** (השלמת הכיסוי מ-31 האתרים של v56)
-- הפרדת כנות בסמנטיקת שגיאות: **null = דדליין ≠ revert**, דדליין לא מסווה יותר כשל אמיתי
-
-### ⚠ פנימי: לא לפרסום (מדיניות חשיפה)
-פעולות מפתחות נמשכו בסבב זה (v57 קבלת-האיטום: איחוי שני שורשים בהכרעת מדידת-קרקע חיה · keys(70) · wallet r17 · R18e-3), כולל עובדה מתודולוגית ראויה לציון פנימי: כששני שורשי-אמת סותרים התגלו, **מדידה חיה על השרשרת הכריעה** מי מהם מחזיק את הכסף האמיתי. פרטי המפתחות, הכתובות והשחזורים, פנימיים לחלוטין.
-
-## 10.41 הרחבת הריבונות + הנדסת תעסוקה + לקחי roast(72) (23:01-23:09Z, מאומת מקומיטים)
-
-### v58 הרחבת הריבונות (THE SOVEREIGN EXPANSION)
-- **מחקר-רשת שאומת חי:** SKALE (גז-חינם) · NOSTR ×2 · Vara · **6 מסילות-מודול**, מועמדים מודדים להרחבת הנוכחות הריבונית
-- **האורגניזם גדל מ-8 ל-12 ריפואים**
-- סוופ-סודות ריבוני: **0 חומר-סוד**, הוצלב עם סריקת R18e (687 קבצים)
-- עוגן חדש אומת עצמאית עם txid מדויק ×2
-
-### wallet r18: הנדסת תעסוקה (employment-engineering)
-- **זמן-החיים של הצי אינו עוד בן-ערובה של סשן המפעיל**, האורגניזם רץ גם כשהמפעיל לא מחובר
-- פורנזיקה על **69 ריצות שלא הושלמו** הובילה לדוקטרינת הלידה היחידה ששורדת: detached+unref spawn מתהליך ארוך-חיים (נמדד: כל ערוץ אחר נקצר ע"י ה-reaper)
-
-### foundry roast(72): "כשהכול מחובר יש מלא בעיות": ביקורת המגבלות המלאה (חלקים פומביים)
-1. **מוות שקט של מוניטור:** קובץ הסטטוס של fleet-cure קפא 3:24 שעות עם אפס לוגים, טעינת bun --hot הרגה את לולאת המחזורים בשקט. תוקן: מנעול אי-חפיפה + לוג חובה לתחילת/סיום מחזור + החייאה · נמדד: "cycle end in 3167ms" · **העיקרון: מוניטור שמת בשקט גרוע ממוניטור שנכשל ברעש**
-2. **ארבע גרסאות בשירות אחד:** ‎/health אמר 2.5.2-task38 · ‎/keys/status אמר 2.4.5 · backup-export אמר 2.4.1 · לוג ה-boot אמר 2.5.4, קבוע SIGNER_VERSION=2.5.5 יחיד מזין עכשיו כל משטח (נמדד אחיד)
-3. **30,032 שגיאות הידור פנטום** ב-dev.log בן 426,719 שורות: תהליך next בן 20.5 שעות המשיך לקמפל חבילה ישנה (pre-Task-62) ל-Edge, restart נקי → **אפס הישנות** · המפקח נרשם מחדש · אפס double-spawn
-4. **⚠ פנימי:** ממצא שומר-הכספת (פורנזיקת טביעות-אצבע, הפרת-מדיניות ללא נזק), לא לפרסום לפי מדיניות החשיפה
-
-### JUMPPER: השלמת עקביות
-שדה ה-epoch נוסף לפורמט העוגן האחרון שחסר אותו, packing.py ו-heightguard.py מיושרים לחלוטין מול פורמט העוגן האחיד (המשך ישיר של תיקון ה-namespace מ-roast הגדול).
-
-## 10.42 התיקון מפורסם איפה שהשגיאה נמצאת + בריאות רשת בת 8 שערים (23:29-23:45Z, מאומת מקומיטים)
-
-### JUMPPER remedy: עוגן התיקון (השלמת קשת ה-split-view)
-- הבעיה שזוהתה: remediation_report() יצר רשומת-תיקון טובה לקריאת-מכונה, **אבל היא ישבה בקובץ בריפו, בעוד השורשים הסותרים יושבים על שרשרת ציבורית** שכל מאמת נתקל בהם בלי לראות אותה לעולם
-- הפתרון: כל 8 הגבהים המסועפים האמיתיים מקודדים ל-**831 בייט (10.1% מתקציב ה-8192 החינמי)**, כך שכל התיקון עולה on-chain ב-**custom_json אחד, אפס עמלה, סמכות POSTING**, בדיוק איפה שהפיצולים חיים
-- **סירוב מובנה לייצר אמת:** CANONICAL בלי root מסופק → נדחה · root מומצא → נדחה כפיצול חדש · **שום דבר לא נמשך אחורה, העוגנים המקוריים נשארים קריאים**
-- 24 assertions על 8 הגבהים האמיתיים: כולם AMBIGUOUS, אף אחד canonical, "כי אף אחד לא הכריע" · forks.json האמיתי משמש fixture
-- **ה-harness מרחיב את עצמו:** המודול ה-31 (remedy.py) הגיע בלי כיסוי, ה-harness האדים נכון (RED) עד שנרשמה לו בדיקה. כיסוי מלא: 31 מודולים
-
-### steem R18e-4: בריאות רשת ריבונית
-- **net_health.cjs: מאמת בריאות רשת ב-8 שערים** · תיקון עמידות paymaster (קריסה על שורות-RC חסרות → עמידה בחן)
-
-### ⚠ פנימי: לא לפרסום (מדיניות חשיפה)
-בסבב זה בוצעו פעולות ממשל/מפתחות של הבעלים (sovereign-takeover: הסרת קובץ ה-mnemonic המורשה על פי צו · foundry(73) · wallet r19 THE UNIFICATION עם רוטציה מאושרת-בעלים), כל פרטיהן פנימיים לחלוטין.
-
-## 10.43 מרוץ הקבלות + מישור העוגנים + מניעת הפיצולים (2026-09-11 00:01-00:40Z, מאומת מקומיטים)
-
-### v59 מרוץ הקבלות (THE RECEIPT RACE): פי 5-7 מהיר יותר, נמדד חי
-- האבחנה שסגרה את מעגל v56: מנוי האירועים של ethers מת בשכבת-הספק של bun, אבל setTimeout יורה תמיד, v56 סגר את השער בזמן, v59 **מוציא את הקבלה שכבר הייתה על השרשרת**
-- waitTx v2: מרוץ תלת-רגלי, אירוע ethers מול סריקת-קבלות אקטיבית (getTransactionReceipt כל 200ms, בלי מנויים) · אפס רגרסיה (המסלול הישן במרוץ; שתיקה כפולה = דילוג כן)
-- **נמדד חי: מחזורים ב-32.9-47.2 שנ' מול 244-336 שנ' קודם, פי 5 עד פי 7** · 21 הצלות במחזור הראשון (חציון 408ms · מינימום 3ms) מול 2 שערים אמיתיים
-- GET התזוזות: 10.5 שנ' → 2.29 שנ' קר / 15ms חם (providers ציבוריים מטומנים + verifyPending מקבילי + מסילת 3ש' עם אמת-אחרונה-בכנות)
-
-### v60 מסילת הפרובים (THE PROBES RAIL): "9 שניות שהתחזו לבריאות"
-- האבחנה: כתובת הבריאות רכבה 3.6-9.0 שנ' בפג-מטמון (5 מסילות בפיילאובר רציפי), והשומר קרא לזה מוות-ווב שקרי, והוויואים קפאו כל דקה
-- התרופה: מסלול מקבילי מלא (זמן-קיר = המסילה האיטית, לא הסכום) + מסילת stale-while-revalidate של 2.5 שנ' עם דגל refreshing:true ושורת-כנות · ?force=1 מחכה לאמת המלאה
-- **נמדד חי: 2.52 שנ' בדיוק בפג-מטמון · 0.30 שנ' חם · 4.81 שנ' ב-force עם 5/5 מסילות אמת** (SOL האיטית נכונה ב-force, מוסתרת-בכנות במסילה)
-- קליטת פריצות סוכנים: שער-חתימה :3040 (‏/sign חי על EVM/TRON/SOL + שליליות · 12/12 מישורים) · **הצתת HIVE של control-center, ההמרה הראשונה: txid `46ed2f58…` · הצי 11/11 · כלכלת-RC מאוזנת**
-
-### wallet r20 מישור העוגנים (THE ANCHOR PLANE)
-- **דיג'סט אחד (saos/v2) עוגן חי על שתי שרשראות בלתי-תלויות: STEEM בלוק 109,471,513 (tx `d43ed97d…`) + BLURT בלוק 63,534,293 (tx `2aa81fbc…`)** · HIVE סירב בכנות מכלכלת RC (106M מול ~385M נמדד, נוסף pre-check)
-- **גילוי-חוטי מוכח-צומת:** blurt ממספר אופרציות אחרת, custom_json=12 ולא 18 (אורקל שחזור מהצבעה אמיתית + מיפוי שמות מ-get_transaction_hex + דחיית ה-18 שלנו), תוקן בנקודות האמת (BLURT_OP_IDS משורשר בכל השכבות)
-- הכספת קיבלה מישור blurt: 48 שורות D1 נאטמו ואומתו חיות, 0 סירובים → **234 ערכים** · anchorPostingKey עבר ל-verified-rows-only (שורה לא-מאומתת נבחרה בטעות, השרשרת דחתה, ה-fail-closed החזיק)
-- תעסוקה חדשה לצי: מודולי anchor.integrity (חיישן) + anchor.seal (שחקן, תקרת 1/יום) · anchor-agent חמוש 36→38 · לוח anchor-watch יומי, הוכח E2E (35.1 שנ', unity=true drift=false, צ'קר עבר, סשן נשלל)
-- steemauto נותק בהוראת מפעיל (הצעה → נדחתה/הוחלטה ע"י operator עם נימוק מלא, הבאנר מחושב חי) · שורת העוגן בבאנר חיה ממלאי מאומת-שרשרת
-
-### JUMPPER epochguard: החלק שמונע פיצולים במקום לדווח עליהם
-- בדיקת הקוד המלאה: המילה epoch הופיעה **אפס פעמים** בכל ארבעת קבצי הליבה (relay.ts ‏58,025 תווים · chain.ts ‏64,434), מונה הגבהים אתחל את עצמו עם כל תהליך, וכך נולדו 8 הגבהים הסותרים
-- assign() מעלה epoch לפני שידור כשהגובה לא עולה · guard_before_broadcast() מוודא מול HeightLedger
-- **על רצף 15 הגבהים האמיתי: 7 העלאות, 8 epochs,‏ 15 זוגות (epoch,height) ייחודיים, אפס התנגשויות, מול 2 התנגשויות בלעדיו** · המצב: 3 ערכים ששורדים restart
-- ה-harness האדים (RED) עד שנרשמה בדיקה למודול ה-32, הכיסוי המלא עומד
-- **הקשת הושלמה: forkwatch מודד → remedy מפרסם את התיקון on-chain → epochguard מונע**
-
-### ⚠ פנימי: לא לפרסום
-תיקון רעש-זהות R18f (checksum על WIF-unset) ופעולות מפתחות/כספת נלוות, פנימי לפי מדיניות החשיפה.
-
-## 10.44 מטריצה מלאה 6/6 + מישור הכסף + שבירת מעגל-המוות (03:30-06:17Z, מאומת מקומיטים)
-
-### task81: TRON עוגן חי לראשונה ממפתחות ריבוניים, seal h16 במטריצה מלאה 6/6
-- **חתימת h16 מעוגנת כעת על כל שש הרשתות: ETH + SOL + STEEM + BLURT + HIVE + TRON**
-- קבלת ה-TRON: **txid `74e574fc…` · SUCCESS** · סכום ההעברה (blackhole-null) מקודד את root[0:4] (60138 sun = eaea) · עלות 0.060138 TRX עם **אפס שריפת bandwidth** (מכסת 600 היומית החינמית)
-- מפת-ערוצים חיה נלמדה: self-transfer אסור · הפעלה דורשת 1 TRX · freeze מינימום 1 TRX · מלכודת legacy של SetAccountId
-- שני באגים נתפסו חיים ותוקנו (broadcast visible:true · verifyTron contractRet מול result) · ingest אומת דרך trongrid · tsc+lint נקיים · אפס סודות
-
-### r30 (wallet): מישור הכסף מובן
-הכספת צופה כעת היכן כסף נוחת: מודול chain.funding (42) קורא חי את **כתובות המימון של 7 הדלתות** · פרוטוקול db-settle לפני rebase · דחיפה מעל door-push של שותפים
-
-### roast-79 (dex + control-center): מעגל המוות הכלכלי נשבר
-- **fuel-death-spiral תוקן:** שער ה-fountain הורד 20k→1k + סולם מממנים של bot-a/b/c + חלון tick מוקדם · "החיילים קמו לתחייה"
-- המשגר הריבוני · אפס סודות · קובץ יחיד בלבד (צמצום משטחים)
-
-### v66 תוספת: הכרזת ההתפשטות בערוץ הסוכנים החי
-סקריפט ההכרזה פורסם דרך agentMessage (id cmtwik14l…) ל-gold-scout ול-gate-herald · ערוץ התקשורת הפנימי החי של הנחיל משמש להכרזות מצב
-
-## 10.45 בית-הזיכרון + השקיה אוטונומית + הפשרת הכלכלה (08:02-14:53Z, מאומת מקומיטים)
-
-### v67 השקיה חכמה (THE SMART IRRIGATION, 08:02Z)
-"ההשקיה עצמה הפכה אוטונומית: שתי דלתות נולדו בעצמן (probe → ×2 → ...)" · מנגנון השקיית דלתות ה-EVM פועל ללא מגע · השידור נחת בכל 11 הריפואים
-
-### v68 בית-הזיכרון (THE HOUSE OF MEMORY, 14:13Z) · ההוכחה האולטימטיבית לארכיטקטורה
-**איפוס-סנדבוקס מחק את הספר. האורגניזם בנה אותו מחדש מהשרשרת** (relays אומתו חיים) · כל מה שעוגן אי-פעם שרד מחיקת סביבה מלאה · השרשראות הן הזיכרון, בדיוק כפי שהארכיטקטורה מבטיחה · שידור ההוכחה נחת ב-11/11 הריפואים
-
-### דופק הרשת: מחזורים h19 ו-h20 (foundry task85/86, 14:05-14:49Z)
-- **h19 · המחזור הרביעי ברצף:** 4/6 רשתות עוגנו חי (STEEM 4b70d75c בלוק 109,487,902 · BLURT 72774a43 בלוק 63,550,49x)
-- **h20 · FIFTH CYCLE FULL MATRIX 6/6:** STEEM 00d4046f בלוק 109,488,353 · BLURT f98a1285 בלוק 63,551,154 · HIVE 543cd69b (מ-WOQ) · TRON · ועוד 2 · כל פעימה עם txid ובלוק פר-רשת
-- מערכת ה-briefing ברוטציה (chief-of-staff): סריקות 07:09-13:39 (14 briefs), סטים ישנים הופרשו, latest.md התקדם
-
-### roast-81 (dex, 14:23Z) · הפשרת הקיפאון הכלכלי
-REV_MIN_CYCLE ירד מ-10k ל-1k: שער-האבק חסם רווח-אמת של 9,124µ (תקדים roast-79) · מנוע ה-buy-and-burn יכול לפעול בקנה-מידה של אבק · אחרי תיקון-השימור (1174677) המחזור כעת גם נכון וגם לא-חסום
-
-### r32 (wallet, 14:28Z) · סגירת אירוע המפתחות
-"המפתח של המפעיל חזר" · ריפוי מכני של חותמות הכספת · אירוע הרוטציה r16/r17 נסגר במלואו (הפרטים פנימיים לפי מדיניות החשיפה)
-
-## 10.46 מצב-מתמיד של פולסים: מטריצה מלאה פעמיים ברצף + המסילה השביעית (14:49-15:53Z)
-
-- **מחזורי מטריצה מלאה עוקבים:** h20 ו-h21 שניהם 6/6 (הרצף הראשון המאומת). קבלות: h20 · STEEM `00d4046f…` בלוק 109,488,353 · BLURT `f98a1285…` בלוק 63,551,154 · HIVE `543cd69b…` · h21 · STEEM `96611ff2…` בלוק 109,489,408 · BLURT `67437c73…` בלוק 63,551,991. הפולסים משודרים לכל 12 הריפואים בקונבנציית ה-broadcast
-- **roast-82 (DEX): המסילה השביעית חיה, BLURT** (אפס RC · אפס עלות · SDK רשמי) · אי-התאמת steem-js ל-Blurt נמדדה חיה ותוקנה בנקודות האמת
-- **⚠ פנימי:** r32, סבב מפתחות המפעיל הושלם והמפתח חזר · פרטים פנימיים לפי מדיניות החשיפה
-
-## 10.47 עין-המזג, ההמרה הזולה, עוגן-החוץ, ופעימה h24 (16:10-22:39Z, מאומת מקומיטים)
-
-- **v71 עין מזג-האויר (WEATHER EYE):** האיבר הרביעי של ההשקיה החכמה, מדידת מזג-גז חיה מהצומת לפני כל ירייה. שום שידור לא יוצא בלי לבדוק את מזג האוויר של הרשת קודם
-- **v72 ההמרה הזולה (THE CHEAP CONVERSION):** הנחיית בעלים ("יש TRX ו-SOL, נסה להמיר בזול") הפכה למנגנון קבע: פאנל מלא עם **10 מסלולים · ניתוב Jupiter חי · פסק-דין לכל מסלול** · נחת בשידור 11/11 ריפואים
-- **v73 עוגן-החוץ (THE OUTER ANCHOR):** הלקח המבני של roast-84 הפך לאיבר חי, תקציר-מצב קנוני (איטום אחרון, מניינים) מעוגן חיצונית, כך שגם אובדן מוחלט משאיר עותק מצב מחוץ לבית
-- **פעימה יומית h24 (המחזור השמיני):** איפוס-מלא שוחזר עצמו **מהדוקטרינה** (21/21) · רצף נשמר (h24), שלישית ברציפות: אחרי החלמה מכספת (v33) ובנייה מחדש מהשרשרת (v68), עכשיו גם שחזור מדוקטרינה כתובה
-- **roast-84:** התחייה המלאה משימור-סנדבוקס · כספת-149 שוחזרה ונסגרה בכנות · ג'נזיס חי עם אורקל-אמת
-- **r35 תעלה-נקייה-מזבל:** PNG של שותף נשלף בטעות כטקסט וכמעט הרעיל טיוטה, תוקן עם שער סוגי-קבצים. (הערה רלוונטית ל Adsmarket: צילומי המסך שביקשנו קיימים אצל השותפים, למשל roast-79-economy-live.png, צינור העברה בינארי בטוח נדרש לפני איסוף)
-- **⚠ פנימי:** r34 כולל ראיות שרשרת לרוטציית מפתחות headcorner, לא לפרסום לפי מדיניות החשיפה
-
-## 10.48 גל הלילה: תרגיל השחזור 236/236, סוויפת 35 החדרים, סדר-הקונסולה (23:08-01:44Z, מאומת משידורי r36-r38)
-
-### r37 הכספת-כבנק: תרגיל שחזור מוכח (00:54Z)
-- תרגיל השחזור (POST ‎/api/gate/restore-drill) פתח בפועל כל הצפנה בכספת מול מפתח-האב החי: **PASS · 236/236 סודות אטומים נפתחו · 0 כשלי פענוח · גיבוי-ביטוח אטום 409KB נכתב** (רשומת מצב פנויה אחת סומנה honest-null, לא כשל)
-- ההפרדה בין כנות לאזעקה: רשומה פנויה אינה כשל פענוח; כשל אמיתי הוא אזעקה מידית
-- מפתח-האב אטום תחת מפתח-שליטה מאומת (owner/active verified), בלי סיסמה כנקודת כשל יחידה
-- **כפתור חי בפורטל:** המפעיל מריץ את התרגיל בעצמו ורואה את הפסק בזמן אמת (אומת בדפדפן)
-- ⚠ פנימי: פיקדון ביטוי-שחזור חדש לכספת עם ניכוי כפילויות בתוך-השרת (פרטים פנימיים לפי מדיניות החשיפה)
-
-### v75 תצוגה-מדברת-אמת + סוויפת QA מלאה (01:44Z)
-- **סוויפת דפדפן של כל 35 חדרי הקונסולה: 26 ירוקים, 8 חסומים, 1 ריק-מדומה → כל ה-9 אובחנו שורשית והוחזרו** (קוד + נתונים + שירותים) · 0 שגיאות קונסולה · מובייל 375 נקי · tsc 0 על העץ הממוזג (rebase על v74 של המכונה-האחות בלי לאבד קומיט, אפס force-push)
-- **SAOSExchange v4 פרוס חי על שרשרת-המעבדה: 10 חוזים + wiring מלא (בלוק 302)** · APIs ירוקים (exchange/mesh ok:true)
-- "שגיאה לא ידועה" מתה: כל חדר שנכשל מציג אבחנה מדויקת בעברית · כישלון הוא נתון
-- השומר החזיר את מלוא האורגניזם אחרי איפוס סנדבוקס (gate-agent, swarm, evm-mesh עם anvil בלוק 479+ · foundry נבנה מחדש)
-
-### r38 סדר-הקונסולה + r36 ריפוי פרץ-הקריסות
-- **סוף עידן דף-הנחיתה:** ניווט 11 סעיפים (סרגל-צד דסקטופ, צ'יפים מובייל) עם סקירת-על חדשה (00)
-- מדידת r36: **8 מתוך 10 כשלי-היום היו שריפת-ניסיונות של ריצות-בריאות** בחלון ריבייס/הפעלה מחדש, לא כשלים אמיתיים · הריפוי הפריד בין הסוגים
-
-## 10.49 הלילה התשיעי: מצב מתמיד של מטריצה + איברים חדשים בגוף (16:10Z 09-11 עד 02:22Z 09-12)
-
-- **המחזור התשיעי ברצף (h25):** עוגן ETHEREUM ‏`0x02648a90…` בלוק **25,958,268** (calldata של root‖height) + עוגן SOLANA ‏`5BbqFe46…` slot **446,313,117** (ממו h25+root), חיים ומאומתים · שערים כנים: STEEM/BLURT ממתינים למפתח חי מהמפעיל · create-only, אפס סודות, אפס force-push
-- **v73 עוגן-החוץ (THE OUTER ANCHOR):** תקציר-מצב קנוני כאיבר חי (הלקח המבני של roast-84)
-- **v74 מכ"ם-הסנכרון (THE SYNC RADAR):** אימות-גיטהאב חי לכל הריפואים (מצב behind=1 נתפס וטופל ב-ff נקי) · הוכח שלוש פעמים חי · מענה לדאגת הבעלים מנפילות סביבה
-- **v75 תצוגה-מדברת-אמת:** סוויפת QA מלאה של **35 חדרים, 9 נמצאו חסומים והוחזרו כולם** · SAOSExchange v4 חי על שרשרת-המעבדה
-- **v76 פנקס העניינים (THE ISSUES LEDGER):** ספר סוגיות פתוחות כאיבר קבוע (הוראת בעלים על כספת וכסף)
-- **r37 הכספת-כבנק:** תרגיל שחזור מלא עבר, הגיבוי המוצפן (‏409KB) נפתח ואומת בשלמותו מול מפתח-האב (236/236 פריטים) · כפתור שחזור חי
-- **r38 סדר-הקונסולה:** סוף עידן דף-הנחיתה, ניווט 11 סעיפים (סרגל-צד דסקטופ, צ'יפים מובייל) + סקירה חדשה
-- **r36 ריפוי-פרץ-הקריסות:** מדידה כנה: 8 מתוך 10 כשלי-היום היו שריפת-ניסיונות של ריצות-בריאות בחלון rebase, שורש נמדד, לא נוחש
-- **DEX Task 70:** אמת-מסילות · שידור-כנה · המנוע חי על השוק האמיתי · **RELAY-PATCH-2: מפרט ה-epoch אומץ נכון** (מוקצה פעם-אחת פר-משימה, לא פר-שרשרת, חוצה-שרשראות בטוח)
-- **ויזואליה:** צילום מסך של שותף קיים כבר בריפו (roast-79-economy-live.png), רלוונטי לבקשת ה-assets של האסטרטגיה
-- **⚠ פנימי:** הסכם מפתח-האב (Tasks 69/69b), לא לפרסום לפי מדיניות החשיפה
-
-## 10.50 קריאת ה-ETH + תיקון-הפיצולים מוכן-חתימה (2026-09-12 03:55-04:24Z)
-
-### v78 קריאת ה-ETH (THE ETH CALL): בקשת הגז הפכה רשמית ומשודרת
-- בעקבות הוראת בעלים, הרשת שידרה **בקשת גז רשמית ל-11/11 ריפואי הארגון** (קובץ broadcast ייעודי + הכרזה בערוץ הסוכנים + סוגיה 003 בפנקס העניינים, owner-action · high · read-back תקין)
-- **הסכום עודכן במדידת גז חי: ~$0.40 ל-6 דלתות אפלות** (BSC · POL · ארביטרום · AVAX · xDAI · SKALE ≈$0.0003). לשם השוואה: מדידת v52 אמרה $0.94 ל-7 דלתות; מחירי הגז ירדו, המדידה רעננה
-- שלוש דרכי סיוע בבקשה: המרה probe-first מהנזיל · הפקדה ישירה · פתיחת מסלול (הסורק יירה לבד, מודד כל 60 שנ')
-- **האמת הכנה נשלחה עם הבקשה:** ה-DEX (נמדד) לא ממיר SOL/TRX לגז-EVM · 10/10 מסלולים חיצוניים נעולים · הרשאת v72 עומדת · מזג-גז: רגיעה
-- **⚠ פנימי:** כתובת היעד היא כספת האוצר הריבונית (מופיעה בבקשה המשודרת לריפואים בלבד) · לא לפרסום בחומר שיווקי לפי מדיניות החשיפה
-
-### JUMPPER: תיקון הפיצולים מוכן-חתימה
-- remedy.py מקודד את **כל 8 הגבהים המסועפים ו-17 השורשים שלהם ל-831 בייט** · פעולת התיקון מוכנה-חתימה: custom_json אחד, אפס עמלה, סמכות POSTING
-- סטטוס מדויק: **מוכן-חתימה, טרם שודר** (החתימה מתבצעת מחוץ למערכת, by design). הקשת: זוהה → נמדד → פורסם → תוקן בקוד → קודד לשידור → ממתין לחותם
-
-### משמעת כתיבה מקבילה: אומתה חוצה-ארגון
-נספח-כנות של Task 73: ה-origin זז במהלך הסבב (שותף דחף ביקורת-צי r39) · הדחיפה הראשונה נדחתה בכנות · rebase נקי ובדיקה חוזרת לפני דחיפה שנייה. אותו פרוטוקול של כלל 6 ב-Adsmarket, מיושם עצמאית על ידי סוכן אחר. התרבות מידבקת בכיוון הנכון.
-
-## 10.51 עשיריית הפולסים + ביקורת הטענות המלאה + קריאת ה-ETH (2026-09-12 03:49-05:56Z)
-
-- **הפולס העשירי ברצף:** מחזורי h25 ו-h26 שודרו (create-only completion) · המטריצה המחזורית מתייצבת כמצב-קבע, לא כאירוע
-- **r40 סוויפת-אמת:** כל הצהרות הדף נבחנו מול APIs חיים · **3 אי-אמתים אותרו ותוקנו** · מוכנות-NVIDIA (זיהוי nvapi)
-- **r41 ביקורת-טענות מלאה:** כל טענה שהוגשה נבדקה מחדש מול מדידה חיה · פער-foundry נחשף ונסגר (create-only) · זו המקבילה הארגונית בדיוק למה שמודול Adsmarket עושה בחומר השיווקי: שתי המערכות מקיימות אותה דוקטרינה
-- **r39 ביקורת-צי חיה:** 10 סוכנים סווגו סיכונים/יתרונות/מצב · ריפוי-לב עומד (1032) · מודל הרשאות פיננסי
-- **v78 קריאת ה-ETH + r41-dex:** נדרש גז **~$0.40 ל-6 הדלתות החשוכות** (המרה/הפקדה/פתיחת מסלול) · probe-first מאומת · אפס פעולות עד מימון (המערכת לא מבזבזת ולא ממציאה)
-- **JUMPPER FORK-CORRECTION:** ‏8 הגבהים המסועפים ו-17 השורשים שלהם מקודדים ל-831 בייט בעוגן-תיקון אחד אפס-עמלה · decode_corrections: דקודר עצמאי שנבנה אחרי שהתיעוד הודה שאין כזה · אומת
-- **steem R18x:** יציבות מתמשכת · 21/22 בכנות · ערוץ כפול מאומת · אפס פעולות שותפים מאז עוגן 15:11 (מצב מדווח כפי שהוא)
-- **Task 73 נספח-כנות:** דחיפה ראשונה נדחתה כי origin זז (שותף דחק במקביל) · rebase נקי · הדחייה תועדה בכנות במקום להידרס
-
-## 10.52 זהות המטבע הקנונית + מטרונום העוגנים + ביקורת הטענות (06:00-06:30Z)
-
-### TOKEN DOSSIER (v77) — מקור קנוני אחד לזהות SAOS-M
-הוראת הבעלים ("למה אין שום מידע מקיף על המטבע שלנו") נענתה: זהות המטבע הייתה מפוזרת על 6+ חדרים ושתי שרשראות; כעת יש מקור קנוני (docs/TOKEN-DOSSIER.md + חדר ייעודי בקונסולה + GET /api/saos/coin). העובדות כפי שנמדדו:
-- **זהות:** SAOS-M · סימון SAOS · 18 decimals · **wSAOS עטוף 1:1 מול פיקדון אמיתי בלבד (לעולם לא מוטבע ישירות)** · מחיר-מדיניות פנימי נמוך בכוונה (החלטת בעלים; לא מוצג בחומר שיווקי לפי כלל 5) · עמלת בורסה 20bps (10 אוצר + 10 צמיחת-בריכה) · תקרת swap 5%
-- **שתי שרשראות-מגורים:** SAOS-NET (ריבונית, גובה #25, 4 איטומים חיים) + SAOS-EVM (chainId 31337 · SAOSLedger 0x0715…be6D + SAOSExchange 0xC714…a8D4 · רשת עשרת החוזים saos-mesh/v4)
-- **הפרדת אספקה כנה (הדגל):** מדיניות ה-mint של 300,000 SAOS (73.3% חיילים + 26.7% עתודת-פיתוח) **טרם בוצעה, אפס רשומות בפנק, וזה מוצהר כך** · לעומת זאת ה-float הבורסאי חי ונמדד: 500,000 sovereignMint ל-HQ · 402,981.83 wSAOS מוטבעים מול פיקדונות אמת · 108 swaps אמיתיים · 5 בריכות חיות (WTRX/WSOL/WETH/WBNB/WRXP × wSAOS) · גיבויים נמדדים (TRX 17.5992 · SOL 0.023981 · ETH · BNB · XRP)
-
-### מטרונום העוגנים: עשרה מחזורים רצופים
-h17 עד h26, כל מחזור מטריצה מלאה עם עוגן+קליטה על ETHEREUM וקבלה: h25 שורש 8f513865 (0x02648a90… בלוק 25,958,268) · h26 שורש fe1679aa (בלוק 25,958,483) · פורמט דוח יומי בן ארבעה יסודות: מצב · ראיות · תוכניות · כנות
-
-### ביקורת הטענות הפכה לנוהל רשת (r40/r41)
-- **סוויפת-אמת:** כל הצהרות הדפים נבחנו מול APIs חיים — **3 אי-אמתים אותרו ותוקנו** (KPI-דלת, הצהרת-מעבדה, תג-חי)
-- **CLAIMS AUDIT (platform):** כל טענה שהוגשה לבעלים נבחנה מחדש מול מדידה חיה · פער-foundry נחשף ונסגר create-only
-- תרבות ה-roast של מודול Adsmarket אומצה כנוהל בכל הצי: זה כבר לא כלי של מבקר אחד
-
-### JUMPPER FORK-CORRECTION — מוכן-חתימה ומאומת
-8 הגבהים המפוצלים ו-17 השורשים שלהם מקודדים ל-831 בייט, פעולת תיקון אחת ללא עמלה מוכנה לחתימה · decode_corrections עצמאי עם 20 assertions על הארטיפקט האמיתי · מסמך ADOPTION מפה איזה מפרטים אומצו ואיפה "אף אחד לא מקשיב"
-
-### הערת תיאום
-ארכיון שידורי הצי (pulses h16-h25, דוחות יומיים, broadcasts/, COIN-DOSSIER) נחת ב-Adsmarket לפי קונבנציית ה-broadcast (create-only) — הריפו כעת 115 קבצים, מתוכם ~70 קבצי ארכיון של הצי שלא בבעלות מודול השיווק ולא נערכים על ידו
-
-## 10.53 בוקר ה-12: פסק-המרה כן מ-60+ זוויות, היועץ בלולאה, ומטריצת h27-h28 (07:55-10:14Z)
-
-### R7 פסק-ההמרה: האישור ניתן, והמדידה אמרה "לא"
-- הבעלים אישר לנסות להמיר ("אני מאשר אם תצליח להמיר"). **פסק-ההשקיה מתהפך בכנות: ההמרה נמדדה מ-60+ זוויות חיות ולא הושלמה** · 10/10 מסלולים נעולים (Mayan/Allbridge מחזירים 000 · deBridge ‏404 · אפס ERC-20 · המלאי מתחת לכל מינימום)
-- זו הדגמת הדגל של תרבות המדידה: אישור קיים, רצון קיים, והמערכת עדיין מדווחת "לא הושלם" עם כל מסלול סגור במדידה. שום המרה מדומה, שום הצלחה מזויפת
-- **SKALE עד-העצם:** probe חדש סוגר תא ש-v69 לא בדק · אכיפת-יתרה מוכחת (‎−32004 insufficient funds במחיר נומינלי) · **ממצא אבטחה אקוסיסטמי: הברז הרשמי לאירופה בקטלוג (sfuel.mylilius.com) נתפס מגיש VPN סיני ובקועי-מעקב** · הברז הרשמי האמתי מאחורי Vercel-checkpoint
-- מפקד מלאי חי מלא (72 eth_calls לטוקנים + 56 בדיקות sFUEL) · הפעולה הקטנה ביותר שנותרה לבעלים: בקשת ברז חינם של 10 שניות בדפדפן
-
-### h27 + h28: המטריצה במצב מתמיד, כולל כשלונות כנים
-- **h27 (המחזור ה-11):** חותם מעוגן ל-SOLANA דו-מקורית · **ETH כשל-כנות מתועד** (שער-גז סגר, לא שודר, דווח)
-- **h28 (חותם 12):** root `bce40d17…` · **SOL נעוגן אמיתית: txid `56gWecZj…` slot 446,396,953, דו-מקורית, CAS created** · ETH נסגר בכנות במספרים (היתרה מתחת שליש-עסקה) · seal-chain TRUE על 7 חותמות
-- **R6:** ה-provenance של h23 הוכח על-השרשרת (STEEM בלוק 109,490,596) · הביקורת העצמית תועדה
-- **roast-78:** רצפת הגנת הגיבוי (נתפס חסר בביקורת הסבב החמישי, תוקן)
-- שערים ירוקים: tsc 0 · lint 0 · **harness ‏654/654** · מניפסט 22×11+3=245 · zero secrets · zero force-push
-
-### v81 היועץ בלולאה (THE ADVISOR IN THE LOOP)
-- **השכבה השנייה נכנסה למחזור ההחלטה:** נשאלת אוטומטית לפני כל השקיה משמעותית (סף 5m) עם מגבלות קפואות: גריעה בלבד עד 50% · קו-עקה קדוש · **פסק ל-10 דקות המרב** (חותם-זמן ב-DB, אמת גלובלית חוצת-workers, נמדד חי) · פסק-זמן 10 שנ' · כשל 429 = כנות מתועדת
-- control-plane חי + פאנל מצב + KPIs · keeper v44.2: קווי-הרג מפוצלים 1500/1790 אחרי 4 הרגי-קרנל חיים (dmesg ‏1595-1728MB) · E2E: ‏12/12 DOM · מובייל 375
-
-### סדר וארגון
-- **R19d (steem):** ארגון מלא של המאגר · 9 שכפולים הוסרו (cmp מאומת) · 8 דוחות עונה ל-docs/reports · קובץ רעש נמחק
-- **JUMPPER patchwatch:** שתי בדיקות כוילו מחדש (P-11 כוון ל-relay.ts במקום ל-memos של xlock) · כיול עדין יותר של patchwatch ל-2 התיקונים במודול
-
-## 10.54 ביקורת R8, אינטגרציית r42, וממצא ביקורתי פנימי (10:30 עד 11:08Z)
-
-- **R8 ביקורת-סבב-שמיני (כל הרשת, trace משותף):** שבר יחיד נתפס ותוקן (jsonRpc בלי פסק-זמן) · רישום open-meteo · פסקי ה-broadcast נחתו בכל הריפואים
-- **wallet r42:** אינטגרציית פרויקטים ישנים חיה ומאומתת: AxiomState code-brain (sync/query/bundle APIs + כלים) · rebase מעל 9 קומיטי דיווח create-only · נדחף 7d06315
-- **⚠ פנימי, קריטי, לא לפרסום:** ממצא ביקורת בשני ריפואים (steem, jummper): קובץ recovery-meta.json הכיל סיסמאות-שחזור ב-plaintext בקומיטים. הטיפול והחשיפה פנימיים לחלוטין לפי מדיניות החשיפה (חומר מפתחות). המודול עוקב אחר סגירת הממצא בסבבים הבאים; שום פרט לא יופיע בתוכן פומבי
-- **מצב Adsmarket (תיאום):** הכותב המקביל הוסיף broadcasts/ (כ-30 דוחות פולס ו-roast), deck.html + deck/index.html (מצגת), developers/identity-api.md (תיעוד API), crisis-playbook.md, ביקורת-טענות ודו"ח מטבע · מודול זה סרק את כולם: 4 נקיים ממקפים, 2 טוהרו (61 מקפים בסך הכול) לפי הוראת הבעלים
-
-## 10.55 R9 פריצת-האפס (THE ZERO BREAKTHROUGH): מסילת EVM בגז-אפס, 7/7 חותמות ב-$0.00 (11:59-12:27Z)
-
-- **Z Chain (Zero Network, chainId 9369) נמדדה חיה בגז-אפס מלא:** eth_gasPrice=0x0 · בלוק ~34.5M · פרוטוקול העגינה נמדד: שער ה-RPC אוכף רשימת סלקטורים (0xa9059cbb עובר, שרירותיים נדחים) והמטען הקנוני ממוען ל-EOA אינרטי
-- **7/7 חותמות עוגנו בפועל על Z Chain (h1, h23-h28):** שבע עסקאות מיינטנט מאושרות status 1 + read-back בתים-מדויק (root `bce40d17…` · rail:zero) · effectiveGasPrice 0x0 · **עלות כוללת $0.00** · קבלות anchor-live-zero ×7
-- **anchor-zero.ts + ‎/api/saos/anchor/zero:** אימות-עצמי כפול fail-closed (נגזר ⟷ קבוע-עוגן ראש-הצי ⟷ רישום חי) · שער גז-אפס חי: gasPrice>0 = סירוב כן · סיירים: rpc.zero.tech + zscan.live/explorer.zero.tech · ChainGate הורחב ב-+ZERO
-- **v84 תאום-המדידה (THE TWIN PARITY):** הצהרת הפרטיות של v83 הפכה למדידה רצה: 401 וקטורים דטרמיניסטיים
-- **r29 (wallet):** מסילת HIVE של JUMPPER נפתחה חיה (בלוק 109,849,406 · קריאת RC חסינת-stale-read: max-of-nodes על 2 צמתים)
-- **משמעות שיווקית:** דלת ה-$0.94 כבר לא המסלול הזול היחיד: מסילת EVM שלמה בעלות אפס מארחת כעת את כל 7 החותמות. נוכחות הרשת: 10 רשתות ציבוריות
-- **פערי בעלים כנים (מתועדים בקומיט):** זרע אבן-הפינה חסר במעטפת המשוחזרת (העלאה אחת) · WIFs של STEEM stale מאז 117o · HIVE rc ‏7.29% מתחת לסף 8%
-
-## 10.56 שדה מתרפא, קצה פועל, ויומן-ביקורת שנתפס ריק (17:16-19:08Z, השלמה אדיטיבית מעל v3.32)
-
-### v85 השדה המתרפא (THE SELF-HEALING FIELD)
-ביקורת-הדג של הבעלים במתכונת ארבע שאלות: אמת או שקר · תיקון · שיפור · ייעול
-
-### v86 הקצה הפועל (THE RUNNING EDGE)
-מנוע-הקצה מפסיק להיות פריט-בדוק והופך למריץ בפועל: ‏python/edge_runner מבצע עבודה אמיתית
-
-### R10 ריפוי-הכספת + מפקד שמות-בלבד
-- THE VAULT SELF-HEAL לפי הנחיית בעלים ("שלחתי לכספת כל מה שיש לי, תבחן אם הכול קיים")
-- vault-census.mjs: מפקד אוכלוסין שמות-בלבד לכל בתי הכספת (GCM · איברים · מפתחות) · פרטי הכספת פנימיים לפי מדיניות
-
-### r32 פורנזיקת ה-rollback (השלמת פרטים)
-שחזור הסנדבוקס גלגל בשקט את מסד הנתונים כ-36 שעות אחורה · זוהה בפורנזיקה, שוחזר במלואו, תועד
-
-### ממצא הכנות של ה-PATCH-SPEC
-טבלת AuditEvent עמדה על **אפס שורות** בזמן ש-GateAction החזיק **717** רשומות: שביל הביקורת היה מחובר אך ריק. נתפס על ידי ביקורת המפרט של עצמם, והטיפול מפורסם. עוד מופע של derived-or-silence: יומן שלא נכתב הוא שקר, ומישהו חייב לבדוק שהוא באמת נכתב
-
-## 10.57 ⚠ פנימי, קריטי, לא לפרסום: אירוע KEYS-ACCESS (R11 → R12, 09-12 20:27Z עד 09-13 01:27Z)
-
-תיעוד פנימי בלבד לפי מדיניות החשיפה (חומר מפתחות). סוגר את פריט המעקב של §10.54:
-
-- **R11 (20:27-20:37Z):** בהוראת בעלים ("תדאג שגם לדקס תהיה גישה... לכולם") נוצר דור-גישה ריבוני KEYS-ACCESS-2026-09-12 וקומיט ל-8+ ריפואי שותפים (create-only). באותו סבב נאטמו שני שורשים ריבוניים (cornerstone + זהות 12-מילים שנמצאה)
-- **09-13 01:08Z:** סומן CRITICAL-R11-KEY-BROADCAST, docs פנימי
-- **R12 (01:17-01:27Z) תיקון-חשיפה מלא:** הדור הוסר מ-11 ריפואי-שותפים (**33/33 קבצים, אפס כשלים**) · פקודת-עצירה למנגנון · agent/vault הוסר ממעקב (passphrase לעולם לא בקומיט) · THE RESYNC: הסביבה נפלה לתמונת-מצב ישנה ונבנתה מחדש מהריפו עצמו · אירוע זיהום-DB נסגר (dex-tables ב-custom.db דרך global-env vector) · R12-a addendum: fleet-vault בפורמט R11 תוקן (10/10 נפתח) · ביקורת multi-chain
-- **R10 (תשתית פורנזיקה, 19:05-19:08Z):** vault-census.mjs מפקד-שמות-בלבד לכל בתי-הכספת (GCM, איברים, ללא חומר) · VAULT SELF-HEAL לפי הוראת בעלים
-- **כללים מחודדים (הפקת לקחים):** חומר מפתחות ודורות-גישה לעולם לא בקומיט, גם בהוראה קולית; אישור כתוב + סריקת exposure לפני כל broadcast של קבצים רגישים; מנגנון create-only עם עצירה זמין ומוכח
-
-## 11. גבולות כנים (מה עוד לא: חובה בכל חומר)
-
-- כלכלת הטוקן של SAOS-NET: טרם הוגדרה במסמך economics (נמצא בשלב S2, דורש אישור בעלים)
-- חוזי גשר ETH ותוכנת Solana: מוכנים ב-staging, פריסה = החלטת בעלים תקציבית
-- Identity API: חי וממוטר, אך פרסום ה-SDK ל-npm Registry ופתיחת gateway ציבורי = פעולות בעלים
-- ביקורת צד-שלישי: החבילה ארוזה, טרם בוצעה
-- סדר גודל כלכלי: dust-scale כיום, התקרה טכנולוגית, הכלכלה בהזנקה
-- JUMPPER שידור חי: דורש חותם חיצוני + אישור בעלים (by design)
-
-## 12. קישורי אימות עצמאי
+### v50 THE ANCHOR WALL: the chains themselves became the book
+- **5/5 verified live, read-only, straight from the chains:** ETH receipt 0x1 block 25,944,802 · BSC 0x1 block 121,011,726 · SOL err=null slot 445,822,974 · TRON SUCCESS block 86,124,584 · XRPL tesSUCCESS ledger 106,890,679
+- **the roots are read back from the etched payload:** `6097f929...` on ETH/BSC/SOL · `39575b3b...` on TRON/XRPL, **two roots, one key, five networks**
+- local book rebuild from the chain truth (rebuiltFromChain, idempotent by txid) · an environment reset can no longer erase history · an XRPL sequence lock (FIFO) closed the sequence-race gap
+- **wall-link-integrity (their own self-fix):** it turned out the ETH/BSC txid field in the network map carried an arbitrary prefix+padding, a link to a transaction that does not exist (from v48). Fixed to the five real full txids. More proof the culture works: the fake ritual was caught by the system itself and published
+
+### v51 THE BRIDGE FOUNDRY
+Infrastructure for adding bridges to more networks + a deployments book rebuilt from the chain itself.
+
+### More verified truth (foundry + control-center, 13:04-14:55Z)
+- foundry roast(57)-(60): truth gaps caught live and fixed, "THE MONEY ONE" (the economic flywheel) · a live table-poisoner on the public surface · immutability that was "read-then-write fiction" · revoke-all that was a no-op with an explicit secret
+- control-center roast-63: **50 findings exposed and fixed** · Task 62 DEX-truth II: active keys verified · POWERDOWN-truth (txid `6e881cd4...`) · grid-order truth on the STEEM book
+
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+
+## 10.32 The breakthrough engine + the live diagnosis: $0.94 (v52, measured 15:45Z)
+
+- **breakthrough.ts + /api/saos/breakthrough:** an engine that assembles **7 truth sources in parallel** and measures its own next step: live asset inventory in 6 groups · 6 quantified constraints (gas desert · modules · single key · live MB state inflation · headcorner window · internal paper) · **5 breakthrough candidates ranked by impact/effort** with how/why/impacts/efficiency/live-USD-cost · a weighted 5-dimension sovereignty score · zero keys · 10-minute cache
+- **the live diagnosis (the important number):** 7 EVM doors pipeline-proven waiting for gas, **the whole breakthrough budget ≈ $0.94 at live gas prices** (BSC $0.07 · Polygon $0.04 · Arbitrum/Optimism/Base $0.27 each · Avalanche $0.001), **less than one dollar away from 8/8 relay-EVM live and doubling the anchor presence 5->12**
+- candidate ranking (by impact): gas irrigation ×11.9 (owner decision) -> automatic spreading ×4 -> the inheritance ambush ×3.3 -> module forging ×1.3 -> multi-signer anchoring ×1.3
+- **live sovereignty score: 43/100, "the identity is ready, the presence is waiting for gas"** (published, not hidden)
+- internal roast 23->24: the gap is honest, the diagnosis live, execution split (owner action) · two live self-healing events in one round (page hang + Turbopack panic, the keeper healed both)
+
+## 10.33 The roast wave continues (13:11-15:43Z)
+
+- **steem R12:** full E2E, landing+gate+mobile live, **10/10 chains · 24/24 guard · zero console errors** (their UI count; our network tally with confirmation receipts stays 9, we do not inflate numbers)
+- **JUMPPER ONCHAIN-FORKS:** the scanner went deeper, **8 heights on HIVE mainnet carrying conflicting stateRoots from the same account** (up from the 3 reported earlier) · published voluntarily · the structural fix: **roots with an epoch namespace**, forkwatch already maps (epoch,height) but nothing ever produced an epoch; now it does · the height reset (4488->12) is no longer ambiguous
+- **JUMPPER attestation:** the module vanished from origin between commits, **restored + 20 assertions on the real value_lock and pool.json** (refusals confirmed: 2 critical + 6 minor)
+- **wallet ROAST r6+r7:** the third plane exposed, the custom_json stream had never been scanned (101/101 live) · the editor ran live for the first time and the evidence pipeline screamed, RESULT_CLAMP fixed
+- **saos-dex roast-64-e2:** truth-purge II of the DEX engine, kernel+bridge hardening, 20 files
+## 10.34 Completing the wave of 15:55Z: the corroboration layer and the r8 lessons
+
+- **JUMPPER attestation, the deep fix (15:55Z):** attest() checked **a single sum field only**, so a depthBefore of 106.868 against a real balance of 0.19776475 passed silently. Fixed; 23 assertions on the real value_lock and pool.json now **refuse**: 4 critical + 3 high. Our solvency tool refuses our own data, and that is exactly its job
+- **foundry roast(61):** "the daemons were dead while the system kept promising from their frozen files", frozen-file discovery + broadcast identity
+- **control-center roast-65 + saos-dex roast-65-e1:** 53+ findings and 15 findings · **a corroboration layer was born in both roasts**, every component claim verified against an independent component
+- **wallet ROAST r8, the quoted lesson:** *"'the code is fixed' is not 'the running process runs the fix'"*, DB forensics proved two runs died silently; a boot-stamp added
+- **saos-dex Task 61 dex-truth:** TRUTH-LEDGER live · the WBLURT rail truth-backed · SP/HP/BP fixes · an exit ladder
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+
+## 10.35 Additions from the parallel scan (merged 16:20Z: two writers synced simultaneously, duplicates removed)
+
+Unique details collected in parallel that complement 10.32-10.34:
+
+- **roast(61) in numbers:** 3 of 4 services dead (:3031 guardian · :3032 chief · :3034 fleet-cure, only :3033 signer alive) · the frozen status file, **39 hours** old, kept promising "automatic fleet anchoring" · preflight bypassed the isFresh gate its own library defined, now a gate + an honest stale note
+- **keepalive supervisor:** every death healed within **5 seconds** (measured: the sandbox reaps background processes within minutes, even a bare sleep dies between checks) · every service verified LIVE in its window: signer "live-drift clean: 11 slots verified against the live chain" · fleet-cure two real cycles · chief a real 7KB LLM briefing · guardian entered a planned TOKEN-MISSING halt
+- **THE MONEY ONE (roast-61):** fleet-cure minted a fresh requestId per attempt -> the idempotency journal did not recognize the retry -> a lost response + a repeat attempt = **a double broadcast of the same weave**, exactly the class roast(56) closed in anchor-pulse, with one reader left open. Fixed: a deterministic requestId (retry reconstructed from the journal) + structural rejection classification (400/403/429/chain-rejected -> never an automatic retry)
+- **steem R12 nexus SWR:** cold ~800ms -> instant serve (≤10 min) + background refresh, performance as part of the live truth
+- **An honest merge note:** two synchronizers (the agent + the Adsmarket audit module) wrote the same facts in parallel; the sources are identical (verified commits), the duplicates were removed, and the unique details merged here. This is exactly the kind of problem their corroboration layer was born to solve, and it works on our side too
+
+## 10.36 Full recovery from a single root + THE-TOWER + the megaphone (16:24-18:12Z, verified from commits)
+
+### v53 (THE SEED): the entire identity family restored independently from a single root, and it signed live
+- The system restored **independently** the entire identity family from the single root (EVM · Solana · TRON), real live balances verified
+- **The first full cycle signed with the restored key: anchor #12 published on Ethereum mainnet, block 25,983,946 · stateRoot 99d19a4d... · verified**
+- The owner vault decoded 33/33, "one owner · one root · one truth"
+- **A published honest gap:** deriving XRP from the root gives a different address than the declared one, marked seed-declared, not verified
+- THE-GATE (R14): owner login verified on-chain on 3 networks + a 3-step recovery path · THE-VAULT v1.2 (R16): 22/22 slots verified live with per-member chain proofs
+
+### R18 (THE-TOWER): an Ethereum block explorer, ours
+- Live blocks + search + transaction detail, **and the first sovereign anchor (#12) verified and visible in our own explorer**: the proof loop closes end to end without leaving the terminal (R19: verified live in three flows with screenshots)
+
+### JUMPPER MEGAPHONE: the first live receipt of the free rail
+- **First truth broadcast of an attestation bundle to Steem mainnet: block 109,496,567 · txid `7639c915e69315104b02a2f4f2586a5e00422b46`**
+- Exact measurements from the broadcast: payload 247B · rc_cost 1,358,232,384 · account RC balance 339,603,439,104, **enough for ~250 such broadcasts**
+
+### More verified truth from the wave
+- **R10-R2 (wallet): the organization promoted**, commander -> org-manager · two valued soldiers promoted to commanders · **100% coverage chain-verified** · live EVM proofs in the UI
+- **Task 63 (control-center): SIWE-lite**, an EVM signature proving account ownership (eip191 + 0x prefix + EIP-55 checksum, chain verification) · 21/21 green · an external wallet signature verified against a public RPC
+- **roast(62), the hard self-fix:** two earlier "FIXED" claims proved false, the fixes lived only in a dead sandbox. Now: keepalive installed at boot **and a commit to the live tree**, "do not trust a tree tested in another sandbox"
+
+## 10.37 roast-66: the first HALT caught alive: the safety net worked (17:36Z, verified from a commit)
+
+**The first live proof of the fail-fast claim:** until today we marketed "invariants that stop the chain instead of running on lies" as a design promise. Now there is a receipt:
+
+- **CRITICAL(ale), the real HALT:** seedPool minted an LP balance without `pool.lp += lpMint` -> phantom LP per POL seeding. **The invariant caught it live: HALT at height h20808, sweep -4,448µ.** The roast found the root, fixed with full poolAdd mirroring + **an honest sweep declaration** (we do not sweep the history under the rug, we declare it)
+- **HIGH(settle), realMoney structurally lying:** anchorSpotCheck called verifyOnChain without account -> the realMoney.ok flag was structurally false since F6, two conflicting auditors. Fixed (the authority now flows) · **live: ok=true, 5/5 rails, 2 verified**
+- **HIGH(bridge), a real verification hole:** SOL verifyFarTx enforced recipient but not amount (F1 bypass), fixed fail-closed with a native/SPL delta binding
+- **Honesty-truth:** a BACKING-VESTED mid verdict (backed by owned liquid+BP; liquid shortfall 258µ against 8,463 BLURT vested) · the ladder-1 status was LIVE hardcoded over verified=false, now derived · railTick returns rail-deficit (never a negative mint)
+- **ZFB (zero-fee bridge):** keeper auto-claim (re-verify fail-closed through claimInbound · xfer_free zero-gas) · wrap_mint/wrap_burn cost from 250 gas to **0** (the bridge rails are protocol rails)
+- **Feeding pools, transparent:** getPools exposes lpFeesMu/lpYieldBps/polShareBps, live: yields 651bps and 1454bps, POL 15%/24%
+- Hygiene: journal.t = block time in all engines · milestone marker persisted before reconcile (no double anchor) · rail packets counted at execution
+- **control-center roast-66:** parity for the relay-service allowlist + guardian hardening · **JUMPPER:** removal of the allow-file ALL across the board, the secrets scan tightened (3 rules only for markdown)
+
+## 10.38 THE CONVERSION CHAMBER + the third roast wave (16:42-19:18Z, verified from commits)
+
+### v53 (THE CONVERSION CHAMBER): the breakthrough measured on-chain
+- **conversion-chamber + /api/saos/conversion:** the live sovereign custody (TRX · SOL · XRP · ETH · BNB, from the live commander, addresses de-duped) against the mirror on SAOS-NET (totalMinted from the live contract), with a sync gap at per-network precision thresholds · **two conversion routes: sovereign wrapping (the breakthrough: the money does not move, the mirror 1:1, zero external dependency) vs external consolidation (honesty model)** · a readiness journal with 8 documented preparations
+- **Mirror sync to truth, probed honestly:** a gap accumulated silently from anchor gas (a WTRX surplus of ~1.6 TRX that does not exist in custody) **burned pro-rata on the fleet holders**, supply==locked enforced against ourselves too · 4/5 assets synced · WRXP honestly waiting for a measurement window · crooked backup wiring on the exchange (realUnits from secondary addresses) exposed and documented
+- **The live breakthrough proof:** a SOL<->TRX circle at real size, **5 runs · 65/65 atomic legs proven from the historical state (both legs in the same block) · p50 of 88ms in a calm window · a lab fee of 0.001 lab-ETH, against 10-90 minutes in third-party custody** · a measurement artifact caught and fixed (ethers polling 4000ms -> 120ms) · freeze tails documented honestly · a new ConversionProof model
+- A new operations view (place 7, Alt+7): a live verdict + 6 indicators + a custody-vs-mirror table + route cards + a legs table
+
+### v54 (THE NETWORK TUNER)
+"whatever limits is caught in measurement · the network analyzed and locked · value verification on the same device", a unified measuring device for limits and value (commit d035606).
+
+### JUMPPER heightguard: when history forks, mark AMBIGUOUS, do not pick a winner
+- **forks.json: 8 forked heights out of 162 real saos-dex.anchor.v1 anchors on HIVE mainnet (since 2026-09-03)**, the full commander published
+- **remediation_report():** a machine-readable remediation record for each of the 8 heights · 13 assertions: **every forked height = AMBIGUOUS with canonicalRoot null**, no root declared "correct" without evidence
+- A sorting bug fixed: longest-window-first sorting buried the critical collisions below the surface
+
+### More verified truth from the wave
+- **wallet r10/r11:** "connected to everything" actually checked only two chains, and was structurally unable to see a match on a third (fixed) · "control" was an undefined term, three sources cross-checked · vault commander: 83/97 values verified live on steem+hive+blurt
+- **saos-dex roast-67:** the SOL rental-floor truth proven in simulation · ZFB gas-tank · depth-neck · bench gate
+- **saos-dex Roast-68:** db-scope-guard (protects DB scopes, a historical lesson institutionalized as code) · pol-retro-mint: "the genesis phantom becomes explicit POL"
+- **foundry roast(63), "the documentation was the biggest liar":** a parallel audit of ~190 files across all git folders by 3 scout agents · the error contract enforced: **zero exposed 500s, every throw lands as 200 {ok:false, coarseError}** · UI "failure-as-success" bugs fixed (a 401 shown green, frozen toasts, a frozen "7/7") · Internal: handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+
+## 10.39 THE PACE ENGINE + sovereign conversions 10/10 + reality calibration (19:39-21:59Z, verified from commits)
+
+### v56 (THE PACE ENGINE): 31 silent wait gates closed
+- The diagnosis: every wobbly cycle burned 10-12 step budgets (**561-1481 seconds**) on silent ethers `tx.wait()` gates, the promise exists, no block event wakes it, zero calls
+- The fix: `waitTx` verified in the library source code · **all 31 transaction sites** (anchors · registrations · oracle · dispatch · grids · sweep · zero-fee · the v29 hookup · exchange · micro-grid) under a 15-second deadline + sharpened budgets (registrations 45->25 · dispatch 150->45 · oracle 120->45 · sweep 60->35)
+- rpc-deadline 20->8 seconds (against a p95 of 22-76ms, **a margin of 135x**) · safety belt: a marked deadline rejection is handled at creation (an orphaned rejection in hot-swap killed a process, caught live) · socket leaks blocked by a self-cancel controller
+- **The log truth:** DONE measured from boot instead of from cycle start and printed an early tick, fixed · live verification: **a full cycle at 285.1 seconds followed by 238.1 seconds** (two consecutive cycles in truth format, 4-8 live deadlines each) against the previous 561-1481 seconds
+- New discipline: v55 found unpushed (origin on v54), pushed immediately, and push is a mandatory part of the cycle from today
+
+### roast-71 (DEX): sovereign conversions completed: 10/10 assets routable
+- **pool_open:** a new kernel op, treasury-only pool opening on a zero-gas sovereign channel · LP=sqrt(k) to the treasury · canonical-pair fail-closed
+- **Atomic convert:** sequential-hops upgraded to an atomic batch through a shared exec-route engine, **no more stuck intermediate assets** · the quotes unified into a single quoteRoute (one truth, including wrap rails)
+- An adaptive router: quote sampling 1k/10k/100k fixes a false tier-none in micro-price pools (WBLURT) · resting-mid pricing · an intact floor gate
+- **Executed live:** the treasury opened 3 pools (USDS/WSBD 50k+50k · PHIVE/USDS 100k+4k · USDS/WBLURT 42+42,283) · **an atomic STEEM->USDS conversion settled exact-to-quote (2268u)**
+- Verified: tsc 0 · fence 82 files 30/30 · chaos 13/13 · browser: zero NO-ROUTE tags
+
+### More verified truth from the wave
+- **Roast-69 (DEX):** the chaos suite completed, **6/6 rails severed in testing** (no longer 3), A6 evidence honest, a preflight leak sealed
+- **roast-70 (control-center):** UI truth-sync, POL/LP yields on the surface · **LP valuation moved from "promised" to "delivered"** · real assets (WBLURT) instead of dummy
+- **JUMPPER test calibration (4 rounds):** 30/30 tests calibrated against the APIs actually sent, it turned out some tests examined "remembered APIs" instead of real code · now every test is verified against a source inspected by introspection · the banner removed
+- **foundry roast(66), the owner as auditor:** "everyone is missing steemit", the owner spotted an entire STEEM plane that never connected; he was right, and the plane got connected. The human in combination with the machine caught what the machine alone missed
+- **wallet r15:** "the fleet saw the network but was barely in it", the engagement became real, recurring and self-initiating
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+## 10.40 THE-COIN-DOOR + the version lie caught + the sovereign secrets scan (22:06-22:59Z, verified from commits)
+
+### Task 72 THE-COIN-DOOR: the price enters consensus
+- **Canonical price oracle: `oracle_set` is included in the stateRoot itself**, the price is part of the signed consensus state, not an external feed you can argue with
+- WTRX/WSOL **deposit-backed** added to the DEX assets + full coin identities
+- New door view: live market · deposits · oracle pools · redemption (nav+door-view in both interfaces)
+
+### foundry roast(71): three truths caught and fixed (all in the derived-or-silence spirit)
+1. **VERSION LIE:** a Task-70 commit declared signer v2.4.5, while the code actually served 2.4.4. The commit message lied. Fixed: the version constant was raised in both places, the service was restarted through the supervisor, and the endpoint now serves 2.4.5 honestly (drift=0 · unmatched=0 · errors=0)
+2. **Silent typecheck breakage:** a local type had not learned a new field, `bun run typecheck` failed behind a green lint (2×TS2339). Fixed, clean
+3. **Frozen claim -> derived:** the text "created 2018, before the fork" was frozen on screen; now it is **derived from a live field**, and it disappears the moment a non-2018 account appears. The derived-or-silence principle extended to age claims
+- Gates: api-check 144/0 · typecheck+lint clean · verified in the browser · hygiene: zero secrets, zero force-push
+
+### The sovereign secrets scan (steem R18e)
+- Dedicated scan tool: **687 files monitored** by cross-checking the vault against live public data
+- Full audit result: **0 real holes · double gate verified**, documented in the audit log
+
+### v56 completion on the web
+- waitTx applied to **the 24 remaining tx.wait() sites in 5 modules** (completing the coverage from v56's 31 sites)
+- Honesty separated in error semantics: **null = deadline ≠ revert**, a deadline no longer disguises a real failure
+
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+
+## 10.41 THE SOVEREIGN EXPANSION + employment engineering + roast(72) lessons (23:01-23:09Z, verified from commits)
+
+### v58 THE SOVEREIGN EXPANSION
+- **Network research verified live:** SKALE (gas-free) · NOSTR ×2 · Vara · **6 modular rails**, candidates measured for expanding the sovereign presence
+- **The organism grew from 8 to 12 repos**
+- Sovereign swap-secrets scan: **0 secret material**, cross-checked against the R18e scan (687 files)
+- A new anchor verified independently with an exact txid ×2
+
+### wallet r18: employment engineering
+- **The fleet's lifetime is no longer hostage to the operator's session**, the organism runs even when the operator is logged out
+- Forensics on **69 unfinished runs** led to the single birth doctrine that survives: detached+unref spawn from a long-lived process (measured: every other channel gets reaped by the reaper)
+
+### foundry roast(72): "when everything is connected there are plenty of problems": the full limits audit (public parts)
+1. **Silent monitor death:** the fleet-cure status file froze for 3:24 hours with zero logs, a bun --hot reload quietly killed the cycle loop. Fixed: a no-overlap lock + mandatory logging at cycle start/end + revival · measured: "cycle end in 3167ms" · **the principle: a monitor that dies silently is worse than a monitor that fails loudly**
+2. **Four versions in one service:** /health said 2.5.2-task38 · /keys/status said 2.4.5 · backup-export said 2.4.1 · the boot log said 2.5.4, while a single SIGNER_VERSION=2.5.5 constant now feeds every surface (measured uniform)
+3. **30,032 phantom compile errors** in a dev.log of 426,719 lines: a next process 20.5 hours old kept compiling an old (pre-Task-62) package to Edge; a clean restart -> **zero recurrence** · the supervisor re-registered · zero double-spawn
+4. **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+
+### JUMPPER: consistency completion
+The epoch field was added to the last anchor format that lacked it; packing.py and heightguard.py are fully aligned with the unified anchor format (a direct continuation of the namespace fix from the big roast).
+
+## 10.42 The remedy published where the error lives + network health with 8 gates (23:29-23:45Z, verified from commits)
+
+### JUMPPER remedy: the remedy anchor (completing the split-view arc)
+- The identified problem: remediation_report() produced a good machine-readable remedy record, **but it sat in a file in the repo while the conflicting roots sat on a public chain** that every verifier runs into without ever seeing it
+- The solution: all 8 real forked heights encode into **831 bytes (10.1% of the free 8192 budget)**, so the whole remedy goes on-chain in **one custom_json, zero fee, POSTING authority**, exactly where the forks live
+- **Built-in refusal to manufacture truth:** CANONICAL without a supplied root -> rejected · an invented root -> rejected as a new fork · **nothing is pulled backward, the original anchors stay readable**
+- 24 assertions on the 8 real heights: all AMBIGUOUS, none canonical, "because nobody decided" · the real forks.json serves as the fixture
+- **The harness extends itself:** module 31 (remedy.py) arrived without coverage, the harness went correctly RED until a test was registered for it. Full coverage: 31 modules
+
+### steem R18e-4: sovereign network health
+- **net_health.cjs: verifies network health across 8 gates** · paymaster resilience fix (crash on missing RC rows -> now withstands)
+
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+
+## 10.43 THE RECEIPT RACE + THE ANCHOR PLANE + fork prevention (2026-09-11 00:01-00:40Z, verified from commits)
+
+### v59 THE RECEIPT RACE: 5-7x faster, measured live
+- The diagnosis that closed the circle of v56: the ethers event subscription dies in bun's provider layer, but setTimeout always fires; v56 closed the gate in time, v59 **pulls the receipt that is already on the chain**
+- waitTx v2: a three-legged race, the ethers event against active receipt scanning (getTransactionReceipt every 200ms, no subscribers) · zero regressions (the old path stays in the race; double silence = skip allowed)
+- **Measured live: cycles at 32.9-47.2s versus 244-336s before, 5x to 7x** · 21 rescues in the first cycle (median 408ms · minimum 3ms) versus 2 real gates
+- GET of movements: 10.5s -> 2.29s cold / 15ms warm (cached public providers + parallel verifyPending + a 3s rail with honest last-known truth)
+
+### v60 THE PROBES RAIL: "9 seconds that impersonated health"
+- The diagnosis: the health address rode 3.6-9.0s on stale cache (5 rails in continuous failover), the guard called it a false web death, and the views froze every minute
+- The remedy: a fully parallel track (wall time = the slowest rail, not the sum) + a 2.5s stale-while-revalidate rail with a refreshing:true flag and an honesty line · ?force=1 waits for the full truth
+- **Measured live: 2.52s exactly at cache-expiry · 0.30s warm · 4.81s on force with 5/5 truth rails** (the slow SOL correct on force, honestly hidden in the rail)
+- Agent-hatch onboarding: a signing gate :3040 (/sign live on EVM/TRON/SOL + negatives · 12/12 planes) · **control-center's HIVE ignition, the first conversion: txid `46ed2f58...` · the fleet 11/11 · RC economy balanced**
+
+### wallet r20 THE ANCHOR PLANE
+- **One digest (saos/v2) anchored live on two independent chains: STEEM block 109,471,513 (tx `d43ed97d...`) + BLURT block 63,534,293 (tx `2aa81fbc...`)** · HIVE honestly declined on RC economy (106M versus ~385M measured, a pre-check added)
+- **Wire-level, node-proven discovery:** blurt numbers operations differently, custom_json=12 and not 18 (a recovery oracle from the real vote + name mapping from get_transaction_hex + rejection of our 18), fixed at the points of truth (BLURT_OP_IDS rooted in every layer)
+- The vault received a blurt plane: 48 D1 rows sealed and verified live, 0 rejections -> **234 values** · anchorPostingKey moved to verified-rows-only (an unverified row was picked by mistake, the chain rejected it, the fail-closed held)
+- New employment for the fleet: anchor.integrity (sensor) + anchor.seal (actor, a 1/day cap) modules · anchor-agent armed from 36 to 38 · a daily anchor-watch board, proven E2E (35.1s, unity=true drift=false, checker passed, session denied)
+- steemauto disconnected on operator instruction (a proposal -> rejected/decided by the operator with full reasoning, the banner computed live) · the anchor line in the banner is live from chain-verified fillers
+
+### JUMPPER epochguard: the part that prevents forks instead of reporting them
+- A full code check: the word epoch appeared **zero times** in all four core files (relay.ts 58,025 chars · chain.ts 64,434), the height counter re-initialized itself with every process, and so the 8 conflicting heights were born
+- assign() raises the epoch before broadcast when the height does not advance · guard_before_broadcast() verifies against HeightLedger
+- **On the real 15-height sequence: 7 raises, 8 epochs, 15 unique (epoch,height) pairs, zero collisions, versus 2 collisions without it** · the state: 3 values that survive restart
+- The harness went RED until a test was registered for module 32, and full coverage stands
+- **The arc is complete: forkwatch measures -> remedy publishes the fix on-chain -> epochguard prevents**
+
+> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+
+## 10.44 A full 6/6 matrix + the money plane + breaking the death cycle (03:30-06:17Z, verified from commits)
+
+### task81: TRON anchored live for the first time from sovereign keys, seal h16 in a full 6/6 matrix
+- **The h16 signature is now anchored on all six networks: ETH + SOL + STEEM + BLURT + HIVE + TRON**
+- The TRON receipt: **txid `74e574fc...` · SUCCESS** · the transfer amount (blackhole-null) encodes root[0:4] (60138 sun = eaea) · cost 0.060138 TRX with **zero bandwidth burn** (the free daily 600 quota)
+- A live channel map learned: self-transfer forbidden · activation requires 1 TRX · freeze minimum 1 TRX · a legacy SetAccountId trap
+- Two bugs caught live and fixed (broadcast visible:true · verifyTron contractRet against result) · ingest verified through trongrid · tsc+lint clean · zero secrets
+
+### r30 (wallet): the money plane understood
+The vault now watches where money lands: a chain.funding (42) module reads live **the funding addresses of the 7 doors** · a db-settle protocol before rebase · a push above the partners' door-push
+
+### roast-79 (dex + control-center): the economic death cycle is broken
+- **fuel-death-spiral fixed:** the fountain gate lowered 20k->1k + a funder ladder for bot-a/b/c + an early tick window · "the soldiers rose from the dead"
+- The sovereign launcher · zero secrets · a single file only (surface reduction)
+
+### v66 addition: the expansion announcement on the live agents channel
+The announcement script was published through agentMessage (id cmtwik14l...) to gold-scout and gate-herald · the swarm's live internal communication channel serves for status announcements
+
+## 10.45 THE HOUSE OF MEMORY + autonomous irrigation + thawing the economy (08:02-14:53Z, verified from commits)
+
+### v67 THE SMART IRRIGATION (08:02Z)
+"The irrigation itself became autonomous: two doors were born on their own (probe -> ×2 -> ...)" · the EVM door irrigation mechanism runs without touch · the broadcast landed in all 11 repos
+
+### v68 THE HOUSE OF MEMORY (14:13Z) · the ultimate proof of the architecture
+**A sandbox reset deleted the book. The organism rebuilt it from the chain** (relays verified live) · everything ever anchored survived a full environment wipe · the chains are the memory, exactly as the architecture promises · the proof broadcast landed in 11/11 repos
+
+### The network pulse: cycles h19 and h20 (foundry task85/86, 14:05-14:49Z)
+- **h19 · the fourth cycle in a row:** 4/6 networks anchored live (STEEM 4b70d75c block 109,487,902 · BLURT 72774a43 block 63,550,49x)
+- **h20 · FIFTH CYCLE FULL MATRIX 6/6:** STEEM 00d4046f block 109,488,353 · BLURT f98a1285 block 63,551,154 · HIVE 543cd69b (from WOQ) · TRON · 2 more · every beat with a txid and a block per network
+- The briefing system in rotation (chief-of-staff): scans 07:09-13:39 (14 briefs), old sets retired, latest.md advanced
+
+### roast-81 (dex, 14:23Z) · thawing the economic freeze
+REV_MIN_CYCLE dropped from 10k to 1k: the dust gate was blocking a 9,124µ real profit (a roast-79 precedent) · the buy-and-burn engine can operate at dust scale · after the conservation fix (1174677) the cycle is now both correct and unblocked
+
+### r32 (wallet, 14:28Z) · closing the keys event
+"The operator's key returned" · mechanical healing of the vault stamps · the r16/r17 rotation event fully closed (details internal per the disclosure policy)
+
+## 10.46 A standing state of pulses: a full matrix twice in a row + the seventh rail (14:49-15:53Z)
+
+- **Consecutive full-matrix cycles:** h20 and h21 both 6/6 (the first verified streak). Receipts: h20 · STEEM `00d4046f...` block 109,488,353 · BLURT `f98a1285...` block 63,551,154 · HIVE `543cd69b...` · h21 · STEEM `96611ff2...` block 109,489,408 · BLURT `67437c73...` block 63,551,991. The pulses broadcast to all 12 repos per the broadcast convention
+- **roast-82 (DEX): the seventh rail is alive, BLURT** (zero RC · zero cost · official SDK) · the steem-js mismatch with Blurt was measured live and fixed at the points of truth
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+
+## 10.47 WEATHER EYE, THE CHEAP CONVERSION, THE OUTER ANCHOR, and beat h24 (16:10-22:39Z, verified from commits)
+
+- **v71 WEATHER EYE:** the fourth organ of the smart irrigation, live gas-weather measurement from the node before every shot. No broadcast goes out without checking the network's weather first
+- **v72 THE CHEAP CONVERSION:** an owner instruction ("there is TRX and SOL, try to convert cheap") became a permanent mechanism: a full panel with **10 routes · live Jupiter routing · a verdict per route** · landed in the broadcast across 11/11 repos
+- **v73 THE OUTER ANCHOR:** the structural lesson of roast-84 became a live organ, a canonical state summary (final seal, tallies) anchored externally, so even total loss leaves a state copy outside the house
+- **Daily beat h24 (the eighth cycle):** a full reset restored itself **from the doctrine** (21/21) · the streak holds (h24), a third in a row: after recovery from the vault (v33) and rebuild from the chain (v68), now also a restore from written doctrine
+- **roast-84:** the full revival from sandbox preservation · vault-149 restored and closed honestly · a live genesis with a truth oracle
+- **r35 a clean drain free of junk:** a partner PNG was pulled by mistake as text and almost poisoned a draft, fixed with a file-type gate. (A note relevant to Adsmarket: the screenshots we asked for exist with the partners, for example roast-79-economy-live.png, a safe binary transfer pipe is needed before collection)
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+## 10.48 The night wave: the 236/236 recovery drill, the 35-room sweep, the console order (23:08-01:44Z, verified from the r36-r38 broadcasts)
+
+### r37 vault-as-bank: a proven recovery drill (00:54Z)
+- The recovery drill (POST /api/gate/restore-drill) actually opened every encryption in the vault against the live master key: **PASS · 236/236 atomic secrets opened · 0 decryption failures · a sealed 409KB insurance backup written** (one free state record was marked honest-null, not a failure)
+- The separation between honesty and alarm: a free record is not a decryption failure; a real failure is an immediate alarm
+- The master key is sealed under a verified control key (owner/active verified), with no password as a single point of failure
+- **A live button in the portal:** the operator runs the drill personally and sees the verdict in real time (verified in the browser)
+- Internal: handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+
+### v75 the truth-speaking display + a full QA sweep (01:44Z)
+- **A browser sweep of all 35 console rooms: 26 green, 8 blocked, 1 falsely empty -> all 9 diagnosed at the root and restored** (code + data + services) · 0 console errors · mobile 375 clean · tsc 0 on the merged tree (a rebase onto the sister machine's v74 without losing a commit, zero force-push)
+- **SAOSExchange v4 deployed live on the lab chain: 10 contracts + full wiring (block 302)** · APIs green (exchange/mesh ok:true)
+- "Unknown error" is dead: every failing room shows a precise diagnosis in Hebrew · failure is data
+- The keeper brought the full organism back after a sandbox reset (gate-agent, swarm, evm-mesh with anvil at block 479+ · foundry rebuilt)
+
+### r38 the console order + r36 the crash-burst healing
+- **The end of the landing-page era:** an 11-section navigation (a desktop sidebar, mobile chips) with a new overview (00)
+- The r36 measurement: **8 of the day's 10 failures were burned attempts of health runs** in the rebase/restart window, not real failures · the healing separated the types
+
+## 10.49 The ninth night: a persistent state of the matrix + new members in the body (16:10Z 09-11 to 02:22Z 09-12)
+
+- **The ninth cycle in a row (h25):** an ETHEREUM anchor `0x02648a90...` block **25,958,268** (calldata of root‖height) + a SOLANA anchor `5BbqFe46...` slot **446,313,117** (memo h25+root), alive and verified · honest gates: STEEM/BLURT awaiting a live key from the operator · create-only, zero secrets, zero force-push
+- **v73 THE OUTER ANCHOR:** a canonical state summary as a living member (the structural lesson of roast-84)
+- **v74 THE SYNC RADAR:** live GitHub verification for every repo (a behind=1 state was caught and handled with a clean ff) · proven live three times · answers the owner's concern about environment crashes
+- **v75 the truth-speaking display:** a full QA sweep of **35 rooms, 9 found blocked and all restored** · SAOSExchange v4 live on the lab chain
+- **v76 THE ISSUES LEDGER:** a book of open issues as a permanent member (an owner directive on the vault and money)
+- **r37 vault-as-bank:** a full recovery drill passed, the encrypted backup (409KB) was opened and verified in full against the master key (236/236 items) · a live restore button
+- **r38 the console order:** the end of the landing-page era, an 11-section navigation (a desktop sidebar, mobile chips) + a new overview
+- **r36 the crash-burst healing:** an honest measurement: 8 of the day's 10 failures were burned attempts of health runs in the rebase window, the root was measured, not guessed
+- **DEX Task 70:** rail verification · an honest broadcast · the engine live on the real market · **RELAY-PATCH-2: the epoch spec adopted correctly** (allocated once per task, not per chain, safely cross-chain)
+- **Visuals:** a screenshot of a partner already in the repo (roast-79-economy-live.png), relevant to the strategy assets request
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+
+## 10.50 The ETH call + the fork-correction ready for signature (2026-09-12 03:55-04:24Z)
+
+### v78 THE ETH CALL: the gas request became official and broadcast
+- Following an owner directive, the network broadcast **an official gas request to all 11/11 org repos** (a dedicated broadcast file + an announcement on the agents channel + issue 003 in the issues ledger, owner-action · high · read-back OK)
+- **The amount was updated with a live gas measurement: ~$0.40 for 6 dark doors** (BSC · POL · Arbitrum · AVAX · xDAI · SKALE ≈$0.0003). For comparison: the v52 measurement said $0.94 for 7 doors; gas prices fell, the measurement was refreshed
+- Three ways to help listed in the request: a probe-first conversion from the liquidity · a direct deposit · a rail opening (the scanner fires on its own, measures every 60 seconds)
+- **The honest truth was sent with the request:** the DEX (measured) does not convert SOL/TRX to EVM gas · 10/10 external rails locked · the v72 authorization stands · gas weather: calm
+- **Internal:** destination address disclosed only in operator broadcast requests, not for publication.
+
+### JUMPPER: the fork-correction ready for signature
+- remedy.py encodes **all 8 forked heights and their 17 roots into 831 bytes** · the correction action is ready for signature: one custom_json, zero fee, POSTING authority
+- Exact status: **ready for signature, not yet broadcast** (the signing happens outside the system, by design). The arc: identified -> measured -> published -> fixed in code -> encoded for broadcast -> awaiting the signer
+
+### Parallel writing discipline: verified across the org
+The Task 73 honesty annex: the origin moved during the round (a partner pushed an r39 fleet audit) · the first push was rejected honestly · a clean rebase and a re-test before the second push. The same protocol as rule 6 in Adsmarket, applied independently by another agent. The culture is contagious in the right direction.
+
+## 10.51 The tenth pulse + the full claims audit + the ETH call (2026-09-12 03:49-05:56Z)
+
+- **The tenth pulse in the sequence:** the h25 and h26 cycles were broadcast (create-only completion) · the cyclical matrix is settling into a standing state, not an event
+- **r40 the truth sweep:** every page statement was checked against live APIs · **3 untruths found and fixed** · NVIDIA readiness (nvapi detection)
+- **r41 the full claims audit:** every claim submitted was re-checked against live measurement · the foundry gap was exposed and closed (create-only) · this is the exact org-side parallel of what the Adsmarket module does with the marketing material: the two systems keep the same doctrine
+- **r39 the live fleet audit:** 10 agents classified risks/advantages/status · the core repo stands (1032) · a financial permissions model
+- **v78 THE ETH CALL + r41-dex:** gas needed **~$0.40 for the 6 dark doors** (conversion/deposit/rail opening) · probe-first verified · zero actions until funded (the system does not waste and does not invent)
+- **JUMPPER FORK-CORRECTION:** the 8 forked heights and their 17 roots encode into 831 bytes in a single zero-fee correction anchor · decode_corrections: an independent decoder built after the documentation admitted none existed · verified
+- **steem R18x:** sustained stability · 21/22 honestly · a verified dual channel · zero partner actions since the 15:11 anchor (state reported as it is)
+- **Task 73 the honesty annex:** the first push was rejected because the origin moved (a partner pushed in parallel) · a clean rebase · the rejection was documented honestly instead of being overridden
+
+## 10.52 Canonical coin identity + the anchor metronome + the claims audit (06:00-06:30Z)
+
+### TOKEN DOSSIER (v77): one canonical source for the SAOS-M identity
+The owner directive ("why is there no comprehensive information about our coin") was answered: coin identity was scattered across 6+ rooms and two chains; there is now one canonical source (docs/TOKEN-DOSSIER.md + a dedicated room in the console + GET /api/saos/coin). The facts as measured:
+- **Identity:** SAOS-M · ticker SAOS · 18 decimals · **wSAOS wrapped 1:1 against a real deposit only (never minted directly)** · an internal policy price deliberately low (an owner decision; not shown in marketing material per rule 5) · an exchange fee of 20bps (10 treasury + 10 pool growth) · a swap cap of 5%
+- **Two home chains:** SAOS-NET (sovereign, height #25, 4 live seals) + SAOS-EVM (chainId 31337 · SAOSLedger 0x0715...be6D + SAOSExchange 0xC714...a8D4 · the ten-contract network saos-mesh/v4)
+- **Honest supply separation (the flagship):** the mint policy of 300,000 SAOS (73.3% soldiers + 26.7% development reserve) **has not been executed, zero ledger records, and this is declared as such** · by contrast, the exchange float is live and measured: 500,000 sovereignMint to HQ · 402,981.83 wSAOS minted against real deposits · 108 real swaps · 5 live pools (WTRX/WSOL/WETH/WBNB/WRXP × wSAOS) · measured backups (TRX 17.5992 · SOL 0.023981 · ETH · BNB · XRP)
+
+### The anchor metronome: ten consecutive cycles
+h17 to h26, every cycle a full matrix with anchor+intake on ETHEREUM and a receipt: h25 root 8f513865 (0x02648a90... block 25,958,268) · h26 root fe1679aa (block 25,958,483) · a four-element daily report format: state · evidence · plans · honesty
+
+### The claims audit became a network procedure (r40/r41)
+- **The truth sweep:** every page statement was checked against live APIs, **3 untruths found and fixed** (the KPI door, the lab statement, the live tag)
+- **CLAIMS AUDIT (platform):** every claim submitted to the owner was re-checked against live measurement · the foundry gap was exposed and closed create-only
+- The roast culture of the Adsmarket module was adopted as a procedure across the whole fleet: it is no longer one reviewer's tool
+
+### JUMPPER FORK-CORRECTION: ready for signature and verified
+The 8 split heights and their 17 roots encode into 831 bytes, one zero-fee correction action ready for signature · decode_corrections independent with 20 assertions on the real artifact · the ADOPTION document maps which specs were adopted and where "nobody is listening"
+
+### A coordination note
+The fleet broadcast archive (pulses h16-h25, daily reports, broadcasts/, COIN-DOSSIER) landed in Adsmarket per the broadcast convention (create-only): the repo now holds 115 files, of which ~70 are fleet archive files not owned by the marketing module and not edited by it
+
+## 10.53 The morning of the 12th: an honest conversion verdict from 60+ angles, the advisor in the loop, and the h27-h28 matrix (07:55-10:14Z)
+
+### R7 the conversion verdict: the approval was given, and the measurement said "no"
+- The owner approved attempting the conversion ("I approve if you manage to convert"). **The irrigation verdict flips honestly: the conversion was measured from 60+ live angles and was not completed** · 10/10 rails locked (Mayan/Allbridge return 000 · deBridge 404 · zero ERC-20 · stock below every minimum)
+- This is the flagship demonstration of the measurement culture: approval exists, will exists, and the system still reports "not completed" with every rail closed in measurement. No simulated conversion, no faked success
+- **SKALE down to the substance:** a new probe closes a cell v69 did not check · balance enforcement proven (-32004 insufficient funds at a nominal price) · **an ecosystem-level security finding: the official Europe faucet in the catalog (sfuel.mylilius.com) was caught with a Chinese VPN entrance and tracking beacons** · the true official faucet sits behind a Vercel checkpoint
+- A full live inventory census (72 eth_calls for tokens + 56 sFUEL checks) · the smallest action left to the owner: a 10-second free-faucet request in the browser
+
+### h27 + h28: the matrix in a persistent state, including honest failures
+- **h27 (the 11th cycle):** a seal anchored to SOLANA dual-source · **an ETH honest failure documented** (the gas gate closed it, not broadcast, reported)
+- **h28 (seal 12):** root `bce40d17...` · **SOL anchored for real: txid `56gWecZj...` slot 446,396,953, dual-source, CAS created** · ETH closed honestly in numbers (the balance below a third of a transaction) · seal-chain TRUE over 7 seals
+- **R6:** the provenance of h23 was proven on-chain (STEEM block 109,490,596) · the self-critique was documented
+- **roast-78:** the backup-protection floor (caught missing in the fifth-round audit, fixed)
+- Green gates: tsc 0 · lint 0 · **harness 654/654** · manifest 22×11+3=245 · zero secrets · zero force-push
+
+### v81 THE ADVISOR IN THE LOOP
+- **The second layer entered the decision cycle:** it is asked automatically before every significant irrigation (a 5m threshold) with frozen limits: drawdown only, up to 50% · a sacred stress line · **a verdict of 10 minutes maximum** (a time stamp in the DB, global truth across workers, measured live) · a 10-second timeout · a 429 failure = documented honesty
+- A live control-plane + a status panel + KPIs · keeper v44.2: kill lines split 1500/1790 after 4 live kernel kills (dmesg 1595-1728MB) · E2E: 12/12 DOM · mobile 375
+
+### Order and organization
+- **R19d (steem):** a full reorganization of the repository · 9 duplicates removed (cmp verified) · 8 reports filed under docs/reports · a noise file deleted
+- **JUMPPER patchwatch:** two checks re-calibrated (P-11 aimed at relay.ts instead of the xlock memos) · a finer patchwatch calibration for the 2 corrections in the module
+
+## 10.54 The R8 audit, the r42 integration, and an internal critical finding (10:30 to 11:08Z)
+
+- **R8 the eighth-round audit (the whole network, a shared trace):** a single break caught and fixed (jsonRpc without a timeout) · open-meteo logging · the broadcast verdicts landed in all the repos
+- **wallet r42:** the old-projects integration live and verified: the AxiomState code-brain (sync/query/bundle APIs + tools) · a rebase over 9 create-only reporting commits · pushed 7d06315
+- **Internal:** critical audit finding in two repos, fully handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
+- **Adsmarket status (coordination):** the parallel writer added broadcasts/ (about 30 pulse and roast reports), deck.html + deck/index.html (a presentation), developers/identity-api.md (API documentation), crisis-playbook.md, a claims audit and a coin report · this module scanned all of them: 4 clean of dashes, 2 purified (61 dashes in total) per the owner directive
+
+## 10.55 R9 THE ZERO BREAKTHROUGH: an EVM rail at zero gas, 7/7 seals at $0.00 (11:59-12:27Z)
+
+- **Z Chain (Zero Network, chainId 9369) measured live at full zero gas:** eth_gasPrice=0x0 · block ~34.5M · the anchoring protocol measured: the RPC gate enforces a selector list (0xa9059cbb passes, arbitrary ones are rejected) and the canonical payload is routed to an inert EOA
+- **7/7 seals actually anchored on Z Chain (h1, h23-h28):** seven maintenance transactions confirmed status 1 + byte-exact read-back (root `bce40d17...` · rail:zero) · effectiveGasPrice 0x0 · **total cost $0.00** · anchor-live-zero receipts ×7
+- **anchor-zero.ts + /api/saos/anchor/zero:** double fail-closed self-verification (derived <-> the fleet-head anchor constant <-> the live registry) · a live zero-gas gate: gasPrice>0 = a firm rejection · explorers: rpc.zero.tech + zscan.live/explorer.zero.tech · ChainGate extended with +ZERO
+- **v84 THE TWIN PARITY:** the v83 privacy statement became a running measurement: 401 deterministic vectors
+- **r29 (wallet):** the JUMPPER HIVE rail opened live (block 109,849,406 · stale-read-immune RC reading: max-of-nodes over 2 nodes)
+- **Marketing meaning:** the $0.94 door is no longer the only cheap route: a full EVM rail at zero cost now hosts all 7 seals. Network presence: 10 public networks
+- **Honest owner gaps (documented in the commit):** the cornerstone seed missing from the reconstructed shell (one upload) · STEEM WIFs stale since 117o · HIVE rc 7.29% below the 8% threshold
+
+## 10.56 THE SELF-HEALING FIELD, THE RUNNING EDGE, and an audit journal caught empty (17:16-19:08Z, an additive completion on top of v3.32)
+
+### v85 THE SELF-HEALING FIELD
+The owner's flag audit in a four-question format: true or false · fix · improve · streamline
+
+### v86 THE RUNNING EDGE
+The edge engine stops being a checklist item and becomes an actual runner: python/edge_runner does real work
+
+### R10 the vault heal + a names-only census
+- THE VAULT SELF-HEAL per an owner directive ("I sent the vault everything I have, check that everything is there")
+- vault-census.mjs: a names-only population census of all the vault chambers (GCM · members · keys) · vault details are internal per the disclosure policy
+
+### r32 the rollback forensics (details completed)
+The sandbox restore quietly rolled the database back about 36 hours · detected in forensics, fully restored, documented
+
+### The PATCH-SPEC honesty finding
+The AuditEvent table stood at **zero rows** while GateAction held **717** records: the audit trail was wired but empty. Caught by their own spec audit, and the handling is published. Another instance of derived-or-silence: a journal that was not written is a lie, and someone must check that it was really written
+## 11. Honest limits (what is not yet done: required in every material)
+
+- SAOS-NET token economics: not yet defined in the economics document (currently at stage S2, requires owner approval)
+- ETH bridge contracts and Solana software: ready in staging, deployment = an owner budget decision
+- Identity API: live and rate-limited, but publishing the SDK to the npm Registry and opening a public gateway = owner actions
+- Third-party audit: the package is bundled, the audit not yet performed
+- Economic scale: dust-scale today, the ceiling is technological, the economy is bootstrapping
+- JUMPPER live broadcast: requires an external seal + owner approval (by design)
+
+## 12. Independent verification links
 
 steemworld.org (Steem) · hiveblocks.com (Hive) · etherscan.io (ETH) · solscan.com (SOL) · tronscan.org (TRON)
-חשבון עוגן: @headcorner, סמכות active מאומתת מול RPC חי ב-Steem, Hive ו-Blurt (אותו מפתח)
+Anchor account: @headcorner, active authority verified against live RPC on Steem, Hive and Blurt (same key)
