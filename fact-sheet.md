@@ -1,6 +1,6 @@
 # SAOS Fact Sheet v2: the marketing source of truth
 
-> Full scan of the 12 repos · verification date: 2026-09-13 05:15Z (v3.34 · additive merge over v3.33)
+> Full scan of the 12 repos · verification date: 2026-09-13 06:30Z (v3.35 · additive merge over v3.34: §10.58)
 > **Exposure policy:** sections tagged internally as warning items are internal only, it is absolutely forbidden to derive marketing material from them. See disclosure-policy.md. · every item is backed by code, a measurement, or a chained receipt.
 > **New in v3:** the first developer product is live (Identity API + SDK) · live key rotation after a leak · platform v24 (anti-phishing guard).
 > **Corrections from v1:** HIVE live (stale-read bug fixed) · TRON: zero-fee rail live in the ecosystem · throughput: 32,603 tx/s measured on a real archive replay.
@@ -746,6 +746,29 @@ The AuditEvent table stood at **zero rows** while GateAction held **717** record
 
 ### INTERNAL, not for publication (disclosure policy)
 The R11/R12 KEYS-ACCESS event: a broadcast-borne exposure was remediated by full removal across 11 partner repos (33/33 files, zero failures) plus a stop order on the mechanism. Details stay internal; our public materials never contained the sensitive items (verified by our compliance sweeps).
+
+## 10.58 The money-bug sweep R16 + integration runner + death root-cause killed (05:00-06:30Z, additive merge)
+
+### R16 (DEX): four real money bugs closed in one sweep
+1. **Launch-curve double count: buyers received ~0.44x of the promised curve.** The virtual-quote term already included netIn, so every bonding-curve purchase was silently shortchanged by more than half. Found by the audit, fixed, and measured. This is the clearest example yet of why the roast cadence exists: a money bug that pays out wrong for weeks and still passes every happy-path test.
+2. **CoW allocator capped at order size** (an over-fill HALT vector closed structurally).
+3. **Double-mint closed**: chain-aware txid normalization (TRX hex lowercased, SOL base58 preserved) so one settlement can never be counted twice across differently-formatted ids.
+4. **Keeper-vs-route double payout closed**: bridge claims now take a disk lease ("claiming") across the network await, with a 90s crash lease so a dead claimant cannot block forever.
+- Also closed: reset-vs-boot-load race (pendingLoad) · repeg NaN filter · safe-sqrt for LP math · asset length cap · oracle nonce uniqueness · consoleGuard uniformity · fleet-vault derived pass (no plaintext beside ciphertext, dual-era reader) · db.ts no URL echo
+
+### platform v88 + R15 manifest
+- **v88 "the server fell": death root-cause killed.** The recurring crash traced to an ethers provider pointed at a dead lab chain (:8545); the provider path is removed, not patched around.
+- R15 manifest format fix: git blob-sha (hash-object) instead of raw sha1, content identical 11/11.
+
+### JUMPPER: the integration runner
+- **One runner that proves every bridge connects**: four bridges built, each verified end-to-end in a single pass.
+- Harness discipline continues: checks registered for integration and gatecompose (the harness goes RED on any uncovered module by design).
+
+### wallet r40: the invisible-data hunt
+- Six live-browser bugs fixed, including a Promise.all pattern that hid fast feeds behind slow ones (data existed but never rendered).
+
+### INTERNAL (not for publication, per disclosure policy)
+control-center R16: relay event-bus handshake auth (owner room + guest allowlist for chat/task/guard channels). Security-topology detail stays internal.
 
 ## 11. Honest limits (what is not yet done: required in every material)
 
