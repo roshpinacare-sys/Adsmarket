@@ -1,84 +1,91 @@
-# Identity Verification API · Reference and Integration Guide
+# Identity Verification API: reference and integration guide
 
-> Status, honestly: the SDK and the metered API are **live and dogfooded** (3/3 paths through the live API, zero mock data). Two owner actions stand between this and public self-serve: **npm publish** and a **public gateway URL**. Until then, integration works against a deployed instance (baseUrl you are given). Everything below is verified against the shipped code.
+For developers, exchanges, game studios, and frontend teams. Every fact here mirrors the shipped SDK (packages/saos-id-verify) and the live metered API it was captured from (2026-09-08, PROVEN against Steem block 109,389,994).
 
----
+## What the API proves
 
-## What it proves
+One question, one mathematical answer:
 
-One question, one mathematical answer: **do this Steem/Hive account and this EVM address belong to the same key?**
+> Do this Steem/Hive account and this EVM address belong to the same secp256k1 key?
 
-The verification chain, all read from the blockchain itself:
-1. The user's identity anchor (`saos.id.v1` custom_json) is fetched from the chain
-2. Its EIP-191 signature is recovered (ecrecover) to an elliptic point
-3. The point is matched against the account's **live active authority** on Steem and Hive, and against the claimed EVM address
+The proof is read from the chain itself, never from our database:
 
-No key ever touches the API. No KYC. No trust in us: the proof is re-readable by anyone from public chain state.
+1. The account's on-chain identity anchor (`saos.id.v1` custom_json) is fetched from the public chain
+2. Its EIP-191 signature is recovered (ecrecover) to an elliptic-curve point
+3. That point is matched against the account's LIVE active authority on each chain, and against the EVM address
 
-## Install
+If everything matches: `PROVEN`. If anything fails: `FAILED`, which is an honest, metered result, not an error. Nobody's keys are requested, stored, or seen at any point.
+
+## Availability (honest status)
+
+- The SDK is live in the repository: `packages/saos-id-verify`, zero dependencies, strict TypeScript, builds clean with declarations
+- `npm publish` and the public gateway are owner actions in progress. Until then, install from the repo (dist + README ship in the package)
+- The API itself is metered, key-authenticated, and dogfooded end to end: PROVEN path, FAILED path, and 401 path all executed through the SDK against the running service
+
+## Quickstart (3 lines)
 
 ```bash
-# npm publish is a pending owner action; install from the repo until then:
-# packages/saos-id-verify (dist + README included, zero runtime dependencies)
+npm i saos-id-verify        # active once published; today: install from repo
 ```
-
-Works on Node 18+, Bun, Deno, browsers, and edge runtimes. Plain fetch under the hood.
-
-## Quickstart
 
 ```ts
 import { verifyIdentity } from "saos-id-verify";
 
 const r = await verifyIdentity({
-  baseUrl: "https://<your-saos-gateway>",   // required; the client refuses to invent one
-  apiKey: process.env.SAOS_API_KEY!,
-  username: "someaccount"
+  baseUrl: "https://<your-saos-gateway>",   // required; the client refuses to invent an endpoint
+  apiKey: process.env.SAOS_API_KEY!,        // saos_live_… from the SAOS DEVELOPER console
+  username: "headcorner"
 });
 
 if (r.ok) {
-  console.log(r.meta.outcome);      // "PROVEN" | "FAILED"
-  console.log(r.anchor.block);      // chain block of the proof
-  console.log(r.anchor.explorer);   // open it yourself
+  console.log(r.meta.outcome);              // "PROVEN"
+  console.log(r.verify.sameScalarProof);    // the scalar-equivalence proof
+  console.log(r.anchor.block, r.anchor.explorer);
 }
 ```
 
-## Outcomes (honesty as a spec)
+API keys: created in the developer console, plaintext shown exactly once, only the SHA-256 is stored server-side.
 
-| Outcome | Meaning | Metered? |
+## Client form (reusable instance)
+
+```ts
+import { SaosIdentity } from "saos-id-verify";
+
+const client = new SaosIdentity({ baseUrl: "...", apiKey: "..." });
+const r = await client.verify("someaccount");
+if (r.ok) r.chains.forEach((c) => console.log(c.chain, c.sameKeyAsSteem));
+```
+
+Options: `timeoutMs` (default 30,000) and an injectable `fetch` for custom agents or edge runtimes.
+
+## Outcomes and errors
+
+| Result | Meaning | Metered |
 |---|---|---|
-| `PROVEN` | Full chain of proof: anchor found, signature recovered, live authority matched per chain | yes |
-| `FAILED` | **Real work performed, honest negative** (no anchor, or no active key match). Not an error. | yes |
-| `401 SaosAuthError` | Missing/invalid/revoked API key. Fail-closed. | no |
-| `429 SaosQuotaError` | Daily quota exhausted. `retryAt` = next UTC midnight. | no |
+| `r.ok === true`, outcome `PROVEN` | Full chain: anchor found, signature recovered, live authority matched per chain | yes |
+| `r.ok === false`, outcome `FAILED` | Real work happened and honestly failed (no anchor / no active key). Not an error | yes |
+| `SaosAuthError` (401) | Key missing, malformed, or revoked. Fail-closed | no |
+| `SaosQuotaError` (429) | UTC-day quota exhausted. `e.retryAt` = epoch seconds of next UTC midnight | no |
 
-Known honest edge: the 429 branch is coded to spec but has not been burned live (burning it costs 1,000 real calls).
+Every 200 response carries metering transparency: `r.meta.quota` (`used`, `limit`, `remaining`, `resetAt`), `r.rateLimit` (parsed from `X-RateLimit-*` headers), and `r.meta.latencyMs` (server-measured end to end).
 
-## Metering and security model
-
-- Quota: **1,000 calls per UTC day** per key
-- Every response carries `{used, limit, remaining, resetAt}` plus headers and measured latency
-- Server stores **only the SHA-256 of your API key**; the plaintext is shown once at creation
-- A full call ledger is kept server-side (auditability)
-- The client **refuses to guess a baseUrl**: no silent defaults, ever
+Known honest gap: the 429 branch is coded to spec but has not been live-burned (burning it costs 1,000 real calls). It is tested by construction, not yet by production.
 
 ## Integration patterns
 
-**Exchange / swap (deposit attribution):** before crediting a deposit that arrived from a Graphene account, call verify with the memo-sourced username and your custodial EVM address. `PROVEN` attributes the deposit cryptographically; `FAILED` routes to manual review. Cost: one metered call per attribution.
+**Game studio (sybil resistance):** before awarding airdrops or tournament seats, call `verify` on the player's claimed legacy account. One human, many wallets, still one key: duplicates collapse to the same proof. Cost per check: one metered call.
 
-**Game / anti-sybil:** gate airdrops or rewards behind a `PROVEN` per claimed identity. Multi-account farming dies when every claim must match a live on-chain authority.
+**Exchange / swap (deposit attribution):** deposits arriving from Graphene accounts have no EVM memo standard. Verify the depositor's account-to-address binding once, then attribute with math instead of support tickets.
 
-**Content frontend ("prove you are @account"):** one call replaces password auth for legacy Graphene users; they never expose keys, you never store passwords.
+**Frontend / community (login-ish flows):** "prove you are @account" without OAuth, without custody, without a password reset flow. The chain is the identity provider; the API just reads it.
 
-## Verify us (do this, please)
+## What this is not
 
-Every `PROVEN` response includes `anchor.block` and `anchor.explorer`. Open the explorer link, find the `saos.id.v1` custom_json, recover the signature yourself with any EIP-191 tool, and compare the recovered point with the account's active authority via any public API node. The reference live proof: **PROVEN against Steem block 109,389,994**.
+- Not a wallet-connect: no signing sessions, no key handling
+- Not custodial: nothing is held, moved, or escrowed
+- Not an oracle: it proves identity binding, not prices
+- Not magic: an account with no on-chain anchor returns FAILED, honestly and permanently, until anchored
 
-## What this API is not
+## Verification (trust nothing here either)
 
-- Not custody, not a wallet, not a transfer rail
-- Not a KYC provider: it proves key control, nothing about identity documents
-- Not a mock: there is no demo mode; every test path ran against the live API
-
----
-
-*SAOS is technology infrastructure in active development. Nothing here is investment advice. Source of truth for all numbers: fact-sheet.md in this repository.*
+The types mirror the live API byte-for-byte as captured on 2026-09-08. The PROVEN fixture references a real block (109,389,994) you can open in any Steem explorer. The dogfood script (`tools/m1-w2-sdk-dogfood.ts`) runs all three paths against the live metered API. Run it, or ask us to run it on a call. Receipts over promises applies to our own SDK too.
