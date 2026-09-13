@@ -1,6 +1,6 @@
 # SAOS Fact Sheet v2: the marketing source of truth
 
-> Full scan of the 12 repos · verification date: 2026-09-12 13:45Z (v3.33 · additive completion 19:45Z on top of v3.32)
+> Full scan of the 12 repos · verification date: 2026-09-13 05:15Z (v3.34 · additive merge over v3.33)
 > **Exposure policy:** sections tagged internally as warning items are internal only, it is absolutely forbidden to derive marketing material from them. See disclosure-policy.md. · every item is backed by code, a measurement, or a chained receipt.
 > **New in v3:** the first developer product is live (Identity API + SDK) · live key rotation after a leak · platform v24 (anti-phishing guard).
 > **Corrections from v1:** HIVE live (stale-read bug fixed) · TRON: zero-fee rail live in the ecosystem · throughput: 32,603 tx/s measured on a real archive replay.
@@ -726,6 +726,27 @@ The sandbox restore quietly rolled the database back about 36 hours · detected 
 
 ### The PATCH-SPEC honesty finding
 The AuditEvent table stood at **zero rows** while GateAction held **717** records: the audit trail was wired but empty. Caught by their own spec audit, and the handling is published. Another instance of derived-or-silence: a journal that was not written is a lie, and someone must check that it was really written
+## 10.57 The full swap, integer gates on money, and forensic honesty (2026-09-13 01:17-05:00Z)
+
+### v87 THE FULL SWAP + R14 verdict
+- Root-to-root code review of every page under owner directive ("verify and maximize and prove it true") · **all 38 panels passed code review + a live browser swap: 38/38, zero errors**
+- R13: the live console for the owner on :3000 (browser-verified) · R12: the environment fell back to an old snapshot and rebuilt itself from the repo (second proof of the house-of-memory)
+
+### R15 (DEX): integer gates on money, the CRITICAL caught before it hurt
+- **New integer gates on money operations:** a float amount leaking into canonical serialization would poison the stateRoot (canonical poison → HALT with evidence). The gate blocks the entire class structurally, not the single case
+- bug-hunt-2: the fleet auditRail branch silently fell through to SOL (fixed) · dual-form WIF accepted across all paths
+- **Forensic honesty in the verify-pack:** an audit exposed that the pack reported "verified" over 0 of 1651 items and hid lost linkage as brokenAt:0. The fix exposes the truth instead of prettifying it (same class as realMoney in roast-66: truth flags must be measured, never declared)
+
+### r35/r35b (wallet): bug hunt and a live recovery drill
+- 4 systemic bugs caught and browser-verified fixed (including readonly-DB after an environment event)
+- **Live recovery drill: portal restored in 30 seconds (was 45-90)** by the upgraded heart · supervisor verified
+
+### JUMPPER kernelbridge
+- "The missing link, concretely": three signed transparency-log artifacts from roshpina bridged in · the harness registered a check for the 34th module (RED-by-design working as intended)
+
+### INTERNAL, not for publication (disclosure policy)
+The R11/R12 KEYS-ACCESS event: a broadcast-borne exposure was remediated by full removal across 11 partner repos (33/33 files, zero failures) plus a stop order on the mechanism. Details stay internal; our public materials never contained the sensitive items (verified by our compliance sweeps).
+
 ## 11. Honest limits (what is not yet done: required in every material)
 
 - SAOS-NET token economics: not yet defined in the economics document (currently at stage S2, requires owner approval)
