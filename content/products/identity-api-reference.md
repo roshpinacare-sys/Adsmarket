@@ -1,105 +1,114 @@
-# Identity Verification API: reference & integration guide
+# Identity Verification API: reference and integration guide
 
-Status: live and metered inside the sovereign platform. Public gateway and npm registry publication are pending owner actions; until then the SDK installs from the repository (dist + README included, build green). This document is written so an integration engineer can ship against it in under an hour.
+> Status, honestly: the API runs and is metered inside the system; the SDK is live in the repo and dogfooded end to end. **npm publication and a public gateway are pending owner actions.** Everything below describes the shipped code, byte-for-byte against the live API as captured 2026-09-08.
 
----
+## What it proves
 
-## What it answers
+One question, one mathematical answer: **does this legacy Steem/Hive account and this EVM address belong to the same key?**
 
-One question, one mathematical answer:
+The proof is read from the chain itself, never from our word:
 
-> Does the Steem/Hive account `@username` belong to the same secp256k1 key as a given EVM address?
+1. The account published an identity anchor on-chain (`saos.id.v1` custom_json, one time)
+2. The service recovers the signer from the anchor's EIP-191 signature (ecrecover to an elliptic point)
+3. The point is matched against the account's **live** active authority on each chain, and against the EVM address
 
-The proof is read from the chains themselves, not from our database:
+No key material ever touches the service. No KYC. No trust in us: every step is reproducible from public chain state.
 
-1. The user's identity anchor (`saos.id.v1` custom_json) is fetched from the chain. The user published it once, with their own active key.
-2. The EIP-191 signature inside it is recovered (ecrecover) to an elliptic-curve point.
-3. That point is matched against the LIVE active authority of the account on Steem and Hive, and against the claimed EVM address derivation.
-
-All three must agree. The answer is PROVEN with evidence, or FAILED with the reason. A negative answer is an honest metered result, not an error.
-
-## Endpoint
-
-```
-POST {baseUrl}/api/v1/identity/verify
-Authorization: Bearer <apiKey>
-Content-Type: application/json
-
-{ "username": "headcorner" }
-```
-
-`baseUrl` is mandatory by design: the SDK refuses to invent an endpoint. Keys are stored server-side as SHA-256 only; the plaintext is shown exactly once at creation.
-
-## Responses
-
-| Outcome | Meaning | Counted in quota |
-|---|---|---|
-| `PROVEN` | Full chain of proof: anchor found, signature recovered, live authority matched on each chain | yes |
-| `FAILED` | Real work performed, honest negative (no anchor, no active key, mismatch). Includes the reason | yes |
-| 401 `SaosAuthError` | Missing, invalid, or revoked API key. Fail-closed | no |
-| 429 `SaosQuotaError` | Daily quota exhausted (1,000 calls per UTC day). `retryAt` = next midnight UTC | no |
-
-Every response carries metering transparency: `{ used, limit, remaining, resetAt }` plus headers and measured latency. Each call is written to an append-only ledger.
-
-Response shape (success):
-
-```json
-{
-  "ok": true,
-  "meta": { "outcome": "PROVEN", "latencyMs": 812, "used": 41, "limit": 1000, "remaining": 959, "resetAt": "..." },
-  "anchor": { "block": 109389994, "txid": "...", "explorer": "https://steemworld.org/tx/..." },
-  "chains": { "steem": { "matched": true }, "hive": { "matched": true } },
-  "evm": { "address": "0x..." }
-}
-```
-
-## SDK (zero dependencies)
+## Install
 
 ```bash
-# until npm publication (owner action in progress): install from the repo
-npm i saos-id-verify        # activates on registry publication
+npm i saos-id-verify        # active once published to the registry
+# until then, from the repo:
+git clone <saos repo> && cd Saosmartwallet/packages/saos-id-verify && npm i && npm run build
 ```
+
+Zero dependencies. Plain fetch. Runs on Node 18+, Bun, Deno, browsers, and edge runtimes.
+
+## Quickstart (3 lines)
 
 ```ts
 import { verifyIdentity } from "saos-id-verify";
 
 const r = await verifyIdentity({
-  baseUrl: process.env.SAOS_BASE_URL!,
-  apiKey: process.env.SAOS_API_KEY!,
-  username: "someaccount",
+  baseUrl: "https://<your-saos-gateway>",   // required; the client refuses to invent an endpoint
+  apiKey: process.env.SAOS_API_KEY!,        // saos_live_... from the DEVELOPER console
+  username: "headcorner"
 });
 
-if (r.ok && r.meta.outcome === "PROVEN") {
-  // r.anchor.block, r.anchor.explorer, r.chains, r.evm.address
-} else {
-  // FAILED is a real answer: handle it, don't retry blindly
+if (r.ok) {
+  console.log(r.meta.outcome);            // "PROVEN"
+  console.log(r.verify.sameScalarProof);  // the math result
+  console.log(r.anchor.block, r.anchor.explorer);
 }
 ```
 
-Runs on Node 18+, Bun, Deno, browsers, and edge runtimes. Plain fetch, no polyfills. Live-proven end to end (PROVEN vs Steem block 109,389,994; the FAILED path metered as real work; 401 fail-closed verified). The 429 branch is coded to spec; burning it live would cost a real 1,000 calls, so it stays lab-verified until organic traffic reaches it.
+## Client form (reuse across calls)
 
-## Integration patterns
+```ts
+import { SaosIdentity } from "saos-id-verify";
 
-### Exchange: attributing Graphene deposits
-On each inbound STEEM/HIVE transfer with a memo, call verify on the sender account. PROVEN binds the deposit to an EVM address the user controls; credit accordingly. FAILED routes to manual review. No custody of user keys at any point.
+const client = new SaosIdentity({ baseUrl, apiKey, timeoutMs: 30_000, fetch: customFetch });
+const r = await client.verify("someaccount");
 
-### Game: sybil resistance
-Require a PROVEN result linking the game wallet to a Steem/Hive account with real history (account age and reputation come free with the anchor). One human, many alts, collapses: each alt needs its own aged chain identity.
+if (r.ok) {
+  for (const c of r.chains) console.log(c.chain, c.sameKeyAsSteem);
+} else {
+  console.error("not proven:", r.error, r.meta?.outcome);
+}
+```
 
-### Frontend: "prove you are @account"
-One-click proof for community apps, airdrops, governance snapshots. The user signs nothing new at verification time; the anchor was published once, and every verifier re-reads it from the chain.
+Options: `timeoutMs` (default 30000), `fetch` (injectable for custom agents or edge runtimes).
 
-## Operational notes
+## Outcomes (the honesty table)
 
-- Rate budget: design for the quota. Batch verification jobs should queue, not burst; on 429 read `retryAt` and back off to it.
-- Caching: anchors are immutable chain data. Cache PROVEN results keyed by (username, anchor.block). Re-verify on authority changes if your risk model needs it (the API always reads live authorities, so a fresh call reflects chain state).
-- Privacy: the API never asks for, receives, or stores private keys. Neither should your integration. If a user offers you a key "to verify," that is a red flag on their side and a liability on yours.
-- Honesty contract: FAILED is metered because real chain reads happened. We do not hide negatives or fake positives; design your UX for both outcomes.
+| Result | Meaning | Metered? |
+|---|---|---|
+| `r.ok === true`, outcome `PROVEN` | Full proof chain: on-chain anchor, EIP-191 recovery, live active-authority match per chain | Yes |
+| `r.ok === false`, outcome `FAILED` | **Real work happened and honestly failed** (no anchor, or no active key match). Not an error. | Yes |
+| `SaosAuthError` (401) | Key missing, malformed, or revoked. Fail-closed. | No |
+| `SaosQuotaError` (429) | UTC-day quota exhausted. `e.retryAt` = epoch seconds of next UTC midnight | No |
 
-## What this is NOT
+Every 200 response carries metering transparency:
 
-Not a login session manager (yet; automated login/recovery is on the documented roadmap). Not a funds-movement API. Not a KYC provider: it proves key control, nothing about real-world identity. Not published to npm at the time of writing; the registry install line activates the moment the owner publishes, and this document will say so.
+- `r.meta.quota`: `{ used, limit, remaining, resetAt }` from the metering ledger
+- `r.rateLimit`: parsed `X-RateLimit-Limit / Remaining / Reset` headers
+- `r.meta.latencyMs`: server-measured end-to-end latency
 
----
+## API keys
 
-*Every claim above traces to the shipped SDK README, the platform's metering code, or live verification runs. Corrections welcome through the usual channels: if this document ever disagrees with the chain, the chain wins and we fix the document publicly.*
+Created in the SAOS DEVELOPER console. Format: `saos_live_...`. The plaintext is shown **exactly once**; only its SHA-256 is stored server-side. Revocation is immediate and fail-closed (401 on next call).
+
+## Error handling that respects the design
+
+```ts
+import { verifyIdentity, SaosAuthError, SaosQuotaError } from "saos-id-verify";
+
+try {
+  const r = await verifyIdentity({ baseUrl, apiKey, username });
+  if (r.ok) grantAccess(r.chains);           // PROVEN: act on it
+  else logHonestFailure(r.meta?.outcome);    // FAILED: real work, honest no
+} catch (e) {
+  if (e instanceof SaosQuotaError) scheduleRetry(e.retryAt * 1000);
+  else if (e instanceof SaosAuthError) alertOperator("key rejected, fail-closed");
+  else throw e;
+}
+```
+
+Note the asymmetry by design: `FAILED` is a **result** (and metered, because chain reads happened), while 401/429 are **errors** (and not metered, because no work was done).
+
+## Integration patterns (what the first partners will use it for)
+
+1. **Sybil resistance for games and airdrops (Hive/Steem ecosystems):** one legacy account, one reward identity. Prove account-to-EVM linkage before counting a participant twice.
+2. **Deposit attribution for exchanges:** incoming Graphene-side activity tied to a user's EVM identity without custodial bridging.
+3. **Frontend authentication for community apps:** "I am really @account" verified against live chain authorities, no password ever seen by your backend.
+
+## What it does NOT do (scope, honestly)
+
+- Not a wallet connect; no signing, no custody, no fund movement
+- Not a KYC provider; it proves key linkage, not personhood
+- The XRP derivation path is marked declared-not-verified (published gap); EVM and Solana derivations are exact-verified
+- A FAILED result does not mean the account is fake; it means the anchor or authority match is absent **right now**
+
+## Provenance
+
+Types mirror the live API byte-for-byte as captured 2026-09-08. Live proof points: PROVEN against Steem block 109,389,994; FAILED against an unanchored account (honest metering); 401 fail-closed. The package is dogfooded against the running metered API by its own test tooling (3/3 paths). The 429 branch is coded to spec and pinned by tests, not yet burned in production (burning it costs 1,000 real calls; we say so instead of implying otherwise).
