@@ -1,6 +1,6 @@
 # SAOS Fact Sheet v2: the marketing source of truth
 
-> Full scan of the 12 repos · verification date: 2026-09-13 06:30Z (v3.35 · additive merge over v3.34: §10.58)
+> Full scan of the 12 repos · verification date: 2026-09-13 06:30Z (v3.36 · additive claims refresh over v3.35, audited live 2026-09-13 ~16:30Z: §1 named network list · §2 current bench · §8 live fleet re-measure)
 > **Exposure policy:** sections tagged internally as warning items are internal only, it is absolutely forbidden to derive marketing material from them. See disclosure-policy.md. · every item is backed by code, a measurement, or a chained receipt.
 > **New in v3:** the first developer product is live (Identity API + SDK) · live key rotation after a leak · platform v24 (anti-phishing guard).
 > **Corrections from v1:** HIVE live (stale-read bug fixed) · TRON: zero-fee rail live in the ecosystem · throughput: 32,603 tx/s measured on a real archive replay.
@@ -9,6 +9,8 @@
 
 **SAOS is a sovereign operating system: a deterministic state machine (SAOS-NET) whose security is rented from 7 public networks, with a structurally-enforced economic engine, an autonomous agent fleet, and products (wallet, notary, DEX) that pay for everyone.**
 
+The 7 rented public networks, named so anyone can verify the count: **STEEM · HIVE · BLURT** (Graphene) · **TRON** (TVM) · **ETHEREUM · SOLANA** (EVM/SVM) · **XRPL**, each with a live receipt in sections 3, 10.19 and 10.30.
+
 Not "another blockchain". Not a bridge. **Sovereign Notarized Ledger**, sovereignty with receipts.
 
 ## 2. The core: SAOS-NET (measured)
@@ -16,8 +18,8 @@ Not "another blockchain". Not a bridge. **Sovereign Notarized Ledger**, sovereig
 | Metric | Value |
 |---|---|
 | Chain height | **133,259+ blocks** (live after a planned fork @130,000, 4 buggy economic kernels fixed + conservative anti-poison/fork guards) · grew from 74,907 within ~8 hours |
-| Mechanism throughput | **32,603 tx/s**, 65,238 real archive transactions in 2,001ms (measured 2026-09-07) |
-| Mechanism ceiling | ~2.82 billion tx/day (theoretical, always labeled as such) |
+| Mechanism throughput | **722,251 tx/s** (measured 2026-09-12: kernel applyTx replay of real archive txs on cloned state; earlier bench: 32,603 tx/s on 2026-09-07) |
+| Mechanism ceiling | ~62.4 billion tx/day at the measured 2026-09-12 bench rate (extrapolated mechanism ceiling, always labeled as such; the sustained-live trade rate is economy/budget-bound and reported separately) |
 | DEX kernel | 26,490 ops/sec measured (separate bench of the DEX engine) |
 | Live block (DEX) | 3 seconds · seal every 12 · stateRoot = sha256(canonical) = bytes32 native to the EVM |
 
@@ -71,7 +73,7 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 
 ## 8. The fleet and the autonomous workforce
 
-- **13/13 soldiers live on Steem** (get_accounts verified 2026-09-08): @headcorner + 11 members + @powerspan
+- **13 accounts on Steem, live** (get_accounts verified 2026-09-08): the commander @headcorner + 12 soldiers (11 members + @powerspan). Live re-measure 2026-09-13: **12/12 soldiers above the RC floor (>10%)** on the public fleet dashboard (the soldier roster tracks the 12 non-commander accounts; the commander is verified separately by the identity-anchor verifier)
 - **23 autonomous operation loops** under a single beat.lock (zero file-races), claims, curation, trading, bridging, healing, sweeping
 - **fleet registry**: 12 agents × EVM(7 networks)+TRON+SOL+BTC · manifest anchored on-chain (`9f593bdc...`) · identical EVM identities across all networks → CREATE2-ready
 - **planned threshold**: 7/11 for releases (EIP-712) · EIP-191 glass intents + gas-tank
