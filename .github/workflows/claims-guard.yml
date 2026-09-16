@@ -45,25 +45,25 @@ jobs:
 
           # 2) סריקת גליפים אסורים: אימוג'י, חצים, דינגבטים, מקפים טיפוגרפיים
           GLYPHS="$(python3 - <<'PY'
-import glob
-FORBIDDEN=[(0x2013,0x2015),(0x2190,0x21FF),(0x2600,0x27BF),(0x2B00,0x2BFF),(0x1F000,0x1FAFF),(0xFE0F,0xFE0F)]
-total=0
-pats=['*.html','*.md','onepager/*.html','deck/*.html','content/*.html']
-for pat in pats:
-    for p in glob.glob(pat):
-        try:
+          import glob
+          FORBIDDEN=[(0x2013,0x2015),(0x2190,0x21FF),(0x2600,0x27BF),(0x2B00,0x2BFF),(0x1F000,0x1FAFF),(0xFE0F,0xFE0F)]
+          total=0
+          pats=['*.html','*.md','onepager/*.html','deck/*.html','content/*.html']
+          for pat in pats:
+              for p in glob.glob(pat):
+                  try:
             text=open(p,encoding='utf-8',errors='replace').read()
-        except Exception:
+                  except Exception:
             continue
-        for ch in text:
+                  for ch in text:
             cp=ord(ch)
             for a,b in FORBIDDEN:
                 if a<=cp<=b:
                     total+=1
                     break
-print(total)
-PY
-)"
+          print(total)
+          PY
+          )"
           if [ "$GLYPHS" -gt 0 ]; then VERDICT="FAIL"; REASON="$GLYPHS forbidden glyphs in marketing files"; fi
 
           # 3) קישורים חיים - קישור מת של הרשת שלנו הוא כשל; קישור חיצוני מת מדווח
@@ -87,23 +87,23 @@ PY
 
           mkdir -p agent
           cat > agent/status.json <<EOF
-{
- "agent": "claims-guard",
- "generatedAt": "$NOW",
- "verdict": "$VERDICT",
- "checks": {
-  "landingPages": $PAGES,
-  "pagesMissingCloseTag": $CLOSED,
-  "forbiddenGlyphs": $GLYPHS,
-  "linksChecked": $TOTAL_L,
-  "linksAlive": $OK_L,
-  "ownNetworkDeadLinks": $OWN_DEAD,
-  "externalDeadLinks": $EXT_DEAD,
-  "receiptMentions": $RECEIPTS
- },
- "reason": "$REASON"
-}
-EOF
+          {
+           "agent": "claims-guard",
+           "generatedAt": "$NOW",
+           "verdict": "$VERDICT",
+           "checks": {
+            "landingPages": $PAGES,
+            "pagesMissingCloseTag": $CLOSED,
+            "forbiddenGlyphs": $GLYPHS,
+            "linksChecked": $TOTAL_L,
+            "linksAlive": $OK_L,
+            "ownNetworkDeadLinks": $OWN_DEAD,
+            "externalDeadLinks": $EXT_DEAD,
+            "receiptMentions": $RECEIPTS
+           },
+           "reason": "$REASON"
+          }
+          EOF
           git config user.name "claims-guard[bot]"
           git config user.email "claims-guard[bot]@users.noreply.github.com"
           git add agent/status.json
