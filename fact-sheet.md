@@ -31,7 +31,7 @@ Not "another blockchain". Not a bridge. **Sovereign Notarized Ledger**, sovereig
 | **HIVE** | **live, 21 anchors in 22 hours verified** | custom_json · effective RC 73.2M | [d4cf936b...](https://hiveblocks.com/tx/d4cf936b0b5e1eff8dcc8a508532f67c95682bd5) · block range 109,708,562-109,734,678 |
 | **ETHEREUM** | live, mainnet | EIP-1559 calldata | [0x102ec193...](https://etherscan.io/tx/0x102ec1935be6cb3ff3acc20189a85377cf57486515f3121472c6611b20e0ef41) block 25,929,261 |
 | **SOLANA** | live, mainnet-beta | SPL Memo v2 | [2M1rkRgg...](https://solscan.com/tx/2M1rkRggRcaePk6vMZpgSaM3WVWQU92RZAs1v7PtNeMLsxLmZoqBNCeEtuY7Rkj5aPbs4jS1g2wUQXCnoejUM2M9) |
-| **TRON (ecosystem)** | **live, zero net fee** | bit encoding in transfer memos, ring of 6 addresses | cp#33612 → txid `1db5006b...` @ block 86,019,974 · 6/6 addresses measured |
+| **TRON (ecosystem)** | **live, zero net fee** | bit encoding in transfer memos, ring of 6 addresses | cp#33612 -> txid `1db5006b...` @ block 86,019,974 · 6/6 addresses measured |
 | **TRON (DEX relay)** | armed · waiting on 0.3 TRX | derived identity + extra_data | shown honestly in the UI |
 | **BLURT** | **live, first anchor broadcast and verified** | canonical low-s signature · anchor-pulse | block **63,502,020** · fee 0.129 BLURT · STEEM in the same pulse: blocks 109,438,757 + 109,438,812 |
 
@@ -43,7 +43,7 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 
 ## 5. The atomic clock (Foundry): documented measurement 2026-09-08T02:04Z
 
-- Head-state of **6 heterogeneous networks** (Graphene×3 · TVM · EVM · SVM) → **one 32B Merkle root**
+- Head-state of **6 heterogeneous networks** (Graphene×3 · TVM · EVM · SVM) -> **one 32B Merkle root**
 - keyless · $0.00 · zero transactions · zero signatures · read-only at the machine level
 - computation **15.9ms** · verifying 5 proofs **6.8ms** · proof size **435B JSON / 160B raw**
 - documented run: root `0896c3c6...` · witnesses: STEEM #109,307,680 · HIVE #109,722,158 · TRON #86,063,739 · ETH #25,929,640 · SOL #445,219,905 (BLURT honestly omitted, endpoint unreachable)
@@ -53,7 +53,7 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 
 - **$0.0000081 per notary record** (batch of 10,000 claims · 1 gwei · ETH $2,500), measured, not estimated
 - a gas model that matches a real mainnet transaction **to the wei**: 30,920 gas · 32,493,358,294,280 wei · block 25,929,672 (including the EIP-7623 correction: a calldata floor of 40 gas per non-zero byte)
-- payload compression: 250B → **51B** (-79.6%), round-trip proven
+- payload compression: 250B -> **51B** (-79.6%), round-trip proven
 - 77/77 tests green from a fresh clone · golden vectors for cross-language ports
 - 3 verification tiers: self-verify (zero network) · API · on-chain
 - signing always happens outside the system, no private key ever touches the server
@@ -65,7 +65,7 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 |---|---|
 | Public rejection counters | **383,836** edge skips · **130,499** rejections · 109,919µ leakage measured and settled |
 | Trading and PnL | 5,606 trades · **9,935,250µ** cumulative PnL to the treasury · 282 trades today · per-soldier PnL (wog +163,295µ) |
-| Backed floor ladder | 9 steps · every step with an exact µ backup in the records · ≤0.5% per step · floor 0.01688→0.017567 |
+| Backed floor ladder | 9 steps · every step with an exact µ backup in the records · ≤0.5% per step · floor 0.01688->0.017567 |
 | Fees | 30bps · 70% LP / 30% treasury · harvest rail with a public txid (`1d148959...`) |
 | Wrappers | **20 assets · supply==locked as an invariant** · mint cites the locking txid (WSTEEM `2ad481ac...`) · 9 TRC20 contracts verified live on TRON · mint-coverage ≤99% enforced |
 | DEX | order book with full escrow · fills at maker price · autonomous arena of 4 quoters · measured spread 12-82bps |
@@ -75,7 +75,7 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 
 - **13 accounts on Steem, live** (get_accounts verified 2026-09-08): the commander @headcorner + 12 soldiers (11 members + @powerspan). Live re-measure 2026-09-13: **12/12 soldiers above the RC floor (>10%)** on the public fleet dashboard (the soldier roster tracks the 12 non-commander accounts; the commander is verified separately by the identity-anchor verifier)
 - **23 autonomous operation loops** under a single beat.lock (zero file-races), claims, curation, trading, bridging, healing, sweeping
-- **fleet registry**: 12 agents × EVM(7 networks)+TRON+SOL+BTC · manifest anchored on-chain (`9f593bdc...`) · identical EVM identities across all networks → CREATE2-ready
+- **fleet registry**: 12 agents × EVM(7 networks)+TRON+SOL+BTC · manifest anchored on-chain (`9f593bdc...`) · identical EVM identities across all networks -> CREATE2-ready
 - **planned threshold**: 7/11 for releases (EIP-712) · EIP-191 glass intents + gas-tank
 - RPC discipline: 5 loops = one call per 15s window · DRY_RUN as default · keys never leave the machine
 
@@ -99,7 +99,7 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 | Component | Verified facts |
 |---|---|
 | The API | `POST /api/v1/identity/verify`, API keys (only the SHA-256 is stored, plaintext shown once) · quota of 1,000 calls per UTC day · a ledger of every call · transparent headers |
-| What it proves | that a Steem/Hive account and an EVM address belong to the same secp256k1 scalar, on-chain `saos.id.v1` anchor → EIP-191 ecrecover → live per-chain active-authority match |
+| What it proves | that a Steem/Hive account and an EVM address belong to the same secp256k1 scalar, on-chain `saos.id.v1` anchor -> EIP-191 ecrecover -> live per-chain active-authority match |
 | Live proof | PROVEN against Steem block **109,389,994** · the FAILED path (unanchored account) counted as a real measurement · 401 fail-closed |
 | The SDK | `saos-id-verify` (npm), **zero dependencies**, plain fetch · Node≥18 / Bun / Deno / browsers / edge · dogfooded live on 3/3 paths |
 | Honest limit | the 429 branch is coded per provider but not burned live (it would cost 1,000 real calls) · `npm publish` itself is an owner operation · baseUrl required, the client refuses to invent an endpoint |
@@ -735,7 +735,7 @@ The AuditEvent table stood at **zero rows** while GateAction held **717** record
 - R13: the live console for the owner on :3000 (browser-verified) · R12: the environment fell back to an old snapshot and rebuilt itself from the repo (second proof of the house-of-memory)
 
 ### R15 (DEX): integer gates on money, the CRITICAL caught before it hurt
-- **New integer gates on money operations:** a float amount leaking into canonical serialization would poison the stateRoot (canonical poison → HALT with evidence). The gate blocks the entire class structurally, not the single case
+- **New integer gates on money operations:** a float amount leaking into canonical serialization would poison the stateRoot (canonical poison -> HALT with evidence). The gate blocks the entire class structurally, not the single case
 - bug-hunt-2: the fleet auditRail branch silently fell through to SOL (fixed) · dual-form WIF accepted across all paths
 - **Forensic honesty in the verify-pack:** an audit exposed that the pack reported "verified" over 0 of 1651 items and hid lost linkage as brokenAt:0. The fix exposes the truth instead of prettifying it (same class as realMoney in roast-66: truth flags must be measured, never declared)
 

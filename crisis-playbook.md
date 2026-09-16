@@ -32,10 +32,10 @@ Never silently edit a wrong claim. The correction is the asset.
 
 ## Standing answers for hard moments
 
-- "Did you get hacked?" → "We don't discuss specific operational events; that is itself the security policy. Here is the doctrine that governs keys: [press-kit answer]."
-- "Your numbers changed." → "Numbers are dated snapshots by policy. Here is the measurement date and the current one: [fact-sheet]."
-- "You published something false." → "Yes. Here is the correction, the evidence, and the rule that prevents the repeat: [correction template]."
-- "Is the system down?" → status truth only: what is measured, since when, what is being done. Never "everything is fine" without a fresh measurement.
+- "Did you get hacked?" -> "We don't discuss specific operational events; that is itself the security policy. Here is the doctrine that governs keys: [press-kit answer]."
+- "Your numbers changed." -> "Numbers are dated snapshots by policy. Here is the measurement date and the current one: [fact-sheet]."
+- "You published something false." -> "Yes. Here is the correction, the evidence, and the rule that prevents the repeat: [correction template]."
+- "Is the system down?" -> status truth only: what is measured, since when, what is being done. Never "everything is fine" without a fresh measurement.
 
 ## After-action (within 48h)
 

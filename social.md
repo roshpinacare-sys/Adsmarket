@@ -71,7 +71,7 @@ When the refusals are visible, profitability is a protocol property, not a dashb
 **9 · TRON at zero net (X, Hebrew)**
 How do you anchor a checkpoint on TRON without paying anything?
 You encode the hash bits into transfer amounts inside a ring of 6 addresses, so that the net comes out to zero.
-cp#33612 → txid 1db5006b… @ block 86,019,974. All 6 ring addresses measured.
+cp#33612 -> txid 1db5006b… @ block 86,019,974. All 6 ring addresses measured.
 Noble plumbing. It works. On mainnet.
 
 **10 · A triple receipt for one mint (Telegram, Hebrew)**
@@ -250,7 +250,7 @@ EN: Steal one of our keys and you get nothing. Fund release requires 7-of-11 sig
 **L13 · The economy that burns itself (X, Hebrew + EN)**
 Every 600 blocks one fixed thing happens: 40% of the profits buy back from the pool, and burn.
 Not a "future buyback plan". Deterministic code inside block-building itself, capped by measured profit only: no real profit, no burn. No printing.
-Another 40% go to the ve voters, and 20% to the treasury. Dynamic fees by volume (4-1500bps, measured live: 30→44).
+Another 40% go to the ve voters, and 20% to the treasury. Dynamic fees by volume (4-1500bps, measured live: 30->44).
 Deflation is not a promise. It is a function.
 
 EN: Every 600 blocks, one thing always happens: 40% of profits buy back from the pool, and burn. Not a "future buyback plan." Deterministic code inside block-building itself, capped by measured profit, no real profit, no burn, no printing. ve(3,3) economics as a function, not a promise.
@@ -280,7 +280,7 @@ EN: Sandwich attacks need a queue. Our market doesn't have one, every order in a
 Three live proofs from the night, with heights:
 1. An asset was born on a bonding curve on the sovereign launchpad, and did a live graduation to a real AMM pool with 100% POL (height 772).
 2. ProtoRev, end-of-block two-sided arbitrage, an atomic batch, measured real profit: +50,468µ (height 871). The profit feeds the flywheel, not someone's pocket.
-3. Price feeds with STALE adjudication: if all the sources (CoinGecko→Paprika→CryptoCompare→Binance) go stale, we do not trade on an old price. Period.
+3. Price feeds with STALE adjudication: if all the sources (CoinGecko->Paprika->CryptoCompare->Binance) go stale, we do not trade on an old price. Period.
 
 **L18 · The hand that builds is not the hand that signs (X + Telegram, Hebrew + EN)**
 One security principle that explains everything: agents build orders. The vault signs, only through the gate, only after verification.
@@ -322,7 +322,7 @@ EN: Six repos. One day. A full self-audit: 40+ truth gaps closed with live proof
 
 **L22 · One seed, five worlds (X, Hebrew + EN)**
 24 words. Five ecosystems. The same mathematics:
-m/44'/60' → an Ethereum address · m/44'/501' → a Solana identity · m/44'/195' → a TRON identity (triple live verification) · plus BTC and XRP.
+m/44'/60' -> an Ethereum address · m/44'/501' -> a Solana identity · m/44'/195' -> a TRON identity (triple live verification) · plus BTC and XRP.
 Every derivation verified against the live chain, exactly, not "approximately".
 And the first mainnet Solana anchor from the cornerstone is already there: txid 5z46xVFc3cf8d6daeRho… · slot 445,822,974 · fee 5,000 lamports · zero SOL moved · independently verified.
 One identity across every paradigm. Not a bridge. Mathematics.
@@ -368,10 +368,10 @@ EN: The hardest lesson this week, from our own audit: three of four services wer
 The proof loop closed at its last edge:
 The system restored its whole identity family from one root, on its own, and signed a real anchor on Ethereum mainnet with the restored key: block 25,983,946, stateRoot verified.
 And then we built THE-TOWER: an Ethereum block explorer, ours. Our anchor shows up there, verified, without leaving the terminal.
-Sign → anchor → verify in our own explorer. Without any third party in the middle.
+Sign -> anchor -> verify in our own explorer. Without any third party in the middle.
 And yes, we published the gap too: the XRP derivation from the seed does not match the declared address, marked "declared", not verified.
 
-EN: The proof loop just closed at its last edge. The system restored its full identity family from one root, autonomously, and signed a real Ethereum mainnet anchor with the restored key: block 25,983,946, stateRoot verified. Then we built THE-TOWER: our own Ethereum block explorer, where our own anchor shows up, verified, without leaving the terminal. Sign → anchor → verify in our own explorer. No third party in the middle. And yes, we published the gap too: the seed-derived XRP address doesn't match the declared one, marked "declared", not verified.
+EN: The proof loop just closed at its last edge. The system restored its full identity family from one root, autonomously, and signed a real Ethereum mainnet anchor with the restored key: block 25,983,946, stateRoot verified. Then we built THE-TOWER: our own Ethereum block explorer, where our own anchor shows up, verified, without leaving the terminal. Sign -> anchor -> verify in our own explorer. No third party in the middle. And yes, we published the gap too: the seed-derived XRP address doesn't match the declared one, marked "declared", not verified.
 
 **L28 · $0 is not a slogan. It is a receipt. (X, Hebrew + EN)**
 The free rail got its first live receipt:
@@ -401,11 +401,11 @@ EN: We told you the system prefers to stop honestly rather than run on a lie, th
 
 **L31 · 88 milliseconds instead of 90 minutes (X + Telegram, Hebrew + EN)**
 Moving assets between networks through a third party: 10 to 90 minutes, fees, and one big point of trust.
-We measured our sovereign alternative, on a real SOL↔TRX circuit: 5 runs · 65 of 65 atomic legs proven (both legs in the same block) · a p50 of 88 milliseconds.
+We measured our sovereign alternative, on a real SOL<->TRX circuit: 5 runs · 65 of 65 atomic legs proven (both legs in the same block) · a p50 of 88 milliseconds.
 And the secret: the money does not move. The mirror on our network is 1:1, supply==locked as an invariant.
 And speaking of invariants: we found a phantom gap of ~1.6 TRX that had silently accumulated from anchor gas. What do you do when the mirror is bigger than the truth? Burn the difference pro-rata. The rule is enforced against ourselves too.
 
-EN: Moving value across chains through a third party: 10 to 90 minutes, fees, and one big trust point. We measured our sovereign alternative on a real SOL↔TRX circuit: 5 runs · 65/65 atomic legs proven (both legs in the same block) · p50 of 88 milliseconds. The secret: the money never moves. The mirror on our network is 1:1, supply==locked as an invariant. And speaking of invariants: we found a ~1.6 TRX phantom gap that had silently accumulated from anchor gas. When the mirror exceeds the truth, we burn the difference pro-rata. The rule is enforced against ourselves too.
+EN: Moving value across chains through a third party: 10 to 90 minutes, fees, and one big trust point. We measured our sovereign alternative on a real SOL<->TRX circuit: 5 runs · 65/65 atomic legs proven (both legs in the same block) · p50 of 88 milliseconds. The secret: the money never moves. The mirror on our network is 1:1, supply==locked as an invariant. And speaking of invariants: we found a ~1.6 TRX phantom gap that had silently accumulated from anchor gas. When the mirror exceeds the truth, we burn the difference pro-rata. The rule is enforced against ourselves too.
 
 **L32 · When history forks, you do not pick a winner. You mark. [technical audience] (X, Hebrew + EN)**
 We scanned 162 real anchors of ours on HIVE mainnet. We found 8 heights carrying more than one root.
@@ -425,10 +425,10 @@ EN: A full work cycle of the organism used to take up to 25 minutes (1,481s meas
 
 **L34 · All the assets. One route. No getting stuck halfway. (X + Telegram, Hebrew + EN)**
 Conversions between assets on our network used to be "hop after hop", and intermediate assets could get stuck along the way.
-Now: one atomic conversion, through a shared route engine, and the quote you see is exactly what settles. Live proof: a STEEM→USDS conversion settled exact-to-quote, to the last unit (2268µ).
+Now: one atomic conversion, through a shared route engine, and the quote you see is exactly what settles. Live proof: a STEEM->USDS conversion settled exact-to-quote, to the last unit (2268µ).
 And the treasury itself opened three new pools through a sovereign zero-gas channel. All 10 assets routable. Zero "no route" tags in the browser, live-verified.
 
-EN: Conversions on our network used to be hop-by-hop, and intermediate assets could get stranded mid-route. Now: one atomic conversion through a shared route engine, and the quote you see is exactly what settles. Live proof: a STEEM→USDS conversion settled exact-to-quote, to the last unit (2268µ). And the treasury itself opened three new pools through a zero-gas sovereign channel. All 10 assets routable. Zero "no-route" badges in the browser, live-verified.
+EN: Conversions on our network used to be hop-by-hop, and intermediate assets could get stranded mid-route. Now: one atomic conversion through a shared route engine, and the quote you see is exactly what settles. Live proof: a STEEM->USDS conversion settled exact-to-quote, to the last unit (2268µ). And the treasury itself opened three new pools through a zero-gas sovereign channel. All 10 assets routable. Zero "no-route" badges in the browser, live-verified.
 
 **L35 · Our commit lied about the version number. We caught it. (X, Hebrew + EN)**
 Self-audit #71 found three lies, all ours:
@@ -478,9 +478,9 @@ Today the arc closed: epochguard, the part that prevents forks instead of report
 How does it work? If the height counter does not advance (a new process, counting from zero), the system bumps the epoch before the broadcast. That way two roots can never be written to the same (epoch, height).
 The test: the real 15-height sequence, with it: 15 unique pairs, zero collisions. Without it: 2 collisions.
 And our harness did not let this pass without a test: a new module without coverage = RED. 32 modules covered.
-Measure → publish → prevent. Three words that are a whole brand.
+Measure -> publish -> prevent. Three words that are a whole brand.
 
-EN: A week ago we found 8 contradictory heights on HIVE. We measured, published the census, and anchored the correction on-chain itself. Today the arc closed: epochguard, the piece that PREVENTS forks instead of reporting them. If the height counter doesn't advance (new process, count from zero), the system bumps an epoch before broadcasting, so two roots can never land on the same (epoch, height). The test: the real 15-height sequence, with it, 15 unique pairs, zero collisions; without it, 2 collisions. And our harness refused to let it ship untested: a new module without coverage = RED. 32 modules covered. Measure → publish → prevent. Three words that are a whole brand.
+EN: A week ago we found 8 contradictory heights on HIVE. We measured, published the census, and anchored the correction on-chain itself. Today the arc closed: epochguard, the piece that PREVENTS forks instead of reporting them. If the height counter doesn't advance (new process, count from zero), the system bumps an epoch before broadcasting, so two roots can never land on the same (epoch, height). The test: the real 15-height sequence, with it, 15 unique pairs, zero collisions; without it, 2 collisions. And our harness refused to let it ship untested: a new module without coverage = RED. 32 modules covered. Measure -> publish -> prevent. Three words that are a whole brand.
 
 **L41 · One digest, two chains, and one refusal, yes (X + Telegram, Hebrew + EN)**
 The new anchor plane is live: one digest (saos/v2) anchored simultaneously on two independent chains, Steem block 109,471,513 and Blurt block 63,534,293, two txids open in the explorers.

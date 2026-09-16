@@ -48,7 +48,7 @@ Until today the world (and we too) described SAOS through its host chains: "a DE
 - **JUMPPER**: a gas model that predicted a real mainnet transaction **to the wei** (30,920 gas · 32,493,358,294,280 wei · block 25,929,672) including the EIP-7623 correction; 77/77 tests green from a fresh clone; compression 250B to 51B (-79.6%); a free HIVE floor of 5,128 anchors per day (measured: 21 live anchors in 22 hours).
 - **The atomic clock (Foundry)**: the heads of 6 heterogeneous networks resolved into one 32B Merkle root, keyless, $0.00, 15.9ms compute, 6.8ms verification, a 435B proof. Documented run: root 0896c3c6... with 5 witnesses (STEEM #109,307,680 · HIVE #109,722,158 · TRON #86,063,739 · ETH #25,929,640 · SOL #445,219,905).
 - **The HIVE honesty fix**: the "RC block" was a stale-read bug, the account held 73.2M effective RC (52.6 times the old read). 21 live anchors verified on mainnet. This is marketing material on its own: we found a mistake that hurt us and published it.
-- **TRON live at zero fee**: cp#33612 → txid 1db5006b... @ block 86,019,974 · 6/6 ring addresses measured.
+- **TRON live at zero fee**: cp#33612 -> txid 1db5006b... @ block 86,019,974 · 6/6 ring addresses measured.
 - **13/13 soldiers live** on Steem (get_accounts verified 2026-09-08) · per-soldier PnL (wog leads with +163,295µ) · 23 autonomous loops under one beat.lock.
 - **A signed hourly oracle**: 15 live quotes with src+ref+at · honest skips on network failure (no invented price).
 
