@@ -1,0 +1,16 @@
+{
+ "agent": "claims-guard",
+ "verdict": "FAIL",
+ "checks": {
+  "landingPages": 9,
+  "pagesMissingCloseTag": 0,
+  "forbiddenGlyphs": 191,
+  "linksChecked": 8,
+  "linksAlive": 1,
+  "ownNetworkDeadLinks": 0,
+  "externalDeadLinks": 7,
+  "receiptMentions": 76
+ },
+ "reason": "191 forbidden glyphs in marketing files",
+ "generatedAt": "2026-09-16T21:28:49Z"
+}
