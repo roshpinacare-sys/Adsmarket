@@ -1,0 +1,117 @@
+# CLAIMS-GUARD - שומר הטענות של ערכת השיווק
+#
+# עקרון הברזל של הריפו הזה: כל טענה שיווקית חייבת להיות מגובה בקבלה
+# או במדידה. הסוכן אוכף את זה מדי יום: עמודי נחיתה שלמים, אפס גליפים
+# אסורים (מדיניות המפעיל), קישורים חיים - וקישור מת של הרשת שלנו הוא אדום.
+# דוח אמת נכתב ל-agent/status.json. אדום כנה עדיף על ירוק מזויף.
+
+name: claims-guard
+
+on:
+  schedule:
+    - cron: '11 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: claims-guard
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run the claims guard
+        run: |
+          set -u
+          NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          VERDICT="PASS"
+          REASON="all checks passed"
+
+          # 1) עמודי נחיתה קיימים וסגורים כראוי
+          PAGES="$(find . -maxdepth 2 -name '*.html' -not -path './.git/*' | wc -l | tr -d ' ')"
+          CLOSED=0
+          for f in $(find . -maxdepth 2 -name '*.html' -not -path './.git/*'); do
+            grep -q '</html>' "$f" || CLOSED=$((CLOSED+1))
+          done
+          if [ "$PAGES" -eq 0 ]; then VERDICT="FAIL"; REASON="no landing pages found"; fi
+          if [ "$CLOSED" -gt 0 ]; then VERDICT="FAIL"; REASON="$CLOSED pages missing closing html tag"; fi
+
+          # 2) סריקת גליפים אסורים: אימוג'י, חצים, דינגבטים, מקפים טיפוגרפיים
+          GLYPHS="$(python3 - <<'PY'
+import glob
+FORBIDDEN=[(0x2013,0x2015),(0x2190,0x21FF),(0x2600,0x27BF),(0x2B00,0x2BFF),(0x1F000,0x1FAFF),(0xFE0F,0xFE0F)]
+total=0
+pats=['*.html','*.md','onepager/*.html','deck/*.html','content/*.html']
+for pat in pats:
+    for p in glob.glob(pat):
+        try:
+            text=open(p,encoding='utf-8',errors='replace').read()
+        except Exception:
+            continue
+        for ch in text:
+            cp=ord(ch)
+            for a,b in FORBIDDEN:
+                if a<=cp<=b:
+                    total+=1
+                    break
+print(total)
+PY
+)"
+          if [ "$GLYPHS" -gt 0 ]; then VERDICT="FAIL"; REASON="$GLYPHS forbidden glyphs in marketing files"; fi
+
+          # 3) קישורים חיים - קישור מת של הרשת שלנו הוא כשל; קישור חיצוני מת מדווח
+          LINKS="$(find . -maxdepth 2 -name '*.html' -not -path './.git/*' -exec grep -hoE "https?://[^\"'<> )]+" {} + 2>/dev/null | grep -v -E 'localhost|127\.0\.0\.1' | sed 's/[.,;]$//' | sort -u | head -25)"
+          TOTAL_L=0; OK_L=0; OWN_DEAD=0; EXT_DEAD=0
+          for u in $LINKS; do
+            TOTAL_L=$((TOTAL_L+1))
+            CODE="$(curl -s -o /dev/null -w '%{http_code}' --max-time 8 -L "$u" || echo 000)"
+            case "$CODE" in
+              200|301|302|307|308) OK_L=$((OK_L+1)) ;;
+              *) case "$u" in
+                   *roshpinacare*|*github.io*) OWN_DEAD=$((OWN_DEAD+1)) ;;
+                   *) EXT_DEAD=$((EXT_DEAD+1)) ;;
+                 esac ;;
+            esac
+          done
+          if [ "$OWN_DEAD" -gt 0 ]; then VERDICT="FAIL"; REASON="$OWN_DEAD dead links to our own network"; fi
+
+          # 4) קבלות - כמה גיבויי txid ומדידה מלווים את הטענות
+          RECEIPTS="$(grep -rhoE '(0x[a-fA-F0-9]{64}|txid)' --include='*.html' --include='*.md' . 2>/dev/null | wc -l | tr -d ' ')"
+
+          mkdir -p agent
+          cat > agent/status.json <<EOF
+{
+ "agent": "claims-guard",
+ "generatedAt": "$NOW",
+ "verdict": "$VERDICT",
+ "checks": {
+  "landingPages": $PAGES,
+  "pagesMissingCloseTag": $CLOSED,
+  "forbiddenGlyphs": $GLYPHS,
+  "linksChecked": $TOTAL_L,
+  "linksAlive": $OK_L,
+  "ownNetworkDeadLinks": $OWN_DEAD,
+  "externalDeadLinks": $EXT_DEAD,
+  "receiptMentions": $RECEIPTS
+ },
+ "reason": "$REASON"
+}
+EOF
+          git config user.name "claims-guard[bot]"
+          git config user.email "claims-guard[bot]@users.noreply.github.com"
+          git add agent/status.json
+          if git diff --cached --quiet agent/status.json; then
+            echo "status unchanged - no commit"
+          else
+            git commit -m "claims-guard: $VERDICT at $NOW"
+            git push
+          fi
+          echo "verdict: $VERDICT ($REASON)"
+          [ "$VERDICT" = "PASS" ] || exit 1
