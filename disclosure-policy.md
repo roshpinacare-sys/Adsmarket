@@ -62,3 +62,40 @@ Our brand is "receipts, not promises", and that applies to **product claims**. B
 ## Retroactive
 
 Event content already published in the kit was deleted or rephrased according to the policy (done upon adopting the document: article 07 was deleted, post L12 was removed, L2 was rephrased as doctrine, the press-kit and the landing pages were corrected). What was not published will not be published.
+
+---
+
+## v2 additions (2026-09-28, operator directive "it's a bit exposed")
+
+The v1 policy guarded security. The operator's review of the ad pack showed the same discipline must
+guard money, mechanism, and voice. Four new laws, same spirit:
+
+**5. The money-silence rule.** No internal financial figures in public content, ever: measured costs,
+balances, daily revenue, resource reserves, competitor pricing. If a number is load-bearing for a claim,
+it comes from a public receipt behind a link. Never inline. ("Come look. It will spoil your assumptions"
+beats "$0.0000081" in every channel, and it leaks nothing.)
+
+**6. The anti-mapping rule.** Nothing that draws the system's body for a stranger or a rival:
+operating cadences, operational counters, component counts, failure causes, recovery timings,
+daemon names, ports, hosting details. The capability is public ("it brings itself back and writes down
+what happened"), the mechanism is not. A published 36-second figure is a map; a published "no human
+touched it" is a muscle.
+
+**7. The tone rule (anti-bot).** Published content reads like a confident person, not like a deck:
+
+- zero em-dashes in published copy, zero parallel triads, zero "it's not just X, it's Y" constructions
+- irregular rhythm on purpose: short next to long
+- say less than you know. Point at the receipts instead of unloading them
+- Hebrew reads like speech, not like a translation. If it reads like AI wrote it, it gets cut
+
+**8. The teaser rule.** Curiosity before explanation. A question before a claim. The receipt sits behind
+a link, not inside the post. The reader should finish the post wanting to check, not feeling briefed.
+
+**The three-question test becomes four.** Question 4: "Does this unit publish money, mechanism, or a
+line a bot could have written?" If yes, rewrite or do not publish.
+
+**Enforcement record.** The 2026-09-12 ad pack was audited against v2 on 2026-09-28: eight leaks
+documented (measured cost figure, notary price, refusal counter, internal resource factor, failure cause
+and recovery timing, operating cadence, architecture count, correction method detail). Replaced by
+`content/ads/ads-pack-v2.md`. The fleet alignment note lives at
+`Defi/fleet/broadcasts/2026-09-28-agent-z-publishing-alignment.md` (CLAIMS C-4, C-5, C-6).
