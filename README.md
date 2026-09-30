@@ -26,7 +26,7 @@
 | נתיב | מה זה |
 |---|---|
 | **`content/explainer/index.html`** | **הסבר מונפש אינטראקטיבי**, 8 סצנות, ניגון אוטומטי, ניווט חצים/נקודות/החלקה, אנימציית מחיר ומוני כנות. עצמאי לחלוטין, לפתוח בדפדפן ולשתף |
-| `content/articles/01-05` | חמש כתבות יסוד: מה זה SAOS · למה משקרים באינטרנט · הנוטריון של שבריר האגורה · המכונה שמודה בטעויות · החשבון הישן שלכם מ-2017 |
+| `content/articles/en/01-05` | חמש כתבות יסוד (EN): מה זה SAOS · למה משקרים באינטרנט · הנוטריון של שבריר האגורה · המכונה שמודה בטעויות · החשבון הישן שלכם מ-2017 |
 | `content/ads/ads-pack.md` | מודעות מוכנות: פייסבוק/אינסטגרם (3 גרסאות + כיוון ויזואלי), X (5), Google Ads, טלגרם, לינקדאין |
 | `content/video/scripts.md` | תסריטי וידאו 30/60/90 שניות עם הנחיות שוט-אחר-שוט |
 | `content/api/identity-api.md` | **דף המוצר הראשון**, Identity Verification API + SDK: הסבר אנושי, quickstart למפתחים, טבלת תוצאות כנה |
@@ -38,7 +38,7 @@
 | `content/guides/` | **ספריית מדריכים (EN)**: אימות טענות ב-60 שנ' · מדריך היוצר ל-Steem/Hive/Blurt · הפעלת חשבונות הצי · סדנת כתיבה אנושית | מדריכים, הדרכה |
 | `disclosure-policy.md` | **מדיניות חשיפה (מחייבת):** מה מפרסמים (יכולות+קבלות+תיקונים), מה לעולם לא (אירועי אבטחה), כמה ואיך | כל מי שכותב בשם SAOS |
 | `docs/reports/` + `CLAIMS-AUDIT-2026-09-12.md` | **ביקורות אמת פנימיות** (roast addenda + claims audits), פערים בין מה שפורסם למה שקיים + התיקונים (תרבות zero-mock) | צוות, QA |
-| `content/articles/en/` | 3 כתבות באנגלית, What is SAOS · Key Guardianship · Sub-Cent Notary | outreach בינלאומי |
+| `content/articles/en/` | 7 כתבות באנגלית (01-07): What is SAOS · Key Guardianship · Sub-Cent Notary · The Machine That Healed Itself ועוד | outreach בינלאומי |
 | `content/explainer/en.html` | ההסבר המונפש באנגלית (9 סצנות, LTR) | outreach בינלאומי |
 | `glossary.md` | מילון: 40 מונחים מפחידים מתורגמים לבני אדם + כללי שימוש |
 | `press/press-kit.md` | ערכת עיתונות: בויילרפלייט HE/EN, מספרי כותרת, תשובות לשאלות קשות |
