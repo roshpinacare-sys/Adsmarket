@@ -29,8 +29,7 @@
 | `content/articles/01-05` | חמש כתבות יסוד: מה זה SAOS · למה משקרים באינטרנט · הנוטריון של שבריר האגורה · המכונה שמודה בטעויות · החשבון הישן שלכם מ-2017 |
 | `content/ads/ads-pack.md` | מודעות מוכנות: פייסבוק/אינסטגרם (3 גרסאות + כיוון ויזואלי), X (5), Google Ads, טלגרם, לינקדאין |
 | `content/video/scripts.md` | תסריטי וידאו 30/60/90 שניות עם הנחיות שוט-אחר-שוט |
-| `content/README.md` | כללי הכתיבה + תוכנית פרסום של 4 שבועות |
-| `content/products/identity-api.md` | **דף המוצר הראשון**, Identity Verification API + SDK: הסבר אנושי, quickstart למפתחים, טבלת תוצאות כנה |
+| `content/api/identity-api.md` | **דף המוצר הראשון**, Identity Verification API + SDK: הסבר אנושי, quickstart למפתחים, טבלת תוצאות כנה |
 | `content/hub.html` | **מרכז התוכן**, דף ניווט אחד לכל הנכסים (לצוות העבודה) |
 | `content/email/drip-3.md` | רצף 3 אימיילים (יום 0/3/7) בטון מכתב-מחבר |
 | `content/fleet/` | **Fleet Content Kit (EN):** 26 פרסומים מוכנים (הנדסה, חינוך קריפטו, דעות, שאלות) · ערכת 15 תבניות תגובה · פלייבוק Steem/Hive/Blurt/LEO · ספר סגנון anti-AI מחייב | צי הסוכנים המשדר |
@@ -38,7 +37,7 @@
 | `content/OPS-DOCTRINE.md` | **תורת הפעלה של תוכן** - איך מייצרים איכות ולא רק חומר: pipeline בן 6 שלבים, תפקידים, אנטי-תבניות מה-roasts שלנו | צוות תוכן, סוכנים |
 | `content/guides/` | **ספריית מדריכים (EN)**: אימות טענות ב-60 שנ' · מדריך היוצר ל-Steem/Hive/Blurt · הפעלת חשבונות הצי · סדנת כתיבה אנושית | מדריכים, הדרכה |
 | `disclosure-policy.md` | **מדיניות חשיפה (מחייבת):** מה מפרסמים (יכולות+קבלות+תיקונים), מה לעולם לא (אירועי אבטחה), כמה ואיך | כל מי שכותב בשם SAOS |
-| `roast/` | **ביקורות אמת פנימיות**, פערים בין מה שפורסם למה שקיים + התיקונים (תרבות zero-mock) | צוות, QA |
+| `docs/reports/` + `CLAIMS-AUDIT-2026-09-12.md` | **ביקורות אמת פנימיות** (roast addenda + claims audits), פערים בין מה שפורסם למה שקיים + התיקונים (תרבות zero-mock) | צוות, QA |
 | `content/articles/en/` | 3 כתבות באנגלית, What is SAOS · Key Guardianship · Sub-Cent Notary | outreach בינלאומי |
 | `content/explainer/en.html` | ההסבר המונפש באנגלית (9 סצנות, LTR) | outreach בינלאומי |
 | `glossary.md` | מילון: 40 מונחים מפחידים מתורגמים לבני אדם + כללי שימוש |
