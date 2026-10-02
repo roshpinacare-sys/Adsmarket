@@ -6,11 +6,11 @@
   "pagesMissingCloseTag": 0,
   "forbiddenGlyphs": 0,
   "linksChecked": 8,
-  "linksAlive": 1,
+  "linksAlive": 3,
   "ownNetworkDeadLinks": 0,
-  "externalDeadLinks": 7,
+  "externalDeadLinks": 5,
   "receiptMentions": 76
  },
- "reason": "all checks passed",
- "generatedAt": "2026-10-02T06:30:59Z"
+ "reason": "5 external links dead (reported, not a failure)",
+ "generatedAt": "2026-10-02T21:13:31Z"
 }
