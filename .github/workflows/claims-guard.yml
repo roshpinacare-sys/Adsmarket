@@ -9,10 +9,7 @@
 name: claims-guard
 
 on:
-  schedule:
-    - cron: '11 6 * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
 
