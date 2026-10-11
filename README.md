@@ -1,5 +1,14 @@
 # Adsmarket: ערכת השיווק הרשמית של רשת SAOS
 
+**ROLE (declared 2026-10-11, task 10-c un-silence sweep — complements
+REVIVAL-2026-10-11.md):** the **marketing estate & evidence-rule canon** —
+landing pages, ads-pack, press kit, drip emails, and the claims-guard
+discipline ("receipts not promises"). Static by design: no ad-tech, no keys;
+its only machine duty is `claims-guard` (dispatch-only HTML/glyph/dead-link
+checker). Why it was muted: content-complete + the org Actions billing wall
+(private repo). Revival path: dispatch claims-guard when minutes return (or
+run it locally); new campaigns re-activate the drip/email surfaces.
+
 > עיקרון הברזל של התיקייה: **כל טענה שיווקית חייבת להיות מגובה בקבלה משורשרת (txid) או במדידה מתועדת.**
 > SAOS לא מבטיחה, SAOS מוכיחה. החומר כאן בנוי לפי אותו עיקרון.
 
