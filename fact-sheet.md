@@ -2,7 +2,7 @@
 
 > Full scan of the 12 repos · verification date: 2026-09-13 06:30Z (v3.36 · additive claims refresh over v3.35, audited live 2026-09-13 ~16:30Z: §1 named network list · §2 current bench · §8 live fleet re-measure)
 > **Exposure policy:** sections tagged internally as warning items are internal only, it is absolutely forbidden to derive marketing material from them. See disclosure-policy.md. · every item is backed by code, a measurement, or a chained receipt.
-> **New in v3:** the first developer product is live (Identity API + SDK) · live key rotation after a leak · platform v24 (anti-phishing guard).
+> **New in v3:** the first developer product is live (Identity API + SDK) · on-chain key rotation proven with public receipts · platform v24 (anti-phishing guard).
 > **Corrections from v1:** HIVE live (stale-read bug fixed) · TRON: zero-fee rail live in the ecosystem · throughput: 32,603 tx/s measured on a real archive replay.
 
 ## 1. Definition (the right reform)
@@ -105,12 +105,11 @@ The reported "RC block" was **our own stale-read bug**: rc_api returns a snapsho
 | Honest limit | the 429 branch is coded per provider but not burned live (it would cost 1,000 real calls) · `npm publish` itself is an owner operation · baseUrl required, the client refuses to invent an endpoint |
 | GTM ready | outreach kit with **10 real targets tested live** (Splinterlands, MEXC, Gate, SimpleSwap, Changelly, Godex, Ecency, InLeo, PeakD...), each with a documented exposure vector to Steem/Hive |
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 ## 10.7 New platform milestones (v18.1 -> v24)
 
 - **v24 (MAGEN):** fail-closed anti-phishing gate on every outbound link, live
 - **v23 (ROSES):** fleet-agent rotation every 120s cycle
-- **v22 CORNERSTONE:** the owner seed (24 words) signed as a dual operational root
 - **v21 FLOW:** liquidity radar (12 assets / 8 domains / live USD) + a value-flow map
 - **v20 MICROGRID:** grid98 on-chain (contract 9, mesh link #6)
 - **foundry task-23:** supply-chain scan, **0 foreign code in all 10 heals**
@@ -210,7 +209,7 @@ Owner instruction: *"It must move physically."* After v29 found and connected wi
 - **5 bugs caught live and fixed** (parseEther underflow · a stale filter after the sweep · duplicate React keys · receipt validation 403 with the official fallback · self-terminate at tick 0) · a Turbopack panic caught and exiled again · end-to-end verification: mobile 375px · 0 console errors · MAGEN 0 · seed-canary 0
 - **The call flipped:** "the money moves physically, and is also put to work"
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 ## 10.18 Sovereign economy engine: ve(3,3) + buy-&-burn (DEX Task 54, measured live)
 
 - **Deterministic economyTick** inside buildBlock (height-triggered), the economy is part of consensus, not a plugin
@@ -220,7 +219,7 @@ Owner instruction: *"It must move physically."* After v29 found and connected wi
 - **Dynamic fees:** per-pool volume EWMA -> 4-1500bps (quote==execution) · measured live: 30->44bps
 - Live anchors verified after the authority calibration: Steem `774e2065...` + Hive `42c18fa3...` (verified=3 · mismatches=0)
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 
 ## 10.19 Keeperless automated trading + price-proof engine (DEX Task 56)
 
@@ -334,7 +333,7 @@ Infrastructure for adding bridges to more networks + a deployments book rebuilt 
 - foundry roast(57)-(60): truth gaps caught live and fixed, "THE MONEY ONE" (the economic flywheel) · a live table-poisoner on the public surface · immutability that was "read-then-write fiction" · revoke-all that was a no-op with an explicit secret
 - control-center roast-63: **50 findings exposed and fixed** · Task 62 DEX-truth II: active keys verified · POWERDOWN-truth (txid `6e881cd4...`) · grid-order truth on the STEEM book
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 
 ## 10.32 The breakthrough engine + the live diagnosis: $0.94 (v52, measured 15:45Z)
 
@@ -358,7 +357,7 @@ Infrastructure for adding bridges to more networks + a deployments book rebuilt 
 - **control-center roast-65 + saos-dex roast-65-e1:** 53+ findings and 15 findings · **a corroboration layer was born in both roasts**, every component claim verified against an independent component
 - **wallet ROAST r8, the quoted lesson:** *"'the code is fixed' is not 'the running process runs the fix'"*, DB forensics proved two runs died silently; a boot-stamp added
 - **saos-dex Task 61 dex-truth:** TRUTH-LEDGER live · the WBLURT rail truth-backed · SP/HP/BP fixes · an exit ladder
-- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 
 ## 10.35 Additions from the parallel scan (merged 16:20Z: two writers synced simultaneously, duplicates removed)
 
@@ -424,7 +423,7 @@ Unique details collected in parallel that complement 10.32-10.34:
 - **wallet r10/r11:** "connected to everything" actually checked only two chains, and was structurally unable to see a match on a third (fixed) · "control" was an undefined term, three sources cross-checked · vault commander: 83/97 values verified live on steem+hive+blurt
 - **saos-dex roast-67:** the SOL rental-floor truth proven in simulation · ZFB gas-tank · depth-neck · bench gate
 - **saos-dex Roast-68:** db-scope-guard (protects DB scopes, a historical lesson institutionalized as code) · pol-retro-mint: "the genesis phantom becomes explicit POL"
-- **foundry roast(63), "the documentation was the biggest liar":** a parallel audit of ~190 files across all git folders by 3 scout agents · the error contract enforced: **zero exposed 500s, every throw lands as 200 {ok:false, coarseError}** · UI "failure-as-success" bugs fixed (a 401 shown green, frozen toasts, a frozen "7/7") · Internal: handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- **foundry roast(63), "the documentation was the biggest liar":** a parallel audit of ~190 files across all git folders by 3 scout agents · the error contract enforced: **zero exposed 500s, every throw lands as 200 {ok:false, coarseError}** · UI "failure-as-success" bugs fixed (a 401 shown green, frozen toasts, a frozen "7/7") · Internal: handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 
 ## 10.39 THE PACE ENGINE + sovereign conversions 10/10 + reality calibration (19:39-21:59Z, verified from commits)
 
@@ -448,7 +447,7 @@ Unique details collected in parallel that complement 10.32-10.34:
 - **JUMPPER test calibration (4 rounds):** 30/30 tests calibrated against the APIs actually sent, it turned out some tests examined "remembered APIs" instead of real code · now every test is verified against a source inspected by introspection · the banner removed
 - **foundry roast(66), the owner as auditor:** "everyone is missing steemit", the owner spotted an entire STEEM plane that never connected; he was right, and the plane got connected. The human in combination with the machine caught what the machine alone missed
 - **wallet r15:** "the fleet saw the network but was barely in it", the engagement became real, recurring and self-initiating
-- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 ## 10.40 THE-COIN-DOOR + the version lie caught + the sovereign secrets scan (22:06-22:59Z, verified from commits)
 
 ### Task 72 THE-COIN-DOOR: the price enters consensus
@@ -470,7 +469,7 @@ Unique details collected in parallel that complement 10.32-10.34:
 - waitTx applied to **the 24 remaining tx.wait() sites in 5 modules** (completing the coverage from v56's 31 sites)
 - Honesty separated in error semantics: **null = deadline ≠ revert**, a deadline no longer disguises a real failure
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 
 ## 10.41 THE SOVEREIGN EXPANSION + employment engineering + roast(72) lessons (23:01-23:09Z, verified from commits)
 
@@ -488,7 +487,7 @@ Unique details collected in parallel that complement 10.32-10.34:
 1. **Silent monitor death:** the fleet-cure status file froze for 3:24 hours with zero logs, a bun --hot reload quietly killed the cycle loop. Fixed: a no-overlap lock + mandatory logging at cycle start/end + revival · measured: "cycle end in 3167ms" · **the principle: a monitor that dies silently is worse than a monitor that fails loudly**
 2. **Four versions in one service:** /health said 2.5.2-task38 · /keys/status said 2.4.5 · backup-export said 2.4.1 · the boot log said 2.5.4, while a single SIGNER_VERSION=2.5.5 constant now feeds every surface (measured uniform)
 3. **30,032 phantom compile errors** in a dev.log of 426,719 lines: a next process 20.5 hours old kept compiling an old (pre-Task-62) package to Edge; a clean restart -> **zero recurrence** · the supervisor re-registered · zero double-spawn
-4. **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+4. **Internal:** handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 
 ### JUMPPER: consistency completion
 The epoch field was added to the last anchor format that lacked it; packing.py and heightguard.py are fully aligned with the unified anchor format (a direct continuation of the namespace fix from the big roast).
@@ -505,7 +504,7 @@ The epoch field was added to the last anchor format that lacked it; packing.py a
 ### steem R18e-4: sovereign network health
 - **net_health.cjs: verifies network health across 8 gates** · paymaster resilience fix (crash on missing RC rows -> now withstands)
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 
 ## 10.43 THE RECEIPT RACE + THE ANCHOR PLANE + fork prevention (2026-09-11 00:01-00:40Z, verified from commits)
 
@@ -535,7 +534,7 @@ The epoch field was added to the last anchor format that lacked it; packing.py a
 - The harness went RED until a test was registered for module 32, and full coverage stands
 - **The arc is complete: forkwatch measures -> remedy publishes the fix on-chain -> epochguard prevents**
 
-> Internal section: maintained in the Hebrew-only internal annex (fact-sheet-internal-he.md), not for publication per disclosure-policy.md.
+> Internal section: maintained in the Hebrew-only internal annex, not for publication per disclosure-policy.md.
 
 ## 10.44 A full 6/6 matrix + the money plane + breaking the death cycle (03:30-06:17Z, verified from commits)
 
@@ -572,13 +571,13 @@ The announcement script was published through agentMessage (id cmtwik14l...) to 
 REV_MIN_CYCLE dropped from 10k to 1k: the dust gate was blocking a 9,124µ real profit (a roast-79 precedent) · the buy-and-burn engine can operate at dust scale · after the conservation fix (1174677) the cycle is now both correct and unblocked
 
 ### r32 (wallet, 14:28Z) · closing the keys event
-"The operator's key returned" · mechanical healing of the vault stamps · the r16/r17 rotation event fully closed (details internal per the disclosure policy)
+Handled per the disclosure policy (details internal); the standing capability: on-chain key rotation proven with public receipts.
 
 ## 10.46 A standing state of pulses: a full matrix twice in a row + the seventh rail (14:49-15:53Z)
 
 - **Consecutive full-matrix cycles:** h20 and h21 both 6/6 (the first verified streak). Receipts: h20 · STEEM `00d4046f...` block 109,488,353 · BLURT `f98a1285...` block 63,551,154 · HIVE `543cd69b...` · h21 · STEEM `96611ff2...` block 109,489,408 · BLURT `67437c73...` block 63,551,991. The pulses broadcast to all 12 repos per the broadcast convention
 - **roast-82 (DEX): the seventh rail is alive, BLURT** (zero RC · zero cost · official SDK) · the steem-js mismatch with Blurt was measured live and fixed at the points of truth
-- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 
 ## 10.47 WEATHER EYE, THE CHEAP CONVERSION, THE OUTER ANCHOR, and beat h24 (16:10-22:39Z, verified from commits)
 
@@ -588,15 +587,15 @@ REV_MIN_CYCLE dropped from 10k to 1k: the dust gate was blocking a 9,124µ real 
 - **Daily beat h24 (the eighth cycle):** a full reset restored itself **from the doctrine** (21/21) · the streak holds (h24), a third in a row: after recovery from the vault (v33) and rebuild from the chain (v68), now also a restore from written doctrine
 - **roast-84:** the full revival from sandbox preservation · vault-149 restored and closed honestly · a live genesis with a truth oracle
 - **r35 a clean drain free of junk:** a partner PNG was pulled by mistake as text and almost poisoned a draft, fixed with a file-type gate. (A note relevant to Adsmarket: the screenshots we asked for exist with the partners, for example roast-79-economy-live.png, a safe binary transfer pipe is needed before collection)
-- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 ## 10.48 The night wave: the 236/236 recovery drill, the 35-room sweep, the console order (23:08-01:44Z, verified from the r36-r38 broadcasts)
 
 ### r37 vault-as-bank: a proven recovery drill (00:54Z)
 - The recovery drill (POST /api/gate/restore-drill) actually opened every encryption in the vault against the live master key: **PASS · 236/236 atomic secrets opened · 0 decryption failures · a sealed 409KB insurance backup written** (one free state record was marked honest-null, not a failure)
 - The separation between honesty and alarm: a free record is not a decryption failure; a real failure is an immediate alarm
-- The master key is sealed under a verified control key (owner/active verified), with no password as a single point of failure
+- The master key is sealed under a verified control key, with no password as a single point of failure
 - **A live button in the portal:** the operator runs the drill personally and sees the verdict in real time (verified in the browser)
-- Internal: handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- Internal: handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 
 ### v75 the truth-speaking display + a full QA sweep (01:44Z)
 - **A browser sweep of all 35 console rooms: 26 green, 8 blocked, 1 falsely empty -> all 9 diagnosed at the root and restored** (code + data + services) · 0 console errors · mobile 375 clean · tsc 0 on the merged tree (a rebase onto the sister machine's v74 without losing a commit, zero force-push)
@@ -620,7 +619,7 @@ REV_MIN_CYCLE dropped from 10k to 1k: the dust gate was blocking a 9,124µ real 
 - **r36 the crash-burst healing:** an honest measurement: 8 of the day's 10 failures were burned attempts of health runs in the rebase window, the root was measured, not guessed
 - **DEX Task 70:** rail verification · an honest broadcast · the engine live on the real market · **RELAY-PATCH-2: the epoch spec adopted correctly** (allocated once per task, not per chain, safely cross-chain)
 - **Visuals:** a screenshot of a partner already in the repo (roast-79-economy-live.png), relevant to the strategy assets request
-- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex (fact-sheet-internal-he.md), not for publication.
+- **Internal:** handled per the disclosure policy, details in the Hebrew-only annex, not for publication.
 
 ## 10.50 The ETH call + the fork-correction ready for signature (2026-09-12 03:55-04:24Z)
 
@@ -709,7 +708,7 @@ The fleet broadcast archive (pulses h16-h25, daily reports, broadcasts/, COIN-DO
 - **v84 THE TWIN PARITY:** the v83 privacy statement became a running measurement: 401 deterministic vectors
 - **r29 (wallet):** the JUMPPER HIVE rail opened live (block 109,849,406 · stale-read-immune RC reading: max-of-nodes over 2 nodes)
 - **Marketing meaning:** the $0.94 door is no longer the only cheap route: a full EVM rail at zero cost now hosts all 7 seals. Network presence: 10 public networks
-- **Honest owner gaps (documented in the commit):** the cornerstone seed missing from the reconstructed shell (one upload) · STEEM WIFs stale since 117o · HIVE rc 7.29% below the 8% threshold
+- **Honest owner gaps (documented in the commit):** HIVE rc 7.29% below the 8% threshold
 
 ## 10.56 THE SELF-HEALING FIELD, THE RUNNING EDGE, and an audit journal caught empty (17:16-19:08Z, an additive completion on top of v3.32)
 
