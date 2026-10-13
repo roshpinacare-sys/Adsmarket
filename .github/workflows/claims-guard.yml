@@ -120,8 +120,8 @@ jobs:
           NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           mkdir -p agent
           mv agent-status.tmp.json agent/status.json
-          git config user.name "claims-guard[bot]"
-          git config user.email "claims-guard[bot]@users.noreply.github.com"
+          git config user.name "roshpinacare-sys"
+          git config user.email "326012154+roshpinacare-sys@users.noreply.github.com"
           git add -f agent/status.json
           if git diff --cached --quiet; then
             echo "status unchanged - no commit"
