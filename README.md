@@ -1,7 +1,7 @@
 # Adsmarket: ערכת השיווק הרשמית של רשת SAOS
 
-**ROLE (declared 2026-10-11, task 10-c un-silence sweep — complements
-REVIVAL-2026-10-11.md):** the **marketing estate & evidence-rule canon** —
+**ROLE (declared 2026-10-11, task 10-c un-silence sweep - complements
+REVIVAL-2026-10-11.md):** the **marketing estate & evidence-rule canon** -
 landing pages, ads-pack, press kit, drip emails, and the claims-guard
 discipline ("receipts not promises"). Static by design: no ad-tech, no keys;
 its only machine duty is `claims-guard` (dispatch-only HTML/glyph/dead-link
