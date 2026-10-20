@@ -1,16 +1,16 @@
 {
  "agent": "claims-guard",
- "verdict": "PASS",
+ "verdict": "FAIL",
  "checks": {
   "landingPages": 9,
   "pagesMissingCloseTag": 0,
-  "forbiddenGlyphs": 0,
+  "forbiddenGlyphs": 3,
   "linksChecked": 8,
-  "linksAlive": 3,
+  "linksAlive": 1,
   "ownNetworkDeadLinks": 0,
-  "externalDeadLinks": 5,
-  "receiptMentions": 76
+  "externalDeadLinks": 7,
+  "receiptMentions": 77
  },
- "reason": "5 external links dead (reported, not a failure)",
- "generatedAt": "2026-10-08T07:04:49Z"
+ "reason": "3 forbidden glyphs in marketing files",
+ "generatedAt": "2026-10-20T04:59:29Z"
 }
